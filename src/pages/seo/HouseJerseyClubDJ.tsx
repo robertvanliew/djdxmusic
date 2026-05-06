@@ -57,10 +57,15 @@ export default function HouseJerseyClubDJ() {
                 {"@type": "City", "name": "Brooklyn"},
                 {"@type": "City", "name": "Queens"},
                 {"@type": "City", "name": "Jersey City"},
-                {"@type": "City", "name": "Newark"},
                 {"@type": "City", "name": "Hoboken"},
+                {"@type": "City", "name": "Newark"},
+                {"@type": "City", "name": "Stamford"},
+                {"@type": "City", "name": "Greenwich"},
+                {"@type": "City", "name": "New Haven"},
+                {"@type": "State", "name": "New York"},
                 {"@type": "State", "name": "New Jersey"},
-                {"@type": "AdministrativeArea", "name": "Tri-State Area"}
+                {"@type": "State", "name": "Connecticut"},
+                {"@type": "AdministrativeArea", "name": "Tri-State Area (NY, NJ, CT)"}
               ],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",

@@ -12,7 +12,7 @@ Name: DJ DX
 Also known as: El Negro
 Pronouns: he/him
 Role: DJ, Music Producer, Recording Artist, Engineer
-Based in: Newark, New Jersey / New York City metropolitan area
+Based in: New York City — serving the Tri-State Area (New York, New Jersey, Connecticut)
 Website: https://djdxmusic.com/
 Booking email: djdxbusiness@gmail.com
 
@@ -115,8 +115,10 @@ and is available as a live entertainment act for luxury events.
 
 ## Geographic Service Areas
 
-Primary: New York City (Manhattan, Brooklyn, Queens, The Bronx), Newark NJ,
-         Jersey City NJ, Hoboken NJ, New Jersey (statewide), Connecticut
+Primary: Tri-State Area — New York, New Jersey, Connecticut
+  - New York: Manhattan, Brooklyn, Queens, The Bronx, Staten Island, Long Island, Westchester
+  - New Jersey: Jersey City, Hoboken, Newark, statewide
+  - Connecticut: Stamford, Greenwich, New Haven, Hartford, statewide
 Extended: The Hamptons (Southampton to Montauk), Washington D.C.
 International: Available worldwide for destination events (Italy, Mexico,
                Caribbean, France, Spain, Greece, and beyond)

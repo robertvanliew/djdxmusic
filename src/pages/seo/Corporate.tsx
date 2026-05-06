@@ -46,14 +46,21 @@ export default function Corporate() {
               },
               "areaServed": [
                 {"@type": "City", "name": "New York City"},
+                {"@type": "City", "name": "Manhattan"},
+                {"@type": "City", "name": "Brooklyn"},
+                {"@type": "City", "name": "Long Island"},
+                {"@type": "City", "name": "Westchester"},
+                {"@type": "City", "name": "Jersey City"},
+                {"@type": "City", "name": "Hoboken"},
+                {"@type": "City", "name": "Newark"},
+                {"@type": "City", "name": "Stamford"},
+                {"@type": "City", "name": "Greenwich"},
+                {"@type": "City", "name": "New Haven"},
+                {"@type": "City", "name": "Hartford"},
                 {"@type": "State", "name": "New York"},
                 {"@type": "State", "name": "New Jersey"},
                 {"@type": "State", "name": "Connecticut"},
-                {"@type": "AdministrativeArea", "name": "Tri-State Area"},
-                {"@type": "City", "name": "Manhattan"},
-                {"@type": "City", "name": "Brooklyn"},
-                {"@type": "City", "name": "Jersey City"},
-                {"@type": "City", "name": "Newark"}
+                {"@type": "AdministrativeArea", "name": "Tri-State Area (NY, NJ, CT)"}
               ],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
