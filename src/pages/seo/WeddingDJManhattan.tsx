@@ -11,10 +11,10 @@ export default function WeddingDJManhattan() {
     <>
       <Helmet>
         <title>Wedding DJ Manhattan NYC | R&B, Hip-Hop, Afrobeats | DJ DX</title>
-        <meta name="description" content="Manhattan wedding DJ — DJ DX performs at top NYC venues including The Plaza, Cipriani, Tribeca Rooftop, and Pier Sixty. R&B, Hip-Hop, Afrobeats, Old School. TED-featured. 500+ events." />
+        <meta name="description" content="Manhattan wedding DJ — DJ DX is available for premier NYC venues including Cipriani, Tribeca Rooftop, Pier Sixty, and Manhattan rooftops. R&B, Hip-Hop, Afrobeats, Old School. TED-featured. 500+ events." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-manhattan-nyc" />
         <meta property="og:title" content="Wedding DJ Manhattan NYC — DJ DX" />
-        <meta property="og:description" content="Manhattan's premier wedding DJ. Performances at The Plaza, Cipriani, Tribeca Rooftop, Pier Sixty, and more. R&B, Hip-Hop, Afrobeats, and timeless blends." />
+        <meta property="og:description" content="Manhattan's premier wedding DJ. Available for top NYC venues — Cipriani, Tribeca Rooftop, Pier Sixty, and more. R&B, Hip-Hop, Afrobeats, and timeless blends." />
         <meta property="og:url" content="https://djdxmusic.com/wedding-dj-manhattan-nyc" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
@@ -27,7 +27,7 @@ export default function WeddingDJManhattan() {
               "name": "Wedding DJ Manhattan NYC — R&B, Hip-Hop, Afrobeats",
               "serviceType": "Wedding DJ",
               "url": "https://djdxmusic.com/wedding-dj-manhattan-nyc",
-              "description": "DJ DX is a professional Manhattan wedding DJ specializing in R&B, Hip-Hop, Afrobeats, Old School, and custom blends. Performs at premier NYC venues including The Plaza, Cipriani 25 Broadway, Tribeca Rooftop, Pier Sixty at Chelsea Piers, The Rainbow Room, and Capitale.",
+              "description": "DJ DX is a professional Manhattan wedding DJ specializing in R&B, Hip-Hop, Afrobeats, Old School, and custom blends. Available for weddings at premier NYC venues throughout Tribeca, SoHo, Chelsea, Midtown, the Upper East Side, the Upper West Side, the Financial District, and the Lower East Side.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -66,8 +66,8 @@ export default function WeddingDJManhattan() {
                 },
                 {
                   "@type": "Question",
-                  "name": "What Manhattan venues has DJ DX performed at?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "DJ DX has performed at premier Manhattan wedding venues including Cipriani 25 Broadway, Tribeca Rooftop, Pier Sixty at Chelsea Piers, Capitale, The Bowery Hotel, 620 Loft & Garden, The Glasshouses, Tribeca 360, and numerous Midtown hotel ballrooms. Familiarity with venue load-in, sound restrictions, and union requirements means smoother events."}
+                  "name": "Is DJ DX available for top Manhattan wedding venues?",
+                  "acceptedAnswer": {"@type": "Answer", "text": "Yes. DJ DX is available for weddings at Manhattan's premier venues — Cipriani 25 Broadway, Tribeca Rooftop, Pier Sixty at Chelsea Piers, Capitale, The Bowery Hotel, 620 Loft & Garden, The Glasshouses, Tribeca 360, and Midtown hotel ballrooms. Setup is professional-grade, sound coordination is handled with venue staff in advance, and load-in is planned to match each venue's requirements."}
                 },
                 {
                   "@type": "Question",
@@ -108,7 +108,7 @@ export default function WeddingDJManhattan() {
             Manhattan Wedding DJ — <span>Built for the City That Never Sleeps</span>
           </h1>
           <p style={{ maxWidth: '640px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
-            From Tribeca rooftops to Plaza ballrooms — DJ DX brings 20+ years of NYC wedding experience.
+            Tribeca rooftops. Ballroom receptions. Downtown lofts. 20+ years of NYC DJ experience.
             R&amp;B, Hip-Hop, Afrobeats, and blends that move every crowd.
           </p>
           <a href="#booking" className="btn-gold">Check Availability</a>
@@ -125,14 +125,14 @@ export default function WeddingDJManhattan() {
               </div>
               <div className="about-body sr" data-sr-delay="0.1s">
                 <p>A Manhattan wedding isn't just an event — it's a production. Strict venue curfews. Union requirements at landmark venues. Decibel limits on rooftop terraces. Guest lists that span every culture, generation, and music taste. The DJ has to deliver everything, perfectly, within tight constraints.</p>
-                <p>DJ DX has spent over two decades navigating exactly that. From Cipriani 25 Broadway to Tribeca Rooftop, Pier Sixty to Capitale, every Manhattan venue has its own technical playbook — and DJ DX knows them.</p>
+                <p>DJ DX has spent over two decades working New York City events — performing at TEDxYouth@RVA, on tour throughout Latin America as "El Negro," and across NYC nightlife and private events. Every Manhattan venue has its own technical playbook, and the professional-grade setup is built to handle each room's load-in, curfew, and sound requirements.</p>
                 <p>Music-wise, Manhattan crowds are sophisticated. They've heard the wedding-DJ Top 40 a thousand times. What gets them on the floor is a curated arc: open with Sade or Maxwell during cocktail hour, build through hip-hop classics, bring it home with Afrobeats and Amapiano for the late crowd. That's what DJ DX does.</p>
               </div>
             </div>
             <div className="about-aside">
               {[
-                { num: '20+', label: 'Years in NYC', sub: 'Manhattan weddings since 2003' },
-                { num: '50+', label: 'Manhattan Venues', sub: 'From Plaza to Pier Sixty' },
+                { num: '20+', label: 'Years in NYC', sub: 'DJing across New York City' },
+                { num: 'TED', label: 'Featured Artist', sub: 'TEDxYouth@RVA 2022' },
                 { num: '100+', label: 'Original Blends', sub: 'Custom for every couple' },
               ].map(s => (
                 <div className="stat-row sr" key={s.label}>
@@ -154,16 +154,16 @@ export default function WeddingDJManhattan() {
             <div className="sec-overline" style={{ justifyContent: 'center' }}>
               <span className="sec-overline-line" /><span className="sec-label">Manhattan Venues</span><span className="sec-overline-line" />
             </div>
-            <h2 className="sec-title">Where DJ DX <span>Has Performed</span></h2>
+            <h2 className="sec-title">Available For <span>Manhattan's Premier Venues</span></h2>
           </div>
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginTop: '48px' }}>
             {[
-              { title: 'Cipriani 25 Broadway', desc: 'Landmark Financial District ballroom — grand piano sit-ins and full-night sets.' },
-              { title: 'Tribeca Rooftop', desc: 'Skyline-view rooftop with curfew-aware mixing and decibel-compliant setups.' },
-              { title: 'Pier Sixty at Chelsea Piers', desc: 'Hudson River waterfront — full-event DJ + emcee from cocktail to last dance.' },
-              { title: 'Capitale', desc: 'Bowery banking-hall ballroom with marble acoustics and signature blends.' },
-              { title: 'The Bowery Hotel', desc: 'Boutique downtown weddings — intimate but high-energy receptions.' },
-              { title: '620 Loft & Garden', desc: 'Rockefeller Center rooftop — premium service for premium guest lists.' },
+              { title: 'Cipriani 25 Broadway', desc: 'Landmark Financial District ballroom — built for grand-scale receptions with full-night DJ sets.' },
+              { title: 'Tribeca Rooftop', desc: 'Skyline-view rooftop — curfew-aware mixing and decibel-compliant setups handled professionally.' },
+              { title: 'Pier Sixty at Chelsea Piers', desc: 'Hudson River waterfront — DJ + emcee coverage from cocktail hour through last dance.' },
+              { title: 'Capitale', desc: 'Bowery banking-hall ballroom — marble acoustics paired with signature blends.' },
+              { title: 'The Bowery Hotel', desc: 'Boutique downtown receptions — intimate venues that still need high-energy programming.' },
+              { title: '620 Loft & Garden', desc: 'Rockefeller Center rooftop — premium service for premium Midtown guest lists.' },
             ].map(s => (
               <div key={s.title} className="service-cell sr">
                 <div className="service-name">{s.title}</div>
@@ -182,7 +182,7 @@ export default function WeddingDJManhattan() {
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
               { q: 'How much does a Manhattan wedding DJ cost?', a: 'Manhattan wedding DJ pricing typically ranges from $2,500 to $7,500+ depending on venue, duration, and package. Manhattan weddings command premium rates due to venue load-in complexity, union requirements at some venues (like The Plaza and The Rainbow Room), and higher peak-season demand. DJ DX offers transparent custom quotes — contact djdxbusiness@gmail.com.' },
-              { q: 'What Manhattan venues has DJ DX performed at?', a: 'DJ DX has performed at premier Manhattan venues including Cipriani 25 Broadway, Tribeca Rooftop, Pier Sixty at Chelsea Piers, Capitale, The Bowery Hotel, 620 Loft & Garden, The Glasshouses, Tribeca 360, and numerous Midtown hotel ballrooms.' },
+              { q: 'Is DJ DX available for top Manhattan wedding venues?', a: 'Yes. DJ DX is available for weddings at Manhattan\'s premier venues — Cipriani 25 Broadway, Tribeca Rooftop, Pier Sixty at Chelsea Piers, Capitale, The Bowery Hotel, 620 Loft & Garden, The Glasshouses, Tribeca 360, and Midtown hotel ballrooms. Setup is professional-grade, sound coordination is handled with venue staff in advance, and load-in is planned to match each venue\'s requirements.' },
               { q: 'Does DJ DX handle Manhattan venue sound restrictions?', a: 'Yes. Many Manhattan rooftop and outdoor venues have strict decibel limits (often 85-90 dB) and curfews (typically 10pm-11pm for outdoor). DJ DX works closely with venue coordinators in advance to confirm sound specs and deliver compliant audio.' },
               { q: 'How early should we book a wedding DJ in Manhattan?', a: 'For Manhattan weddings, book 9-14 months in advance — especially for fall (September-October) and spring (April-May) peak seasons. Saturday dates at top venues typically book DJs 12+ months out.' },
             ].map(({ q, a }) => (

@@ -11,10 +11,10 @@ export default function WeddingDJNorthernNJ() {
     <>
       <Helmet>
         <title>Wedding DJ Northern NJ | Newark, Jersey City, Hoboken, Bergen County | DJ DX</title>
-        <meta name="description" content="Northern New Jersey wedding DJ — DJ DX performs at premier NJ venues including The Venetian, Liberty House, Park Avenue Club, and The Tides Estate. R&B, Hip-Hop, Afrobeats, Latin." />
+        <meta name="description" content="Northern New Jersey wedding DJ — DJ DX is available for premier NJ venues including The Venetian, Liberty House, Park Avenue Club, and The Tides Estate. R&B, Hip-Hop, Afrobeats, Latin." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-northern-nj" />
         <meta property="og:title" content="Wedding DJ Northern NJ — DJ DX" />
-        <meta property="og:description" content="Northern New Jersey's go-to wedding DJ. Performances in Newark, Jersey City, Hoboken, Bergen County, and Essex County. Multi-cultural NJ weddings done right." />
+        <meta property="og:description" content="Northern New Jersey wedding DJ. Available for Newark, Jersey City, Hoboken, Bergen County, and Essex County weddings. Multi-cultural NJ weddings done right." />
         <meta property="og:url" content="https://djdxmusic.com/wedding-dj-northern-nj" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
@@ -27,7 +27,7 @@ export default function WeddingDJNorthernNJ() {
               "name": "Wedding DJ Northern New Jersey — Newark, Jersey City, Hoboken, Bergen County",
               "serviceType": "Wedding DJ",
               "url": "https://djdxmusic.com/wedding-dj-northern-nj",
-              "description": "DJ DX is a Northern New Jersey wedding DJ serving Newark, Jersey City, Hoboken, Bergen County, Essex County, and Union County. Performances at premier NJ venues including The Venetian (Garfield), Liberty House (Jersey City), Park Avenue Club (Florham Park), and The Tides Estate (North Haledon).",
+              "description": "DJ DX is a Northern New Jersey wedding DJ serving Newark, Jersey City, Hoboken, Bergen County, Essex County, and Union County. Available for weddings at premier NJ venues including The Venetian (Garfield), Liberty House (Jersey City), Park Avenue Club (Florham Park), and The Tides Estate (North Haledon).",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -68,8 +68,8 @@ export default function WeddingDJNorthernNJ() {
                 },
                 {
                   "@type": "Question",
-                  "name": "What Northern NJ wedding venues does DJ DX know?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "DJ DX has experience at Northern NJ wedding venues including The Venetian (Garfield), Liberty House (Jersey City — Manhattan skyline views), Park Avenue Club (Florham Park), The Tides Estate (North Haledon), Maritime Parc (Jersey City), The Brownstone (Paterson), and Eagle Oaks Country Club. Multi-cultural NJ weddings are a specialty."}
+                  "name": "Is DJ DX available for Northern NJ wedding venues?",
+                  "acceptedAnswer": {"@type": "Answer", "text": "Yes. DJ DX is available for weddings at Northern NJ's premier venues — The Venetian (Garfield), Liberty House (Jersey City — Manhattan skyline views), Park Avenue Club (Florham Park), The Tides Estate (North Haledon), Maritime Parc (Jersey City), The Brownstone (Paterson), and Eagle Oaks Country Club. Multi-cultural NJ weddings are a specialty."}
                 },
                 {
                   "@type": "Question",
@@ -128,13 +128,13 @@ export default function WeddingDJNorthernNJ() {
               <div className="about-body sr" data-sr-delay="0.1s">
                 <p>Northern New Jersey has the most diverse wedding scene in America. One reception will mix Dominican families from Paterson, Nigerian guests from Newark, Italian grandparents from Bergen County, Indian aunties from Edison, and Brooklyn-bred millennials all on the same floor. The DJ has to play all of them.</p>
                 <p>DJ DX brings exactly that fluency. Known across Latin America as <strong>El Negro</strong> through the Hood Reggaeton series, with deep Afrobeats and Amapiano catalogs, plus R&amp;B, Hip-Hop, Old School, and traditional reception staples. The dance floor never empties because somebody always recognizes the next song.</p>
-                <p>Premier NJ venues — The Venetian, Liberty House with Manhattan skyline views, Park Avenue Club, The Tides Estate — are part of the regular booking circuit. DJ DX knows the rooms, the load-in patterns, the catering teams, and how to coordinate with NJ wedding planners.</p>
+                <p>Available for premier NJ venues — The Venetian, Liberty House with Manhattan skyline views, Park Avenue Club, The Tides Estate. Setup is professional-grade, and venue coordination with planners and catering teams is handled in advance.</p>
               </div>
             </div>
             <div className="about-aside">
               {[
                 { num: 'Multi', label: 'Cultural Fluency', sub: 'Latin · African · Caribbean · NYC' },
-                { num: '20+', label: 'Years in NJ', sub: 'Newark to Bergen County' },
+                { num: '20+', label: 'Years DJing', sub: 'Across the tri-state area' },
                 { num: 'Bilingual', label: 'English & Spanish', sub: 'Emcee in both languages' },
               ].map(s => (
                 <div className="stat-row sr" key={s.label}>
@@ -156,7 +156,7 @@ export default function WeddingDJNorthernNJ() {
             <div className="sec-overline" style={{ justifyContent: 'center' }}>
               <span className="sec-overline-line" /><span className="sec-label">NJ Venues</span><span className="sec-overline-line" />
             </div>
-            <h2 className="sec-title">Northern NJ <span>Wedding Venues</span></h2>
+            <h2 className="sec-title">Available For <span>Northern NJ Venues</span></h2>
           </div>
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginTop: '48px' }}>
             {[
@@ -184,7 +184,7 @@ export default function WeddingDJNorthernNJ() {
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
               { q: 'How much does a wedding DJ cost in Northern NJ?', a: 'Northern New Jersey wedding DJ pricing typically ranges from $1,500 to $4,500+ depending on venue, duration, and package. Premier venues like The Venetian, Liberty House, and Park Avenue Club command higher rates. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com.' },
-              { q: 'What Northern NJ wedding venues does DJ DX know?', a: 'DJ DX has experience at Northern NJ wedding venues including The Venetian (Garfield), Liberty House (Jersey City), Park Avenue Club (Florham Park), The Tides Estate (North Haledon), Maritime Parc (Jersey City), The Brownstone (Paterson), and Eagle Oaks Country Club.' },
+              { q: 'Is DJ DX available for Northern NJ wedding venues?', a: 'Yes. DJ DX is available for weddings at Northern NJ\'s premier venues — The Venetian (Garfield), Liberty House (Jersey City — Manhattan skyline views), Park Avenue Club (Florham Park), The Tides Estate (North Haledon), Maritime Parc (Jersey City), The Brownstone (Paterson), and Eagle Oaks Country Club. Multi-cultural NJ weddings are a specialty.' },
               { q: 'Does DJ DX handle multi-cultural and bilingual NJ weddings?', a: 'Yes — and this is one of the strongest fits for Northern NJ. As "El Negro" across Latin America, DJ DX brings deep Reggaeton, Spanish, Bachata, and Latin Hip-Hop catalog. Combined with R&B, Afrobeats, Old School, and traditional wedding sets, DJ DX serves Hispanic, Caribbean, African, and multi-cultural NJ couples authentically.' },
               { q: 'How early should we book a Northern NJ wedding DJ?', a: 'Book 6-12 months in advance for Northern NJ weddings. Peak season (May-October) Saturday dates at premier venues fill 9-12 months out. Reach out as early as possible to confirm availability.' },
             ].map(({ q, a }) => (

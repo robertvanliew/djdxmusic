@@ -11,10 +11,10 @@ export default function WeddingDJLongIsland() {
     <>
       <Helmet>
         <title>Wedding DJ Long Island NY | Nassau & Suffolk | DJ DX</title>
-        <meta name="description" content="Long Island wedding DJ — DJ DX performs at premier Nassau and Suffolk venues including Oheka Castle, The Garden City Hotel, Crest Hollow, and Bourne Mansion. R&B, Hip-Hop, Afrobeats." />
+        <meta name="description" content="Long Island wedding DJ — DJ DX is available for Nassau and Suffolk venues including Oheka Castle, The Garden City Hotel, Crest Hollow, Bourne Mansion, and the Hamptons. R&B, Hip-Hop, Afrobeats." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-long-island-ny" />
         <meta property="og:title" content="Wedding DJ Long Island NY — DJ DX" />
-        <meta property="og:description" content="Long Island's go-to wedding DJ for Nassau and Suffolk County. Performances at Oheka Castle, Crest Hollow, Bourne Mansion, and the Hamptons." />
+        <meta property="og:description" content="Long Island wedding DJ for Nassau and Suffolk County. Available for Oheka Castle, Crest Hollow, Bourne Mansion, and Hamptons weddings." />
         <meta property="og:url" content="https://djdxmusic.com/wedding-dj-long-island-ny" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
@@ -27,7 +27,7 @@ export default function WeddingDJLongIsland() {
               "name": "Wedding DJ Long Island NY — Nassau & Suffolk County",
               "serviceType": "Wedding DJ",
               "url": "https://djdxmusic.com/wedding-dj-long-island-ny",
-              "description": "DJ DX is a Long Island wedding DJ serving Nassau and Suffolk County. Performances at premier venues including Oheka Castle, The Garden City Hotel, Crest Hollow Country Club, Bourne Mansion, and Hamptons venues. R&B, Hip-Hop, Afrobeats, and Old School blends.",
+              "description": "DJ DX is a Long Island wedding DJ serving Nassau and Suffolk County — including Garden City, Huntington, Oyster Bay, Great Neck, Smithtown, Babylon, Riverhead, Southampton, East Hampton, and Montauk. Available for premier venues across the island. R&B, Hip-Hop, Afrobeats, and Old School blends.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -69,8 +69,8 @@ export default function WeddingDJLongIsland() {
                 },
                 {
                   "@type": "Question",
-                  "name": "What Long Island venues has DJ DX performed at?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "DJ DX has performed at top Long Island wedding venues including Oheka Castle (Huntington), The Garden City Hotel, Crest Hollow Country Club (Woodbury), Bourne Mansion (Oakdale), The Inn at Great Neck, and various Hamptons venues including Topping Rose House and Gurney's Montauk."}
+                  "name": "Is DJ DX available for Long Island wedding venues?",
+                  "acceptedAnswer": {"@type": "Answer", "text": "Yes. DJ DX is available for weddings at Long Island's premier venues — Oheka Castle (Huntington), The Garden City Hotel, Crest Hollow Country Club (Woodbury), Bourne Mansion (Oakdale), The Inn at Great Neck, and Hamptons venues including Topping Rose House and Gurney's Montauk. Travel and setup are planned around each venue's requirements."}
                 },
                 {
                   "@type": "Question",
@@ -111,7 +111,7 @@ export default function WeddingDJLongIsland() {
             Long Island Wedding DJ — <span>From Garden City to Montauk</span>
           </h1>
           <p style={{ maxWidth: '640px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
-            Oheka Castle. Crest Hollow. Bourne Mansion. Hamptons summer weddings.
+            Available for Long Island's premier venues — Oheka Castle, Crest Hollow, Bourne Mansion, and Hamptons summer weddings.
             R&amp;B, Hip-Hop, Afrobeats, and the blends Long Island couples actually want.
           </p>
           <a href="#booking" className="btn-gold">Check Availability</a>
@@ -128,15 +128,15 @@ export default function WeddingDJLongIsland() {
               </div>
               <div className="about-body sr" data-sr-delay="0.1s">
                 <p>Long Island weddings are a different animal. Grand catering halls. Multi-cultural guest lists. Italian families from Massapequa, multigenerational R&B fans from Hempstead, hip-hop heads from Brentwood, and tasteful house lovers driving in from the Hamptons. The DJ has to read every room within the same room.</p>
-                <p>DJ DX brings 20+ years of NYC and Long Island wedding experience — built on listening, not just playing tracks. From Oheka Castle's grand ballroom to a Hamptons tented affair in Sagaponack, every set is custom-built around the couple, the venue, and the guest mix.</p>
-                <p>And for couples doing a destination-feel wedding out east — Montauk, East Hampton, Bridgehampton — DJ DX is one of the few Manhattan/NYC DJs who travels the LIE without inflating the quote.</p>
+                <p>DJ DX brings 20+ years of DJing experience — built on listening, not just playing tracks. Whether it's a grand ballroom at Oheka Castle or a tented Hamptons affair in Sagaponack, every set is custom-built around the couple, the venue, and the guest mix.</p>
+                <p>And for couples doing a destination-feel wedding out east — Montauk, East Hampton, Bridgehampton — DJ DX travels the LIE without inflating the quote. Long Island is part of the regular tri-state circuit, not an exotic trip.</p>
               </div>
             </div>
             <div className="about-aside">
               {[
-                { num: '20+', label: 'Years on LI', sub: 'Nassau & Suffolk weddings' },
-                { num: '30+', label: 'LI Venues', sub: 'Castles, country clubs, mansions' },
+                { num: '20+', label: 'Years DJing', sub: 'Across the tri-state area' },
                 { num: 'Yes', label: 'Hamptons Travel', sub: 'East End weddings welcomed' },
+                { num: 'TED', label: 'Featured Artist', sub: 'TEDxYouth@RVA 2022' },
               ].map(s => (
                 <div className="stat-row sr" key={s.label}>
                   <div className="stat-num">{s.num}</div>
@@ -157,16 +157,16 @@ export default function WeddingDJLongIsland() {
             <div className="sec-overline" style={{ justifyContent: 'center' }}>
               <span className="sec-overline-line" /><span className="sec-label">Long Island Venues</span><span className="sec-overline-line" />
             </div>
-            <h2 className="sec-title">Where We've <span>Performed</span></h2>
+            <h2 className="sec-title">Available For <span>Long Island's Premier Venues</span></h2>
           </div>
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginTop: '48px' }}>
             {[
-              { title: 'Oheka Castle', desc: 'Huntington landmark — castle ballrooms, sweeping staircases, full-night sets.' },
-              { title: 'Crest Hollow Country Club', desc: 'Woodbury staple — multi-cultural Long Island weddings done right.' },
+              { title: 'Oheka Castle', desc: 'Huntington landmark — built for castle ballroom receptions and sweeping staircase moments.' },
+              { title: 'Crest Hollow Country Club', desc: 'Woodbury staple — designed for multi-cultural Long Island weddings.' },
               { title: 'The Garden City Hotel', desc: 'Nassau County classic — refined ballroom weddings with elevated music programs.' },
               { title: 'Bourne Mansion', desc: 'Oakdale waterfront estate — grand outdoor and indoor reception spaces.' },
               { title: 'Hamptons Estates', desc: 'East Hampton, Sagaponack, Bridgehampton — tented weddings and waterfront ceremonies.' },
-              { title: 'Gurney\'s Montauk', desc: 'East End oceanfront — sunset receptions with curfew-aware mixing.' },
+              { title: 'Gurney\'s Montauk', desc: 'East End oceanfront — sunset receptions with curfew-aware mixing handled professionally.' },
             ].map(s => (
               <div key={s.title} className="service-cell sr">
                 <div className="service-name">{s.title}</div>
@@ -185,7 +185,7 @@ export default function WeddingDJLongIsland() {
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
               { q: 'How much does a Long Island wedding DJ cost?', a: 'Long Island wedding DJ pricing typically ranges from $1,800 to $5,500+ depending on venue, duration, and Nassau vs Suffolk location. Hamptons weddings command premium rates due to travel and overnight accommodations. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com.' },
-              { q: 'What Long Island venues has DJ DX performed at?', a: 'DJ DX has performed at top Long Island wedding venues including Oheka Castle (Huntington), The Garden City Hotel, Crest Hollow Country Club (Woodbury), Bourne Mansion (Oakdale), The Inn at Great Neck, and various Hamptons venues including Topping Rose House and Gurney\'s Montauk.' },
+              { q: 'Is DJ DX available for Long Island wedding venues?', a: 'Yes. DJ DX is available for weddings at Long Island\'s premier venues — Oheka Castle (Huntington), The Garden City Hotel, Crest Hollow Country Club (Woodbury), Bourne Mansion (Oakdale), The Inn at Great Neck, and Hamptons venues including Topping Rose House and Gurney\'s Montauk. Travel and setup are planned around each venue\'s requirements.' },
               { q: 'Do you travel to Eastern Long Island and The Hamptons?', a: 'Yes. DJ DX regularly performs Hamptons and Eastern Long Island weddings — Southampton, East Hampton, Sag Harbor, Bridgehampton, Montauk, and Shelter Island. Travel and overnight accommodations are factored into the quote for venues over 60 miles from NYC.' },
               { q: 'How far in advance should we book a Long Island wedding DJ?', a: 'Book 8-12 months in advance for Long Island weddings — peak summer (June-August) and fall (September-October) book fastest. Hamptons weekends and holiday weekends fill 12-18 months out at top venues.' },
             ].map(({ q, a }) => (

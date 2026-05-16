@@ -11,10 +11,10 @@ export default function WeddingDJWestchester() {
     <>
       <Helmet>
         <title>Wedding DJ Westchester NY | Tarrytown, Rye, Scarsdale | DJ DX</title>
-        <meta name="description" content="Westchester County wedding DJ — DJ DX performs at premier venues including Tappan Hill Mansion, The Briarcliff Manor, Sleepy Hollow Country Club, and The Castle Hotel. R&B, Hip-Hop, Afrobeats." />
+        <meta name="description" content="Westchester County wedding DJ — DJ DX is available for premier venues including Tappan Hill Mansion, The Briarcliff Manor, Sleepy Hollow Country Club, and The Castle Hotel. R&B, Hip-Hop, Afrobeats." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-westchester-ny" />
         <meta property="og:title" content="Wedding DJ Westchester NY — DJ DX" />
-        <meta property="og:description" content="Westchester County's premier wedding DJ. Performances in Tarrytown, Rye, Scarsdale, Yonkers, and White Plains. Refined receptions with NYC-level production." />
+        <meta property="og:description" content="Westchester County wedding DJ. Available for Tarrytown, Rye, Scarsdale, Yonkers, and White Plains weddings. Refined receptions with NYC-level production." />
         <meta property="og:url" content="https://djdxmusic.com/wedding-dj-westchester-ny" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
@@ -27,7 +27,7 @@ export default function WeddingDJWestchester() {
               "name": "Wedding DJ Westchester County NY",
               "serviceType": "Wedding DJ",
               "url": "https://djdxmusic.com/wedding-dj-westchester-ny",
-              "description": "DJ DX is a Westchester County wedding DJ serving Tarrytown, Rye, Scarsdale, Yonkers, White Plains, and Hudson Valley. Performances at Tappan Hill Mansion, The Briarcliff Manor, Sleepy Hollow Country Club, The Castle Hotel, and historic estates throughout Westchester.",
+              "description": "DJ DX is a Westchester County wedding DJ serving Tarrytown, Rye, Scarsdale, Yonkers, White Plains, and Hudson Valley. Available for premier venues including Tappan Hill Mansion, The Briarcliff Manor, Sleepy Hollow Country Club, The Castle Hotel, and historic estates throughout Westchester.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -68,8 +68,8 @@ export default function WeddingDJWestchester() {
                 },
                 {
                   "@type": "Question",
-                  "name": "What Westchester wedding venues does DJ DX know?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "DJ DX has experience at Westchester County wedding venues including Tappan Hill Mansion (Tarrytown), The Briarcliff Manor, Sleepy Hollow Country Club, The Castle Hotel & Spa (Tarrytown), Glen Island Harbour Club (New Rochelle), Crabtree's Kittle House (Chappaqua), and various Hudson Valley estates."}
+                  "name": "Is DJ DX available for Westchester wedding venues?",
+                  "acceptedAnswer": {"@type": "Answer", "text": "Yes. DJ DX is available for weddings at Westchester County's premier venues — Tappan Hill Mansion (Tarrytown), The Briarcliff Manor, Sleepy Hollow Country Club, The Castle Hotel & Spa (Tarrytown), Glen Island Harbour Club (New Rochelle), Crabtree's Kittle House (Chappaqua), and Hudson Valley estates. Setup and venue coordination are handled professionally for each booking."}
                 },
                 {
                   "@type": "Question",
@@ -127,15 +127,15 @@ export default function WeddingDJWestchester() {
               </div>
               <div className="about-body sr" data-sr-delay="0.1s">
                 <p>Westchester County couples want NYC-level production with Hudson Valley elegance. The venues — Tappan Hill Mansion, The Castle Hotel, Sleepy Hollow Country Club — are some of the most beautiful in the region. The music has to live up to the room without overwhelming it.</p>
-                <p>DJ DX brings 20+ years of NYC wedding experience to Westchester. The same custom-curated approach, the same R&amp;B and Hip-Hop deep cuts, the same Afrobeats and Old School blends — delivered with the polish that Hudson Valley couples expect.</p>
+                <p>DJ DX brings 20+ years of DJ experience. The same custom-curated approach, the same R&amp;B and Hip-Hop deep cuts, the same Afrobeats and Old School blends — delivered with the polish that Hudson Valley couples expect.</p>
                 <p>Westchester is part of the regular tri-state circuit. 30-45 minutes from Manhattan via the Henry Hudson or I-87. No travel premium added — Westchester rates match NYC rates for venues within 50 miles.</p>
               </div>
             </div>
             <div className="about-aside">
               {[
                 { num: '45min', label: 'NYC to Tarrytown', sub: 'Clean tri-state logistics' },
-                { num: '20+', label: 'Years Experience', sub: 'Hudson Valley + NYC weddings' },
-                { num: 'Premier', label: 'Venue Network', sub: 'Castles, mansions, country clubs' },
+                { num: '20+', label: 'Years DJing', sub: 'Across the tri-state area' },
+                { num: 'TED', label: 'Featured Artist', sub: 'TEDxYouth@RVA 2022' },
               ].map(s => (
                 <div className="stat-row sr" key={s.label}>
                   <div className="stat-num">{s.num}</div>
@@ -156,7 +156,7 @@ export default function WeddingDJWestchester() {
             <div className="sec-overline" style={{ justifyContent: 'center' }}>
               <span className="sec-overline-line" /><span className="sec-label">Westchester Venues</span><span className="sec-overline-line" />
             </div>
-            <h2 className="sec-title">Hudson Valley <span>Wedding Venues</span></h2>
+            <h2 className="sec-title">Available For <span>Hudson Valley Venues</span></h2>
           </div>
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginTop: '48px' }}>
             {[
@@ -184,7 +184,7 @@ export default function WeddingDJWestchester() {
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
               { q: 'How much does a wedding DJ cost in Westchester County?', a: 'Westchester County wedding DJ pricing typically ranges from $1,800 to $5,500+ depending on venue, duration, and package. Premier venues like Tappan Hill Mansion, Sleepy Hollow Country Club, and The Castle Hotel command higher rates. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com.' },
-              { q: 'What Westchester wedding venues does DJ DX know?', a: 'DJ DX has experience at Westchester County wedding venues including Tappan Hill Mansion (Tarrytown), The Briarcliff Manor, Sleepy Hollow Country Club, The Castle Hotel & Spa (Tarrytown), Glen Island Harbour Club (New Rochelle), Crabtree\'s Kittle House (Chappaqua), and various Hudson Valley estates.' },
+              { q: 'Is DJ DX available for Westchester wedding venues?', a: 'Yes. DJ DX is available for weddings at Westchester County\'s premier venues — Tappan Hill Mansion (Tarrytown), The Briarcliff Manor, Sleepy Hollow Country Club, The Castle Hotel & Spa (Tarrytown), Glen Island Harbour Club (New Rochelle), Crabtree\'s Kittle House (Chappaqua), and Hudson Valley estates. Setup and venue coordination are handled professionally for each booking.' },
               { q: 'How long is the drive from NYC to Westchester?', a: 'Most Westchester wedding venues are 30-45 minutes from Manhattan via the Henry Hudson Parkway or I-87. DJ DX includes Westchester in the regular tri-state circuit — no travel fees added for venues within 50 miles of NYC.' },
               { q: 'How early should we book a Westchester wedding DJ?', a: 'Book 8-12 months in advance for Westchester County weddings. Peak season (May-October) Saturday dates at top venues like Tappan Hill, Sleepy Hollow Country Club, and The Castle Hotel fill 12+ months out.' },
             ].map(({ q, a }) => (

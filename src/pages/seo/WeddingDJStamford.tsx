@@ -11,10 +11,10 @@ export default function WeddingDJStamford() {
     <>
       <Helmet>
         <title>Wedding DJ Stamford CT | Greenwich, New Canaan, Westport | DJ DX</title>
-        <meta name="description" content="Stamford CT wedding DJ — DJ DX performs at premier Fairfield County venues including The Loading Dock, Riverside Yacht Club, Belle Haven Club, and Greenwich Country Club. R&B, Hip-Hop, Afrobeats." />
+        <meta name="description" content="Stamford CT wedding DJ — DJ DX is available for Fairfield County venues including The Loading Dock, Riverside Yacht Club, Belle Haven Club, and Greenwich Country Club. R&B, Hip-Hop, Afrobeats." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-stamford-ct" />
         <meta property="og:title" content="Wedding DJ Stamford CT — DJ DX" />
-        <meta property="og:description" content="Fairfield County's premier wedding DJ. Performances in Stamford, Greenwich, New Canaan, Westport, and Darien. R&B, Hip-Hop, Afrobeats, and timeless blends." />
+        <meta property="og:description" content="Fairfield County wedding DJ. Available for Stamford, Greenwich, New Canaan, Westport, and Darien weddings. R&B, Hip-Hop, Afrobeats, and timeless blends." />
         <meta property="og:url" content="https://djdxmusic.com/wedding-dj-stamford-ct" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
@@ -27,7 +27,7 @@ export default function WeddingDJStamford() {
               "name": "Wedding DJ Stamford CT — Fairfield County",
               "serviceType": "Wedding DJ",
               "url": "https://djdxmusic.com/wedding-dj-stamford-ct",
-              "description": "DJ DX is a Stamford CT wedding DJ serving Fairfield County — including Greenwich, New Canaan, Westport, Darien, Norwalk, and Bridgeport. Performances at Riverside Yacht Club, Belle Haven Club, Greenwich Country Club, The Loading Dock, and waterfront estates throughout the Connecticut Gold Coast.",
+              "description": "DJ DX is a Stamford CT wedding DJ serving Fairfield County — including Greenwich, New Canaan, Westport, Darien, Norwalk, and Bridgeport. Available for weddings at Riverside Yacht Club, Belle Haven Club, Greenwich Country Club, The Loading Dock, and waterfront estates throughout the Connecticut Gold Coast.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -72,8 +72,8 @@ export default function WeddingDJStamford() {
                 },
                 {
                   "@type": "Question",
-                  "name": "What Connecticut wedding venues does DJ DX know?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "DJ DX has experience at Fairfield County wedding venues including Riverside Yacht Club, Belle Haven Club, Greenwich Country Club, The Loading Dock (Stamford), The Waveny House (New Canaan), Lockwood-Mathews Mansion (Norwalk), and various private estates throughout the CT Gold Coast."}
+                  "name": "Is DJ DX available for Connecticut wedding venues?",
+                  "acceptedAnswer": {"@type": "Answer", "text": "Yes. DJ DX is available for weddings at Fairfield County's premier venues — Riverside Yacht Club, Belle Haven Club, Greenwich Country Club, The Loading Dock (Stamford), The Waveny House (New Canaan), Lockwood-Mathews Mansion (Norwalk), and private estates throughout the CT Gold Coast. Setup and venue coordination are handled professionally for each booking."}
                 },
                 {
                   "@type": "Question",
@@ -126,7 +126,7 @@ export default function WeddingDJStamford() {
               </div>
               <div className="about-body sr" data-sr-delay="0.1s">
                 <p>Connecticut Gold Coast weddings — Greenwich, New Canaan, Westport, Darien — bring a particular sophistication. Private clubs. Waterfront estates. Multi-generational families with sharply curated taste. The music has to match the room without ever feeling stiff.</p>
-                <p>DJ DX brings NYC-level production with CT-tuned sensibility. The dance floor still has to move — Greenwich crowds love Afrobeats, Westport guests will surprise you with Hip-Hop deep cuts, and Stamford's younger downtown crowd wants the same house and R&B blends you'd hear at Manhattan rooftops.</p>
+                <p>DJ DX brings NYC-level production with CT-tuned sensibility. The dance floor still has to move — Greenwich crowds love Afrobeats, Westport guests will surprise you with Hip-Hop deep cuts, and Stamford's younger downtown crowd wants the same house and R&B blends heard at Manhattan rooftops.</p>
                 <p>Short hop from NYC (45 minutes), so logistics are clean. And travel doesn't blow up your quote — Fairfield County dates are priced fairly because it's part of the regular tri-state circuit, not an exotic trip.</p>
               </div>
             </div>
@@ -155,7 +155,7 @@ export default function WeddingDJStamford() {
             <div className="sec-overline" style={{ justifyContent: 'center' }}>
               <span className="sec-overline-line" /><span className="sec-label">Connecticut Venues</span><span className="sec-overline-line" />
             </div>
-            <h2 className="sec-title">Fairfield County <span>Wedding Venues</span></h2>
+            <h2 className="sec-title">Available For <span>Fairfield County Venues</span></h2>
           </div>
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginTop: '48px' }}>
             {[
@@ -184,7 +184,7 @@ export default function WeddingDJStamford() {
             {[
               { q: 'How much does a wedding DJ cost in Stamford CT?', a: 'Stamford CT and Fairfield County wedding DJ pricing typically ranges from $2,000 to $6,000+ depending on venue, duration, and package. Greenwich Gold Coast estates and private clubs command premium rates. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com.' },
               { q: 'Does DJ DX travel from NY to Connecticut for weddings?', a: 'Yes. DJ DX regularly performs Fairfield County weddings — Stamford, Greenwich, New Canaan, Westport, Darien, and Bridgeport. Travel from NYC is short (45-60 minutes), and CT bookings include the same level of preparation as NYC weddings.' },
-              { q: 'What Connecticut wedding venues does DJ DX know?', a: 'DJ DX has experience at Fairfield County wedding venues including Riverside Yacht Club, Belle Haven Club, Greenwich Country Club, The Loading Dock (Stamford), The Waveny House (New Canaan), Lockwood-Mathews Mansion (Norwalk), and various private estates throughout the CT Gold Coast.' },
+              { q: 'Is DJ DX available for Connecticut wedding venues?', a: 'Yes. DJ DX is available for weddings at Fairfield County\'s premier venues — Riverside Yacht Club, Belle Haven Club, Greenwich Country Club, The Loading Dock (Stamford), The Waveny House (New Canaan), Lockwood-Mathews Mansion (Norwalk), and private estates throughout the CT Gold Coast. Setup and venue coordination are handled professionally for each booking.' },
               { q: 'How early should we book a Connecticut wedding DJ?', a: 'For Fairfield County and CT Gold Coast weddings, book 8-12 months in advance. Peak season (May-October) and Greenwich Gold Coast estates book fastest. Reach out as early as possible to confirm your Saturday date.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
