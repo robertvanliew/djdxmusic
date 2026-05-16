@@ -25,6 +25,11 @@ const Hamptons   = lazy(() => import('./pages/seo/Hamptons.tsx'))
 const PianoDJ    = lazy(() => import('./pages/seo/PianoDJ.tsx'))
 const DestinationDJ = lazy(() => import('./pages/seo/DestinationDJ.tsx'))
 const WeddingDJ  = lazy(() => import('./pages/seo/WeddingDJ.tsx'))
+const WeddingDJManhattan   = lazy(() => import('./pages/seo/WeddingDJManhattan.tsx'))
+const WeddingDJLongIsland  = lazy(() => import('./pages/seo/WeddingDJLongIsland.tsx'))
+const WeddingDJStamford    = lazy(() => import('./pages/seo/WeddingDJStamford.tsx'))
+const WeddingDJNorthernNJ  = lazy(() => import('./pages/seo/WeddingDJNorthernNJ.tsx'))
+const WeddingDJWestchester = lazy(() => import('./pages/seo/WeddingDJWestchester.tsx'))
 const AfrobeatsDJ = lazy(() => import('./pages/seo/AfrobeatsDJ.tsx'))
 const RBHipHopDJ  = lazy(() => import('./pages/seo/RBHipHopDJ.tsx'))
 const DJForHireNYC = lazy(() => import('./pages/seo/DJForHireNYC.tsx'))
@@ -83,6 +88,11 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/hamptons-luxury-dj" element={<Hamptons />} />
             <Route path="/destination-wedding-dj" element={<DestinationDJ />} />
             <Route path="/wedding-dj-nyc-nj" element={<WeddingDJ />} />
+            <Route path="/wedding-dj-manhattan-nyc" element={<WeddingDJManhattan />} />
+            <Route path="/wedding-dj-long-island-ny" element={<WeddingDJLongIsland />} />
+            <Route path="/wedding-dj-stamford-ct" element={<WeddingDJStamford />} />
+            <Route path="/wedding-dj-northern-nj" element={<WeddingDJNorthernNJ />} />
+            <Route path="/wedding-dj-westchester-ny" element={<WeddingDJWestchester />} />
             <Route path="/afrobeats-amapiano-dj-nyc-nj" element={<AfrobeatsDJ />} />
             <Route path="/rb-hip-hop-dj-nyc-nj" element={<RBHipHopDJ />} />
             <Route path="/dj-for-hire-nyc" element={<DJForHireNYC />} />
