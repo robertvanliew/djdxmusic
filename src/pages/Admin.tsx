@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { fetchCatalog, pushCatalog, resetCatalog, type Track, type TrackTag } from '../catalog';
 
 // Auth handled server-side — no secrets in client bundle
@@ -72,8 +73,15 @@ const TAG_COLORS: Record<TrackTag, string> = {
 export default function Admin() {
   const [authed, setAuthed] = useState(() => !!sessionStorage.getItem(SESSION_KEY));
 
-  if (!authed) return <AdminLogin onAuth={() => setAuthed(true)} />;
-  return <AdminPanel />;
+  return (
+    <>
+      <Helmet>
+        <meta name="robots" content="noindex, nofollow" />
+        <title>Admin — DJ DX</title>
+      </Helmet>
+      {!authed ? <AdminLogin onAuth={() => setAuthed(true)} /> : <AdminPanel />}
+    </>
+  );
 }
 
 function AdminPanel() {

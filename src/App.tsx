@@ -525,6 +525,21 @@ function App() {
             {
               "@context": "https://schema.org",
               "@type": "ItemList",
+              "name": "DJ DX — Official Music Videos",
+              "url": "https://djdxmusic.com/#videos",
+              "description": "Official music videos and live performance clips by DJ DX — featured on the homepage video carousel.",
+              "itemListElement": [
+                {"@type": "ListItem", "position": 1, "item": {"@type": "VideoObject", "name": "DJ DX — Official Music Video 1", "description": "Official music video by DJ DX, New York/New Jersey DJ, producer, and recording artist.", "thumbnailUrl": "https://i.ytimg.com/vi/sqIUE0M54VE/maxresdefault.jpg", "contentUrl": "https://www.youtube.com/watch?v=sqIUE0M54VE", "embedUrl": "https://www.youtube.com/embed/sqIUE0M54VE", "uploadDate": "2024-01-01T00:00:00+00:00", "url": "https://djdxmusic.com/#videos"}},
+                {"@type": "ListItem", "position": 2, "item": {"@type": "VideoObject", "name": "DJ DX — Official Music Video 2", "description": "Official music video by DJ DX, New York/New Jersey DJ, producer, and recording artist.", "thumbnailUrl": "https://i.ytimg.com/vi/_2scELJWqRk/maxresdefault.jpg", "contentUrl": "https://www.youtube.com/watch?v=_2scELJWqRk", "embedUrl": "https://www.youtube.com/embed/_2scELJWqRk", "uploadDate": "2024-01-01T00:00:00+00:00", "url": "https://djdxmusic.com/#videos"}},
+                {"@type": "ListItem", "position": 3, "item": {"@type": "VideoObject", "name": "DJ DX — Official Music Video 3", "description": "Official music video by DJ DX, New York/New Jersey DJ, producer, and recording artist.", "thumbnailUrl": "https://i.ytimg.com/vi/LyopmsT-fiM/maxresdefault.jpg", "contentUrl": "https://www.youtube.com/watch?v=LyopmsT-fiM", "embedUrl": "https://www.youtube.com/embed/LyopmsT-fiM", "uploadDate": "2024-01-01T00:00:00+00:00", "url": "https://djdxmusic.com/#videos"}},
+                {"@type": "ListItem", "position": 4, "item": {"@type": "VideoObject", "name": "DJ DX — Official Music Video 4", "description": "Official music video by DJ DX, New York/New Jersey DJ, producer, and recording artist.", "thumbnailUrl": "https://i.ytimg.com/vi/00V8Q92N5Ig/maxresdefault.jpg", "contentUrl": "https://www.youtube.com/watch?v=00V8Q92N5Ig", "embedUrl": "https://www.youtube.com/embed/00V8Q92N5Ig", "uploadDate": "2024-01-01T00:00:00+00:00", "url": "https://djdxmusic.com/#videos"}},
+                {"@type": "ListItem", "position": 5, "item": {"@type": "VideoObject", "name": "DJ DX — Official Music Video 5", "description": "Official music video by DJ DX, New York/New Jersey DJ, producer, and recording artist.", "thumbnailUrl": "https://i.ytimg.com/vi/ut5ukF-SL60/maxresdefault.jpg", "contentUrl": "https://www.youtube.com/watch?v=ut5ukF-SL60", "embedUrl": "https://www.youtube.com/embed/ut5ukF-SL60", "uploadDate": "2024-01-01T00:00:00+00:00", "url": "https://djdxmusic.com/#videos"}},
+                {"@type": "ListItem", "position": 6, "item": {"@type": "VideoObject", "name": "DJ DX — Official Music Video 6", "description": "Official music video by DJ DX, New York/New Jersey DJ, producer, and recording artist.", "thumbnailUrl": "https://i.ytimg.com/vi/bdNVGEpmTuc/maxresdefault.jpg", "contentUrl": "https://www.youtube.com/watch?v=bdNVGEpmTuc", "embedUrl": "https://www.youtube.com/embed/bdNVGEpmTuc", "uploadDate": "2024-01-01T00:00:00+00:00", "url": "https://djdxmusic.com/#videos"}}
+              ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ItemList",
               "name": "DJ DX — Music Store: Blends, Remixes & Originals",
               "url": "https://djdxmusic.com/#catalog",
               "description": "Exclusive blends, remixes, and original productions by DJ DX — available to stream and purchase at djdxmusic.com.",
