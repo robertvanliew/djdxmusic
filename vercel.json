@@ -2,20 +2,6 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "framework": "vite",
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "header", "key": "x-forwarded-proto", "value": "http" }],
-      "destination": "https://djdxmusic.com/$1",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.djdxmusic.com" }],
-      "destination": "https://djdxmusic.com/$1",
-      "permanent": true
-    }
-  ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
