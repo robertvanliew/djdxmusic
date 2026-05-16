@@ -509,13 +509,30 @@ function App() {
             },
             {
               "@context": "https://schema.org",
-              "@type": "Event",
+              "@type": "MusicEvent",
               "name": "DJ DX — Finally Moving at TEDxYouth@RVA",
-              "startDate": "2022-11-01",
+              "startDate": "2022-11-12T09:00:00-05:00",
+              "endDate": "2022-11-12T17:00:00-05:00",
+              "eventStatus": "https://schema.org/EventScheduled",
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "image": "https://djdxmusic.com/show-2.jpg",
               "location": {
                 "@type": "Place",
                 "name": "TEDxYouth@RVA",
                 "address": {"@type": "PostalAddress", "addressLocality": "Richmond", "addressRegion": "VA", "addressCountry": "US"}
+              },
+              "organizer": {
+                "@type": "Organization",
+                "name": "TEDxYouth@RVA",
+                "url": "https://www.ted.com/tedx/events/52176"
+              },
+              "offers": {
+                "@type": "Offer",
+                "url": "https://www.ted.com/tedx/events/52176",
+                "price": "0",
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/SoldOut",
+                "validFrom": "2022-09-01T00:00:00-05:00"
               },
               "performer": {"@type": "MusicGroup", "name": "DJ DX", "url": "https://djdxmusic.com/"},
               "url": "https://www.ted.com/talks/dj_dx_finally_moving",
