@@ -2339,6 +2339,25 @@ section { padding: 120px 40px; }
   letter-spacing: 0.04em;
 }
 
+.footer-designer-credit {
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding: 18px 0 6px;
+  text-align: center;
+}
+.footer-designer-link {
+  display: inline-block;
+  font-family: 'Barlow', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(242,242,242,0.22);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.footer-designer-link:hover {
+  color: var(--gold);
+}
+
 .footer-book-cta {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.72rem;

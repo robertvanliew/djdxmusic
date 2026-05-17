@@ -81,6 +81,17 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
           <a href={bookHref} className="footer-book-cta">{bookLabel}</a>
         </div>
 
+        <div className="footer-designer-credit">
+          <a
+            href="https://robertvanliew.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-designer-link"
+          >
+            Designed by Robert Van Liew
+          </a>
+        </div>
+
         <div className="footer-recognized" aria-label="Recognized by">
           <span className="footer-recognized-label">As Seen In &amp; Recognized By</span>
           <div className="footer-recognized-strip" role="list">

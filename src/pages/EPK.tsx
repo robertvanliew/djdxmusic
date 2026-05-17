@@ -268,22 +268,23 @@ export default function EPK() {
           <div className="epkr-bio-layout">
             <div className="epkr-bio-text">
               <p className="epkr-bio-para">
-                <span className="epkr-dropcap-d">D</span><span className="epkr-dropcap-rest">J DX</span> is a New Jersey / Tri-State DJ, producer, and recording artist with over
-                25 years behind the decks. Trained in the tradition of classic DJing — reading the room,
-                serving the crowd, and commanding every moment with precision — DJ DX has built a
-                reputation as one of the most versatile and reliable performers in the region.
+                <span className="epkr-dropcap-d">D</span><span className="epkr-dropcap-rest">J DX</span> is a New Jersey and Tri-State area DJ, producer, and recording artist with
+                over 25 years of professional experience. He started in 1998 and has spent every year
+                since playing weddings, corporate events, clubs, and private parties across New York,
+                New Jersey, and Connecticut.
               </p>
               <p>
-                Specializing in soulful, nostalgia-driven sets that seamlessly weave R&amp;B, hip-hop,
-                house, Afrobeats, and Jersey Club, DJ DX is celebrated for original blends and exclusive
-                edits that can't be heard anywhere else. With over 100 original productions released
-                independently, his music has earned millions of streams and viral moments exceeding 4.5M
-                TikTok views on a single collaboration.
+                His sets cover R&amp;B, hip-hop, house, Afrobeats, Amapiano, Jersey Club, reggaeton,
+                and old school. Most of what he plays at events you won't hear from another DJ. He has
+                released over 100 original productions independently, and his music has reached
+                audiences across Latin America, the UK, Ukraine, Belarus, and Russia. One Soul Shades
+                collaboration has 4.5 million TikTok views.
               </p>
               <p>
-                From TED and TEDx stages to concerts, corporate events, club residencies, and private
-                celebrations — the standard never drops. Press coverage includes TED.com, Disrupt
-                Magazine, NJ.com, and RVA Magazine. First-time clients become long-term partners.
+                He performed as a featured artist on the TED stage at TEDxYouth@RVA 2022, the only DJ
+                to do so. Press coverage includes Disrupt Magazine, NJ.com, and RVA Magazine. He works
+                with the same vendors and clients year after year, which says more than any line of
+                marketing copy.
               </p>
             </div>
 

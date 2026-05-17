@@ -746,31 +746,31 @@ function App() {
               </div>
               <div className="about-body sr" data-sr-delay="0.12s">
                 <p>
-                  DJ DX brings over two decades of experience to the turntables,
-                  the studio, and the stage. More than a selector — he is a complete artist: DJ,
-                  producer, rapper, and engineer. His live sets blend R&amp;B, hip-hop, house, and
-                  Afrobeats with the kind of crowd-reading instinct that only comes from 25+ years
-                  of real gigs.
+                  DJ DX has been DJing since 1998. Over 25 years of weddings, corporate events,
+                  clubs, and private parties across New York, New Jersey, and Connecticut. He's
+                  also a producer, rapper, and audio engineer with over 100 original tracks
+                  released independently.
                 </p>
                 <p>
-                  Known throughout Latin America as <em>"El Negro,"</em> his Hood Reggaeton series
-                  drove millions of mixtape downloads and earned collaborations with genre heavyweights.
-                  His underground tapes and original productions have built a cult following across
-                  the UK, Ukraine, Belarus, and Russia.
+                  Across Latin America he goes by <em>"El Negro."</em> His Hood Reggaeton series
+                  built a following throughout Puerto Rico and the Dominican Republic, and his
+                  underground releases have reached audiences in the UK, Ukraine, Belarus, and
+                  Russia.
                 </p>
                 <p>
-                  TEDx stages. Corporate rooms. Private events. One rule: <strong>build the
-                  experience for the room, not the playlist.</strong> The vibe changes — the
-                  standard doesn't. First-time clients become lifelong regulars.
+                  Live sets pull from R&amp;B, hip-hop, house, Afrobeats, Amapiano, Jersey Club,
+                  and old school. The genres shift by room. The one rule is simple: <strong>build
+                  the set for the people in front of you.</strong> Most of his clients book him
+                  again the next year.
                 </p>
               </div>
             </div>
 
             <div className="about-aside">
               {[
-                { num: "25+", label: "Years in the Game", sub: "Consistent. Reliable. Professional.", delay: "0.05s" },
-                { num: "500+", label: "Events Performed", sub: "From lounges to major venues.", delay: "0.15s" },
-                { num: "100+", label: "Original Blends Released", sub: "Music you won't hear anywhere else.", delay: "0.25s" },
+                { num: "25+", label: "Years DJing", sub: "Active since 1998.", delay: "0.05s" },
+                { num: "500+", label: "Events Performed", sub: "Weddings, corporate, clubs, private.", delay: "0.15s" },
+                { num: "100+", label: "Original Releases", sub: "Blends, remixes, and originals.", delay: "0.25s" },
               ].map(s => (
                 <div className="stat-row sr" data-sr-delay={s.delay} key={s.label}>
                   <div className="stat-num">{s.num}</div>
