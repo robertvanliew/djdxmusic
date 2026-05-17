@@ -21,6 +21,8 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
             <Link to="/#catalog" className="footer-nav-link">Music</Link>
             <Link to="/#videos" className="footer-nav-link">Videos</Link>
             <Link to="/#booking" className="footer-nav-link">Booking</Link>
+            <Link to="/contact" className="footer-nav-link">Contact</Link>
+            <Link to="/faq" className="footer-nav-link">FAQ</Link>
           </div>
 
           <div className="footer-nav-col">
@@ -68,7 +70,7 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
             <Link to="/terms" className="footer-nav-link">Terms &amp; Conditions</Link>
             <Link to="/privacy" className="footer-nav-link">Privacy Policy</Link>
             <Link to="/refunds" className="footer-nav-link">Refund Policy</Link>
-            <a href="mailto:frankpellallc@gmail.com" className="footer-nav-link">Support</a>
+            <a href="mailto:support@djdxmusic.com" className="footer-nav-link">Support</a>
           </div>
         </div>
 

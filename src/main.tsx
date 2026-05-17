@@ -44,6 +44,7 @@ const News              = lazy(() => import('./pages/News.tsx'))
 const NewsArticle       = lazy(() => import('./pages/NewsArticle.tsx'))
 const FAQ               = lazy(() => import('./pages/FAQ.tsx'))
 const ThankYou          = lazy(() => import('./pages/ThankYou.tsx'))
+const Contact           = lazy(() => import('./pages/Contact.tsx'))
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -109,6 +110,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/news/:slug"     element={<NewsArticle />} />
             <Route path="/faq"            element={<FAQ />} />
             <Route path="/thank-you"      element={<ThankYou />} />
+            <Route path="/contact"        element={<Contact />} />
           </Routes>
         </Suspense>
         </PlayerProvider>

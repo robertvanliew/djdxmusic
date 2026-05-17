@@ -404,6 +404,12 @@
     <priority>0.85</priority>
   </url>
   <url>
+    <loc>https://djdxmusic.com/contact</loc>
+    <lastmod>2026-05-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
     <loc>https://djdxmusic.com/news/buzz-in-london-soul-shades</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
