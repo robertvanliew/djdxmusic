@@ -128,7 +128,7 @@ export default function ThankYou() {
             Check your <strong style={{ color: 'var(--white)' }}>Spam</strong> or{' '}
             <strong style={{ color: 'var(--white)' }}>Promotions</strong> folder.{' '}
             If you still can&apos;t find it after 5 minutes, email{' '}
-            <a href="mailto:djdxbusiness@gmail.com" style={{ color: 'var(--gold)' }}>djdxbusiness@gmail.com</a>{' '}
+            <a href="mailto:support@djdxmusic.com" style={{ color: 'var(--gold)' }}>support@djdxmusic.com</a>{' '}
             with your purchase email and we&apos;ll resend the link.
           </div>
 

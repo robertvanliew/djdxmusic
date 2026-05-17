@@ -27,11 +27,11 @@ const faqs = [
   },
   {
     q: 'How do I book DJ DX?',
-    a: 'You can book DJ DX by submitting an inquiry at djdxmusic.com/#booking, or by emailing djdxbusiness@gmail.com directly. All quotes are custom and returned within 24 hours. Booking 6–12 months in advance is recommended for peak wedding and event season (May through October).',
+    a: 'You can book DJ DX by submitting an inquiry at djdxmusic.com/#booking, or by emailing bookings@djdxmusic.com directly. All quotes are custom and returned within 24 hours. Booking 6–12 months in advance is recommended for peak wedding and event season (May through October).',
   },
   {
     q: 'How much does DJ DX cost?',
-    a: 'DJ DX pricing varies by event type and duration. Wedding DJ services start at $1,500 and range up to $5,000+ depending on venue and package. Corporate events start at $2,000. Soul Shades live violin + DJ packages start at $3,000. Private parties start at $1,200. All quotes are custom — contact djdxbusiness@gmail.com for transparent pricing.',
+    a: 'DJ DX pricing varies by event type and duration. Wedding DJ services start at $1,500 and range up to $5,000+ depending on venue and package. Corporate events start at $2,000. Soul Shades live violin + DJ packages start at $3,000. Private parties start at $1,200. All quotes are custom — contact bookings@djdxmusic.com for transparent pricing.',
   },
   {
     q: 'Who is Soul Shades?',
@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     q: 'Does DJ DX travel for destination weddings?',
-    a: 'Yes. DJ DX is available for destination weddings worldwide, including the Hamptons, Caribbean, Mexico, Italy, France, Spain, Greece, and beyond. Travel arrangements and venue coordination are handled in advance. Contact djdxbusiness@gmail.com for a custom destination quote.',
+    a: 'Yes. DJ DX is available for destination weddings worldwide, including the Hamptons, Caribbean, Mexico, Italy, France, Spain, Greece, and beyond. Travel arrangements and venue coordination are handled in advance. Contact bookings@djdxmusic.com for a custom destination quote.',
   },
   {
     q: 'What awards or features has DJ DX received?',

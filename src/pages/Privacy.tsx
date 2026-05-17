@@ -69,7 +69,7 @@ export default function Privacy() {
         </LegalSection>
 
         <LegalSection title="5. Data Retention">
-          <p>We retain your email address and purchase records for as long as necessary to fulfill the purposes outlined in this policy, including providing customer support and complying with legal obligations. You may request deletion of your data at any time by contacting us at <a href="mailto:frankpellallc@gmail.com" style={{ color: 'var(--gold)' }}>frankpellallc@gmail.com</a>.</p>
+          <p>We retain your email address and purchase records for as long as necessary to fulfill the purposes outlined in this policy, including providing customer support and complying with legal obligations. You may request deletion of your data at any time by contacting us at <a href="mailto:privacy@djdxmusic.com" style={{ color: 'var(--gold)' }}>privacy@djdxmusic.com</a>.</p>
         </LegalSection>
 
         <LegalSection title="6. Cookies and Tracking">
@@ -89,7 +89,7 @@ export default function Privacy() {
             <li>Opt out of marketing communications</li>
             <li>Lodge a complaint with a supervisory authority (for EU/UK residents)</li>
           </ul>
-          <p style={{ marginTop: '16px' }}>To exercise any of these rights, contact us at <a href="mailto:frankpellallc@gmail.com" style={{ color: 'var(--gold)' }}>frankpellallc@gmail.com</a>.</p>
+          <p style={{ marginTop: '16px' }}>To exercise any of these rights, contact us at <a href="mailto:privacy@djdxmusic.com" style={{ color: 'var(--gold)' }}>privacy@djdxmusic.com</a>.</p>
         </LegalSection>
 
         <LegalSection title="9. Children's Privacy">
@@ -103,7 +103,7 @@ export default function Privacy() {
         <LegalSection title="11. Contact">
           <p>For any privacy-related questions or requests, please contact FRANKPELLA LLC at:</p>
           <p style={{ marginTop: '12px' }}>
-            <a href="mailto:frankpellallc@gmail.com" style={{ color: 'var(--gold)' }}>frankpellallc@gmail.com</a>
+            <a href="mailto:privacy@djdxmusic.com" style={{ color: 'var(--gold)' }}>privacy@djdxmusic.com</a>
           </p>
         </LegalSection>
 

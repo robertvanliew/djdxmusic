@@ -33,7 +33,7 @@ export default function WeddingDJNorthernNJ() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$-$$$",
                 "address": {
                   "@type": "PostalAddress",
@@ -64,7 +64,7 @@ export default function WeddingDJNorthernNJ() {
                 {
                   "@type": "Question",
                   "name": "How much does a wedding DJ cost in Northern NJ?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Northern New Jersey wedding DJ pricing typically ranges from $1,500 to $4,500+ depending on venue, duration, and package. Premier venues like The Venetian, Liberty House, and Park Avenue Club command higher rates due to event scale. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com."}
+                  "acceptedAnswer": {"@type": "Answer", "text": "Northern New Jersey wedding DJ pricing typically ranges from $1,500 to $4,500+ depending on venue, duration, and package. Premier venues like The Venetian, Liberty House, and Park Avenue Club command higher rates due to event scale. DJ DX offers custom transparent quotes — contact bookings@djdxmusic.com."}
                 },
                 {
                   "@type": "Question",
@@ -183,7 +183,7 @@ export default function WeddingDJNorthernNJ() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'How much does a wedding DJ cost in Northern NJ?', a: 'Northern New Jersey wedding DJ pricing typically ranges from $1,500 to $4,500+ depending on venue, duration, and package. Premier venues like The Venetian, Liberty House, and Park Avenue Club command higher rates. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com.' },
+              { q: 'How much does a wedding DJ cost in Northern NJ?', a: 'Northern New Jersey wedding DJ pricing typically ranges from $1,500 to $4,500+ depending on venue, duration, and package. Premier venues like The Venetian, Liberty House, and Park Avenue Club command higher rates. DJ DX offers custom transparent quotes — contact bookings@djdxmusic.com.' },
               { q: 'Is DJ DX available for Northern NJ wedding venues?', a: 'Yes. DJ DX is available for weddings at Northern NJ\'s premier venues — The Venetian (Garfield), Liberty House (Jersey City — Manhattan skyline views), Park Avenue Club (Florham Park), The Tides Estate (North Haledon), Maritime Parc (Jersey City), The Brownstone (Paterson), and Eagle Oaks Country Club. Multi-cultural NJ weddings are a specialty.' },
               { q: 'Does DJ DX handle multi-cultural and bilingual NJ weddings?', a: 'Yes — and this is one of the strongest fits for Northern NJ. As "El Negro" across Latin America, DJ DX brings deep Reggaeton, Spanish, Bachata, and Latin Hip-Hop catalog. Combined with R&B, Afrobeats, Old School, and traditional wedding sets, DJ DX serves Hispanic, Caribbean, African, and multi-cultural NJ couples authentically.' },
               { q: 'How early should we book a Northern NJ wedding DJ?', a: 'Book 6-12 months in advance for Northern NJ weddings. Peak season (May-October) Saturday dates at premier venues fill 9-12 months out. Reach out as early as possible to confirm availability.' },

@@ -33,7 +33,7 @@ export default function WeddingDJWestchester() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$-$$$",
                 "address": {
                   "@type": "PostalAddress",
@@ -64,7 +64,7 @@ export default function WeddingDJWestchester() {
                 {
                   "@type": "Question",
                   "name": "How much does a wedding DJ cost in Westchester County?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Westchester County wedding DJ pricing typically ranges from $1,800 to $5,500+ depending on venue, duration, and package. Premier venues like Tappan Hill Mansion, Sleepy Hollow Country Club, and The Castle Hotel command higher rates. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com."}
+                  "acceptedAnswer": {"@type": "Answer", "text": "Westchester County wedding DJ pricing typically ranges from $1,800 to $5,500+ depending on venue, duration, and package. Premier venues like Tappan Hill Mansion, Sleepy Hollow Country Club, and The Castle Hotel command higher rates. DJ DX offers custom transparent quotes — contact bookings@djdxmusic.com."}
                 },
                 {
                   "@type": "Question",
@@ -183,7 +183,7 @@ export default function WeddingDJWestchester() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'How much does a wedding DJ cost in Westchester County?', a: 'Westchester County wedding DJ pricing typically ranges from $1,800 to $5,500+ depending on venue, duration, and package. Premier venues like Tappan Hill Mansion, Sleepy Hollow Country Club, and The Castle Hotel command higher rates. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com.' },
+              { q: 'How much does a wedding DJ cost in Westchester County?', a: 'Westchester County wedding DJ pricing typically ranges from $1,800 to $5,500+ depending on venue, duration, and package. Premier venues like Tappan Hill Mansion, Sleepy Hollow Country Club, and The Castle Hotel command higher rates. DJ DX offers custom transparent quotes — contact bookings@djdxmusic.com.' },
               { q: 'Is DJ DX available for Westchester wedding venues?', a: 'Yes. DJ DX is available for weddings at Westchester County\'s premier venues — Tappan Hill Mansion (Tarrytown), The Briarcliff Manor, Sleepy Hollow Country Club, The Castle Hotel & Spa (Tarrytown), Glen Island Harbour Club (New Rochelle), Crabtree\'s Kittle House (Chappaqua), and Hudson Valley estates. Setup and venue coordination are handled professionally for each booking.' },
               { q: 'How long is the drive from NYC to Westchester?', a: 'Most Westchester wedding venues are 30-45 minutes from Manhattan via the Henry Hudson Parkway or I-87. DJ DX includes Westchester in the regular tri-state circuit — no travel fees added for venues within 50 miles of NYC.' },
               { q: 'How early should we book a Westchester wedding DJ?', a: 'Book 8-12 months in advance for Westchester County weddings. Peak season (May-October) Saturday dates at top venues like Tappan Hill, Sleepy Hollow Country Club, and The Castle Hotel fill 12+ months out.' },

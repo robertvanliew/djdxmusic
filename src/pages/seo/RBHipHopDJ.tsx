@@ -37,7 +37,7 @@ export default function RBHipHopDJ() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$-$$$",
                 "sameAs": [
                   "https://djdxmusic.com/",
@@ -106,7 +106,7 @@ export default function RBHipHopDJ() {
                   "name": "Is DJ DX available for R&B birthday parties and private events in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. DJ DX is available for birthday parties, private events, corporate events, rooftop parties, and more across NYC and NJ. Contact djdxbusiness@gmail.com for availability and pricing for your specific event."
+                    "text": "Yes. DJ DX is available for birthday parties, private events, corporate events, rooftop parties, and more across NYC and NJ. Contact bookings@djdxmusic.com for availability and pricing for your specific event."
                   }
                 },
                 {
@@ -253,7 +253,7 @@ export default function RBHipHopDJ() {
             {[
               { q: 'What R&B and Hip-Hop artists does DJ DX play?', a: 'DJ DX plays a wide spectrum — from classic Old School R&B (Marvin Gaye, Teddy Pendergrass, Mary J. Blige, D\'Angelo) to modern artists (Drake, Beyoncé, SZA, Kendrick Lamar, J. Cole, Chris Brown). Every set is custom-built around your crowd\'s preferences and generational mix.' },
               { q: 'Can DJ DX mix R&B and Hip-Hop with Afrobeats or other genres?', a: 'Yes — DJ DX specializes in multi-genre blending. R&B and Hip-Hop are seamlessly woven with Afrobeats, Amapiano, dancehall, and house depending on your crowd\'s vibe. This cross-genre approach is especially popular at New York and New Jersey weddings with diverse guest lists.' },
-              { q: 'Is DJ DX available for R&B birthday parties and private events in NYC?', a: 'Yes. DJ DX is available for birthday parties, private events, corporate events, rooftop parties, and more across NYC and NJ. Contact djdxbusiness@gmail.com for availability and pricing for your specific event.' },
+              { q: 'Is DJ DX available for R&B birthday parties and private events in NYC?', a: 'Yes. DJ DX is available for birthday parties, private events, corporate events, rooftop parties, and more across NYC and NJ. Contact bookings@djdxmusic.com for availability and pricing for your specific event.' },
               { q: 'How much does an R&B DJ cost in New York City?', a: 'R&B DJ pricing in New York City ranges from $1,000 to $3,500+ depending on event type, duration, and experience level. DJ DX offers transparent, event-specific pricing — fill out the booking form for a custom quote.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>

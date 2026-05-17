@@ -8,7 +8,7 @@ export default function Pricing() {
     <div style={{ background: 'var(--black)', minHeight: '100vh', color: 'var(--light)' }}>
       <Helmet>
         <title>Pricing — DJ DX Music Store</title>
-        <meta name="description" content="Buy exclusive DJ DX blends, remixes, and originals. Name your price — starting at $2.00 per track. Instant digital download delivered to your email." />
+        <meta name="description" content="Buy exclusive DJ DX blends, remixes, and originals. Name your price — starting at $3.00 per track. Instant digital download delivered to your email." />
         <link rel="canonical" href="https://djdxmusic.com/pricing" />
       </Helmet>
 
@@ -35,7 +35,7 @@ export default function Pricing() {
             <span style={{ color: 'rgba(242,242,242,0.5)', fontSize: '16px', marginBottom: '12px' }}>/ track minimum</span>
           </div>
           <p style={{ color: 'rgba(242,242,242,0.65)', fontSize: '15px', lineHeight: 1.6, marginBottom: '32px' }}>
-            Every track starts at <strong style={{ color: 'var(--gold)' }}>$2.00</strong>. You choose what to pay — support the work as much as you'd like. All purchases include an instant download link delivered to your email.
+            Every track starts at <strong style={{ color: 'var(--gold)' }}>$3.00</strong>. You choose what to pay — support the work as much as you'd like. All purchases include an instant download link delivered to your email.
           </p>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
@@ -82,7 +82,7 @@ export default function Pricing() {
             {[
               {
                 q: 'How does "name your price" work?',
-                a: 'Pick the tracks you want, then enter any amount above the $2.00/track minimum. Pay more if you love the music — it goes directly to supporting the work.',
+                a: 'Pick the tracks you want, then enter any amount above the $3.00/track minimum. Pay more if you love the music — it goes directly to supporting the work.',
               },
               {
                 q: 'How do I receive my download?',
@@ -90,11 +90,15 @@ export default function Pricing() {
               },
               {
                 q: 'Can I get a refund?',
-                a: 'Because these are digital downloads, all sales are final. If you have a delivery issue, contact us and we\'ll sort it out.',
+                a: 'Because these are digital downloads, all sales are final. If you have a delivery issue, contact support@djdxmusic.com and we\'ll sort it out.',
               },
               {
                 q: 'What can I do with the tracks?',
-                a: 'Purchases are for personal use. For event, broadcast, or commercial licensing, reach out via the booking form.',
+                a: 'Purchases are for personal use. For event, broadcast, or commercial licensing, reach out via the booking form or email bookings@djdxmusic.com.',
+              },
+              {
+                q: 'Need help with your order?',
+                a: 'Email support@djdxmusic.com with your order details and we\'ll respond within 24 hours.',
               },
             ].map(({ q, a }) => (
               <div key={q}>

@@ -51,7 +51,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     await resend.emails.send({
       from: process.env.FROM_EMAIL || 'DJ DX <noreply@djdxmusic.com>',
-      to: ['djdxbusiness@gmail.com'],
+      to: ['bookings@djdxmusic.com'],
       replyTo: email,
       subject: `New Booking Inquiry — ${safeEventType} | ${safeEventDate}`,
       html: `

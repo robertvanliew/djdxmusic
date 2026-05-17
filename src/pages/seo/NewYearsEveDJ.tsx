@@ -37,7 +37,7 @@ export default function NewYearsEveDJ() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$$-$$$$",
                 "sameAs": [
                   "https://djdxmusic.com/",
@@ -80,7 +80,7 @@ export default function NewYearsEveDJ() {
                   "name": "How do I book DJ DX for New Year's Eve in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Email djdxbusiness@gmail.com or use the booking form on this page. NYE is DJ DX's single most in-demand date — only one slot is available per year. Inquiries received by November 1st receive priority. Include your event type, venue, expected guest count, and budget range. Do not wait until December — this date books months in advance."
+                    "text": "Email bookings@djdxmusic.com or use the booking form on this page. NYE is DJ DX's single most in-demand date — only one slot is available per year. Inquiries received by November 1st receive priority. Include your event type, venue, expected guest count, and budget range. Do not wait until December — this date books months in advance."
                   }
                 },
                 {
@@ -104,7 +104,7 @@ export default function NewYearsEveDJ() {
                   "name": "How far in advance should I book a New Year's Eve DJ in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "As early as possible — ideally by September or October. NYE is the most competitive booking date in the DJ calendar. Premium DJs in NYC are often fully booked by October 31st. Contact djdxbusiness@gmail.com now to check availability for the upcoming New Year's Eve."
+                    "text": "As early as possible — ideally by September or October. NYE is the most competitive booking date in the DJ calendar. Premium DJs in NYC are often fully booked by October 31st. Contact bookings@djdxmusic.com now to check availability for the upcoming New Year's Eve."
                   }
                 }
               ]
@@ -215,10 +215,10 @@ export default function NewYearsEveDJ() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'How do I book DJ DX for New Year\'s Eve in NYC?', a: 'Email djdxbusiness@gmail.com or use the form below. NYE is DJ DX\'s single most in-demand date — only one slot is available per year. Inquiries received by November 1st receive priority. Include your event type, venue, expected guest count, and budget range.' },
+              { q: 'How do I book DJ DX for New Year\'s Eve in NYC?', a: 'Email bookings@djdxmusic.com or use the form below. NYE is DJ DX\'s single most in-demand date — only one slot is available per year. Inquiries received by November 1st receive priority. Include your event type, venue, expected guest count, and budget range.' },
               { q: 'What type of NYE events does DJ DX perform at?', a: 'DJ DX performs at private NYE parties, corporate New Year\'s Eve galas, rooftop countdown parties, nightclub NYE residencies, and restaurant and lounge NYE celebrations across NYC and NJ. Every NYE set is engineered specifically for the midnight moment.' },
               { q: 'What does a DJ DX NYE set look like musically?', a: 'A DJ DX NYE set is built in phases: elegant early-evening R&B and neo-soul, a building mid-night ramp-up with hip-hop and Afrobeats, a scripted countdown sequence, and a post-midnight floor peak that keeps the party going until 2–3am. The midnight moment is engineered to make the entire room erupt.' },
-              { q: 'How far in advance should I book a NYE DJ in NYC?', a: 'As early as possible — ideally by September or October. NYE is the most competitive booking date in the DJ calendar. Premium DJs in NYC are often fully booked by October 31st. Contact djdxbusiness@gmail.com now to check availability.' },
+              { q: 'How far in advance should I book a NYE DJ in NYC?', a: 'As early as possible — ideally by September or October. NYE is the most competitive booking date in the DJ calendar. Premium DJs in NYC are often fully booked by October 31st. Contact bookings@djdxmusic.com now to check availability.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>

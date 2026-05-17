@@ -29,7 +29,7 @@ export default function Terms() {
         </LegalSection>
 
         <LegalSection title="2. About FRANKPELLA LLC">
-          <p>FRANKPELLA LLC is the legal entity operating the DJ DX brand, website, and music store. All purchases, transactions, and contractual agreements are with FRANKPELLA LLC. For any inquiries, contact us at <a href="mailto:frankpellallc@gmail.com" style={{ color: 'var(--gold)' }}>frankpellallc@gmail.com</a>.</p>
+          <p>FRANKPELLA LLC is the legal entity operating the DJ DX brand, website, and music store. All purchases, transactions, and contractual agreements are with FRANKPELLA LLC. For any inquiries, contact us at <a href="mailto:legal@djdxmusic.com" style={{ color: 'var(--gold)' }}>legal@djdxmusic.com</a>.</p>
         </LegalSection>
 
         <LegalSection title="3. Digital Products">
@@ -78,7 +78,7 @@ export default function Terms() {
         <LegalSection title="12. Contact">
           <p>For questions regarding these Terms &amp; Conditions, please contact FRANKPELLA LLC at:</p>
           <p style={{ marginTop: '12px' }}>
-            <a href="mailto:frankpellallc@gmail.com" style={{ color: 'var(--gold)' }}>frankpellallc@gmail.com</a>
+            <a href="mailto:legal@djdxmusic.com" style={{ color: 'var(--gold)' }}>legal@djdxmusic.com</a>
           </p>
         </LegalSection>
 

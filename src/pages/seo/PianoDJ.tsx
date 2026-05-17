@@ -40,7 +40,7 @@ export default function PianoDJ() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$$-$$$$"
               },
               "areaServed": [

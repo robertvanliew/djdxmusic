@@ -33,7 +33,7 @@ export default function WeddingDJManhattan() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$-$$$",
                 "address": {
                   "@type": "PostalAddress",
@@ -62,7 +62,7 @@ export default function WeddingDJManhattan() {
                 {
                   "@type": "Question",
                   "name": "How much does a Manhattan wedding DJ cost?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Manhattan wedding DJ pricing typically ranges from $2,500 to $7,500+ depending on venue, duration, and package. Manhattan weddings command premium rates due to venue load-in complexity, union requirements at some venues (like The Plaza and The Rainbow Room), and higher peak-season demand. DJ DX offers transparent custom quotes for Manhattan weddings — contact djdxbusiness@gmail.com for availability."}
+                  "acceptedAnswer": {"@type": "Answer", "text": "Manhattan wedding DJ pricing typically ranges from $2,500 to $7,500+ depending on venue, duration, and package. Manhattan weddings command premium rates due to venue load-in complexity, union requirements at some venues (like The Plaza and The Rainbow Room), and higher peak-season demand. DJ DX offers transparent custom quotes for Manhattan weddings — contact bookings@djdxmusic.com for availability."}
                 },
                 {
                   "@type": "Question",
@@ -181,7 +181,7 @@ export default function WeddingDJManhattan() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'How much does a Manhattan wedding DJ cost?', a: 'Manhattan wedding DJ pricing typically ranges from $2,500 to $7,500+ depending on venue, duration, and package. Manhattan weddings command premium rates due to venue load-in complexity, union requirements at some venues (like The Plaza and The Rainbow Room), and higher peak-season demand. DJ DX offers transparent custom quotes — contact djdxbusiness@gmail.com.' },
+              { q: 'How much does a Manhattan wedding DJ cost?', a: 'Manhattan wedding DJ pricing typically ranges from $2,500 to $7,500+ depending on venue, duration, and package. Manhattan weddings command premium rates due to venue load-in complexity, union requirements at some venues (like The Plaza and The Rainbow Room), and higher peak-season demand. DJ DX offers transparent custom quotes — contact bookings@djdxmusic.com.' },
               { q: 'Is DJ DX available for top Manhattan wedding venues?', a: 'Yes. DJ DX is available for weddings at Manhattan\'s premier venues — Cipriani 25 Broadway, Tribeca Rooftop, Pier Sixty at Chelsea Piers, Capitale, The Bowery Hotel, 620 Loft & Garden, The Glasshouses, Tribeca 360, and Midtown hotel ballrooms. Setup is professional-grade, sound coordination is handled with venue staff in advance, and load-in is planned to match each venue\'s requirements.' },
               { q: 'Does DJ DX handle Manhattan venue sound restrictions?', a: 'Yes. Many Manhattan rooftop and outdoor venues have strict decibel limits (often 85-90 dB) and curfews (typically 10pm-11pm for outdoor). DJ DX works closely with venue coordinators in advance to confirm sound specs and deliver compliant audio.' },
               { q: 'How early should we book a wedding DJ in Manhattan?', a: 'For Manhattan weddings, book 9-14 months in advance — especially for fall (September-October) and spring (April-May) peak seasons. Saturday dates at top venues typically book DJs 12+ months out.' },

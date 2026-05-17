@@ -37,7 +37,7 @@ export default function RooftopDJ() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$$",
                 "sameAs": [
                   "https://djdxmusic.com/",
@@ -107,7 +107,7 @@ export default function RooftopDJ() {
                   "name": "Is DJ DX available for Hamptons summer rooftop and outdoor events?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. DJ DX serves the Hamptons summer event circuit — from Sag Harbor terrace parties to East Hampton estate gatherings to Montauk beachfront events. Summer availability books quickly; contact djdxbusiness@gmail.com well ahead of your date to secure availability."
+                    "text": "Yes. DJ DX serves the Hamptons summer event circuit — from Sag Harbor terrace parties to East Hampton estate gatherings to Montauk beachfront events. Summer availability books quickly; contact bookings@djdxmusic.com well ahead of your date to secure availability."
                   }
                 }
               ]
@@ -218,7 +218,7 @@ export default function RooftopDJ() {
               { q: 'Does DJ DX have experience with outdoor and rooftop events in NYC?', a: 'Yes. DJ DX has extensive experience with outdoor rooftop events, terrace parties, and open-air gatherings across Manhattan, Brooklyn, and the Hamptons. Outdoor setup includes weatherproof equipment considerations, open-space sound projection, and setlists calibrated for the rooftop atmosphere.' },
               { q: 'What music genres work best for rooftop parties in NYC?', a: 'DJ DX typically builds rooftop sets around Afrobeats and Amapiano (perfect summer sound), contemporary R&B, chill hip-hop, house and deep house, and classic soul — all with a flow that lets conversations happen while keeping people moving. The exact blend is tailored to the event\'s audience.' },
               { q: 'Can DJ DX handle the sound setup for an outdoor rooftop event?', a: 'Yes. DJ DX works with professional audio partners to configure outdoor-appropriate sound systems. Factors like wind, open space, and building acoustics are accounted for in advance. Include your venue details in the booking form and we\'ll advise on the right setup.' },
-              { q: 'Is DJ DX available for Hamptons summer rooftop and outdoor events?', a: 'Yes. DJ DX serves the Hamptons summer event circuit — from Sag Harbor terrace parties to East Hampton estate gatherings to Montauk beachfront events. Summer availability books quickly; contact djdxbusiness@gmail.com well ahead of your date.' },
+              { q: 'Is DJ DX available for Hamptons summer rooftop and outdoor events?', a: 'Yes. DJ DX serves the Hamptons summer event circuit — from Sag Harbor terrace parties to East Hampton estate gatherings to Montauk beachfront events. Summer availability books quickly; contact bookings@djdxmusic.com well ahead of your date.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>

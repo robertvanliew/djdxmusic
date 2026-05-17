@@ -37,7 +37,7 @@ export default function Sweet16DJ() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$-$$$",
                 "sameAs": [
                   "https://djdxmusic.com/",
@@ -114,7 +114,7 @@ export default function Sweet16DJ() {
                   "name": "How much does a sweet 16 DJ cost in New York City?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sweet 16 DJ rates in NYC and NJ typically range from $1,000 to $2,800+ depending on event duration, venue, and equipment needed. DJ DX provides transparent custom quotes — email djdxbusiness@gmail.com with your date, venue, and expected number of guests."
+                    "text": "Sweet 16 DJ rates in NYC and NJ typically range from $1,000 to $2,800+ depending on event duration, venue, and equipment needed. DJ DX provides transparent custom quotes — email bookings@djdxmusic.com with your date, venue, and expected number of guests."
                   }
                 }
               ]
@@ -225,7 +225,7 @@ export default function Sweet16DJ() {
               { q: 'What music does DJ DX play at sweet 16 parties?', a: 'DJ DX builds every sweet 16 setlist around what that specific group of teens is actually listening to — current hip-hop, pop, Afrobeats, Amapiano, dancehall, TikTok viral tracks, and Latin pop. The playlist is customized after a direct conversation with the birthday girl and her parents.' },
               { q: 'Does DJ DX keep the music age-appropriate for sweet 16 parties?', a: 'Yes. DJ DX is experienced with family-attended events and maintains the energy of current music while keeping content appropriate for a mixed adult-teen audience. Clean versions, parental preference consultation, and room reading are all part of the service.' },
               { q: 'Can DJ DX do a grand entrance or special moment for the sweet 16?', a: 'Absolutely. DJ DX coordinates grand entrances, birthday announcement moments, first dance songs, and special choreography breakout segments. These milestone moments are scripted with the host ahead of the event to ensure everything lands perfectly.' },
-              { q: 'How much does a sweet 16 DJ cost in New York City?', a: 'Sweet 16 DJ rates in NYC and NJ typically range from $1,000 to $2,800+ depending on event duration, venue, and equipment needed. DJ DX provides transparent custom quotes — email djdxbusiness@gmail.com with your date, venue, and expected guest count.' },
+              { q: 'How much does a sweet 16 DJ cost in New York City?', a: 'Sweet 16 DJ rates in NYC and NJ typically range from $1,000 to $2,800+ depending on event duration, venue, and equipment needed. DJ DX provides transparent custom quotes — email bookings@djdxmusic.com with your date, venue, and expected guest count.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>

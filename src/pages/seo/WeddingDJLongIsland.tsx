@@ -33,7 +33,7 @@ export default function WeddingDJLongIsland() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$-$$$",
                 "address": {
                   "@type": "PostalAddress",
@@ -65,7 +65,7 @@ export default function WeddingDJLongIsland() {
                 {
                   "@type": "Question",
                   "name": "How much does a Long Island wedding DJ cost?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Long Island wedding DJ pricing typically ranges from $1,800 to $5,500+ depending on venue, duration, and Nassau vs Suffolk location. Hamptons weddings (East Hampton, Southampton, Montauk) command premium rates due to travel and overnight accommodations. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com for your date."}
+                  "acceptedAnswer": {"@type": "Answer", "text": "Long Island wedding DJ pricing typically ranges from $1,800 to $5,500+ depending on venue, duration, and Nassau vs Suffolk location. Hamptons weddings (East Hampton, Southampton, Montauk) command premium rates due to travel and overnight accommodations. DJ DX offers custom transparent quotes — contact bookings@djdxmusic.com for your date."}
                 },
                 {
                   "@type": "Question",
@@ -184,7 +184,7 @@ export default function WeddingDJLongIsland() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'How much does a Long Island wedding DJ cost?', a: 'Long Island wedding DJ pricing typically ranges from $1,800 to $5,500+ depending on venue, duration, and Nassau vs Suffolk location. Hamptons weddings command premium rates due to travel and overnight accommodations. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com.' },
+              { q: 'How much does a Long Island wedding DJ cost?', a: 'Long Island wedding DJ pricing typically ranges from $1,800 to $5,500+ depending on venue, duration, and Nassau vs Suffolk location. Hamptons weddings command premium rates due to travel and overnight accommodations. DJ DX offers custom transparent quotes — contact bookings@djdxmusic.com.' },
               { q: 'Is DJ DX available for Long Island wedding venues?', a: 'Yes. DJ DX is available for weddings at Long Island\'s premier venues — Oheka Castle (Huntington), The Garden City Hotel, Crest Hollow Country Club (Woodbury), Bourne Mansion (Oakdale), The Inn at Great Neck, and Hamptons venues including Topping Rose House and Gurney\'s Montauk. Travel and setup are planned around each venue\'s requirements.' },
               { q: 'Do you travel to Eastern Long Island and The Hamptons?', a: 'Yes. DJ DX regularly performs Hamptons and Eastern Long Island weddings — Southampton, East Hampton, Sag Harbor, Bridgehampton, Montauk, and Shelter Island. Travel and overnight accommodations are factored into the quote for venues over 60 miles from NYC.' },
               { q: 'How far in advance should we book a Long Island wedding DJ?', a: 'Book 8-12 months in advance for Long Island weddings — peak summer (June-August) and fall (September-October) book fastest. Hamptons weekends and holiday weekends fill 12-18 months out at top venues.' },

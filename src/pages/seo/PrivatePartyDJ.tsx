@@ -37,7 +37,7 @@ export default function PrivatePartyDJ() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$-$$$",
                 "sameAs": [
                   "https://djdxmusic.com/",
@@ -106,7 +106,7 @@ export default function PrivatePartyDJ() {
                   "name": "How far in advance should I book a private party DJ in New York City?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Ideally 4–8 weeks in advance for most private parties in NYC and NJ. For peak dates (summer weekends, holiday weekends, New Year's Eve), book 3–6 months ahead. DJ DX does accommodate last-minute bookings when the calendar allows — check availability by contacting djdxbusiness@gmail.com."
+                    "text": "Ideally 4–8 weeks in advance for most private parties in NYC and NJ. For peak dates (summer weekends, holiday weekends, New Year's Eve), book 3–6 months ahead. DJ DX does accommodate last-minute bookings when the calendar allows — check availability by contacting bookings@djdxmusic.com."
                   }
                 }
               ]
@@ -218,7 +218,7 @@ export default function PrivatePartyDJ() {
               { q: 'What types of private parties does DJ DX perform at in NYC?', a: 'DJ DX performs at birthday parties (18th, 21st, 30th, 40th, 50th milestones), anniversary celebrations, retirement parties, graduation parties, launch events, and housewarming parties. Venues range from Manhattan rooftops and Brooklyn lofts to New Jersey estates.' },
               { q: 'Can DJ DX customize the music for a specific birthday party theme?', a: 'Yes. DJ DX works directly with the host before every event to build a custom setlist — including the guest of honor\'s favorite artists, must-play songs, and any theme the party is built around. Decade-specific sets, genre themes, and artist tributes are all available.' },
               { q: 'Does DJ DX bring sound and lighting equipment to private parties?', a: 'Yes. DJ DX provides professional-grade sound systems and can coordinate lighting for private events. Setup requirements depend on the venue size and type. Include the venue details in the booking form and we\'ll advise on the appropriate equipment package.' },
-              { q: 'How far in advance should I book a private party DJ in New York City?', a: 'Ideally 4–8 weeks in advance for most private parties in NYC and NJ. For peak dates (summer weekends, holidays, New Year\'s Eve), book 3–6 months ahead. Last-minute bookings are accommodated when the calendar allows — contact djdxbusiness@gmail.com to check availability.' },
+              { q: 'How far in advance should I book a private party DJ in New York City?', a: 'Ideally 4–8 weeks in advance for most private parties in NYC and NJ. For peak dates (summer weekends, holidays, New Year\'s Eve), book 3–6 months ahead. Last-minute bookings are accommodated when the calendar allows — contact bookings@djdxmusic.com to check availability.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>

@@ -424,7 +424,7 @@ export default function SoulShades() {
       </main>
 
       {/* ── FOOTER ── */}
-      <SiteFooter email="soulshadesofficial@gmail.com" bookLabel="Book Soul Shades →" bookHref="#ss-booking" />
+      <SiteFooter email="soulshades@djdxmusic.com" bookLabel="Book Soul Shades →" bookHref="#ss-booking" />
 
     </div>
   );

@@ -521,7 +521,7 @@ export default function EPK() {
               </div>
               <div className="epkr-asset-title">Press Photos</div>
               <div className="epkr-asset-desc">High-res performance photos from TED, TEDx, and live events — available for press and media use.</div>
-              <a href="mailto:djdxbusiness@gmail.com?subject=Press%20Photo%20Request" className="epk-asset-link">
+              <a href="mailto:bookings@djdxmusic.com?subject=Press%20Photo%20Request" className="epk-asset-link">
                 Request Photos <ArrowRight />
               </a>
             </div>
@@ -538,7 +538,7 @@ export default function EPK() {
               <div className="epkr-asset-title">Full EPK — Request</div>
               <div className="epkr-asset-desc">Request the complete press kit with bio, rider, high-res photos, and full contact package. Sent directly to your inbox.</div>
               <a
-                href="mailto:djdxbusiness@gmail.com?subject=EPK%20Request&body=Hi%20DJ%20DX%2C%0A%0AI%20would%20like%20to%20request%20your%20full%20Electronic%20Press%20Kit.%0A%0AName%3A%0AOrganization%3A%0AEvent%20Type%3A%0A"
+                href="mailto:bookings@djdxmusic.com?subject=EPK%20Request&body=Hi%20DJ%20DX%2C%0A%0AI%20would%20like%20to%20request%20your%20full%20Electronic%20Press%20Kit.%0A%0AName%3A%0AOrganization%3A%0AEvent%20Type%3A%0A"
                 className="epkr-download-btn"
               >
                 <ArrowRight />

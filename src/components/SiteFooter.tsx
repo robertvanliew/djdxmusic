@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-export default function SiteFooter({ email = 'djdxbusiness@gmail.com', bookLabel = 'Book DJ DX →', bookHref = '/#booking' }: { email?: string; bookLabel?: string; bookHref?: string }) {
+export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel = 'Book DJ DX →', bookHref = '/#booking' }: { email?: string; bookLabel?: string; bookHref?: string }) {
   return (
     <footer className="footer">
       <div className="footer-inner">

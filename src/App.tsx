@@ -50,7 +50,7 @@ import MusicStore from './components/MusicStore';
 const FAQ_ITEMS = [
   {
     q: "How do I book DJ DX for a wedding or private event in New York or New Jersey?",
-    a: "Use the booking form on this page or email djdxbusiness@gmail.com. DJ DX is a professional wedding DJ and private event DJ serving New York City, New Jersey, Connecticut, and the tri-state area. Response within 24 hours."
+    a: "Use the booking form on this page or email bookings@djdxmusic.com. DJ DX is a professional wedding DJ and private event DJ serving New York City, New Jersey, Connecticut, and the tri-state area. Response within 24 hours."
   },
   {
     q: "What music genres does DJ DX specialize in?",
@@ -400,7 +400,7 @@ function App() {
               },
               "description": "DJ DX is a New York/New Jersey-based DJ, producer, and recording artist with 20+ years of experience and 500+ events performed. Featured on TED, TEDxYouth@RVA, Disrupt Magazine, and NJ.com. Available for weddings, corporate events, nightclubs, and private parties.",
               "image": "https://djdxmusic.com/epk-hero.jpg",
-              "email": "djdxbusiness@gmail.com",
+              "email": "bookings@djdxmusic.com",
               "priceRange": "$$-$$$",
               "genre": ["R&B", "Hip-Hop", "Afrobeats", "House", "Jersey Club", "Reggaeton", "Old School", "Blends & Remixes"],
               "knowsAbout": ["DJing", "Music Production", "R&B", "Hip-Hop", "Afrobeats", "House Music", "Jersey Club", "Live Performance", "Wedding DJ", "Corporate Event DJ", "Club DJ", "Music Blending"],
@@ -454,7 +454,7 @@ function App() {
                   "name": "How do I book DJ DX for a wedding or private event in New York or New Jersey?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Use the booking form on this page or email djdxbusiness@gmail.com. DJ DX is a professional wedding DJ and private event DJ serving New York City, New Jersey, Connecticut, and the tri-state area. Response within 24 hours."
+                    "text": "Use the booking form on this page or email bookings@djdxmusic.com. DJ DX is a professional wedding DJ and private event DJ serving New York City, New Jersey, Connecticut, and the tri-state area. Response within 24 hours."
                   }
                 },
                 {

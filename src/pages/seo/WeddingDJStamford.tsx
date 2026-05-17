@@ -33,7 +33,7 @@ export default function WeddingDJStamford() {
                 "name": "DJ DX",
                 "url": "https://djdxmusic.com/",
                 "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "djdxbusiness@gmail.com",
+                "email": "bookings@djdxmusic.com",
                 "priceRange": "$$-$$$",
                 "address": {
                   "@type": "PostalAddress",
@@ -63,7 +63,7 @@ export default function WeddingDJStamford() {
                 {
                   "@type": "Question",
                   "name": "How much does a wedding DJ cost in Stamford CT?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Stamford CT and Fairfield County wedding DJ pricing typically ranges from $2,000 to $6,000+ depending on venue, duration, and package. Greenwich Gold Coast estates and private clubs command premium rates. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com for your CT wedding date."}
+                  "acceptedAnswer": {"@type": "Answer", "text": "Stamford CT and Fairfield County wedding DJ pricing typically ranges from $2,000 to $6,000+ depending on venue, duration, and package. Greenwich Gold Coast estates and private clubs command premium rates. DJ DX offers custom transparent quotes — contact bookings@djdxmusic.com for your CT wedding date."}
                 },
                 {
                   "@type": "Question",
@@ -182,7 +182,7 @@ export default function WeddingDJStamford() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'How much does a wedding DJ cost in Stamford CT?', a: 'Stamford CT and Fairfield County wedding DJ pricing typically ranges from $2,000 to $6,000+ depending on venue, duration, and package. Greenwich Gold Coast estates and private clubs command premium rates. DJ DX offers custom transparent quotes — contact djdxbusiness@gmail.com.' },
+              { q: 'How much does a wedding DJ cost in Stamford CT?', a: 'Stamford CT and Fairfield County wedding DJ pricing typically ranges from $2,000 to $6,000+ depending on venue, duration, and package. Greenwich Gold Coast estates and private clubs command premium rates. DJ DX offers custom transparent quotes — contact bookings@djdxmusic.com.' },
               { q: 'Does DJ DX travel from NY to Connecticut for weddings?', a: 'Yes. DJ DX regularly performs Fairfield County weddings — Stamford, Greenwich, New Canaan, Westport, Darien, and Bridgeport. Travel from NYC is short (45-60 minutes), and CT bookings include the same level of preparation as NYC weddings.' },
               { q: 'Is DJ DX available for Connecticut wedding venues?', a: 'Yes. DJ DX is available for weddings at Fairfield County\'s premier venues — Riverside Yacht Club, Belle Haven Club, Greenwich Country Club, The Loading Dock (Stamford), The Waveny House (New Canaan), Lockwood-Mathews Mansion (Norwalk), and private estates throughout the CT Gold Coast. Setup and venue coordination are handled professionally for each booking.' },
               { q: 'How early should we book a Connecticut wedding DJ?', a: 'For Fairfield County and CT Gold Coast weddings, book 8-12 months in advance. Peak season (May-October) and Greenwich Gold Coast estates book fastest. Reach out as early as possible to confirm your Saturday date.' },
