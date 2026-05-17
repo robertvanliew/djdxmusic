@@ -43,6 +43,7 @@ const HouseJerseyClubDJ = lazy(() => import('./pages/seo/HouseJerseyClubDJ.tsx')
 const News              = lazy(() => import('./pages/News.tsx'))
 const NewsArticle       = lazy(() => import('./pages/NewsArticle.tsx'))
 const FAQ               = lazy(() => import('./pages/FAQ.tsx'))
+const ThankYou          = lazy(() => import('./pages/ThankYou.tsx'))
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -107,6 +108,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/news"           element={<News />} />
             <Route path="/news/:slug"     element={<NewsArticle />} />
             <Route path="/faq"            element={<FAQ />} />
+            <Route path="/thank-you"      element={<ThankYou />} />
           </Routes>
         </Suspense>
         </PlayerProvider>

@@ -36,7 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const siteUrl = process.env.SITE_URL || 'https://djdxmusic.com';
+    const siteUrl = process.env.SITE_URL || 'https://www.djdxmusic.com';
 
     // Store r2FileNames array or strings in metadata. Metadata values are max 500 chars.
     let r2FileNamesString = '';
@@ -67,8 +67,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         },
       ],
       mode: 'payment',
-      success_url: `${siteUrl}/?success=true`,
-      cancel_url: `${siteUrl}/`,
+      success_url: `${siteUrl}/thank-you?email=${encodeURIComponent(email)}`,
+      cancel_url: `${siteUrl}/music`,
       metadata: {
         trackIds: trackIds.join(','),
         customerEmail: email,
