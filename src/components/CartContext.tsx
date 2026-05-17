@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
 import type { Track } from '../catalog';
 
-const PER_TRACK_MIN = 2.00;
+const PER_TRACK_MIN = 3.00;
 
 interface CartContextValue {
   cart: Track[];
@@ -28,7 +28,7 @@ const CartContext = createContext<CartContextValue | null>(null);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cart, setCart] = useState<Track[]>([]);
   const [cartOpen, setCartOpen] = useState(false);
-  const [price, setPrice] = useState('2.00');
+  const [price, setPrice] = useState('3.00');
   const [buyerEmail, setBuyerEmail] = useState('');
   const [buyerName, setBuyerName] = useState('');
   const [checkoutLoading, setCheckoutLoading] = useState(false);
@@ -69,7 +69,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const handleCheckout = async () => {
     setCheckoutError('');
     const amt = parseFloat(price);
-    if (isNaN(amt) || amt < 2) { setCheckoutError('Minimum price is $2.00'); return; }
+    const requiredMin = Math.max(PER_TRACK_MIN, cart.length * PER_TRACK_MIN);
+    if (isNaN(amt) || amt < requiredMin) { setCheckoutError(`Minimum price is $${requiredMin.toFixed(2)}`); return; }
     if (!buyerEmail.includes('@')) { setCheckoutError('Please enter a valid email address'); return; }
     if (cart.length === 0) { setCheckoutError('Add at least one track to your cart'); return; }
     setCheckoutLoading(true);
@@ -128,7 +129,7 @@ export function CartPanel() {
     setBuyerEmail, setBuyerName, handleCheckout,
   } = useCart();
 
-  const PER_TRACK_MIN = 2.00;
+  const PER_TRACK_MIN = 3.00;
 
   if (!cartOpen) return null;
 
@@ -163,12 +164,12 @@ export function CartPanel() {
             <input
               id="cart-price"
               type="number"
-              min="2"
+              min={minTotal}
               step="0.50"
               value={price}
               onChange={e => setPrice(e.target.value)}
               className="cart-price-input"
-              placeholder="5.00"
+              placeholder={minTotal.toFixed(2)}
             />
           </div>
           <div className="cart-price-suggestions">

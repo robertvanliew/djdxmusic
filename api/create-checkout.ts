@@ -30,7 +30,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Invalid track IDs' })
   }
 
-  const minRequiredAmount = trackIds.length * 2;
+  const minRequiredAmount = trackIds.length * 3;
   if (!amount || typeof amount !== 'number' || amount < minRequiredAmount || amount > 500) {
     return res.status(400).json({ error: 'Invalid amount' })
   }
