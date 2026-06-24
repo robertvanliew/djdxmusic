@@ -36,7 +36,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const siteUrl = process.env.SITE_URL || 'https://www.djdxmusic.com';
+    const siteUrl = process.env.SITE_URL || 'https://djdxmusic.com';
 
     // Store r2FileNames array or strings in metadata. Metadata values are max 500 chars.
     let r2FileNamesString = '';

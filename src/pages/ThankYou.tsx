@@ -20,7 +20,7 @@ export default function ThankYou() {
       <Helmet>
         <title>Thank You — Your DJ DX Music Order</title>
         <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://www.djdxmusic.com/thank-you" />
+        <link rel="canonical" href="https://djdxmusic.com/thank-you" />
       </Helmet>
 
       <SiteNav />
