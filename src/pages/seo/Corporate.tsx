@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
+import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
 export default function Corporate() {
@@ -202,6 +203,89 @@ export default function Corporate() {
         </div>
       </section>
 
+      {/* ── VENUES & INDUSTRIES ── */}
+      <section style={{ padding: '80px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
+        <div className="section-inner" style={{ maxWidth: '1100px' }}>
+          <div className="sec-overline" style={{ justifyContent: 'center' }}>
+            <span className="sec-overline-line" />
+            <span className="sec-label">Venues & Industries</span>
+            <span className="sec-overline-line" />
+          </div>
+          <h2 className="sec-title" style={{ textAlign: 'center', marginBottom: '12px' }}>
+            Where DJ DX <span>Performs</span>
+          </h2>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '720px', margin: '0 auto 56px', fontSize: '1rem', lineHeight: 1.7 }}>
+            Two decades of corporate work across the tri-state means familiarity with the venues, AV teams, and production cadences planners already know.
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', marginBottom: '48px' }}>
+            <div>
+              <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.15rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '14px' }}>
+                Manhattan Venues
+              </h3>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'rgba(242,242,242,0.72)', fontSize: '0.95rem', lineHeight: 2 }}>
+                <li>Pier Sixty &amp; Pier 61 (Chelsea Piers)</li>
+                <li>Cipriani — Wall Street, 25 Broadway, 42nd</li>
+                <li>Tribeca Rooftop</li>
+                <li>Edison Ballroom</li>
+                <li>The Plaza Hotel</li>
+                <li>620 Loft &amp; Garden</li>
+                <li>Brooklyn Navy Yard event spaces</li>
+              </ul>
+            </div>
+            <div>
+              <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.15rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '14px' }}>
+                NJ &amp; CT Venues
+              </h3>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'rgba(242,242,242,0.72)', fontSize: '0.95rem', lineHeight: 2 }}>
+                <li>Maritime Parc — Jersey City</li>
+                <li>Liberty House — Jersey City</li>
+                <li>The Newark Club</li>
+                <li>Stamford Hilton &amp; Marriott</li>
+                <li>Greenwich Country Club</li>
+                <li>Hoboken waterfront spaces</li>
+                <li>Bergen County corporate campuses</li>
+              </ul>
+            </div>
+            <div>
+              <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.15rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '14px' }}>
+                Industries Served
+              </h3>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'rgba(242,242,242,0.72)', fontSize: '0.95rem', lineHeight: 2 }}>
+                <li>Finance &amp; investment banking</li>
+                <li>Tech &amp; SaaS product launches</li>
+                <li>Fashion &amp; lifestyle activations</li>
+                <li>Hospitality &amp; hotel openings</li>
+                <li>Law firms &amp; consulting partners</li>
+                <li>Non-profits &amp; foundation galas</li>
+                <li>Media, agencies &amp; publishing</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style={{ textAlign: 'center', padding: '32px', background: 'rgba(201,168,76,0.06)', border: '1px solid rgba(201,168,76,0.22)', borderRadius: '10px' }}>
+            <div style={{ fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: '14px', fontWeight: 700 }}>
+              What's Included
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px', textAlign: 'left' }}>
+              {[
+                { label: 'Full DJ rig', desc: 'Pioneer / Rane setup, professional mixer, backup gear on-site.' },
+                { label: 'PA & monitors', desc: 'QSC or comparable line array sized to room and headcount.' },
+                { label: 'MC services', desc: 'Award announcements, speaker intros, run-of-show calls.' },
+                { label: 'Set planning call', desc: 'Walkthrough of timeline, do-not-play list, energy curve.' },
+                { label: 'Insurance', desc: 'COI provided for any venue that requires it.' },
+                { label: 'Soul Shades upgrade', desc: 'Add live violin / live producer duo for galas.' },
+              ].map(item => (
+                <div key={item.label}>
+                  <div style={{ color: 'var(--white)', fontWeight: 700, fontSize: '0.95rem', marginBottom: '4px' }}>{item.label}</div>
+                  <div style={{ color: 'rgba(242,242,242,0.55)', fontSize: '0.85rem', lineHeight: 1.6 }}>{item.desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section style={{ padding: '80px 40px' }}>
         <div className="section-inner" style={{ maxWidth: '760px' }}>
@@ -214,6 +298,8 @@ export default function Corporate() {
               { q: 'How much does a corporate event DJ cost in New York City?', a: 'Corporate event DJ pricing in NYC typically ranges from $2,000 to $8,000+ depending on event duration, guest count, and whether add-ons like the Soul Shades violin duo are included. DJ DX provides transparent, itemized quotes within 24–48 hours — contact bookings@djdxmusic.com with your event date, venue, and guest count.' },
               { q: 'Does DJ DX provide clean, work-appropriate playlists for corporate events?', a: 'Yes. DJ DX specializes in radio-edited, HR-approved music programming for professional corporate environments. Sets are curated to maintain appropriate volume for networking during cocktail hour, then escalate to high-energy dance floor programming for the social portion. No inappropriate lyrics, no embarrassing moments.' },
               { q: 'What types of corporate events does DJ DX perform at in NYC?', a: 'DJ DX performs at Fortune 500 holiday parties, corporate galas, product launches, brand activations, award ceremonies, rooftop events, and executive retreats across NYC, NJ, and CT. The Soul Shades violin and DJ duo is particularly popular for upscale brand activations and gala dinners.' },
+              { q: 'Do you DJ corporate events in Brooklyn?', a: 'Yes. DJ DX regularly performs at corporate events across Brooklyn — including DUMBO loft spaces, Brooklyn Navy Yard venues, Williamsburg rooftops, and Industry City. Setup and load-in are factored into the quote so there are no day-of surprises around freight elevators or load-in windows.' },
+              { q: 'Do you DJ corporate events in Jersey City and Hoboken?', a: 'Yes. Jersey City and Hoboken are core service areas. Frequent venues include Maritime Parc, Liberty House, and the W Hotel Hoboken waterfront. Travel and setup for Hudson County events is included in the standard NYC-area corporate rate.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>
@@ -247,6 +333,7 @@ export default function Corporate() {
         </div>
       </section>
 
+      <RelatedServices />
       <SiteFooter />
     </>
   );
