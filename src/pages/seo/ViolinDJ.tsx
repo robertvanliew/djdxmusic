@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
+import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
 export default function ViolinDJ() {
@@ -238,6 +239,7 @@ export default function ViolinDJ() {
         </div>
       </section>
 
+      <RelatedServices />
       <SiteFooter />
     </>
   );
