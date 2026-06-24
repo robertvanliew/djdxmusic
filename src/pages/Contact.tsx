@@ -30,6 +30,7 @@ export default function Contact() {
   const [fields, setFields] = useState({
     name: '',
     email: '',
+    phone: '',
     subject: 'booking',
     eventDate: '',
     eventTime: '',
@@ -57,7 +58,7 @@ export default function Contact() {
         throw new Error((data as { error?: string }).error || 'Failed to send');
       }
       setStatus('sent');
-      setFields({ name: '', email: '', subject: 'booking', eventDate: '', eventTime: '', venue: '', message: '' });
+      setFields({ name: '', email: '', phone: '', subject: 'booking', eventDate: '', eventTime: '', venue: '', message: '' });
     } catch (err) {
       setStatus('error');
       setErrorMsg(err instanceof Error ? err.message : 'Something went wrong');
@@ -161,6 +162,19 @@ export default function Contact() {
                       onChange={e => set('email', e.target.value)}
                     />
                   </div>
+                </div>
+
+                <div className="form-field">
+                  <label htmlFor="contact-phone">Phone Number</label>
+                  <input
+                    id="contact-phone"
+                    type="tel"
+                    placeholder="+1 (555) 000-0000"
+                    required
+                    maxLength={30}
+                    value={fields.phone}
+                    onChange={e => set('phone', e.target.value)}
+                  />
                 </div>
 
                 <div className="form-field">

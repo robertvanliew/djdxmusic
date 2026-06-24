@@ -13,14 +13,14 @@ function escapeHtml(str: string): string {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAX = { name: 120, email: 254, phone: 30, eventType: 100, eventDate: 40, message: 2000 };
+const MAX = { name: 120, email: 254, phone: 30, eventType: 100, eventDate: 40, eventTime: 10, message: 2000 };
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { name, email, phone, eventType, eventDate, message } = req.body;
+  const { name, email, phone, eventType, eventDate, eventTime, message } = req.body;
 
-  if (!name || !email || !eventType || !eventDate || !message) {
+  if (!name || !email || !phone || !eventType || !eventDate || !eventTime || !message) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
@@ -28,10 +28,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (
     typeof name !== 'string' || name.length > MAX.name ||
     typeof email !== 'string' || email.length > MAX.email ||
+    typeof phone !== 'string' || phone.length > MAX.phone ||
     typeof eventType !== 'string' || eventType.length > MAX.eventType ||
     typeof eventDate !== 'string' || eventDate.length > MAX.eventDate ||
-    typeof message !== 'string' || message.length > MAX.message ||
-    (phone && (typeof phone !== 'string' || phone.length > MAX.phone))
+    typeof eventTime !== 'string' || eventTime.length > MAX.eventTime ||
+    typeof message !== 'string' || message.length > MAX.message
   ) {
     return res.status(400).json({ error: 'Invalid input' });
   }
@@ -43,9 +44,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Escape all fields before HTML interpolation
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
-  const safePhone = phone ? escapeHtml(phone) : '';
+  const safePhone = escapeHtml(phone);
   const safeEventType = escapeHtml(eventType);
   const safeEventDate = escapeHtml(eventDate);
+  const safeEventTime = escapeHtml(eventTime);
   const safeMessage = escapeHtml(message);
 
   try {
@@ -71,11 +73,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Email</td>
                 <td style="padding: 10px 0; font-size: 15px;"><a href="mailto:${safeEmail}" style="color: #C9A84C; text-decoration: none;">${safeEmail}</a></td>
               </tr>
-              ${safePhone ? `
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Phone</td>
-                <td style="padding: 10px 0; color: #111; font-size: 15px;">${safePhone}</td>
-              </tr>` : ''}
+                <td style="padding: 10px 0; color: #111; font-size: 15px;"><a href="tel:${safePhone}" style="color: #C9A84C; text-decoration: none;">${safePhone}</a></td>
+              </tr>
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Event Type</td>
                 <td style="padding: 10px 0; color: #111; font-size: 15px;">${safeEventType}</td>
@@ -83,6 +84,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Event Date</td>
                 <td style="padding: 10px 0; color: #111; font-size: 15px;">${safeEventDate}</td>
+              </tr>
+              <tr style="border-top: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Event Time</td>
+                <td style="padding: 10px 0; color: #111; font-size: 15px;">${safeEventTime}</td>
               </tr>
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Message</td>
@@ -109,7 +114,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0c0c0c; color: #fff; padding: 40px; border-radius: 12px;">
           <h1 style="color: #C9A84C; font-size: 24px; margin: 0 0 16px;">Thanks for reaching out.</h1>
           <p style="color: rgba(255,255,255,0.75); font-size: 16px; line-height: 1.7; margin: 0 0 24px;">
-            Hey ${safeName.split(' ')[0]}, your booking inquiry for <strong style="color:#fff;">${safeEventType}</strong> on <strong style="color:#fff;">${safeEventDate}</strong> has been received.
+            Hey ${safeName.split(' ')[0]}, your booking inquiry for <strong style="color:#fff;">${safeEventType}</strong> on <strong style="color:#fff;">${safeEventDate}</strong> at <strong style="color:#fff;">${safeEventTime}</strong> has been received.
           </p>
           <p style="color: rgba(255,255,255,0.75); font-size: 16px; line-height: 1.7; margin: 0 0 32px;">
             DJ DX will review your request and get back to you within <strong style="color:#C9A84C;">24–48 hours</strong> to discuss availability and pricing.

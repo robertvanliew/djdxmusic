@@ -13,7 +13,7 @@ function escapeHtml(str: string): string {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAX = { name: 120, email: 254, subject: 60, message: 5000, eventDate: 20, eventTime: 10, venue: 200 };
+const MAX = { name: 120, email: 254, phone: 30, subject: 60, message: 5000, eventDate: 20, eventTime: 10, venue: 200 };
 const EVENT_SUBJECTS = new Set(['booking', 'soulshades']);
 
 // Whitelist of allowed subjects → routes to the correct inbox alias.
@@ -32,15 +32,16 @@ const SUBJECT_ROUTING: Record<string, { to: string; label: string }> = {
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { name, email, subject, message, eventDate, eventTime, venue } = req.body;
+  const { name, email, phone, subject, message, eventDate, eventTime, venue } = req.body;
 
-  if (!name || !email || !subject || !message) {
+  if (!name || !email || !phone || !subject || !message) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
   if (
     typeof name !== 'string' || name.length > MAX.name ||
     typeof email !== 'string' || email.length > MAX.email ||
+    typeof phone !== 'string' || phone.length > MAX.phone ||
     typeof subject !== 'string' || subject.length > MAX.subject ||
     typeof message !== 'string' || message.length > MAX.message
   ) {
@@ -70,6 +71,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
+  const safePhone = escapeHtml(phone);
   const safeMessage = escapeHtml(message);
   const safeLabel = escapeHtml(route.label);
   const safeEventDate = needsEventDetails ? escapeHtml(eventDate) : '';
@@ -113,6 +115,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Email</td>
                 <td style="padding: 10px 0; font-size: 15px;"><a href="mailto:${safeEmail}" style="color: #C9A84C; text-decoration: none;">${safeEmail}</a></td>
+              </tr>
+              <tr style="border-top: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Phone</td>
+                <td style="padding: 10px 0; font-size: 15px;"><a href="tel:${safePhone}" style="color: #C9A84C; text-decoration: none;">${safePhone}</a></td>
               </tr>
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Category</td>

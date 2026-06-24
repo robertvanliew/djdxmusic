@@ -7,7 +7,7 @@ const Send = () => (
 );
 
 export default function BookingForm() {
-  const [fields, setFields] = useState({ name: '', email: '', phone: '', eventType: '', eventDate: '', message: '' });
+  const [fields, setFields] = useState({ name: '', email: '', phone: '', eventType: '', eventDate: '', eventTime: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
   const set = (k: string, v: string) => setFields(f => ({ ...f, [k]: v }));
@@ -23,7 +23,7 @@ export default function BookingForm() {
       });
       if (!res.ok) throw new Error();
       setStatus('sent');
-      setFields({ name: '', email: '', phone: '', eventType: '', eventDate: '', message: '' });
+      setFields({ name: '', email: '', phone: '', eventType: '', eventDate: '', eventTime: '', message: '' });
     } catch {
       setStatus('error');
     }
@@ -51,8 +51,8 @@ export default function BookingForm() {
       </div>
       <div className="form-row">
         <div className="form-field">
-          <label htmlFor="bf-phone">Phone <span style={{ opacity: 0.45, fontWeight: 400 }}>(optional)</span></label>
-          <input id="bf-phone" type="tel" placeholder="+1 (555) 000-0000" value={fields.phone} onChange={e => set('phone', e.target.value)} />
+          <label htmlFor="bf-phone">Phone</label>
+          <input id="bf-phone" type="tel" placeholder="+1 (555) 000-0000" required value={fields.phone} onChange={e => set('phone', e.target.value)} />
         </div>
         <div className="form-field">
           <label htmlFor="bf-event-date">Event Date</label>
@@ -60,6 +60,10 @@ export default function BookingForm() {
         </div>
       </div>
       <div className="form-row">
+        <div className="form-field">
+          <label htmlFor="bf-event-time">Event Time</label>
+          <input id="bf-event-time" type="time" required value={fields.eventTime} onChange={e => set('eventTime', e.target.value)} />
+        </div>
         <div className="form-field">
           <label htmlFor="bf-event-type">Event Type</label>
           <select id="bf-event-type" required value={fields.eventType} onChange={e => set('eventType', e.target.value)}>
