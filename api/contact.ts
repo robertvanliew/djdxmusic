@@ -13,7 +13,8 @@ function escapeHtml(str: string): string {
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAX = { name: 120, email: 254, subject: 60, message: 5000 };
+const MAX = { name: 120, email: 254, subject: 60, message: 5000, eventDate: 20, eventTime: 10, venue: 200 };
+const EVENT_SUBJECTS = new Set(['booking', 'soulshades']);
 
 // Whitelist of allowed subjects → routes to the correct inbox alias.
 // Anything not in this map falls back to bookings@djdxmusic.com so messages
@@ -31,7 +32,7 @@ const SUBJECT_ROUTING: Record<string, { to: string; label: string }> = {
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const { name, email, subject, message } = req.body;
+  const { name, email, subject, message, eventDate, eventTime, venue } = req.body;
 
   if (!name || !email || !subject || !message) {
     return res.status(400).json({ error: 'All fields are required' });
@@ -50,12 +51,44 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Invalid email address' });
   }
 
+  const needsEventDetails = EVENT_SUBJECTS.has(subject);
+
+  if (needsEventDetails) {
+    if (!eventDate || !eventTime || !venue) {
+      return res.status(400).json({ error: 'Event date, time, and venue are required for booking inquiries' });
+    }
+    if (
+      typeof eventDate !== 'string' || eventDate.length > MAX.eventDate ||
+      typeof eventTime !== 'string' || eventTime.length > MAX.eventTime ||
+      typeof venue !== 'string' || venue.length > MAX.venue
+    ) {
+      return res.status(400).json({ error: 'Invalid event details' });
+    }
+  }
+
   const route = SUBJECT_ROUTING[subject] ?? SUBJECT_ROUTING.other;
 
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
   const safeMessage = escapeHtml(message);
   const safeLabel = escapeHtml(route.label);
+  const safeEventDate = needsEventDetails ? escapeHtml(eventDate) : '';
+  const safeEventTime = needsEventDetails ? escapeHtml(eventTime) : '';
+  const safeVenue = needsEventDetails ? escapeHtml(venue) : '';
+
+  const eventRowsHtml = needsEventDetails ? `
+              <tr style="border-top: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Event Date</td>
+                <td style="padding: 10px 0; color: #111; font-size: 15px; font-weight: 600;">${safeEventDate}</td>
+              </tr>
+              <tr style="border-top: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Event Time</td>
+                <td style="padding: 10px 0; color: #111; font-size: 15px; font-weight: 600;">${safeEventTime}</td>
+              </tr>
+              <tr style="border-top: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Venue</td>
+                <td style="padding: 10px 0; color: #111; font-size: 15px; font-weight: 600;">${safeVenue}</td>
+              </tr>` : '';
 
   try {
     await resend.emails.send({
@@ -84,7 +117,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Category</td>
                 <td style="padding: 10px 0; color: #111; font-size: 15px;">${safeLabel}</td>
-              </tr>
+              </tr>${eventRowsHtml}
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Message</td>
                 <td style="padding: 10px 0; color: #111; font-size: 15px; line-height: 1.7;">${safeMessage.replace(/\n/g, '<br>')}</td>

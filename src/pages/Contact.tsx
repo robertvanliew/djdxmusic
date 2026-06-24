@@ -31,12 +31,16 @@ export default function Contact() {
     name: '',
     email: '',
     subject: 'booking',
+    eventDate: '',
+    eventTime: '',
+    venue: '',
     message: '',
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
 
   const set = (k: string, v: string) => setFields(f => ({ ...f, [k]: v }));
+  const showEventFields = fields.subject === 'booking' || fields.subject === 'soulshades';
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -53,7 +57,7 @@ export default function Contact() {
         throw new Error((data as { error?: string }).error || 'Failed to send');
       }
       setStatus('sent');
-      setFields({ name: '', email: '', subject: 'booking', message: '' });
+      setFields({ name: '', email: '', subject: 'booking', eventDate: '', eventTime: '', venue: '', message: '' });
     } catch (err) {
       setStatus('error');
       setErrorMsg(err instanceof Error ? err.message : 'Something went wrong');
@@ -190,6 +194,46 @@ export default function Contact() {
                     ))}
                   </select>
                 </div>
+
+                {showEventFields && (
+                  <>
+                    <div className="form-row">
+                      <div className="form-field">
+                        <label htmlFor="contact-event-date">Event Date</label>
+                        <input
+                          id="contact-event-date"
+                          type="date"
+                          required
+                          value={fields.eventDate}
+                          onChange={e => set('eventDate', e.target.value)}
+                        />
+                      </div>
+                      <div className="form-field">
+                        <label htmlFor="contact-event-time">Event Time</label>
+                        <input
+                          id="contact-event-time"
+                          type="time"
+                          required
+                          value={fields.eventTime}
+                          onChange={e => set('eventTime', e.target.value)}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="form-field">
+                      <label htmlFor="contact-venue">Venue / Location</label>
+                      <input
+                        id="contact-venue"
+                        type="text"
+                        required
+                        maxLength={200}
+                        placeholder="Venue name, city, state (e.g. The Plaza, New York, NY)"
+                        value={fields.venue}
+                        onChange={e => set('venue', e.target.value)}
+                      />
+                    </div>
+                  </>
+                )}
 
                 <div className="form-field">
                   <label htmlFor="contact-message">Message</label>
