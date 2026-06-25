@@ -431,8 +431,16 @@ function App() {
                 "https://genius.com/artists/Dj-dx",
                 "https://www.imdb.com/name/nm15146879",
                 "https://www.ted.com/talks/dj_dx_finally_moving",
-                "https://disruptmagazine.com/dj-dx-leads-the-music-industry-into-the-metaverse/"
+                "https://disruptmagazine.com/dj-dx-leads-the-music-industry-into-the-metaverse/",
+                "https://share.google/v7RARn4fdsghIcXyX"
               ],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "reviewCount": "7",
+                "bestRating": "5",
+                "worstRating": "1"
+              },
               "award": "Featured performer at TEDxYouth@RVA 2022",
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",

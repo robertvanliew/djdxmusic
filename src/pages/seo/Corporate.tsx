@@ -43,7 +43,14 @@ export default function Corporate() {
                 "image": "https://djdxmusic.com/epk-hero.jpg",
                 "email": "bookings@djdxmusic.com",
                 "priceRange": "$$$",
-                "sameAs": ["https://djdxmusic.com/", "https://www.ted.com/talks/dj_dx_finally_moving"]
+                "sameAs": ["https://djdxmusic.com/", "https://www.ted.com/talks/dj_dx_finally_moving", "https://share.google/v7RARn4fdsghIcXyX"],
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "5.0",
+                  "reviewCount": "7",
+                  "bestRating": "5",
+                  "worstRating": "1"
+                }
               },
               "areaServed": [
                 {"@type": "City", "name": "New York City"},
