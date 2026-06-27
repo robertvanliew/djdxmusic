@@ -623,6 +623,32 @@ function App() {
                 {"@type": "ListItem", "position": 51, "item": {"@type": "MusicRecording", "name": "Freaks (Remix)", "byArtist": {"@type": "MusicGroup", "name": "Nicki Minaj × Patra × DJ DX"}, "genre": "Remix", "datePublished": "2024"}},
                 {"@type": "ListItem", "position": 52, "item": {"@type": "MusicRecording", "name": "Loyal", "byArtist": {"@type": "MusicGroup", "name": "Albee Al × DJ DX"}, "genre": "Blend", "datePublished": "2024"}}
               ]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "@id": "https://djdxmusic.com/#website",
+              "url": "https://djdxmusic.com/",
+              "name": "DJ DX",
+              "alternateName": "DJ DX Music",
+              "description": "Official website of DJ DX — DJ, producer, and recording artist based in New York and New Jersey. Book for weddings, corporate events, and private parties.",
+              "publisher": {"@id": "https://djdxmusic.com/#djdx"},
+              "inLanguage": "en-US"
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              "name": "DJ DX — Main Navigation",
+              "description": "Primary site navigation links for djdxmusic.com",
+              "itemListElement": [
+                {"@type": "SiteNavigationElement", "position": 1, "name": "Music",       "url": "https://djdxmusic.com/music"},
+                {"@type": "SiteNavigationElement", "position": 2, "name": "Soul Shades", "url": "https://djdxmusic.com/soul-shades"},
+                {"@type": "SiteNavigationElement", "position": 3, "name": "News",        "url": "https://djdxmusic.com/news"},
+                {"@type": "SiteNavigationElement", "position": 4, "name": "EPK",         "url": "https://djdxmusic.com/epk"},
+                {"@type": "SiteNavigationElement", "position": 5, "name": "Pricing",     "url": "https://djdxmusic.com/pricing"},
+                {"@type": "SiteNavigationElement", "position": 6, "name": "FAQ",         "url": "https://djdxmusic.com/faq"},
+                {"@type": "SiteNavigationElement", "position": 7, "name": "Contact",     "url": "https://djdxmusic.com/contact"}
+              ]
             }
           ]`}
         </script>
