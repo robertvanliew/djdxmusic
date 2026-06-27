@@ -432,7 +432,8 @@ function App() {
                 "https://www.imdb.com/name/nm15146879",
                 "https://www.ted.com/talks/dj_dx_finally_moving",
                 "https://disruptmagazine.com/dj-dx-leads-the-music-industry-into-the-metaverse/",
-                "https://share.google/v7RARn4fdsghIcXyX"
+                "https://share.google/v7RARn4fdsghIcXyX",
+                "https://profile.google.com/@djdxmusic"
               ],
               "aggregateRating": {
                 "@type": "AggregateRating",
