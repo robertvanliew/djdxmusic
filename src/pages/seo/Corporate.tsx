@@ -35,7 +35,7 @@ export default function Corporate() {
               "name": "Corporate Event DJ NYC, NJ & CT",
               "serviceType": "Corporate Event DJ",
               "url": "https://djdxmusic.com/corporate-event-dj-nyc-nj-ct",
-              "description": "Professional DJ entertainment for Fortune 500 companies, corporate galas, holiday parties, product launches, and luxury brand activations across New York City, New Jersey, and Connecticut. DJ DX brings 20+ years of experience and 500+ events performed.",
+              "description": "Professional DJ entertainment for Fortune 500 companies, corporate galas, holiday parties, product launches, and luxury brand activations across New York City, New Jersey, and Connecticut. DJ DX brings 25+ years of experience and 500+ events performed.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -91,7 +91,7 @@ export default function Corporate() {
                   "name": "What makes DJ DX different from other corporate event DJs in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "DJ DX brings 20+ years of professional experience, a TEDx performance credit, and a proven track record of 500+ events across New York, New Jersey, and Connecticut to every corporate booking. Specialties include clean, HR-approved playlist curation, professional emcee services, and the ability to read a room — shifting seamlessly from background networking music to a full dance floor closer."
+                    "text": "DJ DX brings 25+ years of professional experience, a TEDx performance credit, and a proven track record of 500+ events across New York, New Jersey, and Connecticut to every corporate booking. Specialties include clean, HR-approved playlist curation, professional emcee services, and the ability to read a room — shifting seamlessly from background networking music to a full dance floor closer."
                   }
                 },
                 {
@@ -181,7 +181,7 @@ export default function Corporate() {
                   <strong>No cheesy gimmicks, no inappropriate playlists.</strong> Whether you book DJ DX individually or the high-energy live DJ/Producer duo Soul Shades, expect seamless, sophisticated music curation that matches the prestige of your brand. We specialize in curating the perfect vibe—from tasteful background music during dinner & cocktails to packed dance floors to close out the night.
                 </p>
                 <p>
-                  With over 20 years of experience, TEDx features, and countless high-end performances across the NYC/NJ/CT tri-state area, DJ DX and Soul Shades represent the trusted choice for discerning corporate event planners.
+                  With over 25 years of experience, TEDx features, and countless high-end performances across the NYC/NJ/CT tri-state area, DJ DX and Soul Shades represent the trusted choice for discerning corporate event planners.
                 </p>
               </div>
             </div>
@@ -301,7 +301,7 @@ export default function Corporate() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'What makes DJ DX different from other corporate event DJs in NYC?', a: 'DJ DX brings 20+ years of professional experience, a TEDx performance credit, and a proven track record of 500+ events across New York, New Jersey, and Connecticut to every corporate booking. Specialties include clean, HR-approved playlist curation, professional emcee services, and the ability to read a room — shifting seamlessly from background networking music to a full dance floor closer.' },
+              { q: 'What makes DJ DX different from other corporate event DJs in NYC?', a: 'DJ DX brings 25+ years of professional experience, a TEDx performance credit, and a proven track record of 500+ events across New York, New Jersey, and Connecticut to every corporate booking. Specialties include clean, HR-approved playlist curation, professional emcee services, and the ability to read a room — shifting seamlessly from background networking music to a full dance floor closer.' },
               { q: 'How much does a corporate event DJ cost in New York City?', a: 'Corporate event DJ pricing in NYC typically ranges from $2,000 to $8,000+ depending on event duration, guest count, and whether add-ons like the Soul Shades violin duo are included. DJ DX provides transparent, itemized quotes within 24–48 hours — contact bookings@djdxmusic.com with your event date, venue, and guest count.' },
               { q: 'Does DJ DX provide clean, work-appropriate playlists for corporate events?', a: 'Yes. DJ DX specializes in radio-edited, HR-approved music programming for professional corporate environments. Sets are curated to maintain appropriate volume for networking during cocktail hour, then escalate to high-energy dance floor programming for the social portion. No inappropriate lyrics, no embarrassing moments.' },
               { q: 'What types of corporate events does DJ DX perform at in NYC?', a: 'DJ DX performs at Fortune 500 holiday parties, corporate galas, product launches, brand activations, award ceremonies, rooftop events, and executive retreats across NYC, NJ, and CT. The Soul Shades violin and DJ duo is particularly popular for upscale brand activations and gala dinners.' },

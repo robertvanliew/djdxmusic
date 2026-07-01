@@ -22,7 +22,7 @@ export default function RBHipHopDJ() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
         <meta name="twitter:title" content="R&B & Hip-Hop DJ NYC & NJ — DJ DX" />
-        <meta name="twitter:description" content="Professional R&B and Hip-Hop DJ in New York and New Jersey. 20+ years, 500+ events. TED-featured artist." />
+        <meta name="twitter:description" content="Professional R&B and Hip-Hop DJ in New York and New Jersey. 25+ years, 500+ events. TED-featured artist." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
           {`[
@@ -32,7 +32,7 @@ export default function RBHipHopDJ() {
               "name": "R&B & Hip-Hop DJ NYC & NJ — Events, Weddings & Parties",
               "serviceType": "R&B and Hip-Hop DJ",
               "url": "https://djdxmusic.com/rb-hip-hop-dj-nyc-nj",
-              "description": "DJ DX is a professional R&B and Hip-Hop DJ in New York and New Jersey with 20+ years of experience and 500+ events performed. Specializing in classic and modern R&B, Hip-Hop, Old School, blends, and mashups for weddings, corporate events, and private parties across NYC, NJ, and CT. TED-featured recording artist.",
+              "description": "DJ DX is a professional R&B and Hip-Hop DJ in New York and New Jersey with 25+ years of experience and 500+ events performed. Specializing in classic and modern R&B, Hip-Hop, Old School, blends, and mashups for weddings, corporate events, and private parties across NYC, NJ, and CT. TED-featured recording artist.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -152,7 +152,7 @@ export default function RBHipHopDJ() {
           </h1>
           <p style={{ maxWidth: '600px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
             Classic R&amp;B, modern Hip-Hop, Old School, and custom blends — curated for the culture.
-            20+ years behind the decks. 500+ events. TED-featured artist.
+            25+ years behind the decks. 500+ events. TED-featured artist.
           </p>
           <a href="#booking" className="btn-gold">Check Availability</a>
         </div>

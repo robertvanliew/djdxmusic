@@ -129,7 +129,7 @@ export default function WeddingDJLongIsland() {
               </div>
               <div className="about-body sr" data-sr-delay="0.1s">
                 <p>Long Island weddings are a different animal. Grand catering halls. Multi-cultural guest lists. Italian families from Massapequa, multigenerational R&B fans from Hempstead, hip-hop heads from Brentwood, and tasteful house lovers driving in from the Hamptons. The DJ has to read every room within the same room.</p>
-                <p>DJ DX brings 20+ years of DJing experience — built on listening, not just playing tracks. Whether it's a grand ballroom at Oheka Castle or a tented Hamptons affair in Sagaponack, every set is custom-built around the couple, the venue, and the guest mix.</p>
+                <p>DJ DX brings 25+ years of DJing experience — built on listening, not just playing tracks. Whether it's a grand ballroom at Oheka Castle or a tented Hamptons affair in Sagaponack, every set is custom-built around the couple, the venue, and the guest mix.</p>
                 <p>And for couples doing a destination-feel wedding out east — Montauk, East Hampton, Bridgehampton — DJ DX travels the LIE without inflating the quote. Long Island is part of the regular tri-state circuit, not an exotic trip.</p>
               </div>
             </div>

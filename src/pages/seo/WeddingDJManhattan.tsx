@@ -109,7 +109,7 @@ export default function WeddingDJManhattan() {
             Manhattan Wedding DJ — <span>Built for the City That Never Sleeps</span>
           </h1>
           <p style={{ maxWidth: '640px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
-            Tribeca rooftops. Ballroom receptions. Downtown lofts. 20+ years of NYC DJ experience.
+            Tribeca rooftops. Ballroom receptions. Downtown lofts. 25+ years of NYC DJ experience.
             R&amp;B, Hip-Hop, Afrobeats, and blends that move every crowd.
           </p>
           <a href="#booking" className="btn-gold">Check Availability</a>

@@ -32,7 +32,7 @@ export default function WeddingDJ() {
               "name": "Wedding DJ NYC & NJ — R&B, Hip-Hop, Afrobeats",
               "serviceType": "Wedding DJ",
               "url": "https://djdxmusic.com/wedding-dj-nyc-nj",
-              "description": "DJ DX is a professional wedding DJ in New York and New Jersey specializing in R&B, Hip-Hop, Afrobeats, Old School, and Blends. With 20+ years of experience and 500+ events performed, DJ DX delivers seamless entertainment from cocktail hour through the last dance. TED-featured artist.",
+              "description": "DJ DX is a professional wedding DJ in New York and New Jersey specializing in R&B, Hip-Hop, Afrobeats, Old School, and Blends. With 25+ years of experience and 500+ events performed, DJ DX delivers seamless entertainment from cocktail hour through the last dance. TED-featured artist.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -92,7 +92,7 @@ export default function WeddingDJ() {
                   "name": "How much does a wedding DJ cost in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Wedding DJ pricing in New York City typically ranges from $1,500 to $5,000+ depending on event duration, venue size, and experience level. DJ DX — a TED-featured DJ and producer with 20+ years of experience and 500+ events performed across NYC and NJ — offers custom quotes based on your specific date, venue, and package. Contact bookings@djdxmusic.com for transparent pricing within 24 hours."
+                    "text": "Wedding DJ pricing in New York City typically ranges from $1,500 to $5,000+ depending on event duration, venue size, and experience level. DJ DX — a TED-featured DJ and producer with 25+ years of experience and 500+ events performed across NYC and NJ — offers custom quotes based on your specific date, venue, and package. Contact bookings@djdxmusic.com for transparent pricing within 24 hours."
                   }
                 },
                 {
@@ -153,7 +153,7 @@ export default function WeddingDJ() {
           </h1>
           <p style={{ maxWidth: '600px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
             R&amp;B, Hip-Hop, Afrobeats, and soulful blends — custom-curated for your day.
-            20+ years of experience. 500+ events. TED-featured artist.
+            25+ years of experience. 500+ events. TED-featured artist.
           </p>
           <a href="#booking" className="btn-gold">Check Availability</a>
         </div>
@@ -228,7 +228,7 @@ export default function WeddingDJ() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'How much does a wedding DJ cost in NYC?', a: 'Wedding DJ pricing in New York City typically ranges from $1,500 to $5,000+ depending on event duration, venue size, and experience level. DJ DX — a TED-featured DJ and producer with 20+ years of experience and 500+ events performed across NYC and NJ — offers custom quotes based on your specific date, venue, and package. Contact bookings@djdxmusic.com for transparent pricing within 24 hours.' },
+              { q: 'How much does a wedding DJ cost in NYC?', a: 'Wedding DJ pricing in New York City typically ranges from $1,500 to $5,000+ depending on event duration, venue size, and experience level. DJ DX — a TED-featured DJ and producer with 25+ years of experience and 500+ events performed across NYC and NJ — offers custom quotes based on your specific date, venue, and package. Contact bookings@djdxmusic.com for transparent pricing within 24 hours.' },
               { q: 'What genres does DJ DX play at weddings?', a: 'DJ DX specializes in R&B, Hip-Hop, Afrobeats, Amapiano, Old School, House, Reggaeton, and custom genre blends — the music that actually fills dance floors at multicultural New York and New Jersey weddings. Every wedding set is custom-built around the couple\'s preferences and guest demographics, with 100+ original blends and transitions not available from cookie-cutter DJ services.' },
               { q: 'Does DJ DX cover both the ceremony and reception?', a: 'Yes. DJ DX is available for the complete wedding day — ceremony processional and recessional, cocktail hour, reception, and late-night after-party. For couples seeking an elevated experience, the Soul Shades live violin and DJ package layers live strings over DJ sets, creating a one-of-a-kind atmosphere that guests consistently describe as the highlight of the evening.' },
               { q: 'How far in advance should I book a wedding DJ in NYC?', a: 'For NYC and NJ weddings, booking 6–12 months in advance is strongly recommended — especially for peak season dates from May through October, when top DJs fill calendars quickly. DJ DX books 50+ weddings annually across New York, New Jersey, and Connecticut. Reach out as early as possible to confirm availability for your date.' },

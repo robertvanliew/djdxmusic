@@ -12,7 +12,7 @@ export default function HipHopDJ() {
     <>
       <Helmet>
         <title>Hip-Hop DJ NYC & NJ | Old School to New School | DJ DX</title>
-        <meta name="description" content="NYC's premier hip-hop DJ for events — Biggie to Kendrick, custom-curated sets for parties, corporate nights & weddings. 20+ years. TED-featured. Book DJ DX today." />
+        <meta name="description" content="NYC's premier hip-hop DJ for events — Biggie to Kendrick, custom-curated sets for parties, corporate nights & weddings. 25+ years. TED-featured. Book DJ DX today." />
         <link rel="canonical" href="https://djdxmusic.com/hip-hop-dj-nyc-nj" />
         <meta property="og:title" content="Hip-Hop DJ NYC & NJ — DJ DX" />
         <meta property="og:description" content="Professional hip-hop DJ in New York and New Jersey. DJ DX plays Old School to New School — Biggie, Nas, Jay-Z through Drake and Kendrick. 500+ events." />
@@ -32,7 +32,7 @@ export default function HipHopDJ() {
               "name": "Hip-Hop DJ NYC & NJ — Old School to New School",
               "serviceType": "Hip-Hop DJ",
               "url": "https://djdxmusic.com/hip-hop-dj-nyc-nj",
-              "description": "DJ DX is a professional hip-hop DJ in New York City and New Jersey serving private parties, corporate events, weddings, and nightclubs. Specializing in authentic hip-hop from the Golden Era through modern trap and drill. TED-featured artist. 20+ years experience. 500+ events.",
+              "description": "DJ DX is a professional hip-hop DJ in New York City and New Jersey serving private parties, corporate events, weddings, and nightclubs. Specializing in authentic hip-hop from the Golden Era through modern trap and drill. TED-featured artist. 25+ years experience. 500+ events.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -165,7 +165,7 @@ export default function HipHopDJ() {
               </div>
               <div className="about-body sr" data-sr-delay="0.1s">
                 <p>Hip-hop is not a playlist genre — it's a living culture with distinct eras, sounds, subgenres, and emotional registers. DJ DX grew up studying the art form from the inside: the call-and-response of a crowd when "Juicy" drops, the collective exhale when a Kendrick verse hits. Understanding <em>why</em> certain records work at certain moments is what separates a hip-hop DJ from someone who simply owns hip-hop songs.</p>
-                <p>With over 20 years behind the decks and 500+ events performed across New York, New Jersey, and beyond, DJ DX has honed a reading of the room that no algorithm can replicate. Sets move from Golden Era storytelling to hard trap bass without a seam showing — because transitions are architected, not accidental. Whether you need boom-bap for an '85 crowd or drill for a room full of 22-year-olds, DJ DX builds the setlist to your guest list.</p>
+                <p>With over 25 years behind the decks and 500+ events performed across New York, New Jersey, and beyond, DJ DX has honed a reading of the room that no algorithm can replicate. Sets move from Golden Era storytelling to hard trap bass without a seam showing — because transitions are architected, not accidental. Whether you need boom-bap for an '85 crowd or drill for a room full of 22-year-olds, DJ DX builds the setlist to your guest list.</p>
                 <p>As a <a href="https://www.ted.com/talks/dj_dx_finally_moving" target="_blank" rel="noopener" style={{ color: 'var(--gold)' }}>TED-featured recording artist</a> and producer with 100+ originals on Spotify, DJ DX brings an artist's ear to every event performance. Original blends and exclusive edits — music your guests will not hear anywhere else — are woven into every set.</p>
               </div>
             </div>

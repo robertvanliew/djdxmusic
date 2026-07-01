@@ -32,7 +32,7 @@ export default function RooftopDJ() {
               "name": "Rooftop Party DJ NYC — Outdoor Summer Events",
               "serviceType": "Outdoor Event DJ",
               "url": "https://djdxmusic.com/rooftop-party-dj-nyc",
-              "description": "DJ DX is a professional rooftop and outdoor event DJ in New York City, specializing in summer rooftop parties, open-air brand activations, terrace events, and luxury outdoor gatherings across Manhattan, Brooklyn, and the Hamptons. 20+ years experience. 500+ events.",
+              "description": "DJ DX is a professional rooftop and outdoor event DJ in New York City, specializing in summer rooftop parties, open-air brand activations, terrace events, and luxury outdoor gatherings across Manhattan, Brooklyn, and the Hamptons. 25+ years experience. 500+ events.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",

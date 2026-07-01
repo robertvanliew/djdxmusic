@@ -101,7 +101,7 @@ export default function AfrobeatsDJ() {
                   "name": "Can DJ DX mix Afrobeats with R&B and Hip-Hop at the same event?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Absolutely. DJ DX is a genre-fluid multi-specialist who has spent 20+ years perfecting seamless transitions between Afrobeats, Amapiano, R&B, Hip-Hop, Dancehall, and Soca. This cross-genre expertise sets DJ DX apart from genre-specialist DJs — guests who know Afrobeats deeply and guests hearing it for the first time both stay engaged and on the dance floor throughout the night."
+                    "text": "Absolutely. DJ DX is a genre-fluid multi-specialist who has spent 25+ years perfecting seamless transitions between Afrobeats, Amapiano, R&B, Hip-Hop, Dancehall, and Soca. This cross-genre expertise sets DJ DX apart from genre-specialist DJs — guests who know Afrobeats deeply and guests hearing it for the first time both stay engaged and on the dance floor throughout the night."
                   }
                 },
                 {
@@ -117,7 +117,7 @@ export default function AfrobeatsDJ() {
                   "name": "How much does an Afrobeats DJ cost in New York City?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Afrobeats DJ rates in New York City typically range from $1,200 to $4,000+ depending on event type, hours, guest count, and sound setup. DJ DX — with 20+ years of experience and 500+ events across the NYC tri-state area — provides custom quotes based on your specific event. Contact bookings@djdxmusic.com for transparent pricing within 24 hours."
+                    "text": "Afrobeats DJ rates in New York City typically range from $1,200 to $4,000+ depending on event type, hours, guest count, and sound setup. DJ DX — with 25+ years of experience and 500+ events across the NYC tri-state area — provides custom quotes based on your specific event. Contact bookings@djdxmusic.com for transparent pricing within 24 hours."
                   }
                 }
               ]
@@ -246,7 +246,7 @@ export default function AfrobeatsDJ() {
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
               { q: 'Does DJ DX play Afrobeats and Afropop at events in NYC?', a: 'Yes. DJ DX is one of New York City\'s most in-demand Afrobeats DJs, with a library of 3,000+ Afrobeats, Amapiano, and Afropop tracks updated weekly with the latest releases. Sets span the full spectrum — from classic Wizkid, Burna Boy, and Davido to cutting-edge South African Amapiano and diaspora crossovers.' },
-              { q: 'Can DJ DX mix Afrobeats with R&B and Hip-Hop at the same event?', a: 'Absolutely. DJ DX is a genre-fluid multi-specialist who has spent 20+ years perfecting seamless transitions between Afrobeats, Amapiano, R&B, Hip-Hop, Dancehall, and Soca. Guests who know Afrobeats deeply and guests hearing it for the first time both stay engaged and on the dance floor throughout the night.' },
+              { q: 'Can DJ DX mix Afrobeats with R&B and Hip-Hop at the same event?', a: 'Absolutely. DJ DX is a genre-fluid multi-specialist who has spent 25+ years perfecting seamless transitions between Afrobeats, Amapiano, R&B, Hip-Hop, Dancehall, and Soca. Guests who know Afrobeats deeply and guests hearing it for the first time both stay engaged and on the dance floor throughout the night.' },
               { q: 'Does DJ DX play Amapiano, Dancehall, and Soca?', a: 'Yes. DJ DX\'s sets cover the full African and Caribbean diaspora — Amapiano, Afro-house, Afro-fusion, Dancehall, Reggae, and Soca. Each subgenre is performed with genuine depth, not as a novelty add-on. Request specific sounds when you fill out the booking form.' },
               { q: 'How much does an Afrobeats DJ cost in New York City?', a: 'Afrobeats DJ rates in New York City typically range from $1,200 to $4,000+ depending on event type, hours, guest count, and sound setup. DJ DX provides custom quotes based on your specific event — contact bookings@djdxmusic.com for transparent pricing within 24 hours.' },
             ].map(({ q, a }) => (

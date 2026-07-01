@@ -32,7 +32,7 @@ export default function DJForHireNYC() {
               "name": "DJ for Hire NYC — Professional DJ New York City",
               "serviceType": "DJ for Hire",
               "url": "https://djdxmusic.com/dj-for-hire-nyc",
-              "description": "DJ DX is a professional DJ for hire in New York City, serving weddings, corporate events, private parties, birthdays, rooftop events, nightclubs, and more across NYC, NJ, and the tri-state area. TED-featured artist. 20+ years experience. 500+ events. R&B, Hip-Hop, Afrobeats, House, and all genres.",
+              "description": "DJ DX is a professional DJ for hire in New York City, serving weddings, corporate events, private parties, birthdays, rooftop events, nightclubs, and more across NYC, NJ, and the tri-state area. TED-featured artist. 25+ years experience. 500+ events. R&B, Hip-Hop, Afrobeats, House, and all genres.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -115,7 +115,7 @@ export default function DJForHireNYC() {
                   "name": "What makes DJ DX different from other DJs for hire in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "DJ DX is a TED-featured artist (TEDxYouth@RVA 2022), a music producer with 100+ originals on Spotify and Apple Music, and a DJ with 20+ years of experience and 500+ events performed. DJ DX plays R&B, Hip-Hop, Afrobeats, Amapiano, House, Jersey Club, Old School, Dancehall, and Soca — one of the broadest authentic genre ranges of any DJ in the NYC market."
+                    "text": "DJ DX is a TED-featured artist (TEDxYouth@RVA 2022), a music producer with 100+ originals on Spotify and Apple Music, and a DJ with 25+ years of experience and 500+ events performed. DJ DX plays R&B, Hip-Hop, Afrobeats, Amapiano, House, Jersey Club, Old School, Dancehall, and Soca — one of the broadest authentic genre ranges of any DJ in the NYC market."
                   }
                 },
                 {
@@ -157,7 +157,7 @@ export default function DJForHireNYC() {
           </h1>
           <p style={{ maxWidth: '640px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
             Weddings, corporate galas, birthday parties, rooftop events, and club nights —
-            DJ DX brings 20+ years of craft and a TED-featured artist's ear to every booking.
+            DJ DX brings 25+ years of craft and a TED-featured artist's ear to every booking.
           </p>
           <a href="#booking" className="btn-gold">Request a Quote</a>
         </div>
@@ -248,7 +248,7 @@ export default function DJForHireNYC() {
             {[
               { q: 'How do I hire a DJ in New York City?', a: 'Use the booking form on this page or email bookings@djdxmusic.com. Provide your event date, venue, event type, estimated guest count, and any music preferences. DJ DX responds within 24–48 hours with availability and a custom quote.' },
               { q: 'What events does DJ DX perform at in NYC and NJ?', a: 'DJ DX performs at weddings, corporate events, private birthday parties, sweet sixteens, rooftop parties, nightclub residencies, New Year\'s Eve events, brand activations, destination weddings, and Hamptons luxury events across NYC, NJ, CT, and internationally.' },
-              { q: 'What makes DJ DX different from other DJs for hire in NYC?', a: 'DJ DX is a TED-featured artist, a music producer with 100+ originals on Spotify, and a DJ with 20+ years and 500+ events performed. DJ DX plays R&B, Hip-Hop, Afrobeats, Amapiano, House, Jersey Club, Old School, Dancehall, and Soca — one of the broadest authentic genre ranges of any DJ in the NYC market.' },
+              { q: 'What makes DJ DX different from other DJs for hire in NYC?', a: 'DJ DX is a TED-featured artist, a music producer with 100+ originals on Spotify, and a DJ with 25+ years and 500+ events performed. DJ DX plays R&B, Hip-Hop, Afrobeats, Amapiano, House, Jersey Club, Old School, Dancehall, and Soca — one of the broadest authentic genre ranges of any DJ in the NYC market.' },
               { q: 'How much does it cost to hire a DJ in New York City?', a: 'DJ DX rates typically range from $1,200 for smaller private parties up to $5,000+ for full-day weddings or corporate galas. Custom quotes are provided for every inquiry — email bookings@djdxmusic.com with your event details for transparent pricing.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>

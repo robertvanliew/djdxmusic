@@ -32,7 +32,7 @@ export default function NewYearsEveDJ() {
               "name": "New Year's Eve DJ NYC — NYE Party DJ New York",
               "serviceType": "New Year's Eve DJ",
               "url": "https://djdxmusic.com/new-years-eve-dj-nyc",
-              "description": "DJ DX is a premier New Year's Eve DJ in New York City, delivering high-energy NYE performances at private parties, corporate NYE galas, rooftop countdowns, and nightclub residencies across Manhattan, Brooklyn, and New Jersey. 20+ years experience. One NYE slot available per year — book early.",
+              "description": "DJ DX is a premier New Year's Eve DJ in New York City, delivering high-energy NYE performances at private parties, corporate NYE galas, rooftop countdowns, and nightclub residencies across Manhattan, Brooklyn, and New Jersey. 25+ years experience. One NYE slot available per year — book early.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",

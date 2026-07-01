@@ -32,7 +32,7 @@ export default function RnBDJ() {
               "name": "R&B DJ NYC & NJ — Soul, Neo-Soul & Contemporary R&B",
               "serviceType": "R&B DJ",
               "url": "https://djdxmusic.com/rb-dj-nyc-nj",
-              "description": "DJ DX is a professional R&B DJ in New York City and New Jersey, specializing in classic soul, 90s R&B, neo-soul, and contemporary R&B for private parties, weddings, milestone events, and upscale gatherings. 20+ years experience. 500+ events. 3,000+ R&B tracks in rotation.",
+              "description": "DJ DX is a professional R&B DJ in New York City and New Jersey, specializing in classic soul, 90s R&B, neo-soul, and contemporary R&B for private parties, weddings, milestone events, and upscale gatherings. 25+ years experience. 500+ events. 3,000+ R&B tracks in rotation.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -91,7 +91,7 @@ export default function RnBDJ() {
                   "name": "What R&B eras does DJ DX cover at events?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "DJ DX covers the full spectrum of R&B — classic Motown and soul from the 60s and 70s, the golden era 90s R&B that defined the genre (Aaliyah, Usher, Mary J. Blige, D'Angelo), neo-soul from the 2000s, and today's contemporary R&B artists like SZA, H.E.R., and Brent Faiyaz. With 3,000+ R&B tracks catalogued and 20+ years of experience, every era is covered in depth, not just with surface-level hits."
+                    "text": "DJ DX covers the full spectrum of R&B — classic Motown and soul from the 60s and 70s, the golden era 90s R&B that defined the genre (Aaliyah, Usher, Mary J. Blige, D'Angelo), neo-soul from the 2000s, and today's contemporary R&B artists like SZA, H.E.R., and Brent Faiyaz. With 3,000+ R&B tracks catalogued and 25+ years of experience, every era is covered in depth, not just with surface-level hits."
                   }
                 },
                 {
@@ -165,7 +165,7 @@ export default function RnBDJ() {
                 <h2 className="sec-title">R&B Is <span>a Lifestyle</span></h2>
               </div>
               <div className="about-body sr" data-sr-delay="0.1s">
-                <p>R&B is the most emotionally resonant genre in American music — and it demands a DJ who doesn't just know the hits but understands the depth. DJ DX has spent over 20 years building a catalogue that spans classic Motown and soul, the golden era of 90s R&B (Aaliyah, Usher, Mary J. Blige, Maxwell, D'Angelo), the neo-soul renaissance of the 2000s, and today's boundary-pushing contemporary artists like SZA, H.E.R., Frank Ocean, and Brent Faiyaz.</p>
+                <p>R&B is the most emotionally resonant genre in American music — and it demands a DJ who doesn't just know the hits but understands the depth. DJ DX has spent over 25 years building a catalogue that spans classic Motown and soul, the golden era of 90s R&B (Aaliyah, Usher, Mary J. Blige, Maxwell, D'Angelo), the neo-soul renaissance of the 2000s, and today's boundary-pushing contemporary artists like SZA, H.E.R., Frank Ocean, and Brent Faiyaz.</p>
                 <p>R&B works at every level of an event — it provides elegant background music during cocktail hours, emotional peaks during milestone moments, and danceable energy when the floor needs to move. DJ DX has used R&B as the backbone of sets at upscale corporate galas, intimate birthday parties, wedding receptions, and rooftop summer events across Manhattan, Brooklyn, and New Jersey. The genre is a tool; knowing when and how to deploy it is the craft.</p>
                 <p>With 3,000+ R&B tracks catalogued across every sub-genre and era, DJ DX brings real depth to R&B bookings — not a surface-level playlist of obvious hits, but a curated journey through the genre that respects its history while connecting it to where it's going. Custom setlists built around your guests, your moment, your vision.</p>
               </div>
@@ -223,7 +223,7 @@ export default function RnBDJ() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'What R&B eras does DJ DX cover at events?', a: 'DJ DX covers the full spectrum of R&B — classic Motown and soul from the 60s and 70s, the golden era 90s R&B (Aaliyah, Usher, Mary J. Blige, D\'Angelo), neo-soul from the 2000s, and today\'s contemporary artists like SZA, H.E.R., and Brent Faiyaz. With 3,000+ R&B tracks catalogued and 20+ years of experience, every era is covered in depth, not just surface-level hits.' },
+              { q: 'What R&B eras does DJ DX cover at events?', a: 'DJ DX covers the full spectrum of R&B — classic Motown and soul from the 60s and 70s, the golden era 90s R&B (Aaliyah, Usher, Mary J. Blige, D\'Angelo), neo-soul from the 2000s, and today\'s contemporary artists like SZA, H.E.R., and Brent Faiyaz. With 3,000+ R&B tracks catalogued and 25+ years of experience, every era is covered in depth, not just surface-level hits.' },
               { q: 'Can DJ DX play R&B for an upscale or formal event in NYC?', a: 'Yes. R&B is one of the most versatile genres for upscale events — it carries sophistication, emotional depth, and a smooth energy that works for cocktail hours, dinner receptions, and late-night celebrations. DJ DX has performed at luxury galas, corporate dinners, and wedding receptions across Manhattan using R&B-forward setlists that match formal atmospheres while keeping guests engaged.' },
               { q: 'Does DJ DX mix R&B with other genres or keep it pure R&B?', a: 'Both options are available. For pure R&B events — a 90s-themed birthday, a neo-soul dinner set, a classic soul cocktail hour — DJ DX delivers genre-focused sets with real depth. For mixed-crowd events, R&B serves as the connective tissue between hip-hop, Afrobeats, and house. The approach is always customized based on your event\'s specific vision and guest demographics.' },
               { q: 'How much does an R&B DJ cost in New York City?', a: 'R&B DJ rates in NYC and NJ typically range from $1,200 to $3,500+ depending on event duration, venue size, and equipment requirements. DJ DX provides transparent custom quotes within 24 hours — email bookings@djdxmusic.com with your date, venue, and expected guest count. Peak weekend and holiday dates book quickly; contact early to check availability.' },

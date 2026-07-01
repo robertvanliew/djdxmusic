@@ -32,7 +32,7 @@ export default function PrivatePartyDJ() {
               "name": "Private Party DJ NYC & NJ — Birthdays, Anniversaries & Milestones",
               "serviceType": "Private Party DJ",
               "url": "https://djdxmusic.com/private-party-dj-nyc-nj",
-              "description": "DJ DX is a professional private party DJ in New York City and New Jersey available for birthday parties, anniversary celebrations, milestone events, launch parties, and exclusive private gatherings. R&B, Hip-Hop, Afrobeats, House, and more. 20+ years experience. 500+ events performed.",
+              "description": "DJ DX is a professional private party DJ in New York City and New Jersey available for birthday parties, anniversary celebrations, milestone events, launch parties, and exclusive private gatherings. R&B, Hip-Hop, Afrobeats, House, and more. 25+ years experience. 500+ events performed.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",

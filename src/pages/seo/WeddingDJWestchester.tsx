@@ -128,7 +128,7 @@ export default function WeddingDJWestchester() {
               </div>
               <div className="about-body sr" data-sr-delay="0.1s">
                 <p>Westchester County couples want NYC-level production with Hudson Valley elegance. The venues — Tappan Hill Mansion, The Castle Hotel, Sleepy Hollow Country Club — are some of the most beautiful in the region. The music has to live up to the room without overwhelming it.</p>
-                <p>DJ DX brings 20+ years of DJ experience. The same custom-curated approach, the same R&amp;B and Hip-Hop deep cuts, the same Afrobeats and Old School blends — delivered with the polish that Hudson Valley couples expect.</p>
+                <p>DJ DX brings 25+ years of DJ experience. The same custom-curated approach, the same R&amp;B and Hip-Hop deep cuts, the same Afrobeats and Old School blends — delivered with the polish that Hudson Valley couples expect.</p>
                 <p>Westchester is part of the regular tri-state circuit. 30-45 minutes from Manhattan via the Henry Hudson or I-87. No travel premium added — Westchester rates match NYC rates for venues within 50 miles.</p>
               </div>
             </div>

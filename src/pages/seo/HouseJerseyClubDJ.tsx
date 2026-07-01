@@ -32,7 +32,7 @@ export default function HouseJerseyClubDJ() {
               "name": "House & Jersey Club DJ NYC NJ — Club, Lounge & Event DJ",
               "serviceType": "House and Jersey Club DJ",
               "url": "https://djdxmusic.com/house-jersey-club-dj-nyc-nj",
-              "description": "DJ DX is a professional house and Jersey Club DJ in New York City and New Jersey, available for nightclubs, lounges, rooftop events, private parties, and brand activations. Specialties: deep house, afro house, tech house, Jersey Club, and club-to-underground blends. 20+ years experience. 500+ events.",
+              "description": "DJ DX is a professional house and Jersey Club DJ in New York City and New Jersey, available for nightclubs, lounges, rooftop events, private parties, and brand activations. Specialties: deep house, afro house, tech house, Jersey Club, and club-to-underground blends. 25+ years experience. 500+ events.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -163,8 +163,8 @@ export default function HouseJerseyClubDJ() {
                 <h2 className="sec-title">Built for the <span>Dance Floor</span></h2>
               </div>
               <div className="about-body sr" data-sr-delay="0.1s">
-                <p>House music is the heartbeat of New York City's nightlife — and Jersey Club is the tri-state area's own genre invention, a sound born in Newark that has crossed over to global dancefloors. DJ DX has been mixing house music for over 20 years, from the deep soulful house that defined late-night New York to the afro house movement (Black Coffee, Enoo Napa, Themba) that has become the dominant sound for upscale events and boutique clubs.</p>
-                <p>Jersey Club is more than a regional novelty — it's a genre with specific technical demands: fast BPMs, complex kick patterns, chopped vocal samples, and a crowd that knows exactly what authentic Jersey Club sounds like. DJ DX brings that authenticity, integrating it with Afrobeats and hip-hop in ways that feel seamless rather than jarring. For events in Newark, Jersey City, and Brooklyn's club scene, Jersey Club is the expectation — DJ DX delivers it with 20+ years of experience behind the decks.</p>
+                <p>House music is the heartbeat of New York City's nightlife — and Jersey Club is the tri-state area's own genre invention, a sound born in Newark that has crossed over to global dancefloors. DJ DX has been mixing house music for over 25 years, from the deep soulful house that defined late-night New York to the afro house movement (Black Coffee, Enoo Napa, Themba) that has become the dominant sound for upscale events and boutique clubs.</p>
+                <p>Jersey Club is more than a regional novelty — it's a genre with specific technical demands: fast BPMs, complex kick patterns, chopped vocal samples, and a crowd that knows exactly what authentic Jersey Club sounds like. DJ DX brings that authenticity, integrating it with Afrobeats and hip-hop in ways that feel seamless rather than jarring. For events in Newark, Jersey City, and Brooklyn's club scene, Jersey Club is the expectation — DJ DX delivers it with 25+ years of experience behind the decks.</p>
                 <p>Whether the event calls for a sophisticated deep house cocktail set or a peak-hour club experience, DJ DX reads the room and adapts. House music is not one sound — it's a spectrum, and knowing where to go on that spectrum at any given moment is the skill that separates a DJ from a playlist.</p>
               </div>
             </div>
