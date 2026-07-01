@@ -21,39 +21,18 @@
     <meta name="msapplication-TileImage" content="/favicon.svg" />
     <meta name="msapplication-TileColor" content="#0c0c0c" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DJ DX — DJ, Producer &amp; Recording Artist | New York &amp; New Jersey</title>
-    <meta name="description" content="DJ DX is a New York/New Jersey DJ, producer, rapper &amp; engineer with 25+ years of experience. Known as 'El Negro' across Latin America. Featured on TED, TEDx, Disrupt Magazine &amp; NJ.com. Available for corporate events, weddings, clubs &amp; private parties." />
-    <meta name="keywords" content="DJ DX, El Negro DJ, DJ New York, DJ New Jersey, DJ NYC, DJ NJ, DJ tri-state area, DJ booking New York, DJ booking New Jersey, TEDx DJ, producer recording artist, rapper engineer, R&B DJ, hip-hop DJ, Afrobeats DJ, Hood Reggaeton, Jersey Club DJ, DJ for hire NY NJ, DJ DX music videos, DJ DX blends, DJ DX remixes, wedding DJ New Jersey, corporate DJ New York, private party DJ NJ, Latin DJ New York, reggaeton DJ New Jersey" />
-    <link rel="canonical" href="https://djdxmusic.com/" />
-
+    <!--
+      Route-specific head tags (title, description, canonical, OG/Twitter)
+      are owned by react-helmet-async per page and baked into static HTML
+      by scripts/prerender.mjs at build time. Do not add a canonical or
+      og:url here — it would ship on every route and mark all landing
+      pages as duplicates of the homepage.
+    -->
     <!-- Robots / Indexing -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow" />
     <meta name="author" content="DJ DX" />
     <meta name="theme-color" content="#0c0c0c" />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="music.musician" />
-    <meta property="og:url" content="https://djdxmusic.com/" />
-    <meta property="og:title" content="DJ DX — DJ, Producer &amp; Recording Artist" />
-    <meta property="og:description" content="Stream &amp; buy exclusive DJ DX originals, blends, and remixes. New York/New Jersey's soulful DJ &amp; producer — featured on TED, Disrupt Magazine, Spotify &amp; Apple Music." />
-    <meta property="og:image" content="https://djdxmusic.com/og-image.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta property="og:image:alt" content="DJ DX — Official Music &amp; Booking" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="DJ DX" />
-    <meta property="music:musician" content="https://open.spotify.com/artist/4gGFdpDwEe8zIY1XSE3dGe" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@djdxmusic" />
-    <meta name="twitter:creator" content="@djdxmusic" />
-    <meta name="twitter:title" content="DJ DX — DJ, Producer &amp; Recording Artist" />
-    <meta name="twitter:description" content="Stream &amp; buy exclusive DJ DX originals, blends, and remixes. New York/New Jersey's soulful DJ &amp; producer — featured on TED, Spotify &amp; Apple Music." />
-    <meta name="twitter:image" content="https://djdxmusic.com/og-image.jpg" />
-    <meta name="twitter:image:alt" content="DJ DX — Official Music &amp; Booking" />
 
     <!-- Geo targeting -->
     <meta name="geo.region" content="US-NY" />
@@ -182,115 +161,6 @@
     }
     </script>
 
-    <!-- JSON-LD — Official Music Videos (VideoObject list) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "DJ DX — Official Music Videos",
-      "description": "Official music videos by DJ DX, New York/New Jersey-based DJ, producer, and recording artist.",
-      "url": "https://djdxmusic.com/#videos",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "item": {
-            "@type": "VideoObject",
-            "name": "DJ DX - So Simple (Official Video)",
-            "description": "Official music video for 'So Simple' by DJ DX — New York/New Jersey DJ, producer, and recording artist. Stream and download at djdxmusic.com.",
-            "thumbnailUrl": "https://i.ytimg.com/vi/sqIUE0M54VE/maxresdefault.jpg",
-            "uploadDate": "2023-01-01T00:00:00+00:00",
-            "embedUrl": "https://www.youtube.com/embed/sqIUE0M54VE",
-            "url": "https://www.youtube.com/watch?v=sqIUE0M54VE",
-            "author": { "@id": "https://djdxmusic.com/#djdx" },
-            "publisher": { "@id": "https://djdxmusic.com/#djdx" },
-            "inLanguage": "en-US"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "item": {
-            "@type": "VideoObject",
-            "name": "Finally Moving | DJ DX | TEDxYouth@RVA",
-            "description": "DJ DX performs 'Finally Moving' at TEDxYouth@RVA — a live performance by New York/New Jersey DJ, producer, and recording artist DJ DX.",
-            "thumbnailUrl": "https://i.ytimg.com/vi/aG1KR7wPTBk/maxresdefault.jpg",
-            "uploadDate": "2022-12-09T00:00:00+00:00",
-            "embedUrl": "https://www.youtube.com/embed/aG1KR7wPTBk",
-            "url": "https://www.youtube.com/watch?v=aG1KR7wPTBk",
-            "author": { "@id": "https://djdxmusic.com/#djdx" },
-            "publisher": { "@type": "Organization", "name": "TEDx Talks" },
-            "inLanguage": "en-US"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "item": {
-            "@type": "VideoObject",
-            "name": "DJ DX - So Simple (VEVO)",
-            "description": "Official VEVO release of 'So Simple' by DJ DX — New York/New Jersey DJ, producer, and recording artist. Stream and download at djdxmusic.com.",
-            "thumbnailUrl": "https://i.ytimg.com/vi/LyopmsT-fiM/maxresdefault.jpg",
-            "uploadDate": "2023-01-01T00:00:00+00:00",
-            "embedUrl": "https://www.youtube.com/embed/LyopmsT-fiM",
-            "url": "https://www.youtube.com/watch?v=LyopmsT-fiM",
-            "author": { "@id": "https://djdxmusic.com/#djdx" },
-            "publisher": { "@type": "Organization", "name": "DJDXVEVO" },
-            "inLanguage": "en-US"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "item": {
-            "@type": "VideoObject",
-            "name": "DJ DX - Shining Stars ft. DJ Madden (Official Video)",
-            "description": "Official music video for 'Shining Stars' featuring DJ Madden by DJ DX — New York/New Jersey DJ, producer, and recording artist. Stream at djdxmusic.com.",
-            "thumbnailUrl": "https://i.ytimg.com/vi/00V8Q92N5Ig/maxresdefault.jpg",
-            "uploadDate": "2023-01-01T00:00:00+00:00",
-            "embedUrl": "https://www.youtube.com/embed/00V8Q92N5Ig",
-            "url": "https://www.youtube.com/watch?v=00V8Q92N5Ig",
-            "author": { "@id": "https://djdxmusic.com/#djdx" },
-            "publisher": { "@id": "https://djdxmusic.com/#djdx" },
-            "inLanguage": "en-US"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 5,
-          "item": {
-            "@type": "VideoObject",
-            "name": "DJ DX - Many Dreams ft. DJ Madden (Official Music Video)",
-            "description": "Official music video for 'Many Dreams' featuring DJ Madden by DJ DX — New York/New Jersey DJ, producer, and recording artist. Stream at djdxmusic.com.",
-            "thumbnailUrl": "https://i.ytimg.com/vi/ut5ukF-SL60/maxresdefault.jpg",
-            "uploadDate": "2023-01-01T00:00:00+00:00",
-            "embedUrl": "https://www.youtube.com/embed/ut5ukF-SL60",
-            "url": "https://www.youtube.com/watch?v=ut5ukF-SL60",
-            "author": { "@id": "https://djdxmusic.com/#djdx" },
-            "publisher": { "@id": "https://djdxmusic.com/#djdx" },
-            "inLanguage": "en-US"
-          }
-        },
-        {
-          "@type": "ListItem",
-          "position": 6,
-          "item": {
-            "@type": "VideoObject",
-            "name": "DJ DX - Run Bro ft. Nadia Gold (Official Video)",
-            "description": "Official music video for 'Run Bro' featuring Nadia Gold by DJ DX — New York/New Jersey DJ, producer, and recording artist. Stream at djdxmusic.com.",
-            "thumbnailUrl": "https://i.ytimg.com/vi/bdNVGEpmTuc/maxresdefault.jpg",
-            "uploadDate": "2023-01-01T00:00:00+00:00",
-            "embedUrl": "https://www.youtube.com/embed/bdNVGEpmTuc",
-            "url": "https://www.youtube.com/watch?v=bdNVGEpmTuc",
-            "author": { "@id": "https://djdxmusic.com/#djdx" },
-            "publisher": { "@id": "https://djdxmusic.com/#djdx" },
-            "inLanguage": "en-US"
-          }
-        }
-      ]
-    }
-    </script>
-
     <!-- JSON-LD — Local Professional Service (DJ for hire) -->
     <script type="application/ld+json">
     {
@@ -360,32 +230,7 @@
       "url": "https://djdxmusic.com/",
       "description": "Official website of DJ DX — New York/New Jersey DJ, producer, and recording artist. Music, videos, press, and bookings.",
       "publisher": { "@id": "https://djdxmusic.com/#djdx" },
-      "inLanguage": "en-US",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://djdxmusic.com/?s={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-
-    <!-- JSON-LD — BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home",       "item": "https://djdxmusic.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Music Store","item": "https://djdxmusic.com/#catalog" },
-        { "@type": "ListItem", "position": 3, "name": "Albums",     "item": "https://djdxmusic.com/albums" },
-        { "@type": "ListItem", "position": 4, "name": "Videos",     "item": "https://djdxmusic.com/#videos" },
-        { "@type": "ListItem", "position": 5, "name": "Press",      "item": "https://djdxmusic.com/#press" },
-        { "@type": "ListItem", "position": 6, "name": "Booking",    "item": "https://djdxmusic.com/#booking" },
-        { "@type": "ListItem", "position": 7, "name": "EPK",        "item": "https://djdxmusic.com/epk" }
-      ]
+      "inLanguage": "en-US"
     }
     </script>
 
@@ -422,31 +267,6 @@
         "https://twitter.com/djdxmusic",
         "https://www.instagram.com/djdx"
       ]
-    }
-    </script>
-
-    <!-- JSON-LD — WebPage with Speakable (Voice Search / AEO) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "@id": "https://djdxmusic.com/#webpage",
-      "url": "https://djdxmusic.com/",
-      "name": "DJ DX — DJ, Producer & Recording Artist | New York & New Jersey",
-      "description": "DJ DX is a New York/New Jersey-based DJ, producer, and recording artist with 20+ years of experience. Featured on TED, Disrupt Magazine, and NJ.com.",
-      "speakable": {
-        "@type": "SpeakableSpecification",
-        "cssSelector": [
-          ".hero-deck",
-          ".hero-coverline",
-          ".about-body",
-          ".faq-answer",
-          ".booking-blurb"
-        ]
-      },
-      "isPartOf": { "@id": "https://djdxmusic.com/#website" },
-      "about": { "@id": "https://djdxmusic.com/#djdx" },
-      "inLanguage": "en-US"
     }
     </script>
 

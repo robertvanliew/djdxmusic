@@ -58,11 +58,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is DJ DX available for corporate events and brand activations in NYC?",
-    a: "Yes. DJ DX is an experienced corporate event DJ in New York City and New Jersey, available for brand activations, product launches, office parties, galas, and conference entertainment. With 20+ years of professional experience and 500+ events, DJ DX delivers polished, on-brand performances."
+    a: "Yes. DJ DX is an experienced corporate event DJ in New York City and New Jersey, available for brand activations, product launches, office parties, galas, and conference entertainment. With 25+ years of professional experience and 500+ events, DJ DX delivers polished, on-brand performances."
   },
   {
     q: "What makes DJ DX different from other DJs in New York and New Jersey?",
-    a: "DJ DX is a TED-featured artist (TEDxYouth@RVA 2022), an original music producer with 100+ releases on Spotify and Apple Music, and a DJ with over 20 years of experience. DJ DX has been covered by Disrupt Magazine, NJ.com, and RVA Magazine — bringing a level of credibility and artistry that goes beyond standard DJ services in the NYC/NJ market."
+    a: "DJ DX is a TED-featured artist (TEDxYouth@RVA 2022), an original music producer with 100+ releases on Spotify and Apple Music, and a DJ with over 25 years of experience. DJ DX has been covered by Disrupt Magazine, NJ.com, and RVA Magazine — bringing a level of credibility and artistry that goes beyond standard DJ services in the NYC/NJ market."
   },
   {
     q: "Can DJ DX perform at a nightclub or venue in New Jersey or New York City?",
@@ -381,9 +381,25 @@ function App() {
 
       <Helmet>
         <title>DJ DX — DJ, Producer &amp; Recording Artist | New York &amp; New Jersey</title>
-        <meta name="description" content="DJ DX is a New York/New Jersey-based DJ, producer, and recording artist with 20+ years of experience. Featured on TED, TEDxYouth@RVA, Disrupt Magazine, and NJ.com. Book for weddings, corporate events, clubs, and private parties." />
+        <meta name="description" content="DJ DX is a New York/New Jersey-based DJ, producer, and recording artist with 25+ years of experience. Featured on TED, TEDxYouth@RVA, Disrupt Magazine, and NJ.com. Book for weddings, corporate events, clubs, and private parties." />
         <link rel="canonical" href="https://djdxmusic.com/" />
+        <meta property="og:type" content="music.musician" />
         <meta property="og:url" content="https://djdxmusic.com/" />
+        <meta property="og:title" content="DJ DX — DJ, Producer &amp; Recording Artist" />
+        <meta property="og:description" content="Stream &amp; buy exclusive DJ DX originals, blends, and remixes. New York/New Jersey's soulful DJ &amp; producer — featured on TED, Disrupt Magazine, Spotify &amp; Apple Music." />
+        <meta property="og:image" content="https://djdxmusic.com/og-image.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="DJ DX — Official Music &amp; Booking" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="DJ DX" />
+        <meta property="music:musician" content="https://open.spotify.com/artist/4gGFdpDwEe8zIY1XSE3dGe" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@djdxmusic" />
+        <meta name="twitter:creator" content="@djdxmusic" />
+        <meta name="twitter:title" content="DJ DX — DJ, Producer &amp; Recording Artist" />
+        <meta name="twitter:description" content="Stream &amp; buy exclusive DJ DX originals, blends, and remixes. New York/New Jersey's soulful DJ &amp; producer — featured on TED, Spotify &amp; Apple Music." />
+        <meta name="twitter:image" content="https://djdxmusic.com/og-image.jpg" />
         <script type="application/ld+json">
           {`[
             {
@@ -398,7 +414,7 @@ function App() {
                 "url": "https://djdxmusic.com/news",
                 "description": "The official news publication of DJ DX — covering music releases, events, and culture."
               },
-              "description": "DJ DX is a New York/New Jersey-based DJ, producer, and recording artist with 20+ years of experience and 500+ events performed. Featured on TED, TEDxYouth@RVA, Disrupt Magazine, and NJ.com. Available for weddings, corporate events, nightclubs, and private parties.",
+              "description": "DJ DX is a New York/New Jersey-based DJ, producer, and recording artist with 25+ years of experience and 500+ events performed. Featured on TED, TEDxYouth@RVA, Disrupt Magazine, and NJ.com. Available for weddings, corporate events, nightclubs, and private parties.",
               "image": "https://djdxmusic.com/epk-hero.jpg",
               "email": "bookings@djdxmusic.com",
               "priceRange": "$$-$$$",
@@ -479,7 +495,7 @@ function App() {
                   "name": "Is DJ DX available for corporate events and brand activations in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. DJ DX is an experienced corporate event DJ in New York City and New Jersey, available for brand activations, product launches, office parties, galas, and conference entertainment. With 20+ years of professional experience and 500+ events, DJ DX delivers polished, on-brand performances."
+                    "text": "Yes. DJ DX is an experienced corporate event DJ in New York City and New Jersey, available for brand activations, product launches, office parties, galas, and conference entertainment. With 25+ years of professional experience and 500+ events, DJ DX delivers polished, on-brand performances."
                   }
                 },
                 {
@@ -487,7 +503,7 @@ function App() {
                   "name": "What makes DJ DX different from other DJs in New York and New Jersey?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "DJ DX is a TED-featured artist (TEDxYouth@RVA 2022), an original music producer with 100+ releases on Spotify and Apple Music, and a DJ with over 20 years of experience. DJ DX has been covered by Disrupt Magazine, NJ.com, and RVA Magazine — bringing a level of credibility and artistry that goes beyond standard DJ services in the NYC/NJ market."
+                    "text": "DJ DX is a TED-featured artist (TEDxYouth@RVA 2022), an original music producer with 100+ releases on Spotify and Apple Music, and a DJ with over 25 years of experience. DJ DX has been covered by Disrupt Magazine, NJ.com, and RVA Magazine — bringing a level of credibility and artistry that goes beyond standard DJ services in the NYC/NJ market."
                   }
                 },
                 {
@@ -626,17 +642,6 @@ function App() {
             },
             {
               "@context": "https://schema.org",
-              "@type": "WebSite",
-              "@id": "https://djdxmusic.com/#website",
-              "url": "https://djdxmusic.com/",
-              "name": "DJ DX",
-              "alternateName": "DJ DX Music",
-              "description": "Official website of DJ DX — DJ, producer, and recording artist based in New York and New Jersey. Book for weddings, corporate events, and private parties.",
-              "publisher": {"@id": "https://djdxmusic.com/#djdx"},
-              "inLanguage": "en-US"
-            },
-            {
-              "@context": "https://schema.org",
               "@type": "ItemList",
               "name": "DJ DX — Main Navigation",
               "description": "Primary site navigation links for djdxmusic.com",
@@ -704,7 +709,7 @@ function App() {
 
           {/* pull-quote style deck */}
           <p className="hero-deck">
-            20 years of reading rooms, moving crowds, and creating moments
+            25 years of reading rooms, moving crowds, and creating moments
             that people don't forget.
           </p>
 
