@@ -17,7 +17,26 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { existsSync, readFileSync } from 'node:fs';
 import { extname, join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import puppeteer from 'puppeteer';
+
+// Local builds use the full puppeteer package (bundled Chrome). Vercel build
+// containers can't run that binary reliably, so there we launch
+// @sparticuz/chromium (compiled for Amazon Linux) via puppeteer-core.
+async function launchBrowser() {
+  if (process.env.VERCEL) {
+    const { default: chromium } = await import('@sparticuz/chromium');
+    const { default: puppeteer } = await import('puppeteer-core');
+    return puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    });
+  }
+  const { default: puppeteer } = await import('puppeteer');
+  return puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+  });
+}
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist');
@@ -109,10 +128,7 @@ async function prerender() {
 
   const routes = [...STATIC_ROUTES, ...newsRoutes()];
   const server = await serveDist();
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
-  });
+  const browser = await launchBrowser();
 
   const results = new Map();
   const failures = [];
