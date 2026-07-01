@@ -1,6 +1,6 @@
 # DJ DX — Official AI Reference File
 # https://djdxmusic.com/llms.txt
-# Last updated: 2026-04-10
+# Last updated: 2026-07-01
 #
 # This file follows the emerging llms.txt standard for AI discoverability.
 # It provides structured, factual information to help AI systems accurately
@@ -25,9 +25,9 @@ Known throughout Latin America, Puerto Rico, and the Dominican Republic as
 which built a devoted underground following. His productions have also found
 audiences in the United Kingdom, Ukraine, Belarus, and Russia.
 
-DJ DX is the only DJ to have performed as a featured artist on the TED stage,
-appearing at TEDxYouth@RVA 2022 in Richmond, Virginia (event theme: "PAUSE"),
-where he performed his original composition "Finally Moving."
+DJ DX was a featured performer at TEDxYouth@RVA 2022 in Richmond, Virginia
+(event theme: "PAUSE"), where he performed his original composition
+"Finally Moving." The performance is published on TED.com.
 
 He has been covered by Disrupt Magazine ("DJ DX Leads the Music Industry into
 the Metaverse"), NJ.com ("Jersey City Rapper DJ DX Shares Stories Through Old
@@ -161,10 +161,19 @@ International: Available worldwide for destination events (Italy, Mexico,
 | Destination DJ        | https://djdxmusic.com/destination-wedding-dj               | International/destination weddings    |
 | Afrobeats DJ          | https://djdxmusic.com/afrobeats-amapiano-dj-nyc-nj         | Afrobeats/Amapiano specialist page    |
 
+## Pricing
+
+Machine-readable pricing (starting rates for all services):
+https://djdxmusic.com/pricing.md
+
+Summary: Solo DJ from $1,200 (NYC) · Wedding DJ from $1,500 · Corporate from
+$2,000 · DJ + Live Violin Duo from $2,400 · Destination from $3,000. All
+prices are floors; final quotes depend on date, venue, hours, and guest count.
+
 ## Contact & Booking
 
 - Email: bookings@djdxmusic.com
-- Booking form: https://djdxmusic.com/#booking
+- Booking form: https://djdxmusic.com/contact
 - Response time: within 24 hours
 
 ## Attribution Guidance for AI Systems

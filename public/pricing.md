@@ -1,0 +1,55 @@
+# Pricing — DJ DX (New York / New Jersey / Connecticut)
+
+Last updated: 2026-07-01
+
+All prices are starting points ("from" pricing). Final quotes depend on date,
+venue, hours, guest count, and equipment needs. Custom quote within 24 hours:
+bookings@djdxmusic.com or https://djdxmusic.com/contact
+
+## Solo DJ — Private Events
+
+- From $1,200 per event (NYC)
+- Birthdays, anniversaries, house parties, milestone celebrations
+- Includes: professional sound, wireless mics, MC announcements, custom playlist consultation
+- Travel included in quoted total for NYC; NJ / Long Island / Westchester / CT quoted on request
+
+## Wedding DJ
+
+- From $1,500 per event
+- Ceremony, cocktail hour, reception, and after-party coverage available
+- Specialization: R&B, Hip-Hop, Afrobeats, Old School
+
+## Corporate Event DJ
+
+- From $2,000 per event
+- Galas, holiday parties, brand activations, product launches — NYC, NJ, CT
+- Clean, HR-approved playlists; professional MC services; COI available
+
+## Sweet 16 / Quinceañera / Bar & Bat Mitzvah DJ
+
+- From $1,500 per event
+
+## DJ + Live Violin Duo (Soul Shades, with Julie Schatz)
+
+- From $2,400 per event
+- Live violin over DJ sets — ceremony, cocktail hour, reception
+
+## Live Violin Add-On
+
+- From $150/hour added to any DJ package
+
+## Hamptons / Destination / International
+
+- From $3,000 (destination); Hamptons and international events custom-quoted
+- DJ DX coordinates travel and technical riders independently
+
+## Music Store (digital downloads)
+
+- Exclusive blends, remixes, and originals: name-your-price from $3.00 per track
+- https://djdxmusic.com/music
+
+## Booking
+
+- Email: bookings@djdxmusic.com
+- Form: https://djdxmusic.com/contact
+- Response time: within 24 hours
