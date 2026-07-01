@@ -31,7 +31,7 @@ export default function Pricing() {
         {/* Main pricing card */}
         <div style={{ border: '1px solid rgba(201,168,76,0.25)', borderRadius: '16px', padding: '40px', marginBottom: '32px', background: 'rgba(201,168,76,0.04)' }}>
           <div style={{ display: 'flex', alignItems: 'flex-end', gap: '8px', marginBottom: '8px' }}>
-            <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', fontWeight: 700, color: 'var(--gold)', lineHeight: 1 }}>$2</span>
+            <span style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3rem, 8vw, 5rem)', fontWeight: 700, color: 'var(--gold)', lineHeight: 1 }}>$3</span>
             <span style={{ color: 'rgba(242,242,242,0.5)', fontSize: '16px', marginBottom: '12px' }}>/ track minimum</span>
           </div>
           <p style={{ color: 'rgba(242,242,242,0.65)', fontSize: '15px', lineHeight: 1.6, marginBottom: '32px' }}>
@@ -40,9 +40,9 @@ export default function Pricing() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
             {[
-              { label: 'Single Track', price: '$2+' },
-              { label: '5 Tracks', price: '$10+' },
-              { label: '10 Tracks', price: '$20+' },
+              { label: 'Single Track', price: '$3+' },
+              { label: '5 Tracks', price: '$15+' },
+              { label: '10 Tracks', price: '$30+' },
               { label: 'Full Catalog', price: 'Your call' },
             ].map(({ label, price }) => (
               <div key={label} style={{ border: '1px solid rgba(201,168,76,0.15)', borderRadius: '10px', padding: '20px', textAlign: 'center', background: 'rgba(255,255,255,0.02)' }}>
