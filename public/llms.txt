@@ -154,6 +154,7 @@ International: Available worldwide for destination events (Italy, Mexico,
 | Soul Shades           | https://djdxmusic.com/soul-shades                          | DJ + Violin duo project page          |
 | Pricing               | https://djdxmusic.com/pricing                              | Service pricing overview              |
 | Wedding DJ NYC/NJ     | https://djdxmusic.com/wedding-dj-nyc-nj                    | Wedding DJ landing page               |
+| Wedding DJ Cost Guide | https://djdxmusic.com/wedding-dj-cost-nyc                  | NYC wedding DJ pricing explained      |
 | Corporate DJ NYC      | https://djdxmusic.com/corporate-event-dj-nyc-nj-ct         | Corporate events landing page         |
 | Violin DJ Duo         | https://djdxmusic.com/violin-dj-duo-nyc-nj                 | Live violin + DJ landing page         |
 | Piano DJ Duo          | https://djdxmusic.com/piano-dj-duo-nyc-nj                  | Live piano + DJ landing page          |

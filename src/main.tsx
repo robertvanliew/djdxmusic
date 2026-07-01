@@ -40,6 +40,7 @@ const Sweet16DJ   = lazy(() => import('./pages/seo/Sweet16DJ.tsx'))
 const RooftopDJ   = lazy(() => import('./pages/seo/RooftopDJ.tsx'))
 const RnBDJ       = lazy(() => import('./pages/seo/RnBDJ.tsx'))
 const HouseJerseyClubDJ = lazy(() => import('./pages/seo/HouseJerseyClubDJ.tsx'))
+const WeddingDJCost = lazy(() => import('./pages/seo/WeddingDJCost.tsx'))
 const News              = lazy(() => import('./pages/News.tsx'))
 const NewsArticle       = lazy(() => import('./pages/NewsArticle.tsx'))
 const FAQ               = lazy(() => import('./pages/FAQ.tsx'))
@@ -106,6 +107,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/rooftop-party-dj-nyc" element={<RooftopDJ />} />
             <Route path="/rb-dj-nyc-nj" element={<RnBDJ />} />
             <Route path="/house-jersey-club-dj-nyc-nj" element={<HouseJerseyClubDJ />} />
+            <Route path="/wedding-dj-cost-nyc" element={<WeddingDJCost />} />
             <Route path="/news"           element={<News />} />
             <Route path="/news/:slug"     element={<NewsArticle />} />
             <Route path="/faq"            element={<FAQ />} />
