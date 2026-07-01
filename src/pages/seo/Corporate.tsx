@@ -183,6 +183,9 @@ export default function Corporate() {
                 <p>
                   With over 25 years of experience, TEDx features, and countless high-end performances across the NYC/NJ/CT tri-state area, DJ DX and Soul Shades represent the trusted choice for discerning corporate event planners.
                 </p>
+                <p>
+                  Recent booking: a rooftop corporate event at <strong>Rockefeller Center</strong> for a Netherlands-based international law firm — international guest list, Manhattan skyline, and a set built to carry a professional crowd from cocktail networking into a full dance floor.
+                </p>
               </div>
             </div>
 
@@ -231,6 +234,7 @@ export default function Corporate() {
                 Manhattan Venues
               </h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'rgba(242,242,242,0.72)', fontSize: '0.95rem', lineHeight: 2 }}>
+                <li>Rockefeller Center — rooftop</li>
                 <li>Pier Sixty &amp; Pier 61 (Chelsea Piers)</li>
                 <li>Cipriani — Wall Street, 25 Broadway, 42nd</li>
                 <li>Tribeca Rooftop</li>
