@@ -16,6 +16,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/pricing.md", "destination": "/pricing.txt" },
     { "source": "/api/(.*)", "destination": "/api/$1" },
     { "source": "/((?!api/).*)", "destination": "/index.html" }
   ],
