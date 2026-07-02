@@ -158,7 +158,7 @@ export default function RooftopDJ() {
                 <h2 className="sec-title">The City Is <span>the Venue</span></h2>
               </div>
               <div className="about-body sr" data-sr-delay="0.1s">
-                <p>Rooftop parties in New York City carry a specific magic — an open-air freedom that unlocks people in ways indoor venues can't, and a summer energy that demands a DJ who knows how to match the moment without overpowering it. DJ DX has performed outdoor and rooftop events across Manhattan, Brooklyn, and the Hamptons — most recently a rooftop corporate event at <strong>Rockefeller Center</strong> for an international law firm — building a deep understanding of how outdoor acoustics, weather, and the natural social flow of open-air events shape what the music needs to do.</p>
+                <p>Rooftop parties in New York City carry a specific magic — an open-air freedom that unlocks people in ways indoor venues can't, and a summer energy that demands a DJ who knows how to match the moment without overpowering it. DJ DX has performed outdoor and rooftop events across Manhattan, Brooklyn, and the Hamptons — most recently the NautaDutilh reception at <strong>620 Loft &amp; Garden</strong>, a rooftop space steps from Rockefeller Center with St. Patrick's Cathedral as the backdrop — building a deep understanding of how outdoor acoustics, weather, and the natural social flow of open-air events shape what the music needs to do.</p>
                 <p>Sound for rooftop events is a science: open spaces diffuse sound, wind creates challenges, and the balance between keeping the vibe alive and respecting residential surroundings requires experience and the right equipment configuration. DJ DX works with professional audio partners to ensure every rooftop event sounds clean, warm, and powerful at the appropriate level for the space.</p>
                 <p>Musically, rooftop sets are a DJ DX specialty. The genre blend for outdoor summer events: Afrobeats and Amapiano as the backbone, layered with contemporary R&amp;B for social hours, house music as the night builds, and Soca or Dancehall if the crowd wants to peak. A sophisticated progression that feels effortless.</p>
               </div>
@@ -176,6 +176,58 @@ export default function RooftopDJ() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── RECENT BOOKING SHOWCASE ── */}
+      <section style={{ padding: '80px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
+        <div className="section-inner" style={{ maxWidth: '1100px' }}>
+          <div className="sec-overline" style={{ justifyContent: 'center' }}>
+            <span className="sec-overline-line" />
+            <span className="sec-label">Recent Booking</span>
+            <span className="sec-overline-line" />
+          </div>
+          <h2 className="sec-title" style={{ textAlign: 'center', marginBottom: '12px' }}>
+            NautaDutilh Reception — <span>620 Loft &amp; Garden</span>
+          </h2>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '680px', margin: '0 auto 48px', fontSize: '1rem', lineHeight: 1.7 }}>
+            175 guests, evening rooftop reception steps from Rockefeller Center — St. Patrick's Cathedral spires and the Manhattan skyline framing the set from cocktail hour into the after-party.
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: '24px', alignItems: 'stretch' }}>
+            <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(201,168,76,0.2)', aspectRatio: '9/16', maxHeight: '520px' }}>
+              <video
+                src="/videos/nautadutilh-rooftop-night-nyc.mp4"
+                poster="/nautadutilh-rooftop-night-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="DJ DX rooftop setup at night, Manhattan skyline, NautaDutilh reception at 620 Loft & Garden"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+              <img
+                src="/nautadutilh-dj-dx-620-loft-garden-nyc.jpg"
+                alt="DJ DX performing at the NautaDutilh corporate reception, 620 Loft & Garden rooftop, NYC, with St. Patrick's Cathedral in the background"
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}
+              />
+              <img
+                src="/nautadutilh-soul-shades-violin-nyc.jpg"
+                alt="Soul Shades violinist Julie Schatz performing live at the NautaDutilh rooftop reception, 620 Loft & Garden, NYC"
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}
+              />
+              <img
+                src="/nautadutilh-violin-skyline-nyc.jpg"
+                alt="Live violin and DJ duo performance with Manhattan skyline and St. Patrick's Cathedral, 620 Loft & Garden rooftop, NYC"
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', gridColumn: '1 / -1', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}
+              />
             </div>
           </div>
         </div>

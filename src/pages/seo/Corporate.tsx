@@ -184,7 +184,7 @@ export default function Corporate() {
                   With over 25 years of experience, TEDx features, and countless high-end performances across the NYC/NJ/CT tri-state area, DJ DX and Soul Shades represent the trusted choice for discerning corporate event planners.
                 </p>
                 <p>
-                  Recent booking: a rooftop corporate event at <strong>Rockefeller Center</strong> for a Netherlands-based international law firm — international guest list, Manhattan skyline, and a set built to carry a professional crowd from cocktail networking into a full dance floor.
+                  Recent booking: the <strong>NautaDutilh</strong> reception at <strong>620 Loft &amp; Garden</strong>, a rooftop garden space overlooking St. Patrick's Cathedral and the Rockefeller Center skyline. 175 guests, full evening coverage from cocktail hour through the after-party — DJ DX on the decks with Soul Shades violinist Julie Schatz layering live strings over the set.
                 </p>
               </div>
             </div>
@@ -213,6 +213,58 @@ export default function Corporate() {
         </div>
       </section>
 
+      {/* ── RECENT BOOKING SHOWCASE ── */}
+      <section style={{ padding: '80px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
+        <div className="section-inner" style={{ maxWidth: '1100px' }}>
+          <div className="sec-overline" style={{ justifyContent: 'center' }}>
+            <span className="sec-overline-line" />
+            <span className="sec-label">Recent Booking</span>
+            <span className="sec-overline-line" />
+          </div>
+          <h2 className="sec-title" style={{ textAlign: 'center', marginBottom: '12px' }}>
+            NautaDutilh Reception — <span>620 Loft &amp; Garden</span>
+          </h2>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '680px', margin: '0 auto 48px', fontSize: '1rem', lineHeight: 1.7 }}>
+            June 2026 — a 175-guest rooftop reception for the international law firm NautaDutilh, steps from Rockefeller Center with St. Patrick's Cathedral as the backdrop.
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: '24px', alignItems: 'stretch' }}>
+            <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(201,168,76,0.2)', aspectRatio: '9/16', maxHeight: '520px' }}>
+              <video
+                src="/videos/nautadutilh-rooftop-night-nyc.mp4"
+                poster="/nautadutilh-rooftop-night-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="DJ DX rooftop setup at night, Manhattan skyline, NautaDutilh reception at 620 Loft & Garden"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+              <img
+                src="/nautadutilh-dj-dx-620-loft-garden-nyc.jpg"
+                alt="DJ DX performing at the NautaDutilh corporate reception, 620 Loft & Garden rooftop, NYC, with St. Patrick's Cathedral in the background"
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}
+              />
+              <img
+                src="/nautadutilh-soul-shades-violin-nyc.jpg"
+                alt="Soul Shades violinist Julie Schatz performing live at the NautaDutilh rooftop reception, 620 Loft & Garden, NYC"
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}
+              />
+              <img
+                src="/nautadutilh-violin-skyline-nyc.jpg"
+                alt="Live violin and DJ duo performance with Manhattan skyline and St. Patrick's Cathedral, 620 Loft & Garden rooftop, NYC"
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', gridColumn: '1 / -1', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── VENUES & INDUSTRIES ── */}
       <section style={{ padding: '80px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
         <div className="section-inner" style={{ maxWidth: '1100px' }}>
@@ -234,7 +286,6 @@ export default function Corporate() {
                 Manhattan Venues
               </h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'rgba(242,242,242,0.72)', fontSize: '0.95rem', lineHeight: 2 }}>
-                <li>Rockefeller Center — rooftop</li>
                 <li>Pier Sixty &amp; Pier 61 (Chelsea Piers)</li>
                 <li>Cipriani — Wall Street, 25 Broadway, 42nd</li>
                 <li>Tribeca Rooftop</li>

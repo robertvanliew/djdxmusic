@@ -122,13 +122,23 @@
 
   <url>
     <loc>https://djdxmusic.com/corporate-event-dj-nyc-nj-ct</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
       <image:loc>https://djdxmusic.com/latest-corporate-hero.jpg</image:loc>
       <image:title>Corporate Event DJ New York City — DJ DX</image:title>
       <image:caption>Professional corporate event DJ in NYC, NJ, and CT — DJ DX</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/nautadutilh-dj-dx-620-loft-garden-nyc.jpg</image:loc>
+      <image:title>DJ DX at the NautaDutilh corporate reception, 620 Loft &amp; Garden, NYC</image:title>
+      <image:caption>DJ DX performing at a 175-guest rooftop corporate reception at 620 Loft &amp; Garden, NYC, with St. Patrick's Cathedral in the background</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/nautadutilh-soul-shades-violin-nyc.jpg</image:loc>
+      <image:title>Soul Shades live violin at a NYC corporate rooftop reception</image:title>
+      <image:caption>Soul Shades violinist Julie Schatz performing live at the NautaDutilh reception, 620 Loft &amp; Garden, NYC</image:caption>
     </image:image>
   </url>
 
@@ -345,13 +355,18 @@
 
   <url>
     <loc>https://djdxmusic.com/rooftop-party-dj-nyc</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
       <image:loc>https://djdxmusic.com/epk-hero.jpg</image:loc>
       <image:title>Rooftop Party DJ New York City — DJ DX</image:title>
       <image:caption>DJ DX — Rooftop DJ for outdoor summer events in Manhattan, Brooklyn, and the Hamptons</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/nautadutilh-violin-skyline-nyc.jpg</image:loc>
+      <image:title>Live violin and DJ rooftop performance, Manhattan skyline, NYC</image:title>
+      <image:caption>Live violin and DJ duo performance with the Manhattan skyline and St. Patrick's Cathedral, 620 Loft &amp; Garden rooftop, NYC</image:caption>
     </image:image>
   </url>
 
