@@ -377,6 +377,51 @@ export default function SoulShades() {
           </div>
         </section>
 
+        {/* ── RECENT BOOKING SHOWCASE ── */}
+        <section className="ss-section">
+          <div className="ss-section-label">Recent Booking</div>
+          <h2 className="ss-section-title">NautaDutilh Reception — <span>620 Loft &amp; Garden</span></h2>
+          <p style={{ color: 'rgba(242,242,242,0.62)', maxWidth: '680px', margin: '0 0 40px', fontSize: '1rem', lineHeight: 1.7 }}>
+            June 2026 — Julie Schatz on live violin over DJ DX's set for a 175-guest corporate rooftop reception,
+            steps from Rockefeller Center with St. Patrick's Cathedral as the backdrop.
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: '24px', alignItems: 'stretch' }}>
+            <div style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.12)', aspectRatio: '9/16', maxHeight: '520px' }}>
+              <video
+                src="/videos/nautadutilh-rooftop-night-nyc.mp4"
+                poster="/nautadutilh-rooftop-night-poster.jpg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                aria-label="Soul Shades rooftop setup at night, Manhattan skyline, NautaDutilh reception at 620 Loft & Garden"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+              <img
+                src="/nautadutilh-soul-shades-violin-nyc.jpg"
+                alt="Julie Schatz performing live violin with Soul Shades at the NautaDutilh rooftop reception, 620 Loft & Garden, NYC"
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)' }}
+              />
+              <img
+                src="/nautadutilh-dj-dx-620-loft-garden-nyc.jpg"
+                alt="DJ DX performing at the NautaDutilh corporate reception, 620 Loft & Garden rooftop, NYC, with St. Patrick's Cathedral in the background"
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)' }}
+              />
+              <img
+                src="/nautadutilh-violin-skyline-nyc.jpg"
+                alt="Julie Schatz on violin with the Manhattan skyline and St. Patrick's Cathedral, 620 Loft & Garden rooftop, NYC — Soul Shades"
+                loading="lazy"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', gridColumn: '1 / -1', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)' }}
+              />
+            </div>
+          </div>
+        </section>
+
         {/* ── EXCLUSIVE MUSIC STORE ── */}
         <section className="ss-section">
           <MusicStore catalog={soulShadesCatalog} title={<>Soul Shades <span>Store</span></>} subTitle="Exclusive Music" shareType="soul-shades" />

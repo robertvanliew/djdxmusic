@@ -100,13 +100,18 @@
   <!-- ── Soul Shades ───────────────────────────────────────────────────────── -->
   <url>
     <loc>https://djdxmusic.com/soul-shades</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
       <image:loc>https://djdxmusic.com/ss-hero.jpg</image:loc>
       <image:title>Soul Shades — DJ DX &amp; Julie Schatz, New York Music Duo</image:title>
       <image:caption>Soul Shades — Deep House, Jazz, Afro House Duo based in New York</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/nautadutilh-soul-shades-violin-nyc.jpg</image:loc>
+      <image:title>Julie Schatz performing live violin with Soul Shades, NYC corporate rooftop</image:title>
+      <image:caption>Julie Schatz performing live violin with Soul Shades at the NautaDutilh reception, 620 Loft &amp; Garden, NYC</image:caption>
     </image:image>
   </url>
 
