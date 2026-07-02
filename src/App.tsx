@@ -382,6 +382,7 @@ function App() {
       <Helmet>
         <title>DJ DX — DJ, Producer &amp; Recording Artist | New York &amp; New Jersey</title>
         <meta name="description" content="DJ DX is a New York/New Jersey-based DJ, producer, and recording artist with 25+ years of experience. Featured on TED, TEDxYouth@RVA, Disrupt Magazine, and NJ.com. Book for weddings, corporate events, clubs, and private parties." />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://djdxmusic.com/" />
         <meta property="og:type" content="music.musician" />
         <meta property="og:url" content="https://djdxmusic.com/" />

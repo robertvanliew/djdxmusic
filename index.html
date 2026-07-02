@@ -28,9 +28,15 @@
       og:url here — it would ship on every route and mark all landing
       pages as duplicates of the homepage.
     -->
-    <!-- Robots / Indexing -->
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow" />
+    <!--
+      No default robots meta tag here on purpose. react-helmet-async can only
+      ADD tags to this shell, never remove the static one — so pages that set
+      their own directive (Admin, Privacy, Refunds, Terms, ThankYou) would end
+      up shipping two conflicting <meta name="robots"> tags. Omitting a tag
+      defaults to index,follow per spec, which is correct for every public
+      page; the 5 opt-out pages set their own via Helmet with nothing to
+      conflict against.
+    -->
     <meta name="author" content="DJ DX" />
     <meta name="theme-color" content="#0c0c0c" />
 
