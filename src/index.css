@@ -2493,6 +2493,17 @@ section { padding: 120px 40px; }
   gap: 14px;
 }
 
+/* Photographer credit on the hero — present and readable, but quiet enough
+   not to compete with the headline and CTA. */
+.hero-photo-credit {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.5);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  margin-top: -6px;
+}
+
 /* dot indicators */
 .slide-dots {
   display: flex;

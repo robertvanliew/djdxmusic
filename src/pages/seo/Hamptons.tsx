@@ -7,22 +7,23 @@ import BookingForm from '../../components/BookingForm';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 
 // Real photos from the Saks Fifth Avenue private estate event, Water Mill NY.
-// The four "credit" entries are professional shots by Linsey Kromer
-// (@linseyslens_ on Instagram; "Linsey Kromer" for press/online/print per her
-// terms) — credit must stay attached wherever these are used.
+// Every photo from this event is shot by Linsey Kromer (@linseyslens_ on
+// Instagram; "Linsey Kromer" for press/online/print per her terms). Credit must
+// stay attached wherever these are used — keep the `credit` field on any photo
+// added to this array.
 const SAKS_GALLERY_PHOTOS = [
   { src: '/saks-dj-dx-dancefloor-water-mill-hamptons.jpg', w: 1400, h: 2099, alt: 'Guests dancing as DJ DX performs at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Packed Floor', credit: 'Linsey Kromer' },
   { src: '/saks-dj-dx-behind-the-decks-water-mill-hamptons.jpg', w: 1400, h: 2099, alt: 'DJ DX behind the decks at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Behind the Decks', credit: 'Linsey Kromer' },
   { src: '/saks-tent-night-water-mill-hamptons.jpg', w: 1400, h: 934, alt: 'Sailcloth tent lit up at night during a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'After Dark', credit: 'Linsey Kromer' },
   { src: '/saks-dj-dx-booth-setup-water-mill-hamptons.jpg', w: 1400, h: 2099, alt: 'DJ DX and the full DJ booth setup with speakers under the sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'The Setup', credit: 'Linsey Kromer' },
   { src: '/saks-estate-poolside-water-mill-hamptons.jpg', w: 1400, h: 933, alt: 'Poolside lounge and sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Poolside', credit: 'Linsey Kromer' },
-  { src: '/saks-dj-dx-water-mill-hamptons.jpg', w: 900, h: 1200, alt: 'DJ DX performing at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Golden Hour' },
+  { src: '/saks-dj-dx-water-mill-hamptons.jpg', w: 900, h: 1200, alt: 'DJ DX performing at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Golden Hour', credit: 'Linsey Kromer' },
   { src: '/saks-golden-hour-tent-water-mill-hamptons.jpg', w: 1400, h: 933, alt: 'Golden-hour sailcloth tent reception at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Sunset at the Estate', credit: 'Linsey Kromer' },
-  { src: '/saks-dj-dx-mixing-water-mill-hamptons.jpg', w: 900, h: 1200, alt: 'DJ DX mixing during a Saks Fifth Avenue private estate reception in Water Mill, New York', caption: 'Dialed In' },
+  { src: '/saks-dj-dx-mixing-water-mill-hamptons.jpg', w: 900, h: 1200, alt: 'DJ DX mixing during a Saks Fifth Avenue private estate reception in Water Mill, New York', caption: 'Dialed In', credit: 'Linsey Kromer' },
   { src: '/saks-jared-lehr-showcase-water-mill-hamptons.jpg', w: 1400, h: 934, alt: 'Jared Lehr jewelry showcase and guests at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'The Showcase', credit: 'Linsey Kromer' },
-  { src: '/saks-dj-booth-tent-water-mill-nyc.jpg', w: 900, h: 1200, alt: 'DJ booth under a sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Under the Tent' },
+  { src: '/saks-dj-booth-tent-water-mill-nyc.jpg', w: 900, h: 1200, alt: 'DJ booth under a sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Under the Tent', credit: 'Linsey Kromer' },
   { src: '/saks-jared-lehr-place-card-water-mill-hamptons.jpg', w: 1400, h: 2099, alt: 'Saks Fifth Avenue and Jared Lehr co-branded place card beside florals at a private estate event in Water Mill, New York', caption: 'The Details', credit: 'Linsey Kromer' },
-  { src: '/saks-tent-bar-lounge-water-mill-nyc.jpg', w: 900, h: 1200, alt: 'Cocktail lounge and bar setup at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Cocktail Hour' },
+  { src: '/saks-tent-bar-lounge-water-mill-nyc.jpg', w: 900, h: 1200, alt: 'Cocktail lounge and bar setup at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Cocktail Hour', credit: 'Linsey Kromer' },
 ];
 
 const SAKS_VIDEOS = [
@@ -218,6 +219,46 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "Poolside Lounge — Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-estate-poolside-water-mill-hamptons.jpg",
+              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "uploadDate": "2026-09-11"
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ImageObject",
+              "name": "DJ DX — Golden Hour, Saks Fifth Avenue Private Estate Event, Water Mill",
+              "contentUrl": "https://djdxmusic.com/saks-dj-dx-water-mill-hamptons.jpg",
+              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "uploadDate": "2026-08-03"
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ImageObject",
+              "name": "DJ DX Mixing — Saks Fifth Avenue Private Estate Event, Water Mill",
+              "contentUrl": "https://djdxmusic.com/saks-dj-dx-mixing-water-mill-hamptons.jpg",
+              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "uploadDate": "2026-08-03"
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ImageObject",
+              "name": "DJ Booth Under the Tent — Saks Fifth Avenue Private Estate Event, Water Mill",
+              "contentUrl": "https://djdxmusic.com/saks-dj-booth-tent-water-mill-nyc.jpg",
+              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "uploadDate": "2026-08-03"
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ImageObject",
+              "name": "Cocktail Lounge and Bar — Saks Fifth Avenue Private Estate Event, Water Mill",
+              "contentUrl": "https://djdxmusic.com/saks-tent-bar-lounge-water-mill-nyc.jpg",
+              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "uploadDate": "2026-08-03"
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ImageObject",
+              "name": "Saks Fifth Avenue x Jared Lehr Place Card — Private Estate Event, Water Mill",
+              "contentUrl": "https://djdxmusic.com/saks-jared-lehr-place-card-water-mill-hamptons.jpg",
               "creator": {"@type": "Person", "name": "Linsey Kromer"},
               "uploadDate": "2026-09-11"
             },

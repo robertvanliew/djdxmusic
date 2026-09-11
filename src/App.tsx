@@ -28,9 +28,9 @@ const marqueePhotos = [
   // Real luxury-event work leads the rotation — prospects booking weddings,
   // corporate events, and private parties need to see the kind of event they're
   // picturing, not only the TEDx stage shots. Photos: Linsey Kromer.
-  { src: '/hero-saks-tent-night-hamptons.jpg', alt: 'DJ DX event at a Saks Fifth Avenue private estate party in Water Mill, the Hamptons, sailcloth tent lit at night' },
+  { src: '/hero-saks-tent-night-hamptons.jpg', alt: 'DJ DX event at a Saks Fifth Avenue private estate party in Water Mill, the Hamptons, sailcloth tent lit at night', credit: 'Linsey Kromer' },
   { src: '/show-1.jpg', alt: 'DJ DX performing at TEDx Youth RVA' },
-  { src: '/hero-saks-estate-poolside-hamptons.jpg', alt: 'Poolside sailcloth tent reception at a Saks Fifth Avenue private estate event in Water Mill, the Hamptons' },
+  { src: '/hero-saks-estate-poolside-hamptons.jpg', alt: 'Poolside sailcloth tent reception at a Saks Fifth Avenue private estate event in Water Mill, the Hamptons', credit: 'Linsey Kromer' },
   { src: '/show-2.jpg', alt: 'DJ DX on stage at TEDx RVA' },
   { src: '/show-3.jpg', alt: 'DJ DX live performance TEDx' },
   { src: '/show-4.jpg', alt: 'DJ DX soundcheck TEDx' },
@@ -792,7 +792,7 @@ function App() {
           {/* bottom stats bar — magazine infographic strip */}
           <div className="hero-stats-bar">
             {[
-              { num: "20+", label: "Years" },
+              { num: "25+", label: "Years" },
               { num: "500+", label: "Events" },
               { num: "100+", label: "Originals" },
             ].map((s, i) => (
@@ -834,6 +834,12 @@ function App() {
               />
             ))}
           </div>
+
+          {/* Photographer credit follows the active slide — required wherever
+              Linsey Kromer's photos are used online. */}
+          {marqueePhotos[slide]?.credit && (
+            <div className="hero-photo-credit">Photo: {marqueePhotos[slide].credit}</div>
+          )}
 
           <div className="hero-scroll-cue" aria-hidden="true">
             <span className="scroll-cue-line" />
