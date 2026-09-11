@@ -11,23 +11,23 @@ import StickyMobileCTA from '../../components/StickyMobileCTA';
 // (@linseyslens_ on Instagram; "Linsey Kromer" for press/online/print per her
 // terms) — credit must stay attached wherever these are used.
 const SAKS_GALLERY_PHOTOS = [
-  { src: '/saks-dj-dx-dancefloor-water-mill-hamptons.jpg', alt: 'Guests dancing as DJ DX performs at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Packed Floor', credit: 'Linsey Kromer' },
-  { src: '/saks-dj-dx-behind-the-decks-water-mill-hamptons.jpg', alt: 'DJ DX behind the decks at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Behind the Decks', credit: 'Linsey Kromer' },
-  { src: '/saks-dj-dx-booth-setup-water-mill-hamptons.jpg', alt: 'DJ DX and the full DJ booth setup with speakers under the sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'The Setup', credit: 'Linsey Kromer' },
-  { src: '/saks-tent-night-water-mill-hamptons.jpg', alt: 'Sailcloth tent lit up at night during a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'After Dark', credit: 'Linsey Kromer' },
-  { src: '/saks-estate-poolside-water-mill-hamptons.jpg', alt: 'Poolside lounge and sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Poolside', credit: 'Linsey Kromer' },
-  { src: '/saks-jared-lehr-place-card-water-mill-hamptons.jpg', alt: 'Saks Fifth Avenue and Jared Lehr co-branded place card beside florals at a private estate event in Water Mill, New York', caption: 'The Details', credit: 'Linsey Kromer' },
-  { src: '/saks-dj-dx-water-mill-hamptons.jpg', alt: 'DJ DX performing at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Golden Hour' },
-  { src: '/saks-dj-dx-mixing-water-mill-hamptons.jpg', alt: 'DJ DX mixing during a Saks Fifth Avenue private estate reception in Water Mill, New York', caption: 'Dialed In' },
-  { src: '/saks-dj-booth-tent-water-mill-nyc.jpg', alt: 'DJ booth under a sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Under the Tent' },
-  { src: '/saks-tent-bar-lounge-water-mill-nyc.jpg', alt: 'Cocktail lounge and bar setup at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Cocktail Hour' },
-  { src: '/saks-golden-hour-tent-water-mill-hamptons.jpg', alt: 'Golden-hour sailcloth tent reception at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Sunset at the Estate', credit: 'Linsey Kromer' },
-  { src: '/saks-jared-lehr-showcase-water-mill-hamptons.jpg', alt: 'Jared Lehr jewelry showcase and guests at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'The Showcase', credit: 'Linsey Kromer' },
+  { src: '/saks-dj-dx-dancefloor-water-mill-hamptons.jpg', w: 1400, h: 2099, alt: 'Guests dancing as DJ DX performs at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Packed Floor', credit: 'Linsey Kromer' },
+  { src: '/saks-dj-dx-behind-the-decks-water-mill-hamptons.jpg', w: 1400, h: 2099, alt: 'DJ DX behind the decks at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Behind the Decks', credit: 'Linsey Kromer' },
+  { src: '/saks-tent-night-water-mill-hamptons.jpg', w: 1400, h: 934, alt: 'Sailcloth tent lit up at night during a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'After Dark', credit: 'Linsey Kromer' },
+  { src: '/saks-dj-dx-booth-setup-water-mill-hamptons.jpg', w: 1400, h: 2099, alt: 'DJ DX and the full DJ booth setup with speakers under the sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'The Setup', credit: 'Linsey Kromer' },
+  { src: '/saks-estate-poolside-water-mill-hamptons.jpg', w: 1400, h: 933, alt: 'Poolside lounge and sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Poolside', credit: 'Linsey Kromer' },
+  { src: '/saks-dj-dx-water-mill-hamptons.jpg', w: 900, h: 1200, alt: 'DJ DX performing at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Golden Hour' },
+  { src: '/saks-golden-hour-tent-water-mill-hamptons.jpg', w: 1400, h: 933, alt: 'Golden-hour sailcloth tent reception at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Sunset at the Estate', credit: 'Linsey Kromer' },
+  { src: '/saks-dj-dx-mixing-water-mill-hamptons.jpg', w: 900, h: 1200, alt: 'DJ DX mixing during a Saks Fifth Avenue private estate reception in Water Mill, New York', caption: 'Dialed In' },
+  { src: '/saks-jared-lehr-showcase-water-mill-hamptons.jpg', w: 1400, h: 934, alt: 'Jared Lehr jewelry showcase and guests at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'The Showcase', credit: 'Linsey Kromer' },
+  { src: '/saks-dj-booth-tent-water-mill-nyc.jpg', w: 900, h: 1200, alt: 'DJ booth under a sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Under the Tent' },
+  { src: '/saks-jared-lehr-place-card-water-mill-hamptons.jpg', w: 1400, h: 2099, alt: 'Saks Fifth Avenue and Jared Lehr co-branded place card beside florals at a private estate event in Water Mill, New York', caption: 'The Details', credit: 'Linsey Kromer' },
+  { src: '/saks-tent-bar-lounge-water-mill-nyc.jpg', w: 900, h: 1200, alt: 'Cocktail lounge and bar setup at a Saks Fifth Avenue private estate event in Water Mill, New York', caption: 'Cocktail Hour' },
 ];
 
 const SAKS_VIDEOS = [
-  { src: '/videos/saks-watermill-djing-clip.mp4', poster: '/saks-watermill-video-poster.jpg', caption: 'Live on the Decks', label: 'DJ DX djing under a sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York' },
-  { src: '/videos/saks-watermill-djing-clip2.mp4', poster: '/saks-watermill-video2-poster.jpg', caption: 'Setting the Mood', label: 'DJ DX djing under a sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York, second clip' },
+  { src: '/videos/saks-watermill-djing-clip.mp4', poster: '/saks-watermill-video-poster.jpg', w: 1080, h: 1920, caption: 'Live on the Decks', label: 'DJ DX djing under a sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York' },
+  { src: '/videos/saks-watermill-djing-clip2.mp4', poster: '/saks-watermill-video2-poster.jpg', w: 1080, h: 1920, caption: 'Setting the Mood', label: 'DJ DX djing under a sailcloth tent at a Saks Fifth Avenue private estate event in Water Mill, New York, second clip' },
 ];
 
 function PlayIcon() {
@@ -380,38 +380,48 @@ export default function Hamptons() {
 
           <div className="event-shelf">
             {SAKS_VIDEOS.map((v, i) => (
-              <div key={v.src} className="event-shelf-item sr" data-sr-delay={`${i * 0.05}s`}>
+              <div
+                key={v.src}
+                className="event-shelf-item sr"
+                data-sr-delay={`${i * 0.05}s`}
+                style={{ '--ar': `${v.w} / ${v.h}` } as React.CSSProperties}
+              >
                 <button
                   type="button"
                   className="event-shelf-frame event-shelf-frame--video"
                   onClick={() => setActiveVideo(v)}
                   aria-label={`Play video: ${v.caption}`}
                 >
-                  <img src={v.poster} alt={v.label} loading={i === 0 ? 'eager' : 'lazy'} />
+                  <img src={v.poster} alt={v.label} width={v.w} height={v.h} loading={i === 0 ? 'eager' : 'lazy'} />
                   <span className="event-play-btn"><PlayIcon /></span>
+                  <span className="event-shelf-caption">{v.caption}</span>
                 </button>
-                <div className="event-shelf-caption">{v.caption}</div>
               </div>
             ))}
             {SAKS_GALLERY_PHOTOS.map((photo, i) => (
-              <div key={photo.src} className="event-shelf-item sr" data-sr-delay={`${(i + SAKS_VIDEOS.length) * 0.05}s`}>
+              <div
+                key={photo.src}
+                className="event-shelf-item sr"
+                data-sr-delay={`${Math.min(i + SAKS_VIDEOS.length, 8) * 0.05}s`}
+                style={{ '--ar': `${photo.w} / ${photo.h}` } as React.CSSProperties}
+              >
                 <button
                   type="button"
                   className="event-shelf-frame event-shelf-frame--photo"
                   onClick={() => setActivePhotoIndex(i)}
                   aria-label={`View full photo: ${photo.caption}`}
                 >
-                  <img src={photo.src} alt={photo.alt} width="900" height="1200" loading="lazy" />
+                  <img src={photo.src} alt={photo.alt} width={photo.w} height={photo.h} loading="lazy" />
                   <span className="event-expand-btn" aria-hidden="true">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="15 3 21 3 21 9" /><polyline points="9 21 3 21 3 15" /><line x1="21" y1="3" x2="14" y2="10" /><line x1="3" y1="21" x2="10" y2="14" />
                     </svg>
                   </span>
+                  <span className="event-shelf-caption">
+                    {photo.caption}
+                    {photo.credit && <span className="event-shelf-credit">Photo: {photo.credit}</span>}
+                  </span>
                 </button>
-                <div className="event-shelf-caption">{photo.caption}</div>
-                {photo.credit && (
-                  <div style={{ fontSize: '10px', color: 'rgba(242,242,242,0.35)', marginTop: '2px' }}>Photo: {photo.credit}</div>
-                )}
               </div>
             ))}
           </div>
