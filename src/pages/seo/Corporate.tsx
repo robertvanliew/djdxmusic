@@ -6,6 +6,12 @@ import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 import HeroPhotoSlideshow from '../../components/HeroPhotoSlideshow';
 
+// Client name for the most recent booking. Kept as a single constant so the
+// showcase can be anonymised ("a national energy company") in one edit if the
+// client's contract restricts vendor name use. Asset filenames deliberately do
+// NOT contain the client name, so switching this needs no media changes.
+const RECENT_CLIENT = 'LS Power';
+
 // Real corporate event photos — add more here as they come in.
 const CORPORATE_HERO_PHOTOS = [
   { src: '/nautadutilh-dj-booth-cathedral-nyc.jpg', alt: 'DJ DX at the DJ booth, NautaDutilh corporate reception rooftop, NYC skyline and St. Patrick\'s Cathedral' },
@@ -22,8 +28,8 @@ export default function Corporate() {
   return (
     <>
       <Helmet>
-        <title>Corporate Event DJ NYC, NJ, CT: From $2,800 | DJ DX</title>
-        <meta name="description" content="Corporate event DJ in NYC, NJ, or CT starting at $2,800. Brand-safe, HR-approved playlists for galas, holiday parties, and brand activations — including recent work for NautaDutilh at 620 Loft & Garden. Custom quote in 24 hours." />
+        <title>Corporate Event &amp; Holiday Party DJ NYC, NJ, CT: From $2,800 | DJ DX</title>
+        <meta name="description" content="Corporate event and holiday party DJ in NYC, NJ, and CT from $2,800. Brand-safe, HR-approved playlists for office parties, galas, and brand activations — recent Manhattan corporate bookings include LS Power and NautaDutilh. Custom quote in 24 hours." />
         <link rel="canonical" href="https://djdxmusic.com/corporate-event-dj-nyc-nj-ct" />
         <meta property="og:title" content="Corporate Event DJ NYC, NJ, CT — DJ DX" />
         <meta property="og:description" content="Professional corporate event DJ for Fortune 500 galas, holiday parties, and luxury brand activations. DJ DX — NYC's premium corporate entertainment. TED-featured, 500+ events." />
@@ -130,6 +136,37 @@ export default function Corporate() {
             },
             {
               "@context": "https://schema.org",
+              "@type": "VideoObject",
+              "name": "Corporate Event DJ Manhattan — ${RECENT_CLIENT} Office Party Highlights, Midtown NYC",
+              "description": "Highlights from a September 2026 in-office corporate reception for ${RECENT_CLIENT} in Midtown Manhattan, with DJ DX on the decks — full DJ setup and sound brought into a corporate event space overlooking the NYC skyline.",
+              "thumbnailUrl": "https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc-poster.jpg",
+              "uploadDate": "2026-09-14",
+              "duration": "PT29S",
+              "contentUrl": "https://djdxmusic.com/videos/corporate-dj-manhattan-office-party-nyc.mp4"
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ImageObject",
+              "name": "Corporate Event DJ Manhattan — DJ DX at an in-office company party, Midtown NYC",
+              "contentUrl": "https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc.jpg",
+              "uploadDate": "2026-09-14"
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ImageObject",
+              "name": "Corporate Event DJ Booth Setup — Manhattan Office Party, Midtown NYC",
+              "contentUrl": "https://djdxmusic.com/corporate-event-dj-booth-manhattan-nyc.jpg",
+              "uploadDate": "2026-09-14"
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ImageObject",
+              "name": "Manhattan Corporate Event Space with Skyline Views — Company Party, Midtown NYC",
+              "contentUrl": "https://djdxmusic.com/corporate-event-venue-manhattan-skyline-nyc.jpg",
+              "uploadDate": "2026-09-14"
+            },
+            {
+              "@context": "https://schema.org",
               "@type": "BreadcrumbList",
               "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://djdxmusic.com/"},
@@ -222,6 +259,66 @@ export default function Corporate() {
       </section>
 
       {/* ── RECENT BOOKING SHOWCASE ── */}
+      {/* ── MOST RECENT BOOKING — Manhattan corporate office reception ── */}
+      <section style={{ padding: '80px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
+        <div className="section-inner" style={{ maxWidth: '1100px' }}>
+          <div className="sec-overline" style={{ justifyContent: 'center' }}>
+            <span className="sec-overline-line" />
+            <span className="sec-label">Most Recent Booking</span>
+            <span className="sec-overline-line" />
+          </div>
+          <h2 className="sec-title" style={{ textAlign: 'center', marginBottom: '12px' }}>
+            {RECENT_CLIENT} — <span>Corporate Office Party, Midtown Manhattan</span>
+          </h2>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '720px', margin: '0 auto 48px', fontSize: '1rem', lineHeight: 1.7 }}>
+            September 2026 — an in-office corporate reception for {RECENT_CLIENT} in Midtown Manhattan, held in their own floor-to-ceiling-window event space overlooking the city. Full DJ setup and sound brought into a working office: cocktail-hour house and soul early, building into an open dance floor as the room filled.
+          </p>
+
+          <div className="cb-hero-shot cb-hero-shot--tall sr" data-sr-delay="0s">
+            <img
+              src="/corporate-dj-manhattan-office-party-nyc.jpg"
+              alt="Corporate event DJ in Manhattan — DJ DX on the decks at an in-office company party in Midtown NYC, skyline windows behind the booth"
+              loading="lazy"
+            />
+            <span className="cb-hero-tag">Midtown Manhattan — NYC</span>
+          </div>
+
+          <div className="cb-gallery">
+            <div className="cb-shot cb-shot--vertical-video sr" data-sr-delay="0.05s">
+              <video
+                src="/videos/corporate-dj-manhattan-office-party-nyc.mp4"
+                poster="/corporate-dj-manhattan-office-party-nyc-poster.jpg"
+                controls
+                playsInline
+                preload="none"
+                aria-label={`Corporate event DJ Manhattan — highlights from the ${RECENT_CLIENT} office party in Midtown NYC`}
+              />
+            </div>
+            <div className="cb-shot sr" data-sr-delay="0.1s">
+              <img
+                src="/corporate-event-dj-booth-manhattan-nyc.jpg"
+                alt="Corporate event DJ booth setup for a Manhattan office party — DJ DX behind the decks in a Midtown NYC corporate event space"
+                loading="lazy"
+              />
+            </div>
+            <div className="cb-shot sr" data-sr-delay="0.15s">
+              <img
+                src="/corporate-event-venue-manhattan-skyline-nyc.jpg"
+                alt="Manhattan corporate event space with skyline views set up for a company party with DJ sound and lighting, Midtown NYC"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <h3 style={{ textAlign: 'center', fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.45rem', fontWeight: 800, color: 'var(--white)', margin: '56px 0 12px' }}>
+            Booking a Corporate Holiday Party DJ in NYC for {new Date().getFullYear()}
+          </h3>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '720px', margin: '0 auto', fontSize: '0.98rem', lineHeight: 1.75 }}>
+            Most corporate planners lock in holiday party entertainment 90 to 120 days out, which means December dates in Manhattan get claimed through September and October. If you are planning an office holiday party, a year-end client reception, or a company celebration anywhere in NYC, New Jersey, or Connecticut, the earlier you reach out the more likely your date is still open.
+          </p>
+        </div>
+      </section>
+
       <section style={{ padding: '80px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
         <div className="section-inner" style={{ maxWidth: '1100px' }}>
           <div className="sec-overline" style={{ justifyContent: 'center' }}>
