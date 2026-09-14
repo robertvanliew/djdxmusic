@@ -3,3 +3,13 @@ node_modules
 dist
 *.md
 .env*.local
+
+# Raw source media — originals kept locally only. The processed, web-optimised
+# versions live in public/. Uploading these adds ~1.1GB to every deploy.
+LS Power/
+Saks-Fifth-Avenue-/
+Highlight Reels/
+Heatmap/
+business-card/
+DJ-DX_Masters/
+NautaDutilh Reception*/

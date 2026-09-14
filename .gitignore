@@ -27,3 +27,11 @@ dist-ssr
 .env.production
 test-*.mjs
 NautaDutilh Reception*/
+
+# Raw source media (originals stay local; processed versions live in public/)
+LS Power/
+Saks-Fifth-Avenue-/
+Highlight Reels/
+Heatmap/
+business-card/
+DJ-DX_Masters/
