@@ -310,6 +310,20 @@ export default function Corporate() {
             </div>
           </div>
 
+          {/* Client testimonial. Attributed by role, not by name, at the
+              client's preference — see RECENT_CLIENT note above. */}
+          <div className="cb-quotes cb-quotes--single">
+            <div className="cb-quote sr" data-sr-delay="0.05s">
+              <span className="cb-quote-mark" aria-hidden="true">&ldquo;</span>
+              <p className="cb-quote-text">
+                The music selection was well suited for the event, you read the crowd perfectly, and everyone had a great time.
+              </p>
+              <div className="cb-quote-name">
+                Senior Office Manager<span> — {RECENT_CLIENT}</span>
+              </div>
+            </div>
+          </div>
+
           <h3 style={{ textAlign: 'center', fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.45rem', fontWeight: 800, color: 'var(--white)', margin: '56px 0 12px' }}>
             Booking a Corporate Holiday Party DJ in NYC for {new Date().getFullYear()}
           </h3>
