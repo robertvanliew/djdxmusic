@@ -7537,3 +7537,58 @@ body { padding-bottom: env(safe-area-inset-bottom); }
   .bb-row { grid-template-columns: 44px 1fr auto; gap: 6px; padding: 12px 10px; }
   .bb-buy-btn { font-size: 10px; padding: 0 10px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   COST TABLE — pricing report
+   Comparative tables are among the most-cited structures in AI answers,
+   so this stays real markup (not a div grid) and stays readable on phones.
+   ═══════════════════════════════════════════════════════════════════ */
+.cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.cost-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  white-space: nowrap;
+}
+
+.cost-table td {
+  padding: 16px;
+  color: rgba(242,242,242,0.82);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.cost-table tbody tr:hover { background: rgba(201,168,76,0.04); }
+
+/* Phones: collapse to stacked cards with the header as an inline label */
+@media (max-width: 720px) {
+  .cost-table thead { display: none; }
+  .cost-table, .cost-table tbody, .cost-table tr, .cost-table td { display: block; width: 100%; }
+  .cost-table tr {
+    margin-bottom: 14px;
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 10px;
+    padding: 6px 4px;
+  }
+  .cost-table td { border-bottom: 1px solid rgba(255,255,255,0.06); padding: 10px 14px; }
+  .cost-table tr td:last-child { border-bottom: none; }
+  .cost-table td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.66rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(201,168,76,0.75);
+    margin-bottom: 4px;
+  }
+}

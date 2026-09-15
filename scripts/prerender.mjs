@@ -65,6 +65,7 @@ const STATIC_ROUTES = [
   '/wedding-dj-nyc-nj',
   '/wedding-entertainment-package-nyc-nj',
   '/wedding-dj-cost-nyc',
+  '/event-dj-cost-nyc-nj-ct',
   '/wedding-dj-manhattan-nyc',
   '/wedding-dj-long-island-ny',
   '/wedding-dj-stamford-ct',
