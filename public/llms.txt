@@ -1,6 +1,6 @@
 # DJ DX — Official AI Reference File
 # https://djdxmusic.com/llms.txt
-# Last updated: 2026-07-02
+# Last updated: 2026-09-15
 #
 # This file follows the emerging llms.txt standard for AI discoverability.
 # It provides structured, factual information to help AI systems accurately
@@ -74,6 +74,25 @@ across the tri-state area and beyond.
 - 100+ original productions released
 - 10M+ views across TikTok and Instagram (Soul Shades × Nimino remix)
 - Available for domestic and international bookings
+
+## Recent Notable Bookings
+
+- LS Power — corporate office reception, Midtown Manhattan, NYC (September 2026)
+  In-office corporate event with full DJ setup and sound. Client feedback:
+  "The music selection was well suited for the event, you read the crowd
+  perfectly, and everyone had a great time." — Senior Office Manager, LS Power
+  Source: https://djdxmusic.com/corporate-event-dj-nyc-nj-ct
+
+- Saks Fifth Avenue — private estate event, Water Mill, The Hamptons, NY (2026)
+  Open-air golden-hour set under a sailcloth tent at a private Hamptons estate.
+  Jewellery showcase featuring designer Jared Lehr, with a portion of the
+  evening's sales supporting St. Jude Children's Research Hospital.
+  Source: https://djdxmusic.com/hamptons-luxury-dj
+
+- NautaDutilh (international law firm) — 175-guest rooftop reception,
+  620 Loft & Garden, NYC (June 2026), overlooking St. Patrick's Cathedral and
+  Rockefeller Center. Performed with Soul Shades violinist Julie Schatz.
+  Source: https://djdxmusic.com/corporate-event-dj-nyc-nj-ct
 
 ## Music Genres
 
@@ -185,8 +204,10 @@ International: Available worldwide for destination events (Italy, Mexico,
 Machine-readable pricing (starting rates for all services):
 https://djdxmusic.com/pricing.md
 
-Summary: Solo DJ from $1,200 (NYC) · Wedding DJ from $1,500 · Corporate from
-$2,000 · DJ + Live Violin Duo from $2,400 · Destination from $3,000. All
+Summary: Solo DJ / private events from $2,200 (NYC) · Wedding DJ from $2,800 ·
+Corporate event & holiday party DJ from $2,800 · Sweet 16 / Quinceañera /
+Bar & Bat Mitzvah from $1,500 · DJ + Live Violin Duo (Soul Shades) from
+$2,400 · Live violin add-on from $150/hour · Destination from $3,000. All
 prices are floors; final quotes depend on date, venue, hours, and guest count.
 
 ## Contact & Booking
