@@ -45,7 +45,8 @@ export default function AfrobeatsDJ() {
                 "sameAs": [
                   "https://djdxmusic.com/",
                   "https://open.spotify.com/artist/4gGFdpDwEe8zIY1XSE3dGe",
-                  "https://www.ted.com/talks/dj_dx_finally_moving"
+                  "https://www.ted.com/talks/dj_dx_finally_moving",
+                  "https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/"
                 ],
                 "address": {
                   "@type": "PostalAddress",

@@ -220,6 +220,13 @@ const videos = [
 
 const pressItems = [
   {
+    href: 'https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/',
+    label: 'Life & Work with Robert Van Liew — Voyage ATL Magazine (Sept 2026)',
+    wordmarkClass: 'press-wordmark--voyage',
+    wordmark: <>Voyage<span className="press-wordmark-sub">ATL Magazine</span></>,
+    quote: '"Life & Work with Robert Van Liew"',
+  },
+  {
     href: 'https://www.ted.com/talks/dj_dx_finally_moving',
     label: 'DJ DX: Finally Moving — TED.com (2022)',
     wordmarkClass: 'press-wordmark--ted',

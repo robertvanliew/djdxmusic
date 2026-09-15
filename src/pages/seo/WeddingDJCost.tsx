@@ -86,7 +86,7 @@ export default function WeddingDJCost() {
                 "image": "https://djdxmusic.com/epk-hero.jpg",
                 "email": "bookings@djdxmusic.com",
                 "priceRange": "$$-$$$",
-                "sameAs": ["https://djdxmusic.com/", "https://www.ted.com/talks/dj_dx_finally_moving", "https://share.google/v7RARn4fdsghIcXyX", "https://profile.google.com/@djdxmusic"],
+                "sameAs": ["https://djdxmusic.com/", "https://www.ted.com/talks/dj_dx_finally_moving", "https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/", "https://share.google/v7RARn4fdsghIcXyX", "https://profile.google.com/@djdxmusic"],
                 "aggregateRating": {
                   "@type": "AggregateRating",
                   "ratingValue": "5.0",
