@@ -7750,10 +7750,50 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .pn-foot a { color: var(--gold); }
 @media (max-width: 860px) { .pn-grid { grid-template-columns: 1fr 1fr; } .pn { padding: 56px 16px; } }
 
-/* Hero: secondary path straight to the price calculator */
-.hero-price-link {
-  display: inline-block; margin-top: 16px; font-size: 0.92rem; font-weight: 600;
-  color: var(--gold); text-decoration: underline; text-underline-offset: 4px;
-  text-decoration-color: var(--gold-line); transition: text-decoration-color 0.18s ease;
+
+/* ── Pricing nudge: one-time slide-in card pointing at the calculator ── */
+.pnudge {
+  position: fixed; right: 24px; bottom: 24px; z-index: 1400; /* under the sticky bar + its sheet */
+  width: min(340px, calc(100vw - 32px));
+  display: flex; align-items: stretch;
+  background: rgba(20,17,12,0.96); border: 1px solid var(--gold-line); border-radius: 12px;
+  box-shadow: 0 18px 40px -12px rgba(0,0,0,0.7), 0 0 0 1px rgba(201,168,76,0.06);
+  backdrop-filter: blur(12px); overflow: hidden;
 }
-@media (hover: hover) and (pointer: fine) { .hero-price-link:hover { text-decoration-color: var(--gold); } }
+.pnudge--in  { animation: pnudge-in 320ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+.pnudge--out { animation: pnudge-out 200ms cubic-bezier(0.4, 0, 1, 1) both; }
+@keyframes pnudge-in  { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: none; } }
+@keyframes pnudge-out { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateY(10px); } }
+
+.pnudge-body {
+  flex: 1; display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto;
+  column-gap: 12px; row-gap: 3px; align-items: center; text-align: left;
+  padding: 14px 6px 16px 16px; background: none; border: 0; cursor: pointer; color: inherit; font: inherit;
+}
+.pnudge-eyebrow { grid-column: 1; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.pnudge-text { grid-column: 1; font-size: 0.93rem; font-weight: 600; line-height: 1.35; color: var(--white); }
+.pnudge-arrow { grid-column: 2; grid-row: 1 / span 2; font-size: 1.2rem; color: var(--gold); transition: transform 180ms ease; }
+.pnudge-close {
+  flex: none; width: 40px; background: none; border: 0; border-left: 1px solid var(--dim3);
+  color: rgba(242,242,242,0.5); font-size: 1.25rem; line-height: 1; cursor: pointer;
+}
+.pnudge-body:focus-visible, .pnudge-close:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+/* thin bar that drains while the card is up, so it's clear it will leave on its own */
+.pnudge-timer {
+  position: absolute; left: 0; bottom: 0; height: 2px; width: 100%;
+  background: var(--gold); transform-origin: left; opacity: 0.55;
+  animation-name: pnudge-drain; animation-timing-function: linear; animation-fill-mode: forwards;
+}
+@keyframes pnudge-drain { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+@media (hover: hover) and (pointer: fine) {
+  .pnudge-body:hover .pnudge-arrow { transform: translateX(3px); }
+  .pnudge-close:hover { color: var(--white); }
+}
+/* phones: sit just above the sticky "Check My Date" bar, full width */
+@media (max-width: 900px) {
+  .pnudge { left: 16px; right: 16px; width: auto; bottom: calc(76px + env(safe-area-inset-bottom) + 10px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pnudge--in, .pnudge--out { animation-duration: 1ms; }
+  .pnudge-timer { display: none; }
+}

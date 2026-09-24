@@ -4,6 +4,7 @@ import { Music2, Mic2, Shuffle, Club, Globe, Clock, Piano, Radio, Star } from 'l
 import SiteNav from './components/SiteNav';
 import StickyMobileCTA from './components/StickyMobileCTA';
 import QuoteCalculator from './components/QuoteCalculator';
+import PricingNudge from './components/PricingNudge';
 import SiteFooter from './components/SiteFooter';
 import './index.css';
 
@@ -816,9 +817,6 @@ function App() {
             <a href="#booking" className="btn-gold" onClick={(e) => handleScrollTo(e, 'booking')}>Book for Your Event</a>
             <a href="#catalog" className="btn-ghost" onClick={(e) => handleScrollTo(e, 'catalog')}>Hear the Music</a>
           </div>
-          <a href="#quote-calculator" className="hero-price-link" onClick={(e) => handleScrollTo(e, 'quote-calculator')}>
-            See instant pricing for your event &rarr;
-          </a>
 
           {/* bottom stats bar — magazine infographic strip */}
           <div className="hero-stats-bar">
@@ -1232,6 +1230,7 @@ function App() {
       <FaqSection />
 
       {/* ── FOOTER ── */}
+      <PricingNudge />
       <StickyMobileCTA formName="home_sticky" label="Check My Date" />
       <SiteFooter />
 
