@@ -98,7 +98,7 @@ export default function QuoteCalculator({ formName = 'quote_calculator' }: { for
       label: region === 'hamptons' && base === HAMPTONS_FLOOR
         ? `${selected.label} — Hamptons / destination rate`
         : selected.label,
-      value: 'from ' + money(base),
+      value: 'starting at ' + money(base),
     });
 
     let total = base;
@@ -106,7 +106,7 @@ export default function QuoteCalculator({ formName = 'quote_calculator' }: { for
     if (violinHours > 0) {
       const violin = violinHours * VIOLIN_HOURLY;
       total += violin;
-      lines.push({ label: `Live violin — ${violinHours} hour${violinHours > 1 ? 's' : ''} × ${money(VIOLIN_HOURLY)}`, value: 'from ' + money(violin) });
+      lines.push({ label: `Live violin — ${violinHours} hour${violinHours > 1 ? 's' : ''} × ${money(VIOLIN_HOURLY)}`, value: 'starting at ' + money(violin) });
     }
     if (hours > INCLUDED_HOURS) {
       lines.push({ label: `Additional hours beyond ${INCLUDED_HOURS} (${hours - INCLUDED_HOURS})`, value: 'quoted' });
@@ -134,7 +134,7 @@ export default function QuoteCalculator({ formName = 'quote_calculator' }: { for
       violinHours > 0 ? `Live violin: ${violinHours} hour(s)` : null,
       extras.length ? `Extras requested: ${extras.map(k => QUOTED_EXTRAS.find(e => e.key === k)?.label).join('; ')}` : null,
       ``,
-      `Estimate shown: from ${money(quote.total)}${quote.hasQuoted ? ' plus items marked quoted' : ''}`,
+      `Starting price shown: ${money(quote.total)}+${quote.hasQuoted ? ' plus items marked quoted' : ''} (not a final quote)`,
     ].filter(Boolean);
     return l.join('\n');
   };
@@ -181,10 +181,11 @@ export default function QuoteCalculator({ formName = 'quote_calculator' }: { for
           <span className="sec-label">Instant Estimate</span>
           <span className="sec-overline-line" />
         </div>
-        <h2 className="sec-title qc-title">What Will <span>Your Event Cost?</span></h2>
+        <h2 className="sec-title qc-title">See Your <span>Starting Price</span></h2>
         <p className="qc-sub">
-          Real starting numbers from the same rate card DJ DX quotes from — not a lead-capture
-          teaser. Anything without a published flat rate is shown as “quoted” rather than guessed at.
+          Starting prices from the same rate card DJ DX quotes from. Your final quote depends on
+          your date, venue, hours, and guest count. Anything without a published flat rate is
+          marked “quoted” instead of guessed at.
         </p>
 
         <div className="qc-grid">
@@ -239,9 +240,14 @@ export default function QuoteCalculator({ formName = 'quote_calculator' }: { for
           {/* ── RESULT ── */}
           <div className="qc-result">
             <div className="qc-total">
-              <span className="qc-total-label">Your event starts from</span>
-              <span className="qc-total-num">{money(quote.total)}</span>
-              {quote.hasQuoted && <span className="qc-total-note">plus the items marked “quoted” below</span>}
+              {/* Starting price, never a final one - the label sits right on the
+                  number and the "+" repeats it for anyone who only glances. */}
+              <span className="qc-total-label">Starting at</span>
+              <span className="qc-total-num">{money(quote.total)}<span className="qc-total-plus">+</span></span>
+              <span className="qc-total-note">
+                Your final quote depends on your date, venue, hours, and guest count
+                {quote.hasQuoted ? ', plus the items marked “quoted” below' : ''}.
+              </span>
             </div>
 
             <ul className="qc-lines">

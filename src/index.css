@@ -7650,14 +7650,15 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 }
 .qc-total { text-align: center; padding-bottom: 20px; border-bottom: 1px solid var(--dim3); }
 .qc-total-label {
-  display: block; font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: rgba(242,242,242,0.5); margin-bottom: 6px;
+  display: block; font-size: 0.86rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--white); margin-bottom: 8px;
 }
 .qc-total-num {
   display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
   font-size: clamp(2.6rem, 7vw, 3.6rem); line-height: 1; color: var(--gold);
 }
-.qc-total-note { display: block; font-size: 0.78rem; color: rgba(242,242,242,0.45); margin-top: 8px; }
+.qc-total-note { display: block; max-width: 300px; margin: 10px auto 0; font-size: 0.78rem; line-height: 1.5; color: rgba(242,242,242,0.5); }
+.qc-total-plus { font-size: 0.55em; vertical-align: 0.55em; margin-left: 2px; color: var(--gold2); }
 
 .qc-lines { list-style: none; padding: 0; margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
 .qc-lines li {
