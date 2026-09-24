@@ -21,7 +21,7 @@ export default function Refunds() {
           Refund Policy
         </h1>
         <p style={{ color: 'var(--gold)', fontSize: '14px', marginBottom: '56px', opacity: 0.7 }}>
-          Last updated: March 27, 2026 &nbsp;·&nbsp; FRANKPELLA LLC
+          Last updated: September 24, 2026 &nbsp;·&nbsp; FRANKPELLA LLC
         </p>
 
         <div style={{
@@ -71,7 +71,7 @@ export default function Refunds() {
         </LegalSection>
 
         <LegalSection title="5. Unauthorized Charges">
-          <p>If you believe an unauthorized charge was made to your payment method, please contact your bank or payment provider directly. You may also contact Paddle (our payment processor) at <a href="https://www.paddle.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold)' }}>paddle.com</a>, as they serve as the Merchant of Record for all transactions.</p>
+          <p>If you believe an unauthorized charge was made to your payment method, please contact your bank or payment provider directly. You can also contact us directly at <a href="mailto:support@djdxmusic.com" style={{ color: 'var(--gold)' }}>support@djdxmusic.com</a> and we will look into it right away. Payments are processed by Stripe; FRANKPELLA LLC is the seller for all transactions.</p>
         </LegalSection>
 
         <LegalSection title="6. Exceptions and Discretion">

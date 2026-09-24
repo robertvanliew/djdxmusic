@@ -21,7 +21,7 @@ export default function Terms() {
           Terms &amp; Conditions
         </h1>
         <p style={{ color: 'var(--gold)', fontSize: '14px', marginBottom: '56px', opacity: 0.7 }}>
-          Last updated: March 27, 2026 &nbsp;·&nbsp; FRANKPELLA LLC
+          Last updated: September 24, 2026 &nbsp;·&nbsp; FRANKPELLA LLC
         </p>
 
         <LegalSection title="1. Acceptance of Terms">
@@ -44,11 +44,11 @@ export default function Terms() {
         </LegalSection>
 
         <LegalSection title="4. Pay What You Want Pricing">
-          <p>Our music store operates on a "Pay What You Want" model with a minimum price of $2.00 USD per transaction. You may choose to pay any amount at or above the stated minimum. All prices are in US Dollars (USD). Prices are subject to applicable taxes depending on your jurisdiction, processed through our payment partner Paddle.</p>
+          <p>Our music store operates on a "Pay What You Want" model with a minimum price of $3.00 USD per track, up to $500 per order. You may choose to pay any amount at or above the stated minimum. All prices are in US Dollars (USD).</p>
         </LegalSection>
 
         <LegalSection title="5. Payment Processing">
-          <p>All payments are processed securely by Paddle (paddle.com), our authorized payment provider. FRANKPELLA LLC does not store your credit card or payment information. By completing a purchase, you also agree to Paddle's terms of service and privacy policy. Paddle acts as the Merchant of Record for all transactions.</p>
+          <p>All payments are processed securely by Stripe (stripe.com), our payment processor. FRANKPELLA LLC does not store your credit card or payment information. FRANKPELLA LLC is the seller for all transactions.</p>
         </LegalSection>
 
         <LegalSection title="6. Refund Policy">

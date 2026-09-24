@@ -21,7 +21,7 @@ export default function Privacy() {
           Privacy Policy
         </h1>
         <p style={{ color: 'var(--gold)', fontSize: '14px', marginBottom: '56px', opacity: 0.7 }}>
-          Last updated: March 27, 2026 &nbsp;·&nbsp; FRANKPELLA LLC
+          Last updated: September 24, 2026 &nbsp;·&nbsp; FRANKPELLA LLC
         </p>
 
         <LegalSection title="1. Introduction">
@@ -34,7 +34,7 @@ export default function Privacy() {
           <ul style={{ paddingLeft: '24px', marginTop: '8px', lineHeight: 2 }}>
             <li>Email address (required for purchase and download delivery)</li>
             <li>Name (optional, provided at checkout)</li>
-            <li>Payment information (processed directly by Paddle — we never see or store card details)</li>
+            <li>Payment information (processed directly by Stripe — we never see or store card details)</li>
           </ul>
           <p style={{ marginTop: '16px', fontWeight: 600, color: 'rgba(255,255,255,0.9)' }}>Information Collected Automatically:</p>
           <ul style={{ paddingLeft: '24px', marginTop: '8px', lineHeight: 2 }}>
@@ -61,7 +61,7 @@ export default function Privacy() {
         <LegalSection title="4. Third-Party Services">
           <p>We work with the following trusted third-party services that may process your data:</p>
           <ul style={{ paddingLeft: '24px', marginTop: '8px', lineHeight: 2 }}>
-            <li><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Paddle</strong> — Payment processing and Merchant of Record. Paddle processes all payment data in accordance with PCI-DSS standards. See <a href="https://www.paddle.com/legal/privacy" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold)' }}>Paddle's Privacy Policy</a>.</li>
+            <li><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Stripe</strong> — Payment processing. Stripe processes all payment data in accordance with PCI-DSS standards. See <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--gold)' }}>Stripe's Privacy Policy</a>.</li>
             <li><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Resend</strong> — Transactional email delivery for purchase confirmations and download links.</li>
             <li><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Cloudflare</strong> — Infrastructure, security, and file storage (R2). Your audio files are stored securely in Cloudflare R2 with time-limited access links.</li>
             <li><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Vercel</strong> — Website hosting and serverless infrastructure.</li>
@@ -77,7 +77,7 @@ export default function Privacy() {
         </LegalSection>
 
         <LegalSection title="7. Security">
-          <p>We implement commercially reasonable technical and organizational measures to protect your personal information. All data is transmitted over HTTPS. Payment data is handled exclusively by Paddle and never touches our servers. Download links are time-limited and cryptographically signed to prevent unauthorized access.</p>
+          <p>We implement commercially reasonable technical and organizational measures to protect your personal information. All data is transmitted over HTTPS. Payment data is handled exclusively by Stripe and never touches our servers. Download links are time-limited and cryptographically signed to prevent unauthorized access.</p>
         </LegalSection>
 
         <LegalSection title="8. Your Rights">
