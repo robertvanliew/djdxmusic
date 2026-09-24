@@ -11,17 +11,17 @@ export default function Sweet16DJ() {
   return (
     <>
       <Helmet>
-        <title>Sweet 16 DJ NYC & NJ | Hip-Hop, Pop, Afrobeats | DJ DX</title>
-        <meta name="description" content="Looking for a sweet 16 DJ in NYC or NJ? DJ DX brings the energy — hip-hop, pop, Afrobeats & custom sets for an unforgettable sweet sixteen party. Book now." />
+        <title>Sweet 16 DJs for Hire — New York & NJ | From $1,000 | DJ DX</title>
+        <meta name="description" content="Sweet 16 DJ for New York and New Jersey, from $1,000. Hip-hop, pop, Afrobeats and the songs teens actually listen to, plus grand entrance and hype coordination." />
         <link rel="canonical" href="https://djdxmusic.com/sweet-16-dj-nyc-nj" />
-        <meta property="og:title" content="Sweet 16 DJ NYC & NJ — DJ DX" />
+        <meta property="og:title" content="Sweet 16 DJs for Hire — New York & NJ, From $1,000" />
         <meta property="og:description" content="Professional sweet 16 DJ in New York and New Jersey. DJ DX plays hip-hop, pop, Afrobeats, and all the songs teens are actually listening to. Custom sets, grand entrance coordination." />
         <meta property="og:url" content="https://djdxmusic.com/sweet-16-dj-nyc-nj" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Sweet 16 DJ NYC & NJ — DJ DX" />
+        <meta name="twitter:title" content="Sweet 16 DJs for Hire — New York & NJ, From $1,000" />
         <meta name="twitter:description" content="Professional sweet 16 DJ in NYC and NJ. Hip-hop, pop, Afrobeats, and custom sets for unforgettable sweet sixteen parties." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
