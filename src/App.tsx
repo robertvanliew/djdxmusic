@@ -26,13 +26,12 @@ const services = [
   { name: "Private Events", desc: "Weddings, corporate nights, private parties — handled with full professionalism.", icon: Star },
 ];
 
-const marqueePhotos = [
-  // Real luxury-event work leads the rotation — prospects booking weddings,
-  // corporate events, and private parties need to see the kind of event they're
-  // picturing, not only the TEDx stage shots. Photos: Linsey Kromer.
-  { src: '/hero-saks-tent-night-hamptons.jpg', alt: 'DJ DX event at a Saks Fifth Avenue private estate party in Water Mill, the Hamptons, sailcloth tent lit at night', credit: 'Linsey Kromer' },
+// `credit` renders as a caption under the active slide. Any photo by Linsey
+// Kromer must carry credit: 'Linsey Kromer' - her credit is a condition of use.
+// (The two Saks estate shots were removed from the rotation Sept 2026 at DJ
+// DX's request; they still appear on /hamptons-luxury-dj.)
+const marqueePhotos: { src: string; alt: string; credit?: string }[] = [
   { src: '/show-1.jpg', alt: 'DJ DX performing at TEDx Youth RVA' },
-  { src: '/hero-saks-estate-poolside-hamptons.jpg', alt: 'Poolside sailcloth tent reception at a Saks Fifth Avenue private estate event in Water Mill, the Hamptons', credit: 'Linsey Kromer' },
   { src: '/show-2.jpg', alt: 'DJ DX on stage at TEDx RVA' },
   { src: '/show-3.jpg', alt: 'DJ DX live performance TEDx' },
   { src: '/show-4.jpg', alt: 'DJ DX soundcheck TEDx' },
