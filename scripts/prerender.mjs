@@ -53,6 +53,7 @@ const STATIC_ROUTES = [
   '/terms',
   '/privacy',
   '/refunds',
+  '/booking-policy',
   '/faq',
   '/contact',
   '/thank-you',

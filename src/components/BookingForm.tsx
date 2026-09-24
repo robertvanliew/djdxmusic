@@ -130,12 +130,14 @@ export default function BookingForm() {
           published rate card (public/pricing.txt) - nothing here promises a
           contingency or policy DJ DX hasn't committed to. */}
       <ul className="bf-promises">
-        <li><strong>The DJ you book is the DJ who plays.</strong> One person, not an agency. No substitutes.</li>
+        <li><strong>The DJ you book is the DJ who plays.</strong> One person, not an agency. If an emergency ever strikes, a DJ he personally vetted covers your night.</li>
         <li><strong>A real answer within 24 hours.</strong> A straight yes or no on your date.</li>
         <li><strong>Your music, your rules.</strong> Must-play and do-not-play lists built with you on the planning call.</li>
         <li><strong>No surprise pricing.</strong> Published starting rates; travel quoted upfront as its own line.</li>
         <li><strong>25+ years on the mic.</strong> Names and the run of show gone over with you before the night.</li>
+        <li><strong>Everything in writing.</strong> A written contract on every booking; 50% deposit holds your date.</li>
       </ul>
+      <a href="/booking-policy" className="bf-policy-link" target="_blank" rel="noopener">Read the full booking policy</a>
       {status === 'error' && <p className="form-error">Something went wrong. Please try again or email bookings@djdxmusic.com directly.</p>}
       <button type="submit" className="form-submit" disabled={status === 'sending'}>
         {status === 'sending' ? 'Sending…' : <><span>Send Inquiry</span> <Send /></>}

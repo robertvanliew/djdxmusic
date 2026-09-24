@@ -20,6 +20,7 @@ const Admin      = lazy(() => import('./pages/Admin.tsx'))
 const Terms      = lazy(() => import('./pages/Terms.tsx'))
 const Privacy    = lazy(() => import('./pages/Privacy.tsx'))
 const Refunds    = lazy(() => import('./pages/Refunds.tsx'))
+const BookingPolicy = lazy(() => import('./pages/BookingPolicy.tsx'))
 const SoulShades = lazy(() => import('./pages/SoulShades.tsx'))
 const Music      = lazy(() => import('./pages/Music.tsx'))
 const Pricing    = lazy(() => import('./pages/Pricing.tsx'))
@@ -92,6 +93,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/terms"      element={<Terms />} />
             <Route path="/privacy"    element={<Privacy />} />
             <Route path="/refunds"    element={<Refunds />} />
+            <Route path="/booking-policy" element={<BookingPolicy />} />
             <Route path="/soul-shades" element={<SoulShades />} />
             <Route path="/music"      element={<Music />} />
             <Route path="/pricing"    element={<Pricing />} />

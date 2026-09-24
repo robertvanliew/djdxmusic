@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import ProcurementNote from '../../components/ProcurementNote';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
@@ -517,6 +518,8 @@ export default function Corporate() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProcurementNote />
+
       <section className="booking" id="booking">
         <div className="section-inner">
           <div className="booking-layout">

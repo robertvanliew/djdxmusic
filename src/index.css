@@ -7713,3 +7713,39 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .bf-promises li { position: relative; padding-left: 22px; font-size: 0.83rem; line-height: 1.5; color: rgba(242,242,242,0.66); }
 .bf-promises li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 700; }
 .bf-promises strong { color: var(--white); font-weight: 600; }
+
+/* ── Booking policy page ── */
+.bp { padding: 120px 24px 100px; }
+.bp-inner { max-width: 760px; margin: 0 auto; }
+.bp-title { font-size: clamp(2.1rem, 5.5vw, 3.4rem); margin: 10px 0 18px; }
+.bp-lead { font-size: 1.02rem; line-height: 1.75; color: rgba(242,242,242,0.66); margin-bottom: 40px; }
+.bp-lead a, .bp-section a { color: var(--gold); }
+.bp-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 56px; }
+.bp-sum-item { padding: 16px; border-radius: 10px; background: var(--gold-dim); border: 1px solid var(--gold-line); display: flex; flex-direction: column; gap: 4px; }
+.bp-sum-item strong { color: var(--white); font-size: 0.95rem; font-weight: 700; }
+.bp-sum-item span { color: rgba(242,242,242,0.58); font-size: 0.82rem; line-height: 1.4; }
+.bp-section { padding: 26px 0; border-top: 1px solid var(--dim3); }
+.bp-section h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.35rem; font-weight: 800; color: var(--gold); letter-spacing: 0.02em; margin: 0 0 10px; }
+.bp-section p { font-size: 0.97rem; line-height: 1.8; color: rgba(242,242,242,0.72); margin: 0 0 12px; }
+.bp-section p:last-child { margin-bottom: 0; }
+.bp-section strong { color: var(--white); }
+.bp-cta { margin-top: 48px; padding: 28px; border-radius: 12px; background: var(--panel); border: 1px solid var(--edge); text-align: center; }
+.bp-cta p { color: var(--white); font-weight: 600; margin: 0 0 16px; font-size: 1.05rem; }
+.bp-updated { margin-top: 28px; font-size: 0.78rem; color: rgba(242,242,242,0.38); text-align: center; }
+.bf-policy-link { display: block; margin-top: 10px; font-size: 0.78rem; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 720px) {
+  .bp { padding: 96px 16px 72px; }
+  .bp-summary { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Procurement note (corporate pages) ── */
+.pn { padding: 72px 24px; border-top: 1px solid var(--dim3); }
+.pn-inner { max-width: 980px; margin: 0 auto; text-align: center; }
+.pn-title { margin: 8px 0 32px; }
+.pn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: left; }
+.pn-item { padding: 18px; border-radius: 10px; background: var(--panel); border: 1px solid var(--edge); display: flex; flex-direction: column; gap: 6px; }
+.pn-item strong { color: var(--gold); font-size: 0.95rem; }
+.pn-item span { color: rgba(242,242,242,0.62); font-size: 0.86rem; line-height: 1.55; }
+.pn-foot { margin-top: 22px; font-size: 0.88rem; color: rgba(242,242,242,0.55); }
+.pn-foot a { color: var(--gold); }
+@media (max-width: 860px) { .pn-grid { grid-template-columns: 1fr 1fr; } .pn { padding: 56px 16px; } }
