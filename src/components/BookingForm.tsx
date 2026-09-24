@@ -47,7 +47,7 @@ export default function BookingForm() {
     <div className="booking-success">
       <div className="booking-success-icon">✓</div>
       <h3>Inquiry sent!</h3>
-      <p>DJ DX will get back to you within 24–48 hours. Check your inbox for a confirmation.</p>
+      <p>You'll get a straight yes or no on your date within 24 hours. Check your inbox for a confirmation.</p>
     </div>
   );
 
@@ -75,8 +75,8 @@ export default function BookingForm() {
       </div>
       <div className="form-row">
         <div className="form-field">
-          <label htmlFor="bf-phone">Phone</label>
-          <input id="bf-phone" type="tel" placeholder="+1 (555) 000-0000" required value={fields.phone} onChange={e => set('phone', e.target.value)} />
+          <label htmlFor="bf-phone">Phone <span className="bf-opt">optional, fastest reply</span></label>
+          <input id="bf-phone" type="tel" placeholder="+1 (555) 000-0000" autoComplete="tel" value={fields.phone} onChange={e => set('phone', e.target.value)} />
         </div>
         <div className="form-field">
           <label htmlFor="bf-event-date">Event Date</label>
@@ -85,42 +85,57 @@ export default function BookingForm() {
       </div>
       <div className="form-row">
         <div className="form-field">
-          <label htmlFor="bf-event-start-time">Start Time</label>
-          <input id="bf-event-start-time" type="time" required value={fields.eventStartTime} onChange={e => set('eventStartTime', e.target.value)} />
-        </div>
-        <div className="form-field">
-          <label htmlFor="bf-event-end-time">End Time</label>
-          <input id="bf-event-end-time" type="time" required value={fields.eventEndTime} onChange={e => set('eventEndTime', e.target.value)} />
-        </div>
-      </div>
-      <div className="form-row">
-        <div className="form-field">
           <label htmlFor="bf-event-type">Event Type</label>
           <select id="bf-event-type" required value={fields.eventType} onChange={e => set('eventType', e.target.value)}>
             <option value="" disabled>Select type…</option>
             <option>Wedding</option>
-            <option>Corporate Event</option>
-            <option>Private Party</option>
+            <option>Corporate Event / Holiday Party</option>
+            <option>Private Party / Birthday</option>
+            <option>Sweet 16 / Quinceañera / Mitzvah</option>
+            <option>DJ + Live Violin (Soul Shades)</option>
             <option>Club / Venue Night</option>
-            <option>Birthday / Celebration</option>
             <option>Other</option>
           </select>
         </div>
         <AddressAutocomplete
           id="bf-location"
-          label="Event Location"
+          label="Event Location (optional)"
           placeholder="Venue name, city, state"
-          required
           maxLength={200}
           value={fields.location}
           onChange={v => set('location', v)}
           onSelect={d => setFields(f => ({ ...f, locationCity: d.city, locationState: d.state, locationCountry: d.country }))}
         />
       </div>
-      <div className="form-field">
-        <label htmlFor="bf-message">Tell me about your event</label>
-        <textarea id="bf-message" placeholder="Guest count, vibe you're going for, any special requests…" required value={fields.message} onChange={e => set('message', e.target.value)} />
-      </div>
+      <details className="bf-more">
+        <summary>Add times and details <span className="bf-opt">optional</span></summary>
+        <div className="form-row">
+          <div className="form-field">
+            <label htmlFor="bf-event-start-time">Start Time</label>
+            <input id="bf-event-start-time" type="time" value={fields.eventStartTime} onChange={e => set('eventStartTime', e.target.value)} />
+          </div>
+          <div className="form-field">
+            <label htmlFor="bf-event-end-time">End Time</label>
+            <input id="bf-event-end-time" type="time" value={fields.eventEndTime} onChange={e => set('eventEndTime', e.target.value)} />
+          </div>
+        </div>
+        <div className="form-field">
+          <label htmlFor="bf-message">Tell me about your event</label>
+          <textarea id="bf-message" placeholder="Guest count, the vibe you're going for, must-plays, anything to avoid…" value={fields.message} onChange={e => set('message', e.target.value)} />
+        </div>
+      </details>
+
+      {/* The five things people are actually afraid of when hiring a DJ,
+          answered at the moment they decide. Every line is backed by the
+          published rate card (public/pricing.txt) - nothing here promises a
+          contingency or policy DJ DX hasn't committed to. */}
+      <ul className="bf-promises">
+        <li><strong>The DJ you book is the DJ who plays.</strong> One person, not an agency. No substitutes.</li>
+        <li><strong>A real answer within 24 hours.</strong> A straight yes or no on your date.</li>
+        <li><strong>Your music, your rules.</strong> Must-play and do-not-play lists built with you on the planning call.</li>
+        <li><strong>No surprise pricing.</strong> Published starting rates; travel quoted upfront as its own line.</li>
+        <li><strong>25+ years on the mic.</strong> Names and the run of show gone over with you before the night.</li>
+      </ul>
       {status === 'error' && <p className="form-error">Something went wrong. Please try again or email bookings@djdxmusic.com directly.</p>}
       <button type="submit" className="form-submit" disabled={status === 'sending'}>
         {status === 'sending' ? 'Sending…' : <><span>Send Inquiry</span> <Send /></>}

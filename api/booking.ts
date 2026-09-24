@@ -148,8 +148,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     eventEndTime = eventEndTime || 'TBD';
     location = location || 'Not provided (quick inquiry)';
     message = message || '(Quick inquiry — submitted via sticky CTA, no additional details provided.)';
-  } else if (!name || !email || !phone || !eventType || !eventDate || !eventStartTime || !eventEndTime || !location || !message) {
-    return res.status(400).json({ error: 'All fields are required' });
+  } else {
+    // The full form used to require all nine fields, including exact start
+    // and end times most people don't know yet when they first inquire.
+    // Analytics showed ~half of everyone who started the form abandoned it.
+    // Only what's needed to answer "is my date open?" is required now; the
+    // rest is gathered on the follow-up call.
+    if (!name || !email || !eventType || !eventDate) {
+      return res.status(400).json({ error: 'Name, email, event date, and event type are required' });
+    }
+    phone = phone || '';
+    eventStartTime = eventStartTime || 'TBD';
+    eventEndTime = eventEndTime || 'TBD';
+    location = location || 'Not provided yet';
+    message = message || '(No additional details provided.)';
   }
 
   const spamCheck = isSpamSubmission({ honeypot, elapsedMs, message });

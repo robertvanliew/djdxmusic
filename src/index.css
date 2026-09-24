@@ -7700,3 +7700,16 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 @media (prefers-reduced-motion: reduce) {
   .qc-extra { transition: none; }
 }
+
+/* ── Booking form: optional details + trust promises ── */
+.bf-opt { font-weight: 400; font-size: 0.72em; letter-spacing: 0.02em; text-transform: none; color: rgba(242,242,242,0.42); margin-left: 6px; }
+.bf-more { margin: 4px 0 18px; border: 1px solid var(--edge); border-radius: 8px; padding: 0 14px; }
+.bf-more > summary { cursor: pointer; padding: 13px 0; font-size: 0.88rem; font-weight: 600; color: var(--white); list-style: none; }
+.bf-more > summary::-webkit-details-marker { display: none; }
+.bf-more > summary::before { content: '+'; display: inline-block; width: 1em; color: var(--gold); font-weight: 700; }
+.bf-more[open] > summary::before { content: '–'; }
+.bf-more[open] { padding-bottom: 6px; }
+.bf-promises { list-style: none; padding: 16px 16px 14px; margin: 0 0 18px; border-radius: 8px; background: var(--gold-dim); border: 1px solid var(--gold-line); display: flex; flex-direction: column; gap: 9px; }
+.bf-promises li { position: relative; padding-left: 22px; font-size: 0.83rem; line-height: 1.5; color: rgba(242,242,242,0.66); }
+.bf-promises li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 700; }
+.bf-promises strong { color: var(--white); font-weight: 600; }
