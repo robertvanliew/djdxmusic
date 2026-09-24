@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 
 const FAQ_ITEMS = [
@@ -296,6 +297,7 @@ export default function WeddingDJCost() {
         </div>
       </section>
 
+      <QuoteCalculator formName="wedding_dj_cost" />
       <RelatedServices />
       <SiteFooter />
     </>

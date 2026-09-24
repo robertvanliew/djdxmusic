@@ -11,17 +11,17 @@ export default function Sweet16HudsonValley() {
   return (
     <>
       <Helmet>
-        <title>Sweet 16 DJ: Kingston, Saugerties, Red Hook NY | From $1,000</title>
-        <meta name="description" content="Sweet 16 DJ for Kingston, Saugerties, Red Hook, Millbrook, New Paltz and the greater Hudson Valley. Hip-hop, pop, Afrobeats. From $1,000, travel quoted upfront." />
+        <title>Sweet 16 DJ: Kingston, Saugerties, Red Hook NY | From $1,500</title>
+        <meta name="description" content="Sweet 16 DJ for Kingston, Saugerties, Red Hook, Millbrook, New Paltz and the greater Hudson Valley. Hip-hop, pop, Afrobeats. From $1,500, travel quoted upfront." />
         <link rel="canonical" href="https://djdxmusic.com/sweet-16-dj-hudson-valley-ny" />
-        <meta property="og:title" content="Sweet 16 DJ in the Hudson Valley — From $1,000 | DJ DX" />
+        <meta property="og:title" content="Sweet 16 DJ in the Hudson Valley — From $1,500 | DJ DX" />
         <meta property="og:description" content="Sweet 16 DJ serving Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and the greater Hudson Valley. Hip-hop, pop, Afrobeats, and custom sets for her night." />
         <meta property="og:url" content="https://djdxmusic.com/sweet-16-dj-hudson-valley-ny" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Sweet 16 DJ in the Hudson Valley — From $1,000 | DJ DX" />
+        <meta name="twitter:title" content="Sweet 16 DJ in the Hudson Valley — From $1,500 | DJ DX" />
         <meta name="twitter:description" content="Sweet 16 DJ serving Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and the greater Hudson Valley." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
@@ -144,7 +144,7 @@ export default function Sweet16HudsonValley() {
       {/* ── HERO ── */}
       <section className="epk-hero" style={{ minHeight: '65vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
         <div className="epk-hero-bg" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-          <img src="/epk-hero.jpg" alt="Sweet 16 DJ in the Hudson Valley — From $1,000 | DJ DX teen milestone events" width="1920" height="1080" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%', filter: 'contrast(1.05) saturate(1.1)' }} />
+          <img src="/epk-hero.jpg" alt="Sweet 16 DJ in the Hudson Valley — DJ DX performing at a teen milestone event" width="1920" height="1080" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%', filter: 'contrast(1.05) saturate(1.1)' }} />
         </div>
         <div className="epk-hero-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(12,12,12,0.2) 0%, rgba(12,12,12,0.92) 100%)' }} />
         <div className="section-inner" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>

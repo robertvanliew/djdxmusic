@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 import HeroPhotoSlideshow from '../../components/HeroPhotoSlideshow';
 
@@ -537,6 +538,7 @@ export default function Corporate() {
         </div>
       </section>
 
+      <QuoteCalculator formName="corporate" />
       <RelatedServices />
       <SiteFooter />
     </>

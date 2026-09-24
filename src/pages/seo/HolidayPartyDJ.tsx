@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 
 // Client name for the most recent corporate booking shown on this page. Kept as
@@ -385,6 +386,7 @@ export default function HolidayPartyDJ() {
         </div>
       </section>
 
+      <QuoteCalculator formName="holiday_party" />
       <RelatedServices />
       <SiteFooter />
     </>
