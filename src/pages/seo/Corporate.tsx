@@ -28,7 +28,7 @@ export default function Corporate() {
   return (
     <>
       <Helmet>
-        <title>Corporate Event &amp; Holiday Party DJ NYC, NJ, CT: From $2,800 | DJ DX</title>
+        <title>Corporate Event DJ NYC, NJ &amp; CT: From $2,800 | DJ DX</title>
         <meta name="description" content="Corporate event and holiday party DJ in NYC, NJ, and CT from $2,800. Brand-safe, HR-approved playlists for office parties, galas, and brand activations — recent Manhattan corporate bookings include LS Power and NautaDutilh. Custom quote in 24 hours." />
         <link rel="canonical" href="https://djdxmusic.com/corporate-event-dj-nyc-nj-ct" />
         <meta property="og:title" content="Corporate Event DJ NYC, NJ, CT — DJ DX" />
@@ -328,7 +328,7 @@ export default function Corporate() {
             Booking a Corporate Holiday Party DJ in NYC for {new Date().getFullYear()}
           </h3>
           <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '720px', margin: '0 auto', fontSize: '0.98rem', lineHeight: 1.75 }}>
-            Most corporate planners lock in holiday party entertainment 90 to 120 days out, which means December dates in Manhattan get claimed through September and October. If you are planning an office holiday party, a year-end client reception, or a company celebration anywhere in NYC, New Jersey, or Connecticut, the earlier you reach out the more likely your date is still open.
+            Most corporate planners lock in holiday party entertainment 90 to 120 days out, which means December dates in Manhattan get claimed through September and October. If you are planning an office holiday party, a year-end client reception, or a company celebration anywhere in NYC, New Jersey, or Connecticut, the earlier you reach out the more likely your date is still open. Full details, pricing, and December availability are on the <a href="/holiday-party-dj-nyc-nj-ct" style={{ color: 'var(--gold)' }}>holiday party DJ page</a>.
           </p>
         </div>
       </section>

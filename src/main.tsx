@@ -39,6 +39,7 @@ const AfrobeatsDJ = lazy(() => import('./pages/seo/AfrobeatsDJ.tsx'))
 const RBHipHopDJ  = lazy(() => import('./pages/seo/RBHipHopDJ.tsx'))
 const DJForHireNYC = lazy(() => import('./pages/seo/DJForHireNYC.tsx'))
 const NewYearsEveDJ = lazy(() => import('./pages/seo/NewYearsEveDJ.tsx'))
+const HolidayPartyDJ = lazy(() => import('./pages/seo/HolidayPartyDJ.tsx'))
 const PrivatePartyDJ = lazy(() => import('./pages/seo/PrivatePartyDJ.tsx'))
 const HipHopDJ    = lazy(() => import('./pages/seo/HipHopDJ.tsx'))
 const Sweet16DJ   = lazy(() => import('./pages/seo/Sweet16DJ.tsx'))
@@ -110,6 +111,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/rb-hip-hop-dj-nyc-nj" element={<RBHipHopDJ />} />
             <Route path="/dj-for-hire-nyc" element={<DJForHireNYC />} />
             <Route path="/new-years-eve-dj-nyc" element={<NewYearsEveDJ />} />
+            <Route path="/holiday-party-dj-nyc-nj-ct" element={<HolidayPartyDJ />} />
             <Route path="/private-party-dj-nyc-nj" element={<PrivatePartyDJ />} />
             <Route path="/hip-hop-dj-nyc-nj" element={<HipHopDJ />} />
             <Route path="/sweet-16-dj-nyc-nj" element={<Sweet16DJ />} />
