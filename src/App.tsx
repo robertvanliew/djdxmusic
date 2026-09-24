@@ -355,11 +355,20 @@ function App() {
   const pressPrev = useCallback(() => setPressSlide(s => (s - 1 + pressTotal) % pressTotal), [pressTotal]);
   const pressNext = useCallback(() => setPressSlide(s => (s + 1) % pressTotal), [pressTotal]);
 
+  // Scroll ONLY the press track sideways. This used scrollIntoView, which
+  // scrolls every ancestor - including the page - and it ran on mount, so
+  // every homepage load tried to drag the window down to the press section
+  // near the booking form. Chrome's scrollTo(0,0) below usually won the race;
+  // iOS Safari let the smooth scroll finish and landed phones at the form.
+  const pressMounted = useRef(false);
   useEffect(() => {
+    if (!pressMounted.current) { pressMounted.current = true; return; } // slide 0 is already in place
     const track = pressTrackRef.current;
-    if (!track) return;
-    const card = track.children[pressSlide] as HTMLElement | undefined;
-    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    const card = track?.children[pressSlide] as HTMLElement | undefined;
+    if (!track || !card) return;
+    const offset = card.getBoundingClientRect().left - track.getBoundingClientRect().left;
+    const left = track.scrollLeft + offset - (track.clientWidth - card.offsetWidth) / 2;
+    track.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
   }, [pressSlide]);
 
   // Always start at top on load — disable browser scroll restoration
