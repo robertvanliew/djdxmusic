@@ -29,7 +29,7 @@ const services = [
 // `credit` renders as a caption under the active slide. Any photo by Linsey
 // Kromer must carry credit: 'Linsey Kromer' - her credit is a condition of use.
 // (The two Saks estate shots were removed from the rotation Sept 2026 at DJ
-// DX's request; they still appear on /hamptons-luxury-dj.)
+// DX's request. The Saks gallery on /hamptons-luxury-dj uses other shots.)
 const marqueePhotos: { src: string; alt: string; credit?: string }[] = [
   { src: '/show-1.jpg', alt: 'DJ DX performing at TEDx Youth RVA' },
   { src: '/show-2.jpg', alt: 'DJ DX on stage at TEDx RVA' },
