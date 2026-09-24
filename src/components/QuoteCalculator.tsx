@@ -1,4 +1,5 @@
-import { useMemo, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, type FormEvent } from 'react';
+import { useLocation } from 'react-router-dom';
 import { trackEvent, trackLead, trackFormSubmit, trackFormError } from '../lib/analytics';
 
 // Instant estimate + lead capture, embedded on the pages that already rank for
@@ -67,6 +68,26 @@ export default function QuoteCalculator({ formName = 'quote_calculator' }: { for
   const mountedAt = useRef(Date.now());
 
   const selected = EVENT_TYPES.find(e => e.key === eventKey)!;
+
+  // Nav, footer and hero links point at #quote-calculator, but every page
+  // runs window.scrollTo(0, 0) on mount - and parent effects run after this
+  // child's, so a plain hash jump gets undone. Scroll after the page settles,
+  // and again on hash changes, since a router Link to the same page doesn't
+  // remount anything.
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash !== '#quote-calculator') return;
+    const jump = () => {
+      const el = document.getElementById('quote-calculator');
+      if (!el) return;
+      const nav = document.querySelector('.nav') as HTMLElement | null;
+      const top = el.getBoundingClientRect().top + window.scrollY - ((nav?.offsetHeight ?? 70) + 12);
+      window.scrollTo({ top, behavior: 'smooth' });
+    };
+    const t1 = setTimeout(jump, 180);
+    const t2 = setTimeout(jump, 900); // re-aim once images above it have loaded and shifted layout
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, [location.key, location.hash]);
 
   const quote = useMemo(() => {
     const lines: { label: string; value: string }[] = [];

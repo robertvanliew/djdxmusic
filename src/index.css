@@ -7749,3 +7749,11 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .pn-foot { margin-top: 22px; font-size: 0.88rem; color: rgba(242,242,242,0.55); }
 .pn-foot a { color: var(--gold); }
 @media (max-width: 860px) { .pn-grid { grid-template-columns: 1fr 1fr; } .pn { padding: 56px 16px; } }
+
+/* Hero: secondary path straight to the price calculator */
+.hero-price-link {
+  display: inline-block; margin-top: 16px; font-size: 0.92rem; font-weight: 600;
+  color: var(--gold); text-decoration: underline; text-underline-offset: 4px;
+  text-decoration-color: var(--gold-line); transition: text-decoration-color 0.18s ease;
+}
+@media (hover: hover) and (pointer: fine) { .hero-price-link:hover { text-decoration-color: var(--gold); } }

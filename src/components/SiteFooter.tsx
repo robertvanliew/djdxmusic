@@ -31,8 +31,11 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
             <Link to="/dj-for-hire-nyc" className="footer-nav-link">DJ for Hire NYC</Link>
             <Link to="/wedding-dj-nyc-nj" className="footer-nav-link">Wedding DJ NYC</Link>
             <Link to="/wedding-entertainment-package-nyc-nj" className="footer-nav-link">Wedding Entertainment Package</Link>
+            <Link to="/event-dj-cost-nyc-nj-ct#quote-calculator" className="footer-nav-link">Instant Price Estimate</Link>
+            <Link to="/event-dj-cost-nyc-nj-ct" className="footer-nav-link">Event DJ Pricing Report</Link>
             <Link to="/wedding-dj-cost-nyc" className="footer-nav-link">Wedding DJ Cost Guide</Link>
             <Link to="/corporate-event-dj-nyc-nj-ct" className="footer-nav-link">Corporate DJ NYC</Link>
+            <Link to="/holiday-party-dj-nyc-nj-ct" className="footer-nav-link">Holiday Party DJ</Link>
             <Link to="/private-party-dj-nyc-nj" className="footer-nav-link">Private Party DJ</Link>
             <Link to="/afrobeats-amapiano-dj-nyc-nj" className="footer-nav-link">Afrobeats DJ NYC</Link>
             <Link to="/rb-hip-hop-dj-nyc-nj" className="footer-nav-link">R&amp;B / Hip-Hop DJ</Link>
@@ -69,7 +72,7 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
 
           <div className="footer-nav-col">
             <span className="footer-nav-heading">Legal</span>
-            <Link to="/pricing" className="footer-nav-link">Pricing</Link>
+            <Link to="/pricing" className="footer-nav-link">Music Store Pricing</Link>
             <Link to="/terms" className="footer-nav-link">Terms &amp; Conditions</Link>
             <Link to="/privacy" className="footer-nav-link">Privacy Policy</Link>
             <Link to="/refunds" className="footer-nav-link">Refund Policy</Link>

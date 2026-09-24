@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Music2, Mic2, Shuffle, Club, Globe, Clock, Piano, Radio, Star } from 'lucide-react';
 import SiteNav from './components/SiteNav';
 import StickyMobileCTA from './components/StickyMobileCTA';
+import QuoteCalculator from './components/QuoteCalculator';
 import SiteFooter from './components/SiteFooter';
 import './index.css';
 
@@ -728,7 +729,7 @@ function App() {
                 {"@type": "SiteNavigationElement", "position": 2, "name": "Soul Shades", "url": "https://djdxmusic.com/soul-shades"},
                 {"@type": "SiteNavigationElement", "position": 3, "name": "News",        "url": "https://djdxmusic.com/news"},
                 {"@type": "SiteNavigationElement", "position": 4, "name": "EPK",         "url": "https://djdxmusic.com/epk"},
-                {"@type": "SiteNavigationElement", "position": 5, "name": "Pricing",     "url": "https://djdxmusic.com/pricing"},
+                {"@type": "SiteNavigationElement", "position": 5, "name": "Pricing",     "url": "https://djdxmusic.com/event-dj-cost-nyc-nj-ct"},
                 {"@type": "SiteNavigationElement", "position": 6, "name": "FAQ",         "url": "https://djdxmusic.com/faq"},
                 {"@type": "SiteNavigationElement", "position": 7, "name": "Contact",     "url": "https://djdxmusic.com/contact"}
               ]
@@ -807,6 +808,9 @@ function App() {
             <a href="#booking" className="btn-gold" onClick={(e) => handleScrollTo(e, 'booking')}>Book for Your Event</a>
             <a href="#catalog" className="btn-ghost" onClick={(e) => handleScrollTo(e, 'catalog')}>Hear the Music</a>
           </div>
+          <a href="#quote-calculator" className="hero-price-link" onClick={(e) => handleScrollTo(e, 'quote-calculator')}>
+            See instant pricing for your event &rarr;
+          </a>
 
           {/* bottom stats bar — magazine infographic strip */}
           <div className="hero-stats-bar">
@@ -1190,6 +1194,8 @@ function App() {
       </section>
 
       {/* ── BOOKING ── */}
+      <QuoteCalculator formName="home_quote" />
+
       <section className="booking" id="booking">
         <div className="section-inner">
           <div className="booking-layout">

@@ -35,6 +35,7 @@ export default function SiteNav() {
             </a>
           </li>
           <li><a href="https://www.djdxllc.com/" target="_blank" rel="noopener noreferrer" className="nav-shop">Shop</a></li>
+          <li><Link to="/event-dj-cost-nyc-nj-ct#quote-calculator">Pricing</Link></li>
           <li><Link to="/epk" className="nav-epk-link">EPK</Link></li>
           <li><a href={href('#booking')} className="nav-book">Book Now</a></li>
         </ul>
@@ -77,6 +78,7 @@ export default function SiteNav() {
               <li><Link to="/news" onClick={() => { window.scrollTo({ top:0, behavior:'smooth' }); close(); }}>News</Link></li>
               <li><Link to="/epk" onClick={close}>EPK</Link></li>
               <li><a href="https://www.djdxllc.com/" target="_blank" rel="noopener noreferrer" onClick={close}>Shop</a></li>
+              <li><Link to="/event-dj-cost-nyc-nj-ct#quote-calculator" onClick={close}>Instant Price Estimate</Link></li>
               <li><a href={href('#booking')} onClick={close} className="nav-drawer-book">Book Now</a></li>
             </ul>
             <div className="nav-drawer-streams">
