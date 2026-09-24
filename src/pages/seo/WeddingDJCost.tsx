@@ -57,18 +57,18 @@ export default function WeddingDJCost() {
   return (
     <>
       <Helmet>
-        <title>Wedding DJ Cost in NYC: Real 2026 Prices | DJ DX</title>
-        <meta name="description" content="What a wedding DJ actually costs in NYC and NJ in 2026: real hourly rates, travel fees, and what's included. Straight numbers from a working DJ." />
+        <title>How Much Does a Wedding DJ Cost in NYC? From $2,800 | DJ DX</title>
+        <meta name="description" content="NYC wedding DJs run $2,800-$6,000 in 2026. Real rate table, travel fees, and exactly what's included - from a working DJ, not an agency directory." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-cost-nyc" />
-        <meta property="og:title" content="Wedding DJ Cost in NYC: Real 2026 Prices | DJ DX" />
-        <meta property="og:description" content="What a wedding DJ actually costs in NYC and NJ in 2026: real hourly rates, travel fees, and what's included. Straight numbers from a working DJ." />
+        <meta property="og:title" content="How Much Does a Wedding DJ Cost in NYC? From $2,800 | DJ DX" />
+        <meta property="og:description" content="NYC wedding DJs run $2,800-$6,000 in 2026. Real rate table, travel fees, and exactly what's included - from a working DJ, not an agency directory." />
         <meta property="og:url" content="https://djdxmusic.com/wedding-dj-cost-nyc" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Wedding DJ Cost in NYC: Real 2026 Prices | DJ DX" />
-        <meta name="twitter:description" content="What a wedding DJ actually costs in NYC and NJ in 2026: real hourly rates, travel fees, and what's included. Straight numbers from a working DJ." />
+        <meta name="twitter:title" content="How Much Does a Wedding DJ Cost in NYC? From $2,800 | DJ DX" />
+        <meta name="twitter:description" content="NYC wedding DJs run $2,800-$6,000 in 2026. Real rate table, travel fees, and exactly what's included - from a working DJ, not an agency directory." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
           {`[
