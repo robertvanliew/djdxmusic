@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 import BookingForm from '../../components/BookingForm';
 
 export default function DJForHireNYC() {
@@ -280,6 +281,7 @@ export default function DJForHireNYC() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="djforhire_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

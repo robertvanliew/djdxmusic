@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 
@@ -299,6 +300,7 @@ export default function WeddingDJCost() {
 
       <QuoteCalculator formName="wedding_dj_cost" />
       <RelatedServices />
+      <StickyMobileCTA formName="wedding_cost_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

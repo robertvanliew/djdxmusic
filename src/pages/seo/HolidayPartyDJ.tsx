@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 
@@ -388,6 +389,7 @@ export default function HolidayPartyDJ() {
 
       <QuoteCalculator formName="holiday_party" />
       <RelatedServices />
+      <StickyMobileCTA formName="holiday_sticky" label="Check December Dates" />
       <SiteFooter />
     </>
   );

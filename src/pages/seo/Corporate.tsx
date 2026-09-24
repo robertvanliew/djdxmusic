@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 import HeroPhotoSlideshow from '../../components/HeroPhotoSlideshow';
@@ -540,6 +541,7 @@ export default function Corporate() {
 
       <QuoteCalculator formName="corporate" />
       <RelatedServices />
+      <StickyMobileCTA formName="corporate_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

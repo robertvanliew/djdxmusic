@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 
@@ -287,6 +288,7 @@ export default function EventDJCost() {
 
       <QuoteCalculator formName="event_dj_cost" />
       <RelatedServices />
+      <StickyMobileCTA formName="event_cost_sticky" label="Get My Quote" />
       <SiteFooter />
     </>
   );

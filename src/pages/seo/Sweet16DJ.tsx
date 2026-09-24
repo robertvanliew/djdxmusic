@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 import BookingForm from '../../components/BookingForm';
 
 export default function Sweet16DJ() {
@@ -257,6 +258,7 @@ export default function Sweet16DJ() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="sweet16_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

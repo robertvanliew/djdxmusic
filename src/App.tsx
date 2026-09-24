@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Music2, Mic2, Shuffle, Club, Globe, Clock, Piano, Radio, Star } from 'lucide-react';
 import SiteNav from './components/SiteNav';
+import StickyMobileCTA from './components/StickyMobileCTA';
 import SiteFooter from './components/SiteFooter';
 import './index.css';
 
@@ -754,13 +755,24 @@ function App() {
               key={i}
               className={`hero-slide ${i === slide ? 'hero-slide--active' : ''}`}
             >
-              <img
-                src={photo.src}
-                alt=""
-                draggable={false}
-                loading={i === 0 ? "eager" : "lazy"}
-                fetchPriority={i === 0 ? "high" : "auto"}
-              />
+              {/* Every slide sits in the hero, so lazy loading barely helps:
+                  the browser fetches them all. 93% of sessions are mobile, and
+                  the raw JPEGs were shipping up to 2.4MB each to a 390px
+                  screen. The 900px webp keeps phones under ~30KB a slide. */}
+              <picture>
+                <source
+                  type="image/webp"
+                  sizes="100vw"
+                  srcSet={`${photo.src.replace(/\.jpg$/, '-900.webp')} 900w, ${photo.src.replace(/\.jpg$/, '.webp')} 1920w`}
+                />
+                <img
+                  src={photo.src}
+                  alt=""
+                  draggable={false}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  fetchPriority={i === 0 ? "high" : "auto"}
+                />
+              </picture>
             </div>
           ))}
         </div>
@@ -1206,6 +1218,7 @@ function App() {
       <FaqSection />
 
       {/* ── FOOTER ── */}
+      <StickyMobileCTA formName="home_sticky" label="Check My Date" />
       <SiteFooter />
 
     </>
