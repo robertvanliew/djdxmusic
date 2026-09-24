@@ -94,6 +94,34 @@ function injectGoogleAdsTag(conversionId: string) {
   window.gtag?.('config', conversionId, { send_page_view: false });
 }
 
+// Loads the pixels off the critical path. Measured on a 390px iPhone
+// viewport, TikTok alone pulled 7.16MB across 323 requests on the homepage
+// and it was firing synchronously from main.tsx, so it competed with the page
+// for bandwidth and CPU before anything rendered. 93% of sessions are mobile.
+//
+// Whichever comes first wins: the browser going idle, the first real user
+// interaction, or a hard timeout. Attribution is unaffected - a pixel that
+// fires a second or two later still records the visit, and a visitor who
+// leaves before either event was never going to convert anyway.
+export function initTrackingPixelsDeferred() {
+  if (typeof window === 'undefined') return;
+  let fired = false;
+  const EVENTS = ['pointerdown', 'keydown', 'touchstart', 'scroll'] as const;
+
+  const run = () => {
+    if (fired) return;
+    fired = true;
+    EVENTS.forEach(e => window.removeEventListener(e, run));
+    initTrackingPixels();
+  };
+
+  EVENTS.forEach(e => window.addEventListener(e, run, { once: true, passive: true }));
+
+  const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback;
+  if (ric) ric(run, { timeout: 5000 });
+  else setTimeout(run, 3000);
+}
+
 export function initTrackingPixels() {
   const metaId = import.meta.env.VITE_META_PIXEL_ID;
   const tiktokId = import.meta.env.VITE_TIKTOK_PIXEL_ID;

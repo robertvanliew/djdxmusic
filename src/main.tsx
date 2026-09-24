@@ -10,9 +10,9 @@ import { CartProvider } from './components/CartContext.tsx'
 import { PlayerProvider } from './components/PlayerContext.tsx'
 import { ToastProvider } from './components/Toast.tsx'
 import { trackPageView } from './lib/analytics.ts'
-import { initTrackingPixels } from './lib/pixels.ts'
+import { initTrackingPixelsDeferred } from './lib/pixels.ts'
 
-initTrackingPixels()
+initTrackingPixelsDeferred()
 
 // Lazy load all non-home routes — they only download when first visited
 const EPK        = lazy(() => import('./pages/EPK.tsx'))
