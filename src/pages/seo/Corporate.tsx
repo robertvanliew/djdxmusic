@@ -143,7 +143,7 @@ export default function Corporate() {
               "name": "Corporate Event DJ Manhattan — ${RECENT_CLIENT} Office Party Highlights, Midtown NYC",
               "description": "Highlights from a September 2026 in-office corporate reception for ${RECENT_CLIENT} in Midtown Manhattan, with DJ DX on the decks — full DJ setup and sound brought into a corporate event space overlooking the NYC skyline.",
               "thumbnailUrl": "https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc-poster.jpg",
-              "uploadDate": "2026-09-14",
+              "uploadDate": "2026-09-14T12:00:00-04:00",
               "duration": "PT29S",
               "contentUrl": "https://djdxmusic.com/videos/corporate-dj-manhattan-office-party-nyc.mp4"
             },
@@ -152,21 +152,21 @@ export default function Corporate() {
               "@type": "ImageObject",
               "name": "Corporate Event DJ Manhattan — DJ DX at an in-office company party, Midtown NYC",
               "contentUrl": "https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc.jpg",
-              "uploadDate": "2026-09-14"
+              "uploadDate": "2026-09-14T12:00:00-04:00"
             },
             {
               "@context": "https://schema.org",
               "@type": "ImageObject",
               "name": "Corporate Event DJ Booth Setup — Manhattan Office Party, Midtown NYC",
               "contentUrl": "https://djdxmusic.com/corporate-event-dj-booth-manhattan-nyc.jpg",
-              "uploadDate": "2026-09-14"
+              "uploadDate": "2026-09-14T12:00:00-04:00"
             },
             {
               "@context": "https://schema.org",
               "@type": "ImageObject",
               "name": "Manhattan Corporate Event Space with Skyline Views — Company Party, Midtown NYC",
               "contentUrl": "https://djdxmusic.com/corporate-event-venue-manhattan-skyline-nyc.jpg",
-              "uploadDate": "2026-09-14"
+              "uploadDate": "2026-09-14T12:00:00-04:00"
             },
             {
               "@context": "https://schema.org",

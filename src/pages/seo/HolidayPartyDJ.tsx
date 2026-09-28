@@ -147,7 +147,7 @@ export default function HolidayPartyDJ() {
               "name": "Corporate Holiday Party DJ — ${RECENT_CLIENT} Office Reception Highlights, Midtown Manhattan",
               "description": "Highlights from a September 2026 in-office corporate reception for ${RECENT_CLIENT} in Midtown Manhattan, with DJ DX on the decks — the same format used for corporate holiday parties across NYC and New Jersey.",
               "thumbnailUrl": "https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc-poster.jpg",
-              "uploadDate": "2026-09-15",
+              "uploadDate": "2026-09-15T12:00:00-04:00",
               "contentUrl": "https://djdxmusic.com/videos/corporate-dj-manhattan-office-party-nyc.mp4"
             },
             {
