@@ -4,6 +4,8 @@ import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
+import ProcurementNote from '../../components/ProcurementNote';
 
 export default function NewYearsEveDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -11,7 +13,7 @@ export default function NewYearsEveDJ() {
   return (
     <>
       <Helmet>
-        <title>New Year's Eve DJ NYC | NYE Party DJ New York | DJ DX</title>
+        <title>New Year's Eve DJ NYC 2026 | Private &amp; Corporate NYE | DJ DX</title>
         <meta name="description" content="Book NYC's premier NYE DJ — DJ DX delivers an unforgettable New Year's Eve countdown for private parties, corporate galas, and rooftop events across Manhattan, Brooklyn & NJ. Limited dates." />
         <link rel="canonical" href="https://djdxmusic.com/new-years-eve-dj-nyc" />
         <meta property="og:title" content="New Year's Eve DJ NYC — DJ DX" />
@@ -232,6 +234,8 @@ export default function NewYearsEveDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProcurementNote />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">
@@ -250,6 +254,7 @@ export default function NewYearsEveDJ() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="nye_sticky" label="Check NYE Availability" />
       <SiteFooter />
     </>
   );

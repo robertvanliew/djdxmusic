@@ -7798,3 +7798,25 @@ body { padding-bottom: env(safe-area-inset-bottom); }
   .pnudge--in, .pnudge--out { animation-duration: 1ms; }
   .pnudge-timer { display: none; }
 }
+
+/* ── Seasonal booking block (homepage, Sep-Dec only) ── */
+.season { max-width: 980px; margin: 56px auto 0; }
+.season-head { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 18px; }
+.season-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px var(--gold-dim); }
+.season-label { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+.season-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.season-card {
+  display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 12px;
+  background: var(--panel); border: 1px solid var(--edge); text-decoration: none; color: inherit;
+  transition: border-color 0.2s ease, transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.season-kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+.season-card strong { font-family: 'Barlow Condensed', sans-serif; font-size: 1.55rem; font-weight: 800; line-height: 1.1; color: var(--white); }
+.season-desc { font-size: 0.9rem; line-height: 1.6; color: rgba(242,242,242,0.62); }
+.season-go { margin-top: auto; padding-top: 6px; font-size: 0.86rem; font-weight: 600; color: var(--gold); }
+.season-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) {
+  .season-card:hover { border-color: var(--gold-line); transform: translateY(-2px); }
+}
+@media (max-width: 720px) { .season-grid { grid-template-columns: 1fr; } .season { margin-top: 40px; } }
+@media (prefers-reduced-motion: reduce) { .season-card { transition: none; } }

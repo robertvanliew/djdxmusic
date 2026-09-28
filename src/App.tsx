@@ -5,6 +5,7 @@ import SiteNav from './components/SiteNav';
 import StickyMobileCTA from './components/StickyMobileCTA';
 import QuoteCalculator from './components/QuoteCalculator';
 import PricingNudge from './components/PricingNudge';
+import SeasonalBooking from './components/SeasonalBooking';
 import SiteFooter from './components/SiteFooter';
 import './index.css';
 
@@ -946,6 +947,7 @@ function App() {
           </div>
 
           <SkillsGrid />
+          <SeasonalBooking />
         </div>
       </section>
 

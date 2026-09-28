@@ -38,6 +38,10 @@ const FAQ_ITEMS = [
     a: 'Corporate holiday party DJ rates across New Jersey, New York City, and Connecticut typically run $1,500 to $5,000 depending on hours, guest count, venue, and equipment. DJ DX corporate holiday parties start at $2,800, which covers the full reception: professional sound sized to the room, wireless microphones for speeches, toasts and awards, MC announcements, and a planning call before the event. Private and family holiday parties start lower depending on scope and duration. December Saturdays carry premium pricing because they are the single most contested dates of the year. Travel outside the immediate NYC and Northern New Jersey area is quoted upfront as a line item rather than buried in the total. For an itemized quote, email bookings@djdxmusic.com with your date, venue, expected guest count, and whether you need microphones for a program.',
   },
   {
+    q: 'Do you DJ office Christmas parties?',
+    a: 'Yes. Plenty of December office parties are called exactly that, and the format is the same as any corporate holiday party: professional sound sized to your room, wireless microphones for speeches and toasts, MC announcements, and a set that moves from background music over dinner to a full dance floor. For mixed teams the music can lean festive, stay neutral, or blend the two, and that is agreed on the planning call before the night. Office Christmas parties start at $2,800 across New Jersey, New York City, and Connecticut, with travel outside NYC quoted upfront as its own line item. Email bookings@djdxmusic.com with your date and venue to check availability.',
+  },
+  {
     q: 'When do December holiday party dates book up?',
     a: 'Most corporate planners lock in holiday party entertainment 90 to 120 days out, which means December dates in Manhattan and Northern New Jersey get claimed through September and October. The first two Saturdays of December are usually gone first, followed by the Friday nights around them. By mid-November the remaining availability is typically weeknights and the week between Christmas and New Year. If you are planning an office holiday party, a year-end client reception, a company celebration, or a private holiday gathering anywhere in NYC, New Jersey, or Connecticut, the earlier you reach out the more likely your preferred date is still open. Email bookings@djdxmusic.com with your date and venue and you will get a straight yes or no on availability within 24 hours.',
   },
@@ -60,7 +64,7 @@ export default function HolidayPartyDJ() {
     <>
       <Helmet>
         <title>Holiday Party DJ NJ, NYC &amp; CT | From $2,800 | DJ DX</title>
-        <meta name="description" content="Corporate and private holiday party DJ for New Jersey, NYC and Connecticut. From $2,800 with sound, wireless mics and MC announcements. December dates book by October." />
+        <meta name="description" content="Holiday and Christmas party DJ for offices, companies and private parties across New Jersey, NYC and Connecticut. From $2,800 with sound, wireless mics and MC announcements." />
         <link rel="canonical" href="https://djdxmusic.com/holiday-party-dj-nyc-nj-ct" />
         <meta property="og:title" content="Holiday Party DJ NJ, NYC &amp; CT — From $2,800 | DJ DX" />
         <meta property="og:description" content="Corporate and private holiday party DJ across New Jersey, NYC and Connecticut. Full sound, wireless mics for speeches and awards, MC announcements. December books early." />
@@ -186,8 +190,8 @@ export default function HolidayPartyDJ() {
             Holiday Party DJ — <span>NJ, NYC &amp; Connecticut</span>
           </h1>
           <p style={{ maxWidth: '640px', margin: '0 auto 1rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
-            Corporate holiday parties, office receptions, year-end client events, and private
-            holiday gatherings. One DJ, 25+ years, full sound and microphones included.
+            Office Christmas parties, corporate holiday parties, year-end client events, and
+            private holiday gatherings. One DJ, 25+ years, full sound and microphones included.
           </p>
           <p style={{ maxWidth: '540px', margin: '0 auto 2rem', fontSize: '0.9rem', color: 'var(--gold)', fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase' }}>
             From $2,800 — December {year} dates booking now
@@ -310,8 +314,8 @@ export default function HolidayPartyDJ() {
           </div>
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginTop: '48px' }}>
             {[
-              { title: 'Corporate Holiday Party', desc: 'Company-wide December celebrations at hotels, event spaces, and restaurants across Northern New Jersey, Manhattan, and Fairfield County.' },
-              { title: 'In-Office Holiday Party', desc: 'Full DJ rig and sound brought into your own office floor or event space — the format shown above, and the most common ask in NYC and Jersey City.' },
+              { title: 'Corporate Holiday & Christmas Party', desc: 'Company-wide December celebrations at hotels, event spaces, and restaurants across Northern New Jersey, Manhattan, and Fairfield County.' },
+              { title: 'Office Christmas Party', desc: 'Full DJ rig and sound brought into your own office floor or event space — the format shown above, and the most common ask in NYC and Jersey City.' },
               { title: 'Year-End Client Reception', desc: 'Lower-volume, higher-polish entertainment for client-facing events where conversation matters more than the dance floor.' },
               { title: 'Private Holiday Gathering', desc: 'Family parties, Friendsgiving, and house parties across NJ, NYC, and CT. Setup scales from an apartment system to a full venue rig.' },
               { title: 'Hanukkah & Multi-Faith Events', desc: 'December rooms are rarely one tradition. Music briefs that span multiple celebrations in one guest list, handled without defaulting to novelty tracks.' },
