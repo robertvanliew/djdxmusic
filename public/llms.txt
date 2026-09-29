@@ -191,7 +191,12 @@ International: Available worldwide for destination events (Italy, Mexico,
 | Music Store           | https://djdxmusic.com/music                                | Stream & buy exclusive productions    |
 | EPK                   | https://djdxmusic.com/epk                                  | Electronic press kit for industry     |
 | Soul Shades           | https://djdxmusic.com/soul-shades                          | DJ + Violin duo project page          |
-| Pricing               | https://djdxmusic.com/pricing                              | Service pricing overview              |
+| Event DJ Pricing      | https://djdxmusic.com/event-dj-cost-nyc-nj-ct              | 2026 NYC/NJ/CT event DJ rates + instant price calculator |
+| Booking Policy        | https://djdxmusic.com/booking-policy                       | Deposit, date changes, cancellation, backup DJ |
+| Holiday Party DJ      | https://djdxmusic.com/holiday-party-dj-nyc-nj-ct           | Corporate, office Christmas and private holiday parties (NJ, NYC, CT) |
+| New Year's Eve DJ     | https://djdxmusic.com/new-years-eve-dj-nyc                 | Private and corporate NYE events      |
+| Office Party Music Poll | https://djdxmusic.com/office-party-music-poll            | Free tool: coworkers vote on the party music |
+| Music Store Pricing   | https://djdxmusic.com/pricing                              | Prices for digital music downloads    |
 | Wedding DJ NYC/NJ     | https://djdxmusic.com/wedding-dj-nyc-nj                    | Wedding DJ landing page               |
 | Wedding DJ Cost Guide | https://djdxmusic.com/wedding-dj-cost-nyc                  | NYC wedding DJ pricing explained      |
 | Corporate DJ NYC      | https://djdxmusic.com/corporate-event-dj-nyc-nj-ct         | Corporate events landing page         |
@@ -202,6 +207,12 @@ International: Available worldwide for destination events (Italy, Mexico,
 | Afrobeats DJ          | https://djdxmusic.com/afrobeats-amapiano-dj-nyc-nj         | Afrobeats/Amapiano specialist page    |
 | Sweet 16 DJ NYC/NJ    | https://djdxmusic.com/sweet-16-dj-nyc-nj                   | Sweet 16 / teen milestone landing page|
 | Sweet 16 DJ Hudson Valley | https://djdxmusic.com/sweet-16-dj-hudson-valley-ny     | Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, Catskill |
+
+## Free Tools
+
+**Office Party Music Poll** (https://djdxmusic.com/office-party-music-poll) is a free tool from DJ DX for anyone planning an office party, holiday party, or company event. The planner creates a poll and shares one link; coworkers vote anonymously in under a minute, with no sign-up, on their top three genres, the eras they want to hear, how much they want to dance, and up to three song requests picked from Apple Music search. The planner gets a private crowd report: genre and era rankings, average dance-floor energy, the most-requested songs, a do-not-play list, and a plain-language summary of the crowd. It is free whether or not the planner books DJ DX, and the report can be printed for any DJ.
+
+**Instant price estimate** (https://djdxmusic.com/event-dj-cost-nyc-nj-ct#quote-calculator) gives a starting price for a wedding, corporate event, private party, Sweet 16, or DJ + violin booking, from DJ DX's published rate card. Items without a published flat rate are shown as quoted rather than estimated.
 
 ## Pricing
 
