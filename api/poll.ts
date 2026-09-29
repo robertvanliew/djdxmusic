@@ -102,15 +102,44 @@ const isProfane = (s: string) => {
 
 // "Drake feat. Rihanna – Take Care!!" and "drake ft rihanna take care" should
 // count as one song. Drop featuring credits, punctuation, case and spacing.
+//
+// Apple's catalog lists one song under several artist spellings ("Maze
+// featuring Frankie Beverly", "MAZE & Frankie Beverly", "Frankie Beverly &
+// MAZE"), so artists are split into individual names and sorted: all three
+// become "frankie beverly+maze". Titles lose version tags (Remastered, Radio
+// Edit, feat. credits) so the single and the album cut count together.
+const VERSION_TAG = /\b(feat|ft|featuring|with|remaster|remastered|edit|version|mix|remix|live|mono|stereo|clean|explicit|single|bonus|deluxe|from)\b/;
 function normalizeSong(artist: string, title: string): string {
-  const clean = (s: string) =>
-    s.toLowerCase()
-      .replace(/\s*[([]?\s*(feat\.?|ft\.?|featuring|with)\s+[^)\]]*[)\]]?/g, ' ')
-      .replace(/&/g, ' and ')
-      .replace(/[^a-z0-9 ]+/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
-  return `${clean(artist)}|${clean(title)}`;
+  const flat = (s: string) =>
+    s.toLowerCase().normalize('NFKD').replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  let t = title.toLowerCase()
+    .replace(/[([][^)\]]*[)\]]/g, m => (VERSION_TAG.test(m) ? ' ' : m))   // "(feat. X)", "[Radio Edit]"
+    .replace(/\s+-\s+.*$/, m => (VERSION_TAG.test(m) ? ' ' : m));         // "- Remastered 2012"
+  t = flat(t);
+  const names = artist.toLowerCase()
+    .split(/\s*(?:,|&|\+|\band\b|\bx\b|\bfeaturing\b|\bfeat\.?|\bft\.?|\bwith\b|\bvs\.?)\s*/)
+    .map(flat).filter(Boolean);
+  const a = [...new Set(names)].sort().join('+');
+  return `${a}|${t}`;
+}
+// Album art is only accepted from Apple's image CDN (what the picker returns),
+// so a crafted request can't make the report load an arbitrary URL.
+const ART_RE = /^https:\/\/is\d+-ssl\.mzstatic\.com\/image\/thumb\/[A-Za-z0-9/._-]+\.(jpg|png)$/;
+const cleanArt = (v: unknown) => (typeof v === 'string' && v.length <= 300 && ART_RE.test(v) ? v : '');
+
+// Keys look like "artist+artist|title". Two keys are the same song when the
+// titles match and they share at least one artist, or one side named no
+// artist. Featured artists land in the artist field on some releases and in
+// the title on others ("WAP (feat. Megan)" by Cardi B vs "WAP" by "Cardi B
+// feat. Megan"), so exact-key matching isn't enough - but requiring a shared
+// artist keeps "Hello" by Adele and "Hello" by Lionel Richie apart.
+const parseKey = (nk: string) => { const i = nk.indexOf('|'); return { names: nk.slice(0, i) ? nk.slice(0, i).split('+') : [], title: nk.slice(i + 1) }; };
+function sameSong(a: string, b: string): boolean {
+  const x = parseKey(a), y = parseKey(b);
+  if (x.title !== y.title) return false;
+  if (!x.names.length || !y.names.length) return true;
+  return x.names.some(n => y.names.includes(n));
 }
 const displaySong = (artist: string, title: string) =>
   artist && title ? `${title} (${artist})` : title || artist;
@@ -135,6 +164,7 @@ const keys = (id: string) => ({
   songLabel: `poll:${id}:songlabel`,
   dnp: `poll:${id}:dnp`,
   dnpLabel: `poll:${id}:dnplabel`,
+  art: `poll:${id}:art`,
 });
 const expireAt = (m: Meta) => m.closesAt + RETAIN_DAYS * DAY;
 const isOpen = (m: Meta) => m.status === 'open' && now() < m.closesAt;
@@ -249,12 +279,16 @@ async function vote(req: VercelRequest, res: VercelResponse) {
     ...eras.map(e => ['HINCRBY', k.era, e, 1] as Cmd),
   ];
   if (m.settings.allowSongs && Array.isArray(b.songs)) {
-    for (const s of (b.songs as { artist?: unknown; title?: unknown }[]).slice(0, 3)) {
+    const seenSongs: string[] = [];
+    for (const s of (b.songs as { artist?: unknown; title?: unknown; art?: unknown }[]).slice(0, 3)) {
       const artist = str(s?.artist, 80), title = str(s?.title, 100);
       if ((!artist && !title) || isProfane(`${artist} ${title}`)) continue;
       const nk = normalizeSong(artist, title);
-      if (nk === '|') continue;
+      if (nk === '|' || seenSongs.some(prev => sameSong(prev, nk))) continue; // one vote per song per voter
+      seenSongs.push(nk);
       cmds.push(['HINCRBY', k.songs, nk, 1], ['HSETNX', k.songLabel, nk, displaySong(artist, title)]);
+      const art = cleanArt(s?.art);
+      if (art) cmds.push(['HSETNX', k.art, nk, art]);
     }
   }
   if (m.settings.allowDnp && b.dnp && typeof b.dnp === 'object') {
@@ -262,10 +296,12 @@ async function vote(req: VercelRequest, res: VercelResponse) {
     if ((artist || title) && !isProfane(`${artist} ${title}`)) {
       const nk = normalizeSong(artist, title);
       if (nk !== '|') cmds.push(['HINCRBY', k.dnp, nk, 1], ['HSETNX', k.dnpLabel, nk, displaySong(artist, title)]);
+      const art = nk !== '|' ? cleanArt(b.dnp.art) : '';
+      if (art) cmds.push(['HSETNX', k.art, nk, art]);
     }
   }
   const ex = expireAt(m);
-  for (const key of [k.stats, k.genre, k.era, k.energy, k.songs, k.songLabel, k.dnp, k.dnpLabel]) cmds.push(['EXPIREAT', key, ex]);
+  for (const key of [k.stats, k.genre, k.era, k.energy, k.songs, k.songLabel, k.dnp, k.dnpLabel, k.art]) cmds.push(['EXPIREAT', key, ex]);
   await redis(cmds);
   return res.status(200).json({ ok: true });
 }
@@ -277,18 +313,28 @@ async function results(req: VercelRequest, res: VercelResponse) {
   if (!admin && !m.publicResults) return res.status(403).json({ error: 'This results link is private.' });
 
   const k = keys(m.id);
-  const [stats, genre, era, energy, songs, songLabel, dnp, dnpLabel] = await redis([
+  const [stats, genre, era, energy, songs, songLabel, dnp, dnpLabel, art] = await redis([
     ['HGETALL', k.stats], ['HGETALL', k.genre], ['HGETALL', k.era], ['HGETALL', k.energy],
-    ['HGETALL', k.songs], ['HGETALL', k.songLabel], ['HGETALL', k.dnp], ['HGETALL', k.dnpLabel],
+    ['HGETALL', k.songs], ['HGETALL', k.songLabel], ['HGETALL', k.dnp], ['HGETALL', k.dnpLabel], ['HGETALL', k.art],
   ]);
+  const arts = hashToObj(art);
   const st = hashToObj(stats), en = hashToObj(energy);
   const tally = (h: unknown, order: string[]) => {
     const o = hashToObj(h);
     return order.map(label => ({ label, count: Number(o[label] || 0) })).sort((a, b) => b.count - a.count);
   };
+  // Merge variant keys of the same song (see sameSong); the most-voted
+  // variant supplies the display label, any variant with art supplies art.
   const ranked = (h: unknown, labels: unknown, limit: number) => {
     const o = hashToObj(h), l = hashToObj(labels);
-    return Object.entries(o).map(([nk, c]) => ({ label: l[nk] || nk.replace('|', ' - '), count: Number(c) }))
+    const entries = Object.entries(o).map(([nk, c]) => ({ nk, count: Number(c) })).sort((a, b) => b.count - a.count);
+    const groups: { keys: string[]; label: string; count: number; art?: string }[] = [];
+    for (const e of entries) {
+      const g = groups.find(gr => gr.keys.some(k2 => sameSong(k2, e.nk)));
+      if (g) { g.keys.push(e.nk); g.count += e.count; g.art = g.art || arts[e.nk]; }
+      else groups.push({ keys: [e.nk], label: l[e.nk] || e.nk.replace('|', ' - '), count: e.count, art: arts[e.nk] });
+    }
+    return groups.map(g => ({ label: g.label, count: g.count, ...(g.art ? { art: g.art } : {}) }))
       .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label)).slice(0, limit);
   };
   const n = Number(en.n || 0);
@@ -328,7 +374,7 @@ async function manage(req: VercelRequest, res: VercelResponse) {
   const ex = expireAt(m);
   await redis([
     ['SET', k.meta, JSON.stringify(m), 'EXAT', ex],
-    ...[k.stats, k.genre, k.era, k.energy, k.songs, k.songLabel, k.dnp, k.dnpLabel].map(key => ['EXPIREAT', key, ex] as Cmd),
+    ...[k.stats, k.genre, k.era, k.energy, k.songs, k.songLabel, k.dnp, k.dnpLabel, k.art].map(key => ['EXPIREAT', key, ex] as Cmd),
   ]);
   return res.status(200).json({ ok: true, open: isOpen(m), publicResults: m.publicResults });
 }

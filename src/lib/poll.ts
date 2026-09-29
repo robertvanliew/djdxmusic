@@ -13,7 +13,7 @@ export interface PublicPoll {
   id: string; company: string; eventType: string; genres: string[];
   allowSongs: boolean; allowDnp: boolean; cleanOnly: boolean; open: boolean; publicResults: boolean;
 }
-export interface Ranked { label: string; count: number }
+export interface Ranked { label: string; count: number; art?: string }
 export interface PollResults {
   id: string; admin: boolean; open: boolean; closesAt: number; publicResults: boolean;
   settings: { genres: string[]; allowSongs: boolean; allowDnp: boolean; cleanOnly: boolean };

@@ -59,6 +59,7 @@ export function SongList({ items, empty, caption }: { items: Ranked[]; empty: st
         <ol>
           {items.map(s => (
             <li key={s.label}>
+              {s.art ? <img className="pc-art" src={s.art} width="36" height="36" alt="" loading="lazy" /> : <span className="pc-art pc-art--none" aria-hidden="true">♪</span>}
               <span className="pc-song">{s.label}</span>
               <span className="pc-song-count">{s.count} {s.count === 1 ? 'vote' : 'votes'}</span>
             </li>

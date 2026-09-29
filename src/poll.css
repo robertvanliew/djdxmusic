@@ -222,3 +222,46 @@
   .pr-grid { break-inside: avoid; }
 }
 @media (prefers-reduced-motion: reduce) { .pr-dialog::backdrop { backdrop-filter: none; } }
+
+/* ── Song picker (Apple Music search) + album art in the report ── */
+.pv-pick { margin-bottom: 10px; }
+.sp { position: relative; }
+.sp-input {
+  width: 100%; padding: 12px 40px 12px 14px; min-height: 48px; background: var(--dark); color: var(--white);
+  border: 1px solid var(--edge); border-radius: 10px; font-size: 1rem; font-family: inherit;
+  -webkit-appearance: none; appearance: none; scroll-margin-top: 84px;
+}
+.sp-input:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+.sp-input::-webkit-search-cancel-button { display: none; }
+.sp-spin { position: absolute; right: 14px; top: 16px; width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--gold-line); border-top-color: var(--gold); animation: sp-rot 0.7s linear infinite; }
+@keyframes sp-rot { to { transform: rotate(360deg); } }
+.sp-list {
+  position: absolute; z-index: 30; left: 0; right: 0; top: calc(100% + 6px); margin: 0; padding: 6px; list-style: none;
+  background: var(--panel); border: 1px solid var(--gold-line); border-radius: 12px; box-shadow: 0 18px 40px -12px rgba(0,0,0,0.8);
+  max-height: 330px; overflow-y: auto;
+}
+.sp-list li { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 8px; cursor: pointer; min-height: 52px; }
+.sp-list li.is-active { background: var(--gold-dim); }
+.sp-list img { width: 40px; height: 40px; border-radius: 6px; flex: none; background: var(--edge); }
+.sp-hit, .sp-picked-text { display: flex; flex-direction: column; min-width: 0; flex: 1; }
+.sp-hit strong, .sp-picked-text strong { color: var(--white); font-size: 0.92rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-hit span, .sp-picked-text span { color: rgba(242,242,242,0.6); font-size: 0.82rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sp-e { flex: none; font-size: 0.66rem; font-weight: 800; color: #0a0805; background: rgba(242,242,242,0.7); border-radius: 3px; padding: 1px 5px; }
+.sp-foot { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin-top: 7px; font-size: 0.78rem; color: rgba(242,242,242,0.6); }
+.sp-toggle { background: none; border: 0; padding: 4px 0; color: var(--gold); font-size: 0.8rem; font-weight: 600; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.sp-credit { margin-left: auto; font-size: 0.72rem; color: rgba(242,242,242,0.5); }
+.sp-picked { display: flex; align-items: center; gap: 12px; padding: 8px 8px 8px 8px; min-height: 60px; border-radius: 10px; background: var(--gold-dim); border: 1px solid var(--gold-line); }
+.sp-picked img, .sp-noart { width: 44px; height: 44px; border-radius: 6px; flex: none; }
+.sp-noart { display: grid; place-items: center; background: var(--edge); color: var(--gold); }
+.sp-clear { flex: none; width: 40px; height: 40px; background: none; border: 0; color: rgba(242,242,242,0.7); font-size: 1.4rem; cursor: pointer; border-radius: 8px; }
+.sp-clear:focus-visible, .sp-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.sp-manual .pv-song { margin-bottom: 4px; }
+.pc-songs ol { padding-left: 0; list-style: none; counter-reset: song; }
+.pc-songs li { display: flex; align-items: center; gap: 10px; counter-increment: song; }
+.pc-songs li::before { content: counter(song); width: 16px; flex: none; color: var(--gold); font-weight: 700; font-size: 0.85rem; text-align: right; }
+.pc-art { width: 36px; height: 36px; border-radius: 5px; flex: none; object-fit: cover; }
+.pc-art--none { display: grid; place-items: center; background: rgba(255,255,255,0.06); color: var(--gold); font-size: 0.9rem; }
+@media (hover: hover) and (pointer: fine) { .sp-clear:hover { color: var(--white); } }
+@media (prefers-reduced-motion: reduce) { .sp-spin { animation-duration: 2s; } }
+@media print { .pc-art { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
+

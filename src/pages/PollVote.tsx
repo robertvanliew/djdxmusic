@@ -3,12 +3,14 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import SiteNav from '../components/SiteNav';
 import { ERAS, ENERGY_LABELS, pollApi, hasVoted, markVoted, type PublicPoll } from '../lib/poll';
+import SongPicker, { type PickedSong } from '../components/SongPicker';
 import { trackEvent } from '../lib/analytics';
 
 // Voting page, opened from Slack/Teams/email - so phone first and fast: one
 // screen, big tap targets, no account, no personal data collected.
 
-type Song = { artist: string; title: string };
+type Song = PickedSong;
+const EMPTY_SONG: Song = { artist: '', title: '' };
 
 export default function PollVote() {
   const { pollId = '' } = useParams();
@@ -80,8 +82,8 @@ function VoteForm({ poll, heading, onDone }: { poll: PublicPoll; heading: string
   const [genres, setGenres] = useState<string[]>([]);
   const [eras, setEras] = useState<string[]>([]);
   const [energy, setEnergy] = useState(3);
-  const [songs, setSongs] = useState<Song[]>([{ artist: '', title: '' }]);
-  const [dnp, setDnp] = useState<Song>({ artist: '', title: '' });
+  const [songs, setSongs] = useState<Song[]>([EMPTY_SONG]);
+  const [dnp, setDnp] = useState<Song>(EMPTY_SONG);
   const [hp, setHp] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle');
   const [error, setError] = useState('');
@@ -90,7 +92,7 @@ function VoteForm({ poll, heading, onDone }: { poll: PublicPoll; heading: string
   const toggleGenre = (g: string) =>
     setGenres(gs => (gs.includes(g) ? gs.filter(x => x !== g) : gs.length < 3 ? [...gs, g] : gs));
   const toggleEra = (e: string) => setEras(es => (es.includes(e) ? es.filter(x => x !== e) : [...es, e]));
-  const setSong = (i: number, k: keyof Song, v: string) => setSongs(ss => ss.map((s, j) => (j === i ? { ...s, [k]: v } : s)));
+  const setSong = (i: number, v: Song) => setSongs(ss => ss.map((s, j) => (j === i ? v : s)));
 
   const submit = async (e: FormEvent) => {
     e.preventDefault();
@@ -159,13 +161,12 @@ function VoteForm({ poll, heading, onDone }: { poll: PublicPoll; heading: string
         <fieldset className="pv-q">
           <legend><span className="pv-n">4</span>Request up to 3 songs <em>optional</em></legend>
           {songs.map((s, i) => (
-            <div key={i} className="pv-song">
-              <input aria-label={`Song ${i + 1} title`} placeholder="Song title" maxLength={100} value={s.title} onChange={e => setSong(i, 'title', e.target.value)} />
-              <input aria-label={`Song ${i + 1} artist`} placeholder="Artist" maxLength={80} value={s.artist} onChange={e => setSong(i, 'artist', e.target.value)} />
+            <div key={i} className="pv-pick">
+              <SongPicker label={`Song ${i + 1}`} value={s} onChange={v => setSong(i, v)} />
             </div>
           ))}
-          {songs.length < 3 && (
-            <button type="button" className="pv-add" onClick={() => setSongs(ss => [...ss, { artist: '', title: '' }])}>+ Add another song</button>
+          {songs.length < 3 && (songs[songs.length - 1].title || songs[songs.length - 1].artist) && (
+            <button type="button" className="pv-add" onClick={() => setSongs(ss => [...ss, EMPTY_SONG])}>+ Add another song</button>
           )}
         </fieldset>
       )}
@@ -173,10 +174,7 @@ function VoteForm({ poll, heading, onDone }: { poll: PublicPoll; heading: string
       {poll.allowDnp && (
         <fieldset className="pv-q">
           <legend><span className="pv-n">{poll.allowSongs ? 5 : 4}</span>One song you never want to hear <em>optional</em></legend>
-          <div className="pv-song">
-            <input aria-label="Do-not-play song title" placeholder="Song title" maxLength={100} value={dnp.title} onChange={e => setDnp(d => ({ ...d, title: e.target.value }))} />
-            <input aria-label="Do-not-play artist" placeholder="Artist" maxLength={80} value={dnp.artist} onChange={e => setDnp(d => ({ ...d, artist: e.target.value }))} />
-          </div>
+          <SongPicker label="Do-not-play song" value={dnp} onChange={setDnp} placeholder="Search the song you never want to hear" />
         </fieldset>
       )}
 
