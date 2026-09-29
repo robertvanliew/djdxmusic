@@ -136,6 +136,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // the missing details.
   const quick = req.body.quick === true;
   const { name, eventType, eventDate, honeypot, elapsedMs, metaEventId, pageUrl } = req.body;
+  // Set when the inquiry comes from a music poll's "Book DJ DX to play this crowd" button
+  const pollId = typeof req.body.pollId === 'string' && /^[a-z0-9]{6,12}$/.test(req.body.pollId) ? req.body.pollId : '';
   let { email, phone, eventStartTime, eventEndTime, location, message } = req.body;
 
   if (quick) {
@@ -209,7 +211,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       from: process.env.FROM_EMAIL || 'DJ DX <noreply@djdxmusic.com>',
       to: ['bookings@djdxmusic.com'],
       replyTo: email || undefined,
-      subject: `${quick ? 'Quick Inquiry' : 'New Booking Inquiry'} — ${safeEventType} | ${safeEventDate}`,
+      subject: `${quick ? 'Quick Inquiry' : 'New Booking Inquiry'}${pollId ? ' (from Music Poll)' : ''} — ${safeEventType} | ${safeEventDate}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; color: #111; padding: 0; border-radius: 8px; overflow: hidden; border: 1px solid #e5e5e5;">
           <div style="background: #111111; padding: 28px 32px; border-bottom: 3px solid #C9A84C;">
@@ -234,7 +236,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Event Type</td>
                 <td style="padding: 10px 0; color: #111; font-size: 15px;">${safeEventType}</td>
-              </tr>
+              </tr>${pollId ? `
+              <tr style="border-top: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Music Poll</td>
+                <td style="padding: 10px 0; color: #111; font-size: 15px;"><code>${pollId}</code> — the planner's crowd report is in the message below</td>
+              </tr>` : ''}
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Event Date</td>
                 <td style="padding: 10px 0; color: #111; font-size: 15px;">${safeEventDate}</td>
@@ -280,7 +286,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               Hey ${safeName.split(' ')[0]}, your booking inquiry for <strong style="color:#fff;">${safeEventType}</strong> on <strong style="color:#fff;">${safeEventDate}</strong>${quick ? '' : ` from <strong style="color:#fff;">${safeEventStartTime} to ${safeEventEndTime}</strong>`} has been received.
             </p>
             <p style="color: rgba(255,255,255,0.75); font-size: 16px; line-height: 1.7; margin: 0 0 32px;">
-              DJ DX will review your request and get back to you within <strong style="color:#C9A84C;">24–48 hours</strong> to discuss availability and pricing.
+              DJ DX will review your request and get back to you within <strong style="color:#C9A84C;">24 hours</strong> to discuss availability and pricing.
             </p>
             <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; color: rgba(255,255,255,0.4); font-size: 13px;">
               DJ DX · djdxmusic.com · New York / New Jersey

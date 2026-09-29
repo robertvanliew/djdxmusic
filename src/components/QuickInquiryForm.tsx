@@ -56,7 +56,7 @@ export default function QuickInquiryForm({ formName, onSent }: Props) {
     <div className="booking-success">
       <div className="booking-success-icon">✓</div>
       <h3>Got it!</h3>
-      <p>DJ DX will text or call you within 24–48 hours to confirm availability for your date.</p>
+      <p>DJ DX will text or call you within 24 hours to confirm availability for your date.</p>
     </div>
   );
 

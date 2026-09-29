@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import './index.css'
 import './news.css'
+import './poll.css'
 import App from './App.tsx'
 import { CartProvider } from './components/CartContext.tsx'
 import { PlayerProvider } from './components/PlayerContext.tsx'
@@ -21,6 +22,9 @@ const Terms      = lazy(() => import('./pages/Terms.tsx'))
 const Privacy    = lazy(() => import('./pages/Privacy.tsx'))
 const Refunds    = lazy(() => import('./pages/Refunds.tsx'))
 const BookingPolicy = lazy(() => import('./pages/BookingPolicy.tsx'))
+const OfficePartyPoll = lazy(() => import('./pages/OfficePartyPoll.tsx'))
+const PollVote = lazy(() => import('./pages/PollVote.tsx'))
+const PollResults = lazy(() => import('./pages/PollResults.tsx'))
 const SoulShades = lazy(() => import('./pages/SoulShades.tsx'))
 const Music      = lazy(() => import('./pages/Music.tsx'))
 const Pricing    = lazy(() => import('./pages/Pricing.tsx'))
@@ -94,6 +98,9 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/privacy"    element={<Privacy />} />
             <Route path="/refunds"    element={<Refunds />} />
             <Route path="/booking-policy" element={<BookingPolicy />} />
+            <Route path="/office-party-music-poll" element={<OfficePartyPoll />} />
+            <Route path="/poll/:pollId" element={<PollVote />} />
+            <Route path="/poll/:pollId/results" element={<PollResults />} />
             <Route path="/soul-shades" element={<SoulShades />} />
             <Route path="/music"      element={<Music />} />
             <Route path="/pricing"    element={<Pricing />} />

@@ -21,7 +21,7 @@ export default function Privacy() {
           Privacy Policy
         </h1>
         <p style={{ color: 'var(--gold)', fontSize: '14px', marginBottom: '56px', opacity: 0.7 }}>
-          Last updated: September 24, 2026 &nbsp;·&nbsp; FRANKPELLA LLC
+          Last updated: September 29, 2026 &nbsp;·&nbsp; FRANKPELLA LLC
         </p>
 
         <LegalSection title="1. Introduction">
@@ -65,11 +65,18 @@ export default function Privacy() {
             <li><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Resend</strong> — Transactional email delivery for purchase confirmations and download links.</li>
             <li><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Cloudflare</strong> — Infrastructure, security, and file storage (R2). Your audio files are stored securely in Cloudflare R2 with time-limited access links.</li>
             <li><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Vercel</strong> — Website hosting and serverless infrastructure.</li>
+            <li><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Upstash</strong> — Database storage for Office Party Music Poll settings and anonymous vote tallies.</li>
           </ul>
         </LegalSection>
 
         <LegalSection title="5. Data Retention">
           <p>We retain your email address and purchase records for as long as necessary to fulfill the purposes outlined in this policy, including providing customer support and complying with legal obligations. You may request deletion of your data at any time by contacting us at <a href="mailto:privacy@djdxmusic.com" style={{ color: 'var(--gold)' }}>privacy@djdxmusic.com</a>.</p>
+        </LegalSection>
+
+        <LegalSection title="5a. Office Party Music Poll">
+          <p><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Planners.</strong> When you create a music poll we collect your name and work email, and optionally your company, event type, event date, headcount, and location. We use these to run your poll, email you your voting and private results links (if you ask us to), and follow up about your event. Event tips are only sent if you tick that separate box. Your results link is protected by a private key; we store only a scrambled (hashed) version of it.</p>
+          <p style={{ marginTop: '12px' }}><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Voters.</strong> Voting is anonymous. We collect only the music answers you submit (genres, eras, energy level, and any song titles you type). We do not ask for your name or email. To limit duplicate votes, your browser stores a small "already voted" flag, and our server keeps a one-way hash of your network address and browser type that cannot be turned back into either.</p>
+          <p style={{ marginTop: '12px' }}><strong style={{ color: 'rgba(255,255,255,0.9)' }}>Retention.</strong> Polls close automatically 60 days after they are created, or earlier if the planner closes them. Poll settings and vote data are deleted automatically 180 days after the poll closes. A copy of the planner's contact details is kept as a business inquiry.</p>
         </LegalSection>
 
         <LegalSection title="6. Cookies and Tracking">

@@ -4,6 +4,7 @@ import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import ProcurementNote from '../../components/ProcurementNote';
+import PollPromo from '../../components/PollPromo';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
@@ -373,6 +374,7 @@ export default function HolidayPartyDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <PollPromo />
       <ProcurementNote />
 
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>

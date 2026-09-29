@@ -54,6 +54,7 @@ const STATIC_ROUTES = [
   '/privacy',
   '/refunds',
   '/booking-policy',
+  '/office-party-music-poll',
   '/faq',
   '/contact',
   '/thank-you',
@@ -126,11 +127,39 @@ function serveDist() {
   return new Promise(ok => server.listen(PORT, () => ok(server)));
 }
 
+// Music poll links (/poll/:id, /poll/:id/results) are per-poll and can't be
+// prerendered, so they'd otherwise fall back to dist/index.html - which by then
+// is the prerendered HOMEPAGE, head tags and all. Slack/Teams/iMessage don't run
+// JS, so a shared voting link would unfurl as the homepage card, and the page
+// would carry the homepage's index,follow alongside its own noindex.
+// Instead, vercel.json rewrites /poll/* to this: the untouched Vite shell (it
+// has no title/robots/og tags) plus poll-specific preview tags. Must run before
+// dist/index.html is overwritten below.
+async function writePollShell() {
+  const raw = await readFile(join(DIST, 'index.html'), 'utf8');
+  const head = [
+    '<title>Vote on the music | Office Party Music Poll by DJ DX</title>',
+    '<meta name="description" content="Help pick the music for the office party. It takes under a minute, it\'s anonymous, and there\'s no sign-up." />',
+    '<meta name="robots" content="noindex, nofollow" />',
+    '<meta property="og:type" content="website" />',
+    '<meta property="og:site_name" content="DJ DX" />',
+    '<meta property="og:title" content="Vote on the music for the office party" />',
+    '<meta property="og:description" content="Pick your top genres and request a song. Under a minute, anonymous, no sign-up." />',
+    '<meta property="og:image" content="https://djdxmusic.com/og-image.jpg" />',
+    '<meta name="twitter:card" content="summary_large_image" />',
+  ].join('\n    ');
+  if (!raw.includes('</head>')) throw new Error('prerender: no </head> in dist/index.html');
+  await writeFile(join(DIST, 'poll-shell.html'), raw.replace('</head>', `    ${head}\n  </head>`));
+  console.log('prerender: wrote dist/poll-shell.html');
+}
+
 async function prerender() {
   if (!existsSync(join(DIST, 'index.html'))) {
     console.error('prerender: dist/index.html not found — run vite build first');
     process.exit(1);
   }
+
+  await writePollShell();
 
   const routes = [...STATIC_ROUTES, ...newsRoutes()];
   const server = await serveDist();

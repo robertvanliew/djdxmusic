@@ -1,5 +1,5 @@
 import { useRef, useState, type FormEvent } from 'react';
-import { trackLead, trackFormSubmit, trackFormError } from '../lib/analytics';
+import { trackEvent, trackLead, trackFormSubmit, trackFormError } from '../lib/analytics';
 import AddressAutocomplete from './AddressAutocomplete';
 
 const Send = () => (
@@ -32,8 +32,19 @@ const TRUST = [
     icon: ico(<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h5" /></>) },
 ];
 
-export default function BookingForm() {
-  const [fields, setFields] = useState({ name: '', email: '', phone: '', eventType: '', eventDate: '', eventStartTime: '', eventEndTime: '', location: '', locationCity: '', locationState: '', locationCountry: '', message: '', company: '' });
+interface BookingFormProps {
+  // Prefill for contextual entry points (e.g. "Book DJ DX to play this crowd"
+  // on a music poll's results page). Omit for the normal empty form.
+  initial?: Partial<{ name: string; email: string; eventType: string; eventDate: string; message: string }>;
+  formName?: string;
+  // Sent with the inquiry so a booking can be matched back to its music poll
+  pollId?: string;
+}
+
+const EMPTY = { name: '', email: '', phone: '', eventType: '', eventDate: '', eventStartTime: '', eventEndTime: '', location: '', locationCity: '', locationState: '', locationCountry: '', message: '', company: '' };
+
+export default function BookingForm({ initial, formName = 'booking_widget', pollId }: BookingFormProps = {}) {
+  const [fields, setFields] = useState({ ...EMPTY, ...(initial || {}) });
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const mountedAt = useRef(Date.now());
 
@@ -42,7 +53,7 @@ export default function BookingForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('sending');
-    trackFormSubmit('booking_widget');
+    trackFormSubmit(formName);
     const metaEventId = crypto.randomUUID();
     try {
       const res = await fetch('/api/booking', {
@@ -54,15 +65,17 @@ export default function BookingForm() {
           elapsedMs: Date.now() - mountedAt.current,
           metaEventId,
           pageUrl: window.location.href,
+          ...(pollId ? { pollId } : {}),
         }),
       });
       if (!res.ok) throw new Error(`http_${res.status}`);
-      trackLead({ form: 'booking_widget', event_type: fields.eventType }, metaEventId);
+      trackLead({ form: formName, event_type: fields.eventType, ...(pollId ? { poll_id: pollId } : {}) }, metaEventId);
+      if (pollId) trackEvent('booking_submitted_from_poll', { poll_id: pollId });
       setStatus('sent');
-      setFields({ name: '', email: '', phone: '', eventType: '', eventDate: '', eventStartTime: '', eventEndTime: '', location: '', locationCity: '', locationState: '', locationCountry: '', message: '', company: '' });
+      setFields(EMPTY);
       mountedAt.current = Date.now();
     } catch (err) {
-      trackFormError('booking_widget', err instanceof Error ? err.message : 'network_error');
+      trackFormError(formName, err instanceof Error ? err.message : 'network_error');
       setStatus('error');
     }
   };
@@ -131,7 +144,7 @@ export default function BookingForm() {
           onSelect={d => setFields(f => ({ ...f, locationCity: d.city, locationState: d.state, locationCountry: d.country }))}
         />
       </div>
-      <details className="bf-more">
+      <details className="bf-more" open={!!initial?.message}>
         <summary>Add times and details <span className="bf-opt">optional</span></summary>
         <div className="form-row">
           <div className="form-field">
@@ -172,6 +185,11 @@ export default function BookingForm() {
       <button type="submit" className="form-submit" disabled={status === 'sending'}>
         {status === 'sending' ? 'Sending…' : <><span>Send Inquiry</span> <Send /></>}
       </button>
+      {!pollId && (
+        <p className="bf-poll-hint">
+          Not sure what your crowd wants? <a href="/office-party-music-poll">Poll them first</a>, free.
+        </p>
+      )}
       <p style={{ fontSize: '12px', color: 'rgba(242,242,242,0.45)', marginTop: '12px', textAlign: 'center' }}>
         Trouble with the form? Email <a href="mailto:bookings@djdxmusic.com" style={{ color: 'var(--gold)' }}>bookings@djdxmusic.com</a> directly.
       </p>

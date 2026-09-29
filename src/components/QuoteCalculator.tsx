@@ -75,6 +75,14 @@ export default function QuoteCalculator({ formName = 'quote_calculator' }: { for
   // and again on hash changes, since a router Link to the same page doesn't
   // remount anything.
   const location = useLocation();
+
+  // ?event=corporate (or wedding/private/sweet16/duo) preselects the event type,
+  // e.g. from a music poll's "Get your starting price" link. Applied after
+  // mount so the prerendered HTML (no query string) still hydrates cleanly.
+  useEffect(() => {
+    const ev = new URLSearchParams(location.search).get('event');
+    if (ev && EVENT_TYPES.some(t => t.key === ev)) setEventKey(ev as EventKey);
+  }, [location.search]);
   useEffect(() => {
     if (location.hash !== '#quote-calculator') return;
     const jump = () => {
