@@ -7710,10 +7710,6 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .bf-more > summary::before { content: '+'; display: inline-block; width: 1em; color: var(--gold); font-weight: 700; }
 .bf-more[open] > summary::before { content: '–'; }
 .bf-more[open] { padding-bottom: 6px; }
-.bf-promises { list-style: none; padding: 16px 16px 14px; margin: 0 0 18px; border-radius: 8px; background: var(--gold-dim); border: 1px solid var(--gold-line); display: flex; flex-direction: column; gap: 9px; }
-.bf-promises li { position: relative; padding-left: 22px; font-size: 0.83rem; line-height: 1.5; color: rgba(242,242,242,0.66); }
-.bf-promises li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 700; }
-.bf-promises strong { color: var(--white); font-weight: 600; }
 
 /* ── Booking policy page ── */
 .bp { padding: 120px 24px 100px; }
@@ -7733,7 +7729,6 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .bp-cta { margin-top: 48px; padding: 28px; border-radius: 12px; background: var(--panel); border: 1px solid var(--edge); text-align: center; }
 .bp-cta p { color: var(--white); font-weight: 600; margin: 0 0 16px; font-size: 1.05rem; }
 .bp-updated { margin-top: 28px; font-size: 0.78rem; color: rgba(242,242,242,0.38); text-align: center; }
-.bf-policy-link { display: block; margin-top: 10px; font-size: 0.78rem; color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 720px) {
   .bp { padding: 96px 16px 72px; }
   .bp-summary { grid-template-columns: 1fr 1fr; }
@@ -7820,3 +7815,28 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 }
 @media (max-width: 720px) { .season-grid { grid-template-columns: 1fr; } .season { margin-top: 40px; } }
 @media (prefers-reduced-motion: reduce) { .season-card { transition: none; } }
+
+/* ── Booking form: "The DJ DX Standard" commitments panel ── */
+.bf-trust {
+  margin: 4px 0 20px; padding: 18px 18px 16px; border-radius: 12px;
+  background: linear-gradient(180deg, rgba(201,168,76,0.07) 0%, rgba(201,168,76,0.025) 100%);
+  border: 1px solid rgba(201,168,76,0.22);
+}
+.bf-trust-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 12px;
+  padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid rgba(201,168,76,0.16);
+}
+.bf-trust-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.bf-trust-link { font-size: 0.78rem; color: rgba(242,242,242,0.6); text-decoration: none; white-space: nowrap; transition: color 0.18s ease; }
+.bf-trust-link:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
+.bf-trust-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px 18px; }
+.bf-trust-grid li { display: flex; gap: 12px; align-items: flex-start; }
+.bf-trust-icon {
+  flex: none; width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center;
+  color: var(--gold); background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.18);
+}
+.bf-trust-copy { display: flex; flex-direction: column; gap: 2px; padding-top: 1px; }
+.bf-trust-copy strong { font-size: 0.86rem; font-weight: 600; color: var(--white); line-height: 1.35; }
+.bf-trust-copy span { font-size: 0.79rem; line-height: 1.5; color: rgba(242,242,242,0.62); }
+@media (hover: hover) and (pointer: fine) { .bf-trust-link:hover { color: var(--gold); } }
+@media (max-width: 480px) { .bf-trust { padding: 16px 14px 14px; } .bf-trust-grid { gap: 14px; } }

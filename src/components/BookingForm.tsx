@@ -8,6 +8,30 @@ const Send = () => (
   </svg>
 );
 
+// Line icons for the commitments panel (24px grid, stroke inherits currentColor).
+const ico = (d: React.ReactNode) => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">{d}</svg>
+);
+
+// The five documented fears people have hiring a DJ (substitutes, silence,
+// ignored playlists, surprise pricing, a bad MC) plus "is it in writing".
+// Every line is backed by public/pricing.txt or the published booking policy;
+// keep them in sync with /booking-policy if a term changes.
+const TRUST = [
+  { title: 'The DJ you book, plays', text: 'One person, not an agency. A vetted backup covers emergencies.',
+    icon: ico(<><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" /></>) },
+  { title: 'Answer within 24 hours', text: 'A straight yes or no on your date.',
+    icon: ico(<><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>) },
+  { title: 'Your music, your rules', text: 'Must-play and do-not-play lists, set together.',
+    icon: ico(<><path d="M9 18V5l11-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="17" cy="16" r="3" /></>) },
+  { title: 'No surprise pricing', text: 'Published rates. Travel quoted upfront.',
+    icon: ico(<><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z" /><circle cx="7.5" cy="7.5" r="1.5" /></>) },
+  { title: '25+ years on the mic', text: 'Names and run of show confirmed in advance.',
+    icon: ico(<><rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8" /></>) },
+  { title: 'Everything in writing', text: 'A contract on every booking. 50% deposit holds your date.',
+    icon: ico(<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h5" /></>) },
+];
+
 export default function BookingForm() {
   const [fields, setFields] = useState({ name: '', email: '', phone: '', eventType: '', eventDate: '', eventStartTime: '', eventEndTime: '', location: '', locationCity: '', locationState: '', locationCountry: '', message: '', company: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -129,15 +153,21 @@ export default function BookingForm() {
           answered at the moment they decide. Every line is backed by the
           published rate card (public/pricing.txt) - nothing here promises a
           contingency or policy DJ DX hasn't committed to. */}
-      <ul className="bf-promises">
-        <li><strong>The DJ you book is the DJ who plays.</strong> One person, not an agency. If an emergency ever strikes, a DJ he personally vetted covers your night.</li>
-        <li><strong>A real answer within 24 hours.</strong> A straight yes or no on your date.</li>
-        <li><strong>Your music, your rules.</strong> Must-play and do-not-play lists built with you on the planning call.</li>
-        <li><strong>No surprise pricing.</strong> Published starting rates; travel quoted upfront as its own line.</li>
-        <li><strong>25+ years on the mic.</strong> Names and the run of show gone over with you before the night.</li>
-        <li><strong>Everything in writing.</strong> A written contract on every booking; 50% deposit holds your date.</li>
-      </ul>
-      <a href="/booking-policy" className="bf-policy-link" target="_blank" rel="noopener">Read the full booking policy</a>
+      {/* div, not <section>: the site's mobile rules pad every <section> 60px */}
+      <div className="bf-trust" role="group" aria-label="Booking commitments">
+        <div className="bf-trust-head">
+          <span className="bf-trust-title">The DJ DX Standard</span>
+          <a href="/booking-policy" className="bf-trust-link" target="_blank" rel="noopener">Booking policy &rarr;</a>
+        </div>
+        <ul className="bf-trust-grid">
+          {TRUST.map(t => (
+            <li key={t.title}>
+              <span className="bf-trust-icon" aria-hidden="true">{t.icon}</span>
+              <span className="bf-trust-copy"><strong>{t.title}</strong><span>{t.text}</span></span>
+            </li>
+          ))}
+        </ul>
+      </div>
       {status === 'error' && <p className="form-error">Something went wrong. Please try again or email bookings@djdxmusic.com directly.</p>}
       <button type="submit" className="form-submit" disabled={status === 'sending'}>
         {status === 'sending' ? 'Sending…' : <><span>Send Inquiry</span> <Send /></>}
