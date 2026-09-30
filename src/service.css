@@ -74,12 +74,9 @@
 .text-alt a { color: var(--gold); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 .footer-brand-col .footer-email { display: block; }
 
-/* Homepage: event-type links under the genre grid */
-.home-events { margin-top: 40px; text-align: center; }
-.home-events-title { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 14px; }
-.home-events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
-.home-events-grid a {
-  display: block; padding: 14px 16px; background: var(--panel); border: 1px solid rgba(255,255,255,0.06);
-  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); text-decoration: none;
-}
-.home-events-grid a:hover { border-color: var(--gold); }
+/* Homepage: "Book by Event" cards under the genre grid, styled like the season cards */
+.home-events { margin-top: 56px; }
+.home-events .sec-overline { margin-bottom: 20px; }
+.home-events-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+@media (max-width: 960px) { .home-events-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .home-events-grid { grid-template-columns: 1fr; } .home-events { margin-top: 40px; } }

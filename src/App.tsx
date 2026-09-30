@@ -307,15 +307,12 @@ const genreLinks: Record<string, string> = {
   "Private Events": "/private-party-dj-nyc-nj",
 };
 
+// Four cards, so the row stays even on desktop (4) and tablet (2).
 const eventLinks = [
-  { label: 'Wedding DJ', to: '/wedding-dj-nyc-nj' },
-  { label: 'Corporate Event DJ', to: '/corporate-event-dj-nyc-nj-ct' },
-  { label: 'Office Holiday Party DJ', to: '/holiday-party-dj-nyc-nj-ct' },
-  { label: 'Birthday Party DJ', to: '/birthday-party-dj-nyc-nj' },
-  { label: 'Private Party DJ', to: '/private-party-dj-nyc-nj' },
-  { label: 'Sweet 16 DJ', to: '/sweet-16-dj-nyc-nj' },
-  { label: 'DJ Prices', to: '/event-dj-cost-nyc-nj-ct' },
-  { label: 'Instant Price Estimate', to: '/event-dj-cost-nyc-nj-ct#quote-calculator' },
+  { label: 'Weddings', kicker: 'From $2,800', desc: 'Ceremony through after-party, NYC and NJ.', to: '/wedding-dj-nyc-nj' },
+  { label: 'Corporate Events', kicker: 'From $2,800', desc: 'Office parties, galas and client events. COI and W-9 ready.', to: '/corporate-event-dj-nyc-nj-ct' },
+  { label: 'Birthdays & Private Parties', kicker: 'From $2,200', desc: 'Milestone birthdays, home parties, rooftops and lounges.', to: '/birthday-party-dj-nyc-nj' },
+  { label: 'Instant Price Estimate', kicker: 'Free, 30 seconds', desc: 'Pick your event and hours, get a starting price.', to: '/event-dj-cost-nyc-nj-ct#quote-calculator' },
 ];
 
 function SkillsGrid() {
@@ -341,9 +338,18 @@ function SkillsGrid() {
         })}
       </div>
       <nav className="home-events" aria-label="DJ services by event">
-        <p className="home-events-title">Book by Event</p>
+        <div className="sec-overline" style={{ justifyContent: 'center' }}>
+          <span className="sec-overline-line" /><span className="sec-label">Book by Event</span><span className="sec-overline-line" />
+        </div>
         <div className="home-events-grid">
-          {eventLinks.map(e => <Link key={e.to} to={e.to}>{e.label} →</Link>)}
+          {eventLinks.map(e => (
+            <Link key={e.to} to={e.to} className="season-card">
+              <span className="season-kicker">{e.kicker}</span>
+              <strong>{e.label}</strong>
+              <span className="season-desc">{e.desc}</span>
+              <span className="season-go">See details <span aria-hidden="true">→</span></span>
+            </Link>
+          ))}
         </div>
       </nav>
     </>
