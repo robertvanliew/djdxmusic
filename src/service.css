@@ -7,7 +7,8 @@
   max-width: 820px; margin: 0 auto; display: flex; gap: 20px; align-items: flex-start;
   padding: 22px 24px; border-radius: 12px; background: var(--panel); border: 1px solid var(--edge);
 }
-.ab-photo { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; flex: none; border: 2px solid var(--gold-line); }
+.ab-inner picture { flex: none; width: 104px; height: 104px; display: block; }
+.ab-photo { display: block; width: 104px; height: 104px; border-radius: 50%; object-fit: cover; object-position: center 40%; border: 2px solid var(--gold-line); }
 .ab-name { margin: 0 0 6px; font-weight: 700; color: var(--white); font-size: 1.02rem; }
 .ab-name span { font-weight: 400; color: rgba(242,242,242,0.6); }
 .ab-text { margin: 0 0 10px; font-size: 0.92rem; line-height: 1.7; color: rgba(242,242,242,0.72); }
