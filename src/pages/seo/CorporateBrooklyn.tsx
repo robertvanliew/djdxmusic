@@ -1,22 +1,6 @@
 import { Link } from 'react-router-dom';
 import LocalLanding, { type FaqItem } from '../../components/LocalLanding';
 
-// Noindex until the venue and case study placeholders below are filled with
-// real, confirmed details. Then set NOINDEX to false and add the URL to
-// public/sitemap.xml.
-const NOINDEX = true;
-
-const VENUES = [
-  '[VENUE NAME: fill in], [NEIGHBORHOOD: fill in]',
-  '[VENUE NAME: fill in], [NEIGHBORHOOD: fill in]',
-  '[VENUE NAME: fill in], [NEIGHBORHOOD: fill in]',
-];
-
-const CASE_STUDY = {
-  title: '[BROOKLYN CASE STUDY TITLE: fill in]',
-  body: '[BROOKLYN CASE STUDY: event type, venue or neighborhood, guest count, what the night needed, and how it went. Real event only: fill in]',
-};
-
 const FAQ: FaqItem[] = [
   { q: 'How much does a corporate event DJ cost in Brooklyn?', a: 'DJ DX corporate events start at $2,800, and travel inside the five boroughs is included in the quoted total. That price covers professional sound, a wireless microphone for speeches, MC announcements, and a planning call.' },
   { q: 'Can you handle loft and warehouse venues with tricky load-in?', a: 'Yes. A lot of Brooklyn event space sits in converted industrial buildings with freight elevators, narrow stairs, or set load-in windows. Send the venue\'s load-in rules and the setup is planned around them before the day.' },
@@ -31,7 +15,6 @@ export default function CorporateBrooklyn() {
       path="/corporate-event-dj-brooklyn-ny"
       title="Corporate Event DJ Brooklyn, NY | Office Parties & Events"
       description="Brooklyn-based corporate event DJ for office parties, client events and holiday parties in DUMBO, Williamsburg, Navy Yard and beyond. Quote in 24 hours."
-      noindex={NOINDEX}
       heroImage="/corporate-event-dj-booth-manhattan-nyc.jpg"
       heroAlt="Corporate event DJ booth set up for a company party"
       overline="Brooklyn, NY"
@@ -57,9 +40,31 @@ export default function CorporateBrooklyn() {
           holiday parties in December.
         </p>
       </>}
-      venuesHeading="Brooklyn venues DJ DX has played"
-      venues={VENUES}
-      caseStudy={CASE_STUDY}
+      planning={{
+        heading: <>Planning a Brooklyn <span>Company Party</span></>,
+        items: [
+          ['Load-in.', 'Lofts and warehouses often mean a freight elevator, stairs, or a set load-in window. Send the venue\'s rules and the setup is planned around them.'],
+          ['Sound cutoff.', 'Rooftops and mixed-use buildings often have a hard music cutoff. The night is built so the best part does not land after it.'],
+          ['Rain plan.', 'For a rooftop, agree where the party moves if the weather turns. The move is quick when the plan is set in advance.'],
+          ['Power near the DJ.', 'Ask the venue where the nearest outlets are. It decides where the DJ goes, which decides how the room sounds.'],
+          ['COI and W-9.', 'Many event spaces ask vendors for a certificate of insurance. Both are available on request for the venue and your accounts payable team.'],
+          ['Speeches.', 'Pick the moment and the spot. The wireless mic is set and the music comes down gradually before anyone speaks.'],
+        ],
+      }}
+      proof={{
+        overline: 'Recent Rooftop Booking',
+        title: <>NautaDutilh Reception, <span>620 Loft &amp; Garden</span></>,
+        image: { src: '/nautadutilh-dj-dx-620-loft-garden-nyc.jpg', alt: 'DJ DX performing at the NautaDutilh rooftop reception at 620 Loft and Garden, with St. Patrick\'s Cathedral behind' },
+        body: <>
+          <p>
+            In June 2026 DJ DX played a 175-guest rooftop reception for the international law firm NautaDutilh at 620 Loft &amp;
+            Garden, with St. Patrick's Cathedral as the backdrop. It was full evening coverage, from cocktail hour through the
+            after-party, booked as Soul Shades: DJ DX with live violin from Julie Schatz. Open-air sound, a speech break, and a
+            dance floor that had to fit a garden layout.
+          </p>
+        </>,
+        note: <>This rooftop was in Manhattan. Brooklyn rooftops in Williamsburg, DUMBO, and Downtown Brooklyn get the same planning: sound set up for open air and a plan for the venue's cutoff.</>,
+      }}
       included={[
         ['Sound system', 'Sized for the room, including concrete lofts and open rooftops'],
         ['Wireless microphone', 'For welcome remarks, toasts, and awards'],

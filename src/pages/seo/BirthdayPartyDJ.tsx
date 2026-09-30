@@ -1,22 +1,6 @@
 import { Link } from 'react-router-dom';
 import LocalLanding, { type FaqItem } from '../../components/LocalLanding';
 
-// Noindex until the event placeholders below are filled with real, confirmed
-// details. Then set NOINDEX to false and add the URL to public/sitemap.xml.
-// Private clients are never named: describe them generically ("a 40th
-// birthday in Harlem"), never by the guest of honor's name.
-const NOINDEX = true;
-
-const EVENTS = [
-  '[BIRTHDAY EVENT 1: milestone, setting, neighborhood or town, month and year: fill in]',
-  '[BIRTHDAY EVENT 2: milestone, setting, neighborhood or town, month and year: fill in]',
-];
-
-const CASE_STUDY = {
-  title: '[BIRTHDAY CASE STUDY TITLE: fill in]',
-  body: '[BIRTHDAY CASE STUDY: milestone, setting, guest count, the era the set was built around, and how the night went. No client names. Real event only: fill in]',
-};
-
 const FAQ: FaqItem[] = [
   { q: 'How much does a birthday party DJ cost in NYC and NJ?', a: 'DJ DX private parties, birthdays included, start at $2,200 in NYC. That covers professional sound, wireless mics for toasts, MC announcements, and a planning call about the music. Travel inside NYC is included; New Jersey, Long Island, Westchester, and Connecticut travel is quoted up front as its own line.' },
   { q: 'Can the music be built around one decade?', a: 'Yes, and for milestone birthdays that is usually the point. A 40th often wants the late 90s and 2000s, a 50th leans into the late 80s and 90s. The set is built from the years the guest of honor grew up in, then mixed with current songs so younger guests have a way in too.' },
@@ -31,7 +15,6 @@ export default function BirthdayPartyDJ() {
       path="/birthday-party-dj-nyc-nj"
       title="Birthday Party DJ NYC & NJ: 30th, 40th, 50th & More"
       description="Birthday party DJ for milestone birthdays across NYC, NJ and the Tri-State. R&B, hip-hop, old school, Afrobeats. Published starting prices. Check your date."
-      noindex={NOINDEX}
       heroImage="/epk-hero.jpg"
       heroAlt="Birthday party DJ DX performing"
       overline="NYC, NJ and the Tri-State"
@@ -61,9 +44,32 @@ export default function BirthdayPartyDJ() {
           of the booking.
         </p>
       </>}
-      venuesHeading="Recent birthday parties"
-      venues={EVENTS}
-      caseStudy={CASE_STUDY}
+      planning={{
+        heading: <>What to Send <span>Before the Party</span></>,
+        items: [
+          ['Their top 10 songs.', 'The guest of honor\'s real favorites, not what you think a party should play.'],
+          ['The years that matter.', 'High school, college, the first apartment. That is where the set comes from.'],
+          ['The do-not-play list.', 'Songs they hate, songs with bad memories. It will be followed.'],
+          ['Toasts and names.', 'Who is speaking and how to say every name, so nobody gets mispronounced on the mic.'],
+          ['Venue rules.', 'Volume limits, end time, and where the DJ can set up, whether it is a living room or a rooftop.'],
+          ['Is it a surprise?', 'If so, the entrance is planned so the music hits the moment they walk in.'],
+        ],
+      }}
+      proof={{
+        overline: 'Sample Plan',
+        title: <>How a 40th Birthday <span>Night Runs</span></>,
+        body: <>
+          <ul className="lp-list" style={{ gridTemplateColumns: '1fr' }}>
+            <li><strong>Guests arrive.</strong> R&amp;B and soul at talking volume while people get a drink and find each other.</li>
+            <li><strong>Dinner or food.</strong> Music stays in the background, leaning into the late 90s and early 2000s.</li>
+            <li><strong>The entrance.</strong> The guest of honor walks in to a song picked for them, or a custom intro if you add one.</li>
+            <li><strong>Toasts.</strong> Wireless mic set, music down, every name said right.</li>
+            <li><strong>The dance floor.</strong> Hip-hop and R&amp;B from the years they grew up in, then old school and Afrobeats to pull in every generation in the room.</li>
+            <li><strong>Cake and last song.</strong> The final song is theirs to choose.</li>
+          </ul>
+        </>,
+        note: <>This is a sample plan, not a specific past party. Yours is built on the planning call around the guest of honor.</>,
+      }}
       included={[
         ['Sound system', 'Sized for a living room, restaurant, rooftop, or lounge'],
         ['Wireless microphones', 'For toasts, speeches, and the birthday moment'],

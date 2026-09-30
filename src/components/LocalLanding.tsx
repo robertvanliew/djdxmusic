@@ -14,12 +14,9 @@ import AuthorBio from './AuthorBio';
 // Brooklyn, birthday). Each page supplies its own copy; this file only owns
 // the structure so every page gets the same sections in the same order.
 //
-// Placeholders: any string containing "[... fill in]" is treated as not yet
-// filled. Venue lists and case studies skip placeholder entries, so visitors
-// never see bracketed text. Keep the page `noindex` until they are filled,
-// then flip `noindex` off and add the URL to public/sitemap.xml.
-
-const isFilled = (s: string) => !/\[[^\]]*fill in[^\]]*\]/i.test(s);
+// Everything on these pages must be true today: the "proof" section shows a
+// real booking (labelled with where it actually happened) or a clearly
+// labelled example, never an invented venue or event.
 
 export type FaqItem = { q: string; a: string };
 
@@ -27,7 +24,6 @@ type Props = {
   path: string;
   title: string;
   description: string;
-  noindex: boolean;
   heroImage: string;
   heroAlt: string;
   overline: string;
@@ -35,9 +31,8 @@ type Props = {
   answer: ReactNode;           // 2-3 sentence direct answer with the starting price
   localHeading: ReactNode;
   local: ReactNode;            // unique local copy
-  venues: string[];            // placeholders are skipped
-  venuesHeading: string;
-  caseStudy: { title: string; body: string };
+  planning: { heading: ReactNode; items: [string, string][] };
+  proof: { overline: string; title: ReactNode; body: ReactNode; image?: { src: string; alt: string }; note?: ReactNode };
   children?: ReactNode;        // extra unique sections
   included: [string, string][];
   faq: FaqItem[];
@@ -53,8 +48,6 @@ type Props = {
 export default function LocalLanding(p: Props) {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const url = `https://djdxmusic.com${p.path}`;
-  const venues = p.venues.filter(isFilled);
-  const showCase = isFilled(p.caseStudy.title) && isFilled(p.caseStudy.body);
 
   const schema = [
     {
@@ -88,7 +81,6 @@ export default function LocalLanding(p: Props) {
       <Helmet>
         <title>{p.title}</title>
         <meta name="description" content={p.description} />
-        {p.noindex && <meta name="robots" content="noindex, follow" />}
         <link rel="canonical" href={url} />
         <meta property="og:title" content={p.title} />
         <meta property="og:description" content={p.description} />
@@ -127,25 +119,32 @@ export default function LocalLanding(p: Props) {
         <div className="section-inner" style={{ maxWidth: '860px' }}>
           <h2 className="sec-title" style={{ marginBottom: '24px' }}>{p.localHeading}</h2>
           <div style={textStyle}>{p.local}</div>
-          {venues.length > 0 && (
-            <>
-              <h3 className="pb-sub" style={{ marginTop: '32px' }}>{p.venuesHeading}</h3>
-              <ul className="lp-list">{venues.map(v => <li key={v}>{v}</li>)}</ul>
-            </>
-          )}
         </div>
       </section>
 
-      {/* ── CASE STUDY (hidden until the placeholder is filled) ── */}
-      {showCase && (
-        <section style={{ padding: '72px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
-          <div className="section-inner" style={{ maxWidth: '860px' }}>
-            <div className="sec-overline"><span className="sec-label">Case Study</span></div>
-            <h2 className="sec-title" style={{ marginBottom: '18px' }}>{p.caseStudy.title}</h2>
-            <p style={textStyle}>{p.caseStudy.body}</p>
-          </div>
-        </section>
-      )}
+      {/* ── PLANNING CHECKLIST ── */}
+      <section style={{ padding: '0 24px 72px' }}>
+        <div className="section-inner" style={{ maxWidth: '860px' }}>
+          <h2 className="sec-title" style={{ marginBottom: '20px' }}>{p.planning.heading}</h2>
+          <ul className="lp-list">
+            {p.planning.items.map(([k, v]) => <li key={k}><strong>{k}</strong> {v}</li>)}
+          </ul>
+        </div>
+      </section>
+
+      {/* ── PROOF: a real booking or a labelled example ── */}
+      <section style={{ padding: '72px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
+        <div className="section-inner" style={{ maxWidth: '860px' }}>
+          <div className="sec-overline"><span className="sec-label">{p.proof.overline}</span></div>
+          <h2 className="sec-title" style={{ marginBottom: '18px' }}>{p.proof.title}</h2>
+          {p.proof.image && (
+            <img src={p.proof.image.src} alt={p.proof.image.alt} loading="lazy" decoding="async"
+              style={{ width: '100%', height: 'auto', aspectRatio: '16 / 10', objectFit: 'cover', borderRadius: '10px', margin: '0 0 22px' }} />
+          )}
+          <div style={textStyle}>{p.proof.body}</div>
+          {p.proof.note && <p style={{ ...textStyle, fontSize: '0.88rem', marginTop: '14px', color: 'rgba(242,242,242,0.5)' }}>{p.proof.note}</p>}
+        </div>
+      </section>
 
       {p.children}
 
