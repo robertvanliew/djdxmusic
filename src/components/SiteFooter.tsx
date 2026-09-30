@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { textHref, trackTextClick, TEXT_NUMBER_DISPLAY } from '../lib/textLink';
 
 export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel = 'Book DJ DX →', bookHref = '/#booking' }: { email?: string; bookLabel?: string; bookHref?: string }) {
   return (
@@ -12,6 +13,7 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
             <div className="footer-tagline">Soulful · Nostalgic · Live</div>
             <p className="footer-brand-bio">Based in New York / New Jersey. Available worldwide for concerts, private events, tours &amp; more.</p>
             <a href={`mailto:${email}`} className="footer-email">{email}</a>
+            <a href={textHref()} onClick={() => trackTextClick('footer')} className="footer-email">Text {TEXT_NUMBER_DISPLAY}</a>
           </div>
 
           <div className="footer-nav-col">

@@ -7,6 +7,7 @@ import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 export default function WeddingDJStamford() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -220,6 +221,7 @@ export default function WeddingDJStamford() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="wedding_d_j_stamford_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

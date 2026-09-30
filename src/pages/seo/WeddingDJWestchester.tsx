@@ -7,6 +7,7 @@ import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 export default function WeddingDJWestchester() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -221,6 +222,7 @@ export default function WeddingDJWestchester() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="wedding_d_j_westchester_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

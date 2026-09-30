@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import QuickInquiryForm from './QuickInquiryForm';
+import { textHref, trackTextClick } from '../lib/textLink';
 
 const CloseIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
@@ -42,9 +43,14 @@ export default function StickyMobileCTA({ label = 'Check My Date', formName, tit
   return (
     <>
       <div className="sticky-cta-bar">
-        <button type="button" className="sticky-cta-bar__btn" onClick={() => setOpen(true)}>
-          {label}
-        </button>
+        <div className="sticky-cta-bar__row">
+          <button type="button" className="sticky-cta-bar__btn" onClick={() => setOpen(true)}>
+            {label}
+          </button>
+          <a className="sticky-cta-bar__text" href={textHref()} onClick={() => trackTextClick(`sticky_${formName}`)} aria-label="Text DJ DX">
+            Text
+          </a>
+        </div>
       </div>
 
       {open && (

@@ -1,6 +1,7 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { trackEvent, trackLead, trackFormSubmit, trackFormError } from '../lib/analytics';
 import AddressAutocomplete from './AddressAutocomplete';
+import { textHref, trackTextClick, TEXT_NUMBER_DISPLAY } from '../lib/textLink';
 
 const Send = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -185,6 +186,9 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
       <button type="submit" className="form-submit" disabled={status === 'sending'}>
         {status === 'sending' ? 'Sending…' : <><span>Send Inquiry</span> <Send /></>}
       </button>
+      <p className="text-alt">
+        Prefer to text? <a href={textHref()} onClick={() => trackTextClick('booking_form')}>Text {TEXT_NUMBER_DISPLAY}</a>
+      </p>
       {!pollId && (
         <p className="bf-poll-hint">
           Not sure what your crowd wants? <a href="/office-party-music-poll">Poll them first</a>, free.

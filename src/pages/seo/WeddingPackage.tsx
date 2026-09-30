@@ -7,6 +7,7 @@ import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 const TIERS = [
   {
     id: 'essentials',
@@ -343,6 +344,7 @@ export default function WeddingPackage() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="wedding_package_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

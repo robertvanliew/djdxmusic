@@ -7,6 +7,7 @@ import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 export default function RnBDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -262,6 +263,7 @@ export default function RnBDJ() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="rn_b_d_j_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

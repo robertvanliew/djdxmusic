@@ -6,6 +6,7 @@ import StickyMobileCTA from './components/StickyMobileCTA';
 import QuoteCalculator from './components/QuoteCalculator';
 import PricingNudge from './components/PricingNudge';
 import SeasonalBooking from './components/SeasonalBooking';
+import { Link } from 'react-router-dom';
 import SiteFooter from './components/SiteFooter';
 import './index.css';
 
@@ -293,19 +294,59 @@ const genreColors: Record<string, string> = {
   "Live Violinist / DJ":"#14B8A6",
 };
 
+// Genre cards link to their service page where one exists, so homepage
+// visitors (and crawlers) have a path into the booking pages.
+const genreLinks: Record<string, string> = {
+  "R&B / Soul": "/rb-dj-nyc-nj",
+  "Hip-Hop": "/hip-hop-dj-nyc-nj",
+  "Blends & Remixes": "/music",
+  "House / Jersey Club": "/house-jersey-club-dj-nyc-nj",
+  "Afrobeats": "/afrobeats-amapiano-dj-nyc-nj",
+  "Old School": "/rb-hip-hop-dj-nyc-nj",
+  "Live Violinist / DJ": "/violin-dj-duo-nyc-nj",
+  "Private Events": "/private-party-dj-nyc-nj",
+};
+
+const eventLinks = [
+  { label: 'Wedding DJ', to: '/wedding-dj-nyc-nj' },
+  { label: 'Corporate Event DJ', to: '/corporate-event-dj-nyc-nj-ct' },
+  { label: 'Office Holiday Party DJ', to: '/holiday-party-dj-nyc-nj-ct' },
+  { label: 'Birthday Party DJ', to: '/birthday-party-dj-nyc-nj' },
+  { label: 'Private Party DJ', to: '/private-party-dj-nyc-nj' },
+  { label: 'Sweet 16 DJ', to: '/sweet-16-dj-nyc-nj' },
+  { label: 'DJ Prices', to: '/event-dj-cost-nyc-nj-ct' },
+  { label: 'Instant Price Estimate', to: '/event-dj-cost-nyc-nj-ct#quote-calculator' },
+];
+
 function SkillsGrid() {
   return (
-    <div className="services-grid">
-      {services.map((s, i) => (
-        <div key={s.name} className="service-cell sr" data-sr-delay={`${i * 0.05}s`}>
-          <div style={{ color: genreColors[s.name] ?? 'var(--gold)', marginBottom: '16px' }}>
-            {React.createElement(s.icon, { size: 36, strokeWidth: 1.5 })}
-          </div>
-          <h3 className="service-name">{s.name}</h3>
-          <p className="service-desc">{s.desc}</p>
+    <>
+      <div className="services-grid">
+        {services.map((s, i) => {
+          const inner = (
+            <>
+              <div style={{ color: genreColors[s.name] ?? 'var(--gold)', marginBottom: '16px' }}>
+                {React.createElement(s.icon, { size: 36, strokeWidth: 1.5 })}
+              </div>
+              <h3 className="service-name">{s.name}</h3>
+              <p className="service-desc">{s.desc}</p>
+            </>
+          );
+          const href = genreLinks[s.name];
+          return href ? (
+            <Link key={s.name} to={href} className="service-cell sr" data-sr-delay={`${i * 0.05}s`} style={{ textDecoration: 'none' }}>{inner}</Link>
+          ) : (
+            <div key={s.name} className="service-cell sr" data-sr-delay={`${i * 0.05}s`}>{inner}</div>
+          );
+        })}
+      </div>
+      <nav className="home-events" aria-label="DJ services by event">
+        <p className="home-events-title">Book by Event</p>
+        <div className="home-events-grid">
+          {eventLinks.map(e => <Link key={e.to} to={e.to}>{e.label} →</Link>)}
         </div>
-      ))}
-    </div>
+      </nav>
+    </>
   );
 }
 

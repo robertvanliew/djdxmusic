@@ -7,6 +7,7 @@ import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 export default function PianoDJ() {
   // Always start at top on load
   useEffect(() => {
@@ -228,6 +229,7 @@ export default function PianoDJ() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="piano_d_j_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

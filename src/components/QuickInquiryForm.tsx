@@ -1,5 +1,6 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { trackLead, trackFormSubmit, trackFormError } from '../lib/analytics';
+import { textHref, trackTextClick, TEXT_NUMBER_DISPLAY } from '../lib/textLink';
 
 interface Props {
   formName: string;
@@ -97,6 +98,9 @@ export default function QuickInquiryForm({ formName, onSent }: Props) {
       <button type="submit" className="form-submit" disabled={status === 'sending'}>
         {status === 'sending' ? 'Sending…' : 'Check My Date'}
       </button>
+      <p className="text-alt">
+        Prefer to text? <a href={textHref()} onClick={() => trackTextClick('quick_form')}>Text {TEXT_NUMBER_DISPLAY}</a>
+      </p>
       <p style={{ fontSize: '12px', color: 'rgba(242,242,242,0.45)', marginTop: '10px', textAlign: 'center' }}>
         Trouble with the form? Email <a href="mailto:bookings@djdxmusic.com" style={{ color: 'var(--gold)' }}>bookings@djdxmusic.com</a> directly.
       </p>

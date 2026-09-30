@@ -7,6 +7,7 @@ import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 export default function HouseJerseyClubDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -260,6 +261,7 @@ export default function HouseJerseyClubDJ() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="house_jersey_club_d_j_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

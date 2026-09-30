@@ -58,3 +58,28 @@
   .ab-links { justify-content: center; }
   .pb-item { grid-template-columns: 1fr; }
 }
+
+/* Text option: sticky bar button + "Prefer to text?" line under forms */
+.sticky-cta-bar__row { display: flex; gap: 10px; }
+.sticky-cta-bar__row .sticky-cta-bar__btn { flex: 1; }
+.sticky-cta-bar__text {
+  display: flex; align-items: center; justify-content: center; flex: none;
+  min-width: 92px; min-height: 52px; padding: 0 16px; border-radius: 8px;
+  border: 1px solid var(--gold); color: var(--gold); background: transparent;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 800;
+  letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none;
+}
+.sticky-cta-bar__text:active { transform: scale(0.98); }
+.text-alt { margin: 12px 0 0; text-align: center; font-size: 0.9rem; color: rgba(242,242,242,0.65); }
+.text-alt a { color: var(--gold); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.footer-brand-col .footer-email { display: block; }
+
+/* Homepage: event-type links under the genre grid */
+.home-events { margin-top: 40px; text-align: center; }
+.home-events-title { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin: 0 0 14px; }
+.home-events-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+.home-events-grid a {
+  display: block; padding: 14px 16px; background: var(--panel); border: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); text-decoration: none;
+}
+.home-events-grid a:hover { border-color: var(--gold); }

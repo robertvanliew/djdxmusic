@@ -7,6 +7,7 @@ import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 export default function DestinationDJ() {
   // Always start at top on load
   useEffect(() => {
@@ -238,6 +239,7 @@ export default function DestinationDJ() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="destination_d_j_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );

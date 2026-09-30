@@ -8,6 +8,7 @@ import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
+import StickyMobileCTA from '../../components/StickyMobileCTA';
 export default function ViolinDJ() {
   // Always start at top on load
   useEffect(() => {
@@ -248,6 +249,7 @@ export default function ViolinDJ() {
       </section>
 
       <RelatedServices />
+      <StickyMobileCTA formName="violin_d_j_sticky" label="Check My Date" />
       <SiteFooter />
     </>
   );
