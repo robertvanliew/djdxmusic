@@ -265,3 +265,6 @@
 @media (prefers-reduced-motion: reduce) { .sp-spin { animation-duration: 2s; } }
 @media print { .pc-art { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
 
+
+/* "Free" tag on the music poll entry in the mobile drawer */
+.nav-drawer-tag { display: inline-block; margin-left: 8px; padding: 2px 7px; border-radius: 999px; font-size: 0.62rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; vertical-align: middle; color: #0a0805; background: var(--gold); }

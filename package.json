@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "postbuild": "node scripts/prerender.mjs",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.1017.0",

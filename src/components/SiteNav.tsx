@@ -78,7 +78,8 @@ export default function SiteNav() {
               <li><Link to="/news" onClick={() => { window.scrollTo({ top:0, behavior:'smooth' }); close(); }}>News</Link></li>
               <li><Link to="/epk" onClick={close}>EPK</Link></li>
               <li><a href="https://www.djdxllc.com/" target="_blank" rel="noopener noreferrer" onClick={close}>Shop</a></li>
-              <li><Link to="/event-dj-cost-nyc-nj-ct#quote-calculator" onClick={close}>Instant Price Estimate</Link></li>
+              <li><Link to="/event-dj-cost-nyc-nj-ct#quote-calculator" onClick={close}>Pricing</Link></li>
+              <li><Link to="/office-party-music-poll" onClick={() => { window.scrollTo(0, 0); close(); }}>Music Poll <span className="nav-drawer-tag">Free</span></Link></li>
               <li><a href={href('#booking')} onClick={close} className="nav-drawer-book">Book Now</a></li>
             </ul>
             <div className="nav-drawer-streams">
