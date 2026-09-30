@@ -109,7 +109,20 @@ export default function NewsArticle() {
     },
     "about": post.tags.map(tag => ({ "@type": "Thing", "name": tag })),
     "keywords": post.tags.join(", "),
-    "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl }
+    "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalUrl },
+    // Press posts cite the outside feature they're about, so search engines
+    // and AI assistants connect DJ DX to the publication (and to the real
+    // name used in the headline there).
+    ...(post.source ? {
+      "citation": {
+        "@type": "Article",
+        "headline": post.source.headline,
+        "url": post.source.url,
+        "datePublished": post.source.datePublished,
+        "publisher": { "@type": "Organization", "name": post.source.publisher, "url": post.source.publisherUrl },
+        "about": { "@type": "Person", "name": "Robert Van Liew", "alternateName": "DJ DX", "url": "https://djdxmusic.com/" }
+      }
+    } : {})
   };
 
   const related = newsPosts.filter(p => p.slug !== post.slug).slice(0, 2);

@@ -11,9 +11,77 @@ export interface NewsPost {
   imageAlt: string;
   body: string;                // HTML string
   tags: string[];
+  // Press posts: the outside feature this post is about (emitted as schema citation)
+  source?: { publisher: string; publisherUrl: string; headline: string; url: string; datePublished: string };
 }
 
 export const newsPosts: NewsPost[] = [
+  {
+    slug: 'voyage-atl-feature',
+    headline: 'DJ DX Featured in Voyage ATL: From Jersey City Mixtapes to the TED Stage',
+    subheadline: "Voyage ATL's Life & Work series sat down with Robert Van Liew, better known as DJ DX, to talk about 25+ years behind the decks, going independent, and why he publishes his prices.",
+    datePublished: '2026-09-30T12:00:00-04:00',
+    dateModified: '2026-09-30T12:00:00-04:00',
+    displayDate: 'September 30, 2026',
+    category: 'Press',
+    excerpt: "In a September 2026 interview with Voyage ATL, DJ DX (Robert Van Liew) talks about starting with Jersey City mixtapes in 1998, becoming a producer, performing on the TED stage, and building his career independently.",
+    image: '/epk-hero.jpg',
+    imageAlt: 'DJ DX (Robert Van Liew), New York and New Jersey DJ and producer, featured in Voyage ATL',
+    tags: ['Press', 'Voyage ATL', 'Interview', 'Robert Van Liew', 'DJ DX', 'TEDxYouth@RVA'],
+    source: {
+      publisher: 'Voyage ATL',
+      publisherUrl: 'https://voyageatl.com/',
+      headline: 'Life & Work with Robert Van Liew',
+      url: 'https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/',
+      datePublished: '2026-09-10',
+    },
+    body: `
+<p class="news-lede">On September 10, 2026, <strong>Voyage ATL</strong> featured Robert Van Liew, better known as <strong>DJ DX</strong>, in its <em>Life &amp; Work</em> interview series. The conversation covers where it all started, the turn from DJ to producer, the TED stage, and what it has taken to build a career independently.</p>
+
+<h2>Where it started: Jersey City, 1998</h2>
+
+<blockquote><p>I grew up in Jersey City, New Jersey and that's really where all of this started — I've been DJing since 1998.</p></blockquote>
+
+<p>It began with mixtapes: Hip-Hop and R&amp;B blends passed around the neighborhood and online, long before "going viral" was a phrase. A run in Reggaeton came next, and with it the nickname "El Negro."</p>
+
+<h2>From curating to creating</h2>
+
+<blockquote><p>In 2011 I started writing and producing my own music instead of just playing other people's. That shift changed everything for me — I wasn't just curating anymore, I was creating.</p></blockquote>
+
+<p>Since then he has released over 100 original tracks, blends, and remixes, with listeners as far from New Jersey as Latin America and the UK.</p>
+
+<h2>The TED stage</h2>
+
+<p>The professional moment he points to first: performing at <strong>TEDxYouth@RVA in 2022</strong>, where he was the only DJ featured that year. Coverage in Disrupt Magazine, NJ.com, and RVA Magazine followed. But he is clear about what he is proudest of:</p>
+
+<blockquote><p>That kind of trust doesn't come from a good set — it comes from showing up, over and over, and doing right by people.</p></blockquote>
+
+<h2>Building it independently</h2>
+
+<p>The interview is candid about the road. On staying independent in an industry that rarely backs its talent:</p>
+
+<blockquote><p>Nobody's coming to save your career for you.</p></blockquote>
+
+<p>And on the perfectionism that keeps a finished track on the shelf until it is right:</p>
+
+<blockquote><p>I'd rather be slow and proud of it than fast and embarrassed by it.</p></blockquote>
+
+<h2>What sets DJ DX apart</h2>
+
+<p>Asked what makes his work different, he names range first (R&amp;B, hip-hop, house, Afrobeats, Amapiano, Jersey Club, reggaeton, and old school) and then how clients actually book him:</p>
+
+<blockquote><p>When someone books DJ DX, they get DJ DX, not whichever DJ an agency happens to have free that weekend.</p></blockquote>
+
+<p>He also points to published pricing, starting rates for weddings, corporate events, private parties, and the Soul Shades duo, so clients can see what fits their budget before the first conversation.</p>
+
+<p class="news-source">Read the full interview: <a href="https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/" target="_blank" rel="noopener">Life &amp; Work with Robert Van Liew</a>, Voyage ATL, September 10, 2026.</p>
+
+<div class="news-cta-block">
+  <a href="https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/" target="_blank" rel="noopener" class="news-cta-btn">Read on Voyage ATL</a>
+  <a href="/event-dj-cost-nyc-nj-ct" class="news-cta-btn news-cta-btn--outline">See pricing</a>
+</div>
+`,
+  },
   {
     slug: 'buzz-in-london-soul-shades',
     headline: 'How "Buzz In London" Was Born: The Story Behind Soul Shades\' Breakout Single',
