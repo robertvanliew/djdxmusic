@@ -1,0 +1,72 @@
+/* Menu dropdowns + the two-tier mobile drawer (Sept 2026 nav restructure).
+   Imported after index.css. Dropdown links stay in the DOM at all times
+   (hidden with visibility, not removed) so crawlers follow them. */
+
+.nav-dd { position: relative; }
+.nav-dd-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 0; background: none; border: 0; cursor: pointer;
+  font: inherit; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(242,242,242,0.62); white-space: nowrap; transition: color 0.2s;
+}
+.nav-dd-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 2px; }
+.nav-dd-caret {
+  width: 6px; height: 6px; margin-top: -3px;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg); transition: transform 0.2s ease;
+}
+.nav-dd.is-open .nav-dd-btn { color: var(--gold); }
+.nav-dd.is-open .nav-dd-caret { transform: rotate(225deg); margin-top: 3px; }
+
+.nav-dd-menu {
+  position: absolute; z-index: 110; top: calc(100% + 16px); left: 50%;
+  min-width: 220px; margin: 0; padding: 8px; list-style: none;
+  background: rgba(16,14,11,0.98); border: 1px solid var(--gold-line); border-radius: 10px;
+  box-shadow: 0 22px 44px -18px rgba(0,0,0,0.85);
+  opacity: 0; visibility: hidden; transform: translate(-50%, 6px);
+  transition: opacity 160ms ease-out, transform 160ms ease-out, visibility 0s linear 160ms;
+}
+/* invisible bridge across the gap so the menu doesn't close mid-move */
+.nav-dd-menu::before { content: ''; position: absolute; left: 0; right: 0; top: -18px; height: 18px; }
+.nav-dd.is-open .nav-dd-menu,
+.nav-dd:focus-within .nav-dd-menu {
+  opacity: 1; visibility: visible; transform: translate(-50%, 0);
+  transition: opacity 160ms ease-out, transform 160ms ease-out, visibility 0s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .nav-dd:hover .nav-dd-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); transition: opacity 160ms ease-out, transform 160ms ease-out, visibility 0s; }
+  .nav-dd:hover .nav-dd-btn { color: var(--gold); }
+  .nav-dd-menu a:hover { background: var(--gold-dim); color: var(--white); }
+}
+.nav-links .nav-dd-menu a {
+  display: block; padding: 10px 14px; border-radius: 6px;
+  font-size: 0.7rem; letter-spacing: 0.14em; color: rgba(242,242,242,0.75);
+}
+.nav-links .nav-dd-menu a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+/* top-level menu text a touch brighter than before (was 0.45) for contrast */
+.nav-links > li > a:not(.nav-book):not(.nav-stream-btn) { color: rgba(242,242,242,0.62); }
+
+/* ── Mobile drawer: primary (booking) links large, secondary row compact ── */
+/* Centre the stack only when it fits; otherwise let it scroll from the top
+   (plain justify-content:center clips the first items on short phones). */
+.nav-drawer-panel { justify-content: flex-start; }
+.nav-drawer-panel > .nav-drawer-links { margin-top: auto; }
+.nav-drawer-panel > .nav-drawer-streams { margin-bottom: auto; }
+.nav-drawer-minor {
+  list-style: none; margin: 30px auto 0; padding: 22px 0 0; max-width: 360px;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px;
+  border-top: 1px solid rgba(201,168,76,0.18);
+}
+.nav-drawer-minor a {
+  display: inline-block; padding: 6px 0; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(242,242,242,0.62); text-decoration: none;
+}
+.nav-drawer-minor a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.nav-drawer-panel > .nav-drawer-streams { margin-top: 28px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-dd-menu, .nav-dd-caret { transition: none; }
+}
+@media print { .nav-dd-menu { display: none; } }
+
+body.nav-open .sticky-cta-bar, body.nav-open .pnudge { display: none !important; }
