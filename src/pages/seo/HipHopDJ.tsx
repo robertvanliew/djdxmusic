@@ -5,6 +5,8 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function HipHopDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -12,7 +14,7 @@ export default function HipHopDJ() {
     <>
       <Helmet>
         <title>Hip-Hop DJ NYC & NJ | Old School to New School | DJ DX</title>
-        <meta name="description" content="NYC's premier hip-hop DJ for events — Biggie to Kendrick, custom-curated sets for parties, corporate nights & weddings. 25+ years. TED-featured. Book DJ DX today." />
+        <meta name="description" content="Hip-hop DJ for events in NYC and NJ, from Biggie to Kendrick. Custom sets for parties, corporate nights and weddings. 25+ years, TED-featured." />
         <link rel="canonical" href="https://djdxmusic.com/hip-hop-dj-nyc-nj" />
         <meta property="og:title" content="Hip-Hop DJ NYC & NJ — DJ DX" />
         <meta property="og:description" content="Professional hip-hop DJ in New York and New Jersey. DJ DX plays Old School to New School — Biggie, Nas, Jay-Z through Drake and Kendrick. 500+ events." />
@@ -239,6 +241,9 @@ export default function HipHopDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">

@@ -4,15 +4,18 @@ import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
+import { Link } from 'react-router-dom';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function PrivatePartyDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>Private Party DJ NYC & NJ | Birthday, Anniversary & Milestone Events | DJ DX</title>
-        <meta name="description" content="NYC's go-to private party DJ — birthday parties, anniversary celebrations, launch events & milestones. Custom sets. Professional. 500+ events. Book DJ DX." />
+        <title>Private Party DJ NYC & NJ | Birthdays & Milestones | DJ DX</title>
+        <meta name="description" content="Private party DJ in NYC and NJ for birthdays, anniversaries, launch events and milestones. Custom sets, 500+ events, from $2,200. Book DJ DX." />
         <link rel="canonical" href="https://djdxmusic.com/private-party-dj-nyc-nj" />
         <meta property="og:title" content="Private Party DJ NYC & NJ — DJ DX" />
         <meta property="og:description" content="Professional private party DJ in New York and New Jersey. DJ DX delivers custom sets for birthday parties, anniversaries, and milestone events. 500+ events performed." />
@@ -206,6 +209,10 @@ export default function PrivatePartyDJ() {
               </div>
             ))}
           </div>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', margin: '32px auto 0', maxWidth: '720px', fontSize: '0.98rem', lineHeight: 1.75 }}>
+            Planning a 30th, 40th, or 50th? See the <Link to="/birthday-party-dj-nyc-nj" style={{ color: 'var(--gold)' }}>birthday party DJ</Link> page
+            for milestone birthdays at homes, restaurants, and rooftops.
+          </p>
         </div>
       </section>
 
@@ -232,6 +239,9 @@ export default function PrivatePartyDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">
@@ -239,7 +249,7 @@ export default function PrivatePartyDJ() {
               <div className="sec-overline"><span className="sec-label">Book Your Date</span></div>
               <h2 className="sec-title">Make Your Party <span>Unforgettable</span></h2>
               <p style={{ color: 'rgba(242,242,242,0.55)', lineHeight: 1.8, marginTop: '16px' }}>
-                Ready to book a private party DJ in New York or New Jersey? Fill out the form with your event details and we'll respond within 24–48 hours.
+                Ready to book a private party DJ in New York or New Jersey? Fill out the form with your event details and we'll respond within 24 hours.
               </p>
             </div>
             <div className="booking-right">

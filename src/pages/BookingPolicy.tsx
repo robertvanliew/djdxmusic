@@ -83,7 +83,7 @@ export default function BookingPolicy() {
     <>
       <Helmet>
         <title>Booking Policy: Deposits, Date Changes &amp; Backup DJ | DJ DX</title>
-        <meta name="description" content="How booking DJ DX works: a 50% deposit holds your date, the balance is due 14 days before, one free date change, a vetted backup DJ if an emergency strikes, and a written contract every time." />
+        <meta name="description" content="How booking DJ DX works: a 50% deposit holds your date, balance due 14 days before, one free date change, a vetted backup DJ, and a written contract." />
         <link rel="canonical" href="https://djdxmusic.com/booking-policy" />
         <meta property="og:title" content="Booking Policy — DJ DX" />
         <meta property="og:description" content="50% deposit, balance 14 days out, one free date change, vetted backup DJ, written contract on every booking. COI and W-9 available." />

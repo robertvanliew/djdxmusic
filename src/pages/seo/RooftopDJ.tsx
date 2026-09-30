@@ -5,6 +5,8 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function RooftopDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -12,7 +14,7 @@ export default function RooftopDJ() {
     <>
       <Helmet>
         <title>Rooftop Party DJ NYC | Outdoor & Summer Events | DJ DX</title>
-        <meta name="description" content="Looking for a rooftop DJ in NYC? DJ DX specializes in outdoor rooftop parties, summer events, and luxury open-air sets across Manhattan, Brooklyn & the Hamptons." />
+        <meta name="description" content="Rooftop DJ in NYC. DJ DX plays outdoor rooftop parties, summer events and open-air sets across Manhattan, Brooklyn and the Hamptons." />
         <link rel="canonical" href="https://djdxmusic.com/rooftop-party-dj-nyc" />
         <meta property="og:title" content="Rooftop Party DJ NYC — DJ DX" />
         <meta property="og:description" content="Exclusive rooftop DJ services for outdoor summer events across Manhattan, Brooklyn, and the Hamptons. DJ DX brings the summer sound to open-air events." />
@@ -232,24 +234,10 @@ export default function RooftopDJ() {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginTop: '32px' }}>
-            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(201,168,76,0.15)', borderRadius: '10px', padding: '24px' }}>
-              <p style={{ fontSize: '0.92rem', color: 'rgba(242,242,242,0.75)', lineHeight: 1.7, marginBottom: '14px' }}>
-                &ldquo;The music was just perfect and the vibe was great. I love the uniqueness of keyboard and violin together with DJing — I don&apos;t think there are a lot of DJs who come with this built into the duo.&rdquo;
-              </p>
-              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--white)' }}>
-                Sue Krebs<span style={{ fontWeight: 400, color: 'rgba(242,242,242,0.5)' }}> — NautaDutilh New York P.C.</span>
-              </div>
-            </div>
-            <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(201,168,76,0.15)', borderRadius: '10px', padding: '24px' }}>
-              <p style={{ fontSize: '0.92rem', color: 'rgba(242,242,242,0.75)', lineHeight: 1.7, marginBottom: '14px' }}>
-                &ldquo;Your performance set the tone for our event, and the addition of the violin amplified our guests&apos; experience and made the evening memorable.&rdquo;
-              </p>
-              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--white)' }}>
-                Anna Naraine<span style={{ fontWeight: 400, color: 'rgba(242,242,242,0.5)' }}> — NautaDutilh New York P.C.</span>
-              </div>
-            </div>
-          </div>
+          <p className="duo-pointer">
+            This booking was Soul Shades, the DJ and live violin duo.{' '}
+            <a href="/soul-shades">See what NautaDutilh said about the duo</a>.
+          </p>
         </div>
       </section>
 
@@ -303,6 +291,9 @@ export default function RooftopDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">

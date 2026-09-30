@@ -5,14 +5,16 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function WeddingDJWestchester() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>Wedding DJ Westchester NY | Tarrytown, Rye, Scarsdale | DJ DX</title>
-        <meta name="description" content="Westchester County wedding DJ — DJ DX is available for premier venues including Tappan Hill Mansion, The Briarcliff Manor, Sleepy Hollow Country Club, and The Castle Hotel. R&B, Hip-Hop, Afrobeats." />
+        <title>Wedding DJ Westchester NY | Tarrytown & Rye | DJ DX</title>
+        <meta name="description" content="Westchester wedding DJ for venues including Tappan Hill Mansion, The Briarcliff Manor, Sleepy Hollow Country Club and The Castle Hotel. R&B, Hip-Hop." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-westchester-ny" />
         <meta property="og:title" content="Wedding DJ Westchester NY — DJ DX" />
         <meta property="og:description" content="Westchester County wedding DJ. Available for Tarrytown, Rye, Scarsdale, Yonkers, and White Plains weddings. Refined receptions with NYC-level production." />
@@ -197,6 +199,9 @@ export default function WeddingDJWestchester() {
           </div>
         </div>
       </section>
+
+      <ProofBlock />
+      <AuthorBio />
 
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">

@@ -5,14 +5,16 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function RnBDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>R&B DJ NYC & NJ | Soul, Neo-Soul & Contemporary R&B | DJ DX</title>
-        <meta name="description" content="Looking for an R&B DJ in NYC or NJ? DJ DX specializes in classic soul, 90s R&B, neo-soul, and contemporary R&B for private parties, weddings & upscale events. Book DJ DX." />
+        <title>R&B DJ NYC & NJ | Soul, Neo-Soul & Modern R&B | DJ DX</title>
+        <meta name="description" content="R&B DJ in NYC and NJ. DJ DX plays classic soul, 90s R&B, neo-soul and contemporary R&B for private parties, weddings and upscale events." />
         <link rel="canonical" href="https://djdxmusic.com/rb-dj-nyc-nj" />
         <meta property="og:title" content="R&B DJ NYC & NJ — DJ DX" />
         <meta property="og:description" content="Professional R&B DJ in New York and New Jersey. DJ DX plays classic soul, 90s R&B, neo-soul, and contemporary R&B for parties, weddings, and upscale events." />
@@ -239,6 +241,9 @@ export default function RnBDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">

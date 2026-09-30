@@ -53,8 +53,8 @@ const QUOTED_EXTRAS = [
 
 const money = (n: number) => '$' + n.toLocaleString('en-US');
 
-export default function QuoteCalculator({ formName = 'quote_calculator' }: { formName?: string }) {
-  const [eventKey, setEventKey] = useState<EventKey>('wedding');
+export default function QuoteCalculator({ formName = 'quote_calculator', defaultEvent = 'wedding' }: { formName?: string; defaultEvent?: EventKey }) {
+  const [eventKey, setEventKey] = useState<EventKey>(defaultEvent);
   const [region, setRegion] = useState<RegionKey>('nyc');
   const [hours, setHours] = useState(5);
   const [violinHours, setViolinHours] = useState(0);

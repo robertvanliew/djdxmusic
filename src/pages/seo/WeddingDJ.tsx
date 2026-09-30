@@ -5,6 +5,8 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function WeddingDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -12,7 +14,7 @@ export default function WeddingDJ() {
     <>
       <Helmet>
         <title>Wedding DJ NYC & NJ | R&B, Hip-Hop, Afrobeats | DJ DX</title>
-        <meta name="description" content="Looking for a wedding DJ in New York or New Jersey? DJ DX specializes in R&B, Hip-Hop, Afrobeats, and Old School for weddings across NYC, NJ, and the tri-state area. TED-featured, 500+ events." />
+        <meta name="description" content="Wedding DJ in New York and New Jersey. DJ DX plays R&B, Hip-Hop, Afrobeats and Old School for weddings across NYC, NJ and the tri-state. 500+ events." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-nyc-nj" />
         <meta property="og:title" content="Wedding DJ NYC & NJ — DJ DX" />
         <meta property="og:description" content="Professional wedding DJ in New York and New Jersey specializing in R&B, Hip-Hop, Afrobeats, and Old School. Book DJ DX for your wedding reception, cocktail hour, and after-party." />
@@ -244,6 +246,9 @@ export default function WeddingDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">

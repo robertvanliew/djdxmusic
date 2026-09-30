@@ -7,6 +7,8 @@ export interface NewsPost {
   displayDate: string;         // Human-readable
   category: 'Release' | 'Event' | 'Press' | 'Behind The Scenes';
   excerpt: string;
+  seoTitle?: string;           // <title> when the headline is too long (60 char limit)
+  metaDescription?: string;    // meta description when the excerpt is over 160 chars
   image: string;
   imageAlt: string;
   body: string;                // HTML string
@@ -19,6 +21,8 @@ export const newsPosts: NewsPost[] = [
   {
     slug: 'voyage-atl-feature',
     headline: 'DJ DX Featured in Voyage ATL: From Jersey City Mixtapes to the TED Stage',
+    seoTitle: 'DJ DX in Voyage ATL: Jersey City Mixtapes to the TED Stage',
+    metaDescription: 'Voyage ATL interviews DJ DX (Robert Van Liew) on Jersey City mixtapes in 1998, producing, the TED stage, and building a career independently.',
     subheadline: "Voyage ATL's Life & Work series sat down with Robert Van Liew, better known as DJ DX, to talk about 25+ years behind the decks, going independent, and why he publishes his prices.",
     datePublished: '2026-09-30T12:00:00-04:00',
     dateModified: '2026-09-30T12:00:00-04:00',
@@ -85,6 +89,8 @@ export const newsPosts: NewsPost[] = [
   {
     slug: 'buzz-in-london-soul-shades',
     headline: 'How "Buzz In London" Was Born: The Story Behind Soul Shades\' Breakout Single',
+    seoTitle: 'How "Buzz In London" Was Born | Soul Shades | DJ DX',
+    metaDescription: 'How DJ DX and Julie Schatz built the Soul Shades sound: soulful, hip-hop-tinged, jazzy and made for the dance floor. The story of "Buzz In London".',
     subheadline: 'A minor 9 chord, a Sting classic, and a duo finding their sound — the making of Soul Shades\' debut release.',
     datePublished: '2026-04-12T10:00:00+00:00',
     dateModified: '2026-04-12T10:00:00+00:00',

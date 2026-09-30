@@ -8,7 +8,10 @@ import PollPromo from '../../components/PollPromo';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
+import { Link } from 'react-router-dom';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 // Client name for the most recent corporate booking shown on this page. Kept as
 // a single constant so the showcase can be anonymised ("a national energy
 // company") in one edit, matching the pattern used on the corporate page.
@@ -54,6 +57,18 @@ const FAQ_ITEMS = [
     q: 'Do you play private and family holiday parties, not just corporate?',
     a: 'Yes. Alongside corporate bookings, DJ DX plays private holiday gatherings, family celebrations, Hanukkah parties, Friendsgiving and year-end house parties across NYC, New Jersey, and Connecticut. These are often smaller and more relaxed than corporate events, and the music brief is usually broader, spanning multiple generations in one room. The setup scales to the space: a compact system for an apartment or home, a full rig for a rented venue or loft. Requests are welcome and a shared song list before the event is encouraged. Email bookings@djdxmusic.com with your date, location, and approximate guest count for a quote.',
   },
+  {
+    q: 'How do we hold a December date?',
+    a: 'Every booking has a written contract, and a 50% deposit holds the date. The balance is due 14 days before the party. A certificate of insurance and a W-9 are available on request for your venue and your accounts payable team. Send your date and venue and you will hear back within 24 hours.',
+  },
+  {
+    q: 'What if our holiday party date changes?',
+    a: 'You get one free date change to any date within 12 months of the original, subject to availability, and your deposit carries over. If the party moves from December into January, that is covered.',
+  },
+  {
+    q: 'Is the music clean enough for a work party?',
+    a: 'Yes. Office parties get radio edits only, and you can send a do-not-play list before the night. The planning call also covers how festive you want the music: full holiday classics, none at all, or a mix.',
+  },
 ];
 
 export default function HolidayPartyDJ() {
@@ -64,18 +79,18 @@ export default function HolidayPartyDJ() {
   return (
     <>
       <Helmet>
-        <title>Holiday Party DJ NJ, NYC &amp; CT | From $2,800 | DJ DX</title>
-        <meta name="description" content="Holiday and Christmas party DJ for offices, companies and private parties across New Jersey, NYC and Connecticut. From $2,800 with sound, wireless mics and MC announcements." />
+        <title>Office Holiday Party DJ NYC &amp; NJ | Book December 2026</title>
+        <meta name="description" content="Office holiday party and corporate Christmas party DJ across NYC, NJ and CT. December 2026 dates filling now. Published starting rates. Check your date." />
         <link rel="canonical" href="https://djdxmusic.com/holiday-party-dj-nyc-nj-ct" />
-        <meta property="og:title" content="Holiday Party DJ NJ, NYC &amp; CT — From $2,800 | DJ DX" />
-        <meta property="og:description" content="Corporate and private holiday party DJ across New Jersey, NYC and Connecticut. Full sound, wireless mics for speeches and awards, MC announcements. December books early." />
+        <meta property="og:title" content="Office Holiday Party DJ NYC &amp; NJ | Book December 2026" />
+        <meta property="og:description" content="Office holiday party and corporate Christmas party DJ across NYC, NJ and CT. December 2026 dates filling now. Published starting rates. Check your date." />
         <meta property="og:url" content="https://djdxmusic.com/holiday-party-dj-nyc-nj-ct" />
         <meta property="og:image" content="https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Holiday Party DJ NJ, NYC &amp; CT — From $2,800 | DJ DX" />
-        <meta name="twitter:description" content="Corporate and private holiday party DJ across NJ, NYC and CT. From $2,800. December dates book by October." />
+        <meta name="twitter:title" content="Office Holiday Party DJ NYC &amp; NJ | Book December 2026" />
+        <meta name="twitter:description" content="Office holiday party DJ across NYC, NJ and CT. December 2026 dates filling now. Published starting rates." />
         <meta name="twitter:image" content="https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc.jpg" />
         <script type="application/ld+json">
           {`[
@@ -185,17 +200,17 @@ export default function HolidayPartyDJ() {
         <div className="epk-hero-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(12,12,12,0.25) 0%, rgba(12,12,12,0.93) 100%)' }} />
         <div className="section-inner" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <div className="sec-overline" style={{ justifyContent: 'center' }}>
-            <span className="sec-label">Holiday Party DJ — New Jersey, NYC &amp; Connecticut</span>
+            <span className="sec-label">Office Holiday Party DJ: New York, New Jersey &amp; Connecticut</span>
           </div>
           <h1 className="sec-title" style={{ fontSize: 'clamp(2.1rem, 5.6vw, 4rem)', marginBottom: '1.2rem' }}>
-            Holiday Party DJ — <span>NJ, NYC &amp; Connecticut</span>
+            Office Holiday Party DJ <span>in NYC, NJ and CT</span>
           </h1>
           <p style={{ maxWidth: '640px', margin: '0 auto 1rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
-            Office Christmas parties, corporate holiday parties, year-end client events, and
+            An office holiday party DJ for corporate Christmas parties, year-end client events, and
             private holiday gatherings. One DJ, 25+ years, full sound and microphones included.
           </p>
           <p style={{ maxWidth: '540px', margin: '0 auto 2rem', fontSize: '0.9rem', color: 'var(--gold)', fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase' }}>
-            From $2,800 — December {year} dates booking now
+            From $2,800 · December {year} dates booking now
           </p>
           <a href="#booking" className="btn-gold">Check December Availability</a>
         </div>
@@ -331,6 +346,32 @@ export default function HolidayPartyDJ() {
         </div>
       </section>
 
+      {/* ── DECEMBER AVAILABILITY ── */}
+      <section style={{ padding: '80px 24px' }}>
+        <div className="section-inner" style={{ maxWidth: '860px' }}>
+          <div className="sec-header center sr">
+            <div className="sec-overline" style={{ justifyContent: 'center' }}>
+              <span className="sec-overline-line" /><span className="sec-label">December {year}</span><span className="sec-overline-line" />
+            </div>
+            <h2 className="sec-title">December {year} <span>Availability</span></h2>
+          </div>
+          <ul className="lp-list" style={{ marginTop: '28px' }}>
+            <li><strong>Busiest nights:</strong> Thursdays, Fridays, and Saturdays from the first week of December through the weekend before Christmas. These go first every year.</li>
+            <li><strong>More room:</strong> Monday to Wednesday nights, lunchtime and afternoon parties, and the week between Christmas and New Year.</li>
+            <li><strong>January parties:</strong> plenty of offices move the party to January to get a better venue and a better date. Same pricing, same setup.</li>
+            <li><strong>Holding a date:</strong> a written contract and a 50% deposit. You get a yes or no on your date within 24 hours of asking.</li>
+          </ul>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', margin: '28px auto 0', fontSize: '0.98rem', lineHeight: 1.75 }}>
+            Planning something outside the holidays too? See <Link to="/corporate-event-dj-nyc-nj-ct" style={{ color: 'var(--gold)' }}>corporate event DJ in NYC</Link> for
+            client events, galas, launches, and summer parties.
+          </p>
+          <div className="lp-cta">
+            <a href="#booking" className="btn-gold">Check My December Date</a>
+            <a href="#quote-calculator" className="lp-cta-alt">Get an instant starting price</a>
+          </div>
+        </div>
+      </section>
+
       {/* ── COVERAGE ── */}
       <section style={{ padding: '80px 40px' }}>
         <div className="section-inner" style={{ maxWidth: '860px' }}>
@@ -377,6 +418,9 @@ export default function HolidayPartyDJ() {
       <PollPromo />
       <ProcurementNote />
 
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">
@@ -390,13 +434,13 @@ export default function HolidayPartyDJ() {
               </p>
             </div>
             <div className="booking-right">
-              <BookingForm />
+              <BookingForm initial={{ eventType: 'Corporate Event / Holiday Party' }} />
             </div>
           </div>
         </div>
       </section>
 
-      <QuoteCalculator formName="holiday_party" />
+      <QuoteCalculator formName="holiday_party" defaultEvent="corporate" />
       <RelatedServices />
       <StickyMobileCTA formName="holiday_sticky" label="Check December Dates" />
       <SiteFooter />

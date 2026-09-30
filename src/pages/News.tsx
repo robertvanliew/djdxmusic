@@ -25,12 +25,12 @@ export default function News() {
   return (
     <div className="news-page">
       <Helmet>
-        <title>News — DJ DX | Releases, Events & Behind The Scenes</title>
-        <meta name="description" content="The latest from DJ DX and Soul Shades — new music releases, event announcements, and behind-the-scenes stories from New York/New Jersey's premier DJ and producer." />
+        <title>News | DJ DX Releases, Events & Behind the Scenes</title>
+        <meta name="description" content="The latest from DJ DX and Soul Shades: new music releases, event announcements and behind-the-scenes stories from the New York and New Jersey DJ." />
         <link rel="canonical" href="https://djdxmusic.com/news" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://djdxmusic.com/news" />
-        <meta property="og:title" content="News — DJ DX | Releases, Events & Behind The Scenes" />
+        <meta property="og:title" content="News | DJ DX Releases, Events & Behind the Scenes" />
         <meta property="og:description" content="The latest from DJ DX and Soul Shades — new music, events, and behind-the-scenes stories." />
         <meta property="og:image" content="https://djdxmusic.com/og-image.jpg" />
         <meta name="twitter:card" content="summary_large_image" />

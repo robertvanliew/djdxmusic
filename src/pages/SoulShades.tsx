@@ -150,7 +150,7 @@ export default function SoulShades() {
     <div className="ss-page">
       <Helmet>
         <title>Soul Shades — New York Duo | DJ DX & Julie Schatz</title>
-        <meta name="description" content="Soul Shades is a New York-based music duo formed by DJ DX and vocalist Julie Schatz. Deep house, jazz, Afro house, R&B and more. Stream on Spotify, Apple Music, YouTube. 4.5M TikTok views." />
+        <meta name="description" content="Soul Shades is a New York music duo formed by DJ DX and vocalist Julie Schatz. Deep house, jazz, Afro house and R&B. Stream on Spotify, Apple Music, YouTube." />
         <link rel="canonical" href="https://djdxmusic.com/soul-shades" />
         <meta property="og:type" content="music.musician" />
         <meta property="og:url" content="https://djdxmusic.com/soul-shades" />

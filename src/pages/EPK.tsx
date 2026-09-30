@@ -146,8 +146,8 @@ export default function EPK() {
   return (
     <div className="epk-page">
       <Helmet>
-        <title>DJ DX — Electronic Press Kit (EPK) | DJ, Producer & Recording Artist</title>
-        <meta name="description" content="Official press kit for DJ DX — New York/New Jersey DJ, producer, and recording artist. 25+ years, 500+ events, TED-featured. Download bio, photos, rider, and press materials." />
+        <title>DJ DX Press Kit (EPK) | DJ, Producer & Recording Artist</title>
+        <meta name="description" content="Official press kit for DJ DX, New York and New Jersey DJ, producer and recording artist. 25+ years, 500+ events, TED-featured. Bio, photos and rider." />
         <link rel="canonical" href="https://djdxmusic.com/epk" />
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://djdxmusic.com/epk" />

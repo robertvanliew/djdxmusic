@@ -5,6 +5,8 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function WeddingDJLongIsland() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -12,7 +14,7 @@ export default function WeddingDJLongIsland() {
     <>
       <Helmet>
         <title>Wedding DJ Long Island NY | Nassau & Suffolk | DJ DX</title>
-        <meta name="description" content="Long Island wedding DJ — DJ DX is available for Nassau and Suffolk venues including Oheka Castle, The Garden City Hotel, Crest Hollow, Bourne Mansion, and the Hamptons. R&B, Hip-Hop, Afrobeats." />
+        <meta name="description" content="Long Island wedding DJ for Nassau and Suffolk venues including Oheka Castle, The Garden City Hotel, Crest Hollow and the Hamptons. R&B, Hip-Hop, Afrobeats." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-long-island-ny" />
         <meta property="og:title" content="Wedding DJ Long Island NY — DJ DX" />
         <meta property="og:description" content="Long Island wedding DJ for Nassau and Suffolk County. Available for Oheka Castle, Crest Hollow, Bourne Mansion, and Hamptons weddings." />
@@ -198,6 +200,9 @@ export default function WeddingDJLongIsland() {
           </div>
         </div>
       </section>
+
+      <ProofBlock />
+      <AuthorBio />
 
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">

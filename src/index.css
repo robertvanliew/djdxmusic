@@ -7738,7 +7738,7 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .pn { padding: 72px 24px; border-top: 1px solid var(--dim3); }
 .pn-inner { max-width: 980px; margin: 0 auto; text-align: center; }
 .pn-title { margin: 8px 0 32px; }
-.pn-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: left; }
+.pn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; text-align: left; }
 .pn-item { padding: 18px; border-radius: 10px; background: var(--panel); border: 1px solid var(--edge); display: flex; flex-direction: column; gap: 6px; }
 .pn-item strong { color: var(--gold); font-size: 0.95rem; }
 .pn-item span { color: rgba(242,242,242,0.62); font-size: 0.86rem; line-height: 1.55; }

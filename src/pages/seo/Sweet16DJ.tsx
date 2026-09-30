@@ -6,6 +6,8 @@ import RelatedServices from '../../components/RelatedServices';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function Sweet16DJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -240,6 +242,9 @@ export default function Sweet16DJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">

@@ -86,8 +86,8 @@ export default function FAQ() {
   return (
     <>
       <Helmet>
-        <title>DJ DX FAQ — About, Booking, Pricing, Music | DJ DX</title>
-        <meta name="description" content="Frequently asked questions about DJ DX — New York City DJ, producer, and recording artist. Who is DJ DX, where is he based, how to book, pricing, genres, Soul Shades, and more." />
+        <title>DJ DX FAQ: About, Booking, Pricing and Music</title>
+        <meta name="description" content="Answers about DJ DX, the New York City DJ, producer and recording artist: where he is based, how to book, pricing, genres, Soul Shades and more." />
         <link rel="canonical" href="https://djdxmusic.com/faq" />
         <meta property="og:title" content="DJ DX FAQ — About, Booking, Pricing, Music" />
         <meta property="og:description" content="Frequently asked questions about DJ DX, Soul Shades, Hood Reggaeton, booking, pricing, and more." />

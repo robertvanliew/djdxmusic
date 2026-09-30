@@ -5,6 +5,8 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function AfrobeatsDJ() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -14,7 +16,7 @@ export default function AfrobeatsDJ() {
     <>
       <Helmet>
         <title>Afrobeats DJ NYC & NJ | Amapiano, Dancehall, Soca | DJ DX</title>
-        <meta name="description" content="Looking for an Afrobeats DJ in New York or New Jersey? DJ DX specializes in Afrobeats, Amapiano, Afropop, Dancehall, and Soca for weddings, cultural events, and parties across NYC and NJ." />
+        <meta name="description" content="Afrobeats DJ in New York and New Jersey. DJ DX plays Afrobeats, Amapiano, Afropop, Dancehall and Soca for weddings, cultural events and parties." />
         <link rel="canonical" href="https://djdxmusic.com/afrobeats-amapiano-dj-nyc-nj" />
         <meta property="og:title" content="Afrobeats DJ NYC & NJ — DJ DX" />
         <meta property="og:description" content="Professional Afrobeats DJ in New York and New Jersey specializing in Amapiano, Afropop, Dancehall, and Soca. Book DJ DX for your wedding, cultural celebration, or private party." />
@@ -261,6 +263,9 @@ export default function AfrobeatsDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section className="booking" id="booking">
         <div className="section-inner">
           <div className="booking-layout">

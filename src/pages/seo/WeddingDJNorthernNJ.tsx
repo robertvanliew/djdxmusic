@@ -5,14 +5,16 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function WeddingDJNorthernNJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>Wedding DJ Northern NJ | Newark, Jersey City, Hoboken, Bergen County | DJ DX</title>
-        <meta name="description" content="Northern New Jersey wedding DJ — DJ DX is available for premier NJ venues including The Venetian, Liberty House, Park Avenue Club, and The Tides Estate. R&B, Hip-Hop, Afrobeats, Latin." />
+        <title>Wedding DJ Northern NJ | Jersey City & Hoboken | DJ DX</title>
+        <meta name="description" content="Northern NJ wedding DJ for venues including The Venetian, Liberty House, Park Avenue Club and The Tides Estate. R&B, Hip-Hop, Afrobeats, Latin." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-northern-nj" />
         <meta property="og:title" content="Wedding DJ Northern NJ — DJ DX" />
         <meta property="og:description" content="Northern New Jersey wedding DJ. Available for Newark, Jersey City, Hoboken, Bergen County, and Essex County weddings. Multi-cultural NJ weddings done right." />
@@ -197,6 +199,9 @@ export default function WeddingDJNorthernNJ() {
           </div>
         </div>
       </section>
+
+      <ProofBlock />
+      <AuthorBio />
 
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">

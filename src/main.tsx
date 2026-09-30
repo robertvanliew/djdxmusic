@@ -7,6 +7,7 @@ import './index.css'
 import './news.css'
 import './poll.css'
 import './nav.css'
+import './service.css'
 import App from './App.tsx'
 import { CartProvider } from './components/CartContext.tsx'
 import { PlayerProvider } from './components/PlayerContext.tsx'
@@ -46,6 +47,9 @@ const RBHipHopDJ  = lazy(() => import('./pages/seo/RBHipHopDJ.tsx'))
 const DJForHireNYC = lazy(() => import('./pages/seo/DJForHireNYC.tsx'))
 const NewYearsEveDJ = lazy(() => import('./pages/seo/NewYearsEveDJ.tsx'))
 const HolidayPartyDJ = lazy(() => import('./pages/seo/HolidayPartyDJ.tsx'))
+const CorporateJerseyCity = lazy(() => import('./pages/seo/CorporateJerseyCity.tsx'))
+const CorporateBrooklyn = lazy(() => import('./pages/seo/CorporateBrooklyn.tsx'))
+const BirthdayPartyDJ = lazy(() => import('./pages/seo/BirthdayPartyDJ.tsx'))
 const PrivatePartyDJ = lazy(() => import('./pages/seo/PrivatePartyDJ.tsx'))
 const HipHopDJ    = lazy(() => import('./pages/seo/HipHopDJ.tsx'))
 const Sweet16DJ   = lazy(() => import('./pages/seo/Sweet16DJ.tsx'))
@@ -122,6 +126,9 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/dj-for-hire-nyc" element={<DJForHireNYC />} />
             <Route path="/new-years-eve-dj-nyc" element={<NewYearsEveDJ />} />
             <Route path="/holiday-party-dj-nyc-nj-ct" element={<HolidayPartyDJ />} />
+            <Route path="/corporate-event-dj-jersey-city-nj" element={<CorporateJerseyCity />} />
+            <Route path="/corporate-event-dj-brooklyn-ny" element={<CorporateBrooklyn />} />
+            <Route path="/birthday-party-dj-nyc-nj" element={<BirthdayPartyDJ />} />
             <Route path="/private-party-dj-nyc-nj" element={<PrivatePartyDJ />} />
             <Route path="/hip-hop-dj-nyc-nj" element={<HipHopDJ />} />
             <Route path="/sweet-16-dj-nyc-nj" element={<Sweet16DJ />} />

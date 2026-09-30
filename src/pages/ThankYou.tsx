@@ -18,7 +18,8 @@ export default function ThankYou() {
   return (
     <>
       <Helmet>
-        <title>Thank You — Your DJ DX Music Order</title>
+        <title>Thank You: Your DJ DX Music Order</title>
+        <meta name="description" content="Thanks for your order from the DJ DX music store." />
         <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href="https://djdxmusic.com/thank-you" />
       </Helmet>

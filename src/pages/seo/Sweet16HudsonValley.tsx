@@ -5,23 +5,25 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function Sweet16HudsonValley() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>Sweet 16 DJ: Kingston, Saugerties, Red Hook NY | From $1,500</title>
-        <meta name="description" content="Sweet 16 DJ for Kingston, Saugerties, Red Hook, Millbrook, New Paltz and the greater Hudson Valley. Hip-hop, pop, Afrobeats. From $1,500, travel quoted upfront." />
+        <title>Sweet 16 DJ Hudson Valley: Kingston, New Paltz &amp; Beyond</title>
+        <meta name="description" content="Sweet 16 DJ for Kingston, New Paltz, Saugerties, Millbrook, Wappingers Falls and the Hudson Valley. Clean, high-energy sets. Published starting prices." />
         <link rel="canonical" href="https://djdxmusic.com/sweet-16-dj-hudson-valley-ny" />
-        <meta property="og:title" content="Sweet 16 DJ in the Hudson Valley — From $1,500 | DJ DX" />
+        <meta property="og:title" content="Sweet 16 DJ Hudson Valley: Kingston, New Paltz &amp; Beyond" />
         <meta property="og:description" content="Sweet 16 DJ serving Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and the greater Hudson Valley. Hip-hop, pop, Afrobeats, and custom sets for her night." />
         <meta property="og:url" content="https://djdxmusic.com/sweet-16-dj-hudson-valley-ny" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Sweet 16 DJ in the Hudson Valley — From $1,500 | DJ DX" />
+        <meta name="twitter:title" content="Sweet 16 DJ Hudson Valley: Kingston, New Paltz &amp; Beyond" />
         <meta name="twitter:description" content="Sweet 16 DJ serving Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and the greater Hudson Valley." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
@@ -149,14 +151,14 @@ export default function Sweet16HudsonValley() {
         <div className="epk-hero-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(12,12,12,0.2) 0%, rgba(12,12,12,0.92) 100%)' }} />
         <div className="section-inner" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <div className="sec-overline" style={{ justifyContent: 'center' }}>
-            <span className="sec-label">Sweet 16 DJ — Hudson Valley, NY</span>
+            <span className="sec-label">Sweet 16 DJ: Hudson Valley, NY</span>
           </div>
           <h1 className="sec-title" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', marginBottom: '1.2rem' }}>
             Sweet 16 DJ Serving the <span>Hudson Valley</span>
           </h1>
           <p style={{ maxWidth: '640px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
-            Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and Catskill —
-            hip-hop, pop, Afrobeats, and all the songs she's actually listening to right now.
+            Sweet 16 DJ for Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and Catskill.
+            Clean, high-energy sets with hip-hop, pop, Afrobeats, and all the songs she's actually listening to right now.
           </p>
           <a href="#booking" className="btn-gold">Request a Quote</a>
         </div>
@@ -296,6 +298,9 @@ export default function Sweet16HudsonValley() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">

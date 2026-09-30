@@ -5,6 +5,8 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 const TIERS = [
   {
     id: 'essentials',
@@ -82,8 +84,8 @@ export default function WeddingPackage() {
   return (
     <>
       <Helmet>
-        <title>Wedding Entertainment Package NYC & NJ: DJ + Live Music + Video | DJ DX</title>
-        <meta name="description" content="Full wedding entertainment package: DJ, live violin & piano, and professional videography — one team, one price, from $6,200. Serving NYC, NJ, CT & the Hamptons." />
+        <title>Wedding Entertainment Package NYC & NJ: DJ, Music, Video</title>
+        <meta name="description" content="Full wedding entertainment package: DJ, live violin and piano, and videography. One team, one price, from $6,200. Serving NYC, NJ, CT and the Hamptons." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-entertainment-package-nyc-nj" />
         <meta property="og:title" content="Wedding Entertainment Package NYC & NJ — DJ + Live Music + Video" />
         <meta property="og:description" content="One team for DJ, live music, and videography — instead of coordinating three separate vendors. Packages from $6,200." />
@@ -320,6 +322,9 @@ export default function WeddingPackage() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">

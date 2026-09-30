@@ -9,6 +9,9 @@ import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 import HeroPhotoSlideshow from '../../components/HeroPhotoSlideshow';
+import { Link } from 'react-router-dom';
+import ProofBlock, { ClientNames } from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 
 // Client name for the most recent booking. Kept as a single constant so the
 // showcase can be anonymised ("a national energy company") in one edit if the
@@ -23,6 +26,99 @@ const CORPORATE_HERO_PHOTOS = [
   { src: '/nautadutilh-group-photo-cathedral-nyc.jpg', alt: 'NautaDutilh corporate reception guests, rooftop garden with St. Patrick\'s Cathedral and Manhattan skyline' },
 ];
 
+// One list drives both the visible FAQ and the FAQPage schema, so they always match.
+const CORP_FAQ = [
+  { q: 'What makes DJ DX different from other corporate event DJs in NYC?', a: 'DJ DX brings 25+ years of professional experience, a TEDx performance credit, and 500+ events across New York, New Jersey, and Connecticut to every corporate booking. That means clean playlist curation, a professional MC voice, and the ability to read a room, moving from background music during networking to a full dance floor at the end of the night.' },
+  { q: 'How much does a corporate event DJ cost in New York City?', a: 'Corporate event DJ pricing in NYC typically runs $2,800 to $8,000+ depending on hours, guest count, and add-ons like the Soul Shades violin duo. DJ DX corporate events start at $2,800, and you get an itemized quote within 24 hours. Send your date, venue, and guest count to bookings@djdxmusic.com.' },
+  { q: 'How far ahead should we book a DJ for an office holiday party?', a: 'Book 90 to 120 days out if you can. December Thursdays, Fridays, and Saturdays in Manhattan are the first dates to go, and most of them are claimed in September and October. If your party is in December, check your date now.' },
+  { q: 'Do you provide sound and microphones for speeches?', a: 'Yes. Every corporate booking includes professional sound sized to the room and a wireless microphone for speeches, toasts, and award announcements. DJ DX can also MC: introducing the CEO, calling award winners, and keeping the run of show on time.' },
+  { q: 'Does DJ DX provide clean, work-appropriate playlists for corporate events?', a: 'Yes. Corporate sets use radio edits only, at a volume people can talk over during the reception, then build to a dance floor for the social part of the night. You can also send a do-not-play list, and it will be followed.' },
+  { q: 'Are you insured?', a: 'Yes. A certificate of insurance (COI) is available for your venue and your risk team. Send the venue\'s requirements and the COI is issued to match.' },
+  { q: 'How does billing work for companies?', a: 'Every booking has a written contract. A 50% deposit holds the date and the balance is due 14 days before the event. A W-9 is available on request so accounts payable can set DJ DX up as a vendor, and invoices go to whoever handles payment on your side.' },
+  { q: 'What types of corporate events does DJ DX perform at?', a: 'Holiday parties, client events, galas, product launches, summer parties, retreats, and award nights across NYC, NJ, and CT. The Soul Shades violin and DJ duo is a popular upgrade for gala dinners and brand events.' },
+  { q: 'Do you DJ corporate events in Brooklyn?', a: 'Yes. DJ DX is based in Brooklyn and plays corporate events across the borough, including DUMBO loft spaces, Brooklyn Navy Yard venues, Williamsburg rooftops, and Industry City. Load-in is planned ahead so there are no day-of surprises with freight elevators or load-in windows.' },
+  { q: 'Do you DJ corporate events in Jersey City and Hoboken?', a: 'Yes. DJ DX was born and raised in Jersey City, and Jersey City and Hoboken are core service areas. Travel outside NYC is quoted up front as its own line, so the total is clear before you sign.' },
+  { q: 'Do you travel to New Jersey and Connecticut?', a: 'Yes. DJ DX plays corporate events across New Jersey, Westchester, Long Island, and Connecticut, including Stamford and Greenwich. Travel outside NYC is quoted up front as its own line on your quote.' },
+];
+
+const CORP_SCHEMA = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Corporate Event DJ NYC, Brooklyn & Jersey City',
+    serviceType: 'Corporate event DJ',
+    url: 'https://djdxmusic.com/corporate-event-dj-nyc-nj-ct',
+    description: 'Corporate event and office party DJ for holiday parties, client events, galas, product launches, summer parties, retreats, and award nights in NYC, Brooklyn, Jersey City, and the NY/NJ/CT region. Corporate events start at $2,800.',
+    provider: { '@id': 'https://djdxmusic.com/#djdx' },
+    areaServed: [
+      { '@type': 'City', name: 'New York City' },
+      { '@type': 'City', name: 'Manhattan' },
+      { '@type': 'City', name: 'Brooklyn' },
+      { '@type': 'City', name: 'Queens' },
+      { '@type': 'City', name: 'Jersey City' },
+      { '@type': 'City', name: 'Hoboken' },
+      { '@type': 'AdministrativeArea', name: 'Westchester County' },
+      { '@type': 'AdministrativeArea', name: 'Long Island' },
+      { '@type': 'City', name: 'Stamford' },
+      { '@type': 'City', name: 'Greenwich' },
+      { '@type': 'State', name: 'New York' },
+      { '@type': 'State', name: 'New Jersey' },
+      { '@type': 'State', name: 'Connecticut' },
+    ],
+    offers: { '@type': 'Offer', price: '2800', priceCurrency: 'USD', description: 'Starting price for a corporate event DJ booking' },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Corporate DJ Packages',
+      itemListElement: ['Corporate Gala DJ', 'Office Holiday Party DJ', 'Brand Activation DJ', 'Product Launch Entertainment', 'Live Violin and DJ Duo for Corporate Events']
+        .map(name => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: CORP_FAQ.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: `Corporate Event DJ Manhattan: ${RECENT_CLIENT} Office Party Highlights, Midtown NYC`,
+    description: `Highlights from a September 2026 in-office corporate reception for ${RECENT_CLIENT} in Midtown Manhattan, with DJ DX on the decks and full DJ setup and sound brought into a corporate event space overlooking the NYC skyline.`,
+    thumbnailUrl: 'https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc-poster.jpg',
+    uploadDate: '2026-09-14T12:00:00-04:00',
+    duration: 'PT29S',
+    contentUrl: 'https://djdxmusic.com/videos/corporate-dj-manhattan-office-party-nyc.mp4',
+  },
+  ...[
+    ['Corporate Event DJ Manhattan: DJ DX at an in-office company party, Midtown NYC', 'corporate-dj-manhattan-office-party-nyc.jpg'],
+    ['Corporate Event DJ Booth Setup: Manhattan Office Party, Midtown NYC', 'corporate-event-dj-booth-manhattan-nyc.jpg'],
+    ['Manhattan Corporate Event Space with Skyline Views: Company Party, Midtown NYC', 'corporate-event-venue-manhattan-skyline-nyc.jpg'],
+  ].map(([name, file]) => ({
+    '@context': 'https://schema.org',
+    '@type': 'ImageObject',
+    name,
+    contentUrl: `https://djdxmusic.com/${file}`,
+    uploadDate: '2026-09-14T12:00:00-04:00',
+  })),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://djdxmusic.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Corporate Event DJ NYC NJ CT', item: 'https://djdxmusic.com/corporate-event-dj-nyc-nj-ct' },
+    ],
+  },
+];
+
+const EVENT_TYPES: { name: string; key: string; desc: string }[] = [
+  { key: 'holiday', name: 'Holiday parties', desc: 'December office parties and year-end celebrations. See the office holiday party DJ page for dates and details.' },
+  { key: 'client', name: 'Client events', desc: 'Receptions and appreciation nights where the music stays under the conversation.' },
+  { key: 'gala', name: 'Galas', desc: 'Dinner sets, award walk-ups, and a dance floor after the program.' },
+  { key: 'launch', name: 'Product launches', desc: 'Music timed to reveals and speakers, with a sound check before doors.' },
+  { key: 'summer', name: 'Summer parties', desc: 'Rooftops, terraces, and outdoor company days.' },
+  { key: 'retreat', name: 'Retreats', desc: 'Off-site evenings in Westchester, Connecticut, and beyond.' },
+  { key: 'awards', name: 'Award nights', desc: 'Walk-up music, MC calls for each winner, and a clean run of show.' },
+];
+
 export default function Corporate() {
   // Always start at top on load
   useEffect(() => {
@@ -32,153 +128,20 @@ export default function Corporate() {
   return (
     <>
       <Helmet>
-        <title>Corporate Event DJ NYC, NJ &amp; CT: From $2,800 | DJ DX</title>
-        <meta name="description" content="Corporate event and holiday party DJ in NYC, NJ, and CT from $2,800. Brand-safe, HR-approved playlists for office parties, galas, and brand activations — recent Manhattan corporate bookings include LS Power and NautaDutilh. Custom quote in 24 hours." />
+        <title>Corporate Event DJ NYC, Brooklyn &amp; Jersey City | DJ DX</title>
+        <meta name="description" content="Corporate event and office party DJ for NYC, Brooklyn, Jersey City and the Tri-State. Law firm and luxury retail clients. COI and W-9 ready. Quote in 24 hours." />
         <link rel="canonical" href="https://djdxmusic.com/corporate-event-dj-nyc-nj-ct" />
-        <meta property="og:title" content="Corporate Event DJ NYC, NJ, CT — DJ DX" />
-        <meta property="og:description" content="Professional corporate event DJ for Fortune 500 galas, holiday parties, and luxury brand activations. DJ DX — NYC's premium corporate entertainment. TED-featured, 500+ events." />
+        <meta property="og:title" content="Corporate Event DJ NYC, Brooklyn &amp; Jersey City | DJ DX" />
+        <meta property="og:description" content="Corporate event and office party DJ for NYC, Brooklyn, Jersey City and the Tri-State. Law firm and luxury retail clients. COI and W-9 ready. Quote in 24 hours." />
         <meta property="og:url" content="https://djdxmusic.com/corporate-event-dj-nyc-nj-ct" />
         <meta property="og:image" content="https://djdxmusic.com/latest-corporate-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Corporate Event DJ NYC, NJ, CT — DJ DX" />
-        <meta name="twitter:description" content="Professional corporate event DJ for Fortune 500 galas, holiday parties, and luxury brand activations in NYC and the tri-state area." />
+        <meta name="twitter:title" content="Corporate Event DJ NYC, Brooklyn &amp; Jersey City | DJ DX" />
+        <meta name="twitter:description" content="Corporate event and office party DJ for NYC, Brooklyn, Jersey City and the Tri-State. COI and W-9 ready. Quote in 24 hours." />
         <meta name="twitter:image" content="https://djdxmusic.com/latest-corporate-hero.jpg" />
-        <script type="application/ld+json">
-          {`[
-            {
-              "@context": "https://schema.org",
-              "@type": "Service",
-              "name": "Corporate Event DJ NYC, NJ & CT",
-              "serviceType": "Corporate Event DJ",
-              "url": "https://djdxmusic.com/corporate-event-dj-nyc-nj-ct",
-              "description": "Professional DJ entertainment for Fortune 500 companies, corporate galas, holiday parties, product launches, and luxury brand activations across New York City, New Jersey, and Connecticut. DJ DX brings 25+ years of experience and 500+ events performed.",
-              "provider": {
-                "@type": ["EntertainmentBusiness", "LocalBusiness"],
-                "name": "DJ DX",
-                "url": "https://djdxmusic.com/",
-                "image": "https://djdxmusic.com/epk-hero.jpg",
-                "email": "bookings@djdxmusic.com",
-                "priceRange": "$$$",
-                "sameAs": ["https://djdxmusic.com/", "https://www.ted.com/talks/dj_dx_finally_moving", "https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/", "https://share.google/v7RARn4fdsghIcXyX", "https://profile.google.com/@djdxmusic"],
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "5.0",
-                  "reviewCount": "6",
-                  "bestRating": "5",
-                  "worstRating": "1"
-                }
-              },
-              "areaServed": [
-                {"@type": "City", "name": "New York City"},
-                {"@type": "City", "name": "Manhattan"},
-                {"@type": "City", "name": "Brooklyn"},
-                {"@type": "City", "name": "Long Island"},
-                {"@type": "City", "name": "Westchester"},
-                {"@type": "City", "name": "Jersey City"},
-                {"@type": "City", "name": "Hoboken"},
-                {"@type": "City", "name": "Newark"},
-                {"@type": "City", "name": "Stamford"},
-                {"@type": "City", "name": "Greenwich"},
-                {"@type": "City", "name": "New Haven"},
-                {"@type": "City", "name": "Hartford"},
-                {"@type": "State", "name": "New York"},
-                {"@type": "State", "name": "New Jersey"},
-                {"@type": "State", "name": "Connecticut"},
-                {"@type": "AdministrativeArea", "name": "Tri-State Area (NY, NJ, CT)"}
-              ],
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "Corporate DJ Packages",
-                "itemListElement": [
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Corporate Gala DJ"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Holiday Party DJ NYC"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brand Activation DJ"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Product Launch Entertainment"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Live Violin and DJ Duo for Corporate Events"}}
-                ]
-              }
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "What makes DJ DX different from other corporate event DJs in NYC?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "DJ DX brings 25+ years of professional experience, a TEDx performance credit, and a proven track record of 500+ events across New York, New Jersey, and Connecticut to every corporate booking. Specialties include clean, HR-approved playlist curation, professional emcee services, and the ability to read a room — shifting seamlessly from background networking music to a full dance floor closer."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "How much does a corporate event DJ cost in New York City?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Corporate event DJ pricing in New York City typically ranges from $2,800 to $8,000+ depending on event duration, guest count, setup complexity, and whether emcee or live entertainment add-ons like the Soul Shades violin duo are included. DJ DX provides transparent, itemized quotes within 24–48 hours — contact bookings@djdxmusic.com with your event date, venue, and estimated guest count."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Does DJ DX provide clean, work-appropriate playlists for corporate events?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes. DJ DX specializes in radio-edited, HR-approved music programming designed specifically for professional corporate environments. Sets are custom-curated to maintain appropriate volume levels for networking during cocktail hour, then escalate to high-energy dance floor programming for the event's social portion. No inappropriate lyrics, no embarrassing moments — just sophisticated entertainment that reflects well on your brand and event team."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "What types of corporate events does DJ DX perform at in NYC?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "DJ DX performs at Fortune 500 holiday parties, corporate galas, product launches, brand activations, award ceremonies, rooftop events, and executive retreats across New York City, New Jersey, and Connecticut. The Soul Shades violin and DJ duo package is particularly popular for upscale brand activations and gala dinners where live music elevates the experience beyond a standard DJ set."
-                  }
-                }
-              ]
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "VideoObject",
-              "name": "Corporate Event DJ Manhattan — ${RECENT_CLIENT} Office Party Highlights, Midtown NYC",
-              "description": "Highlights from a September 2026 in-office corporate reception for ${RECENT_CLIENT} in Midtown Manhattan, with DJ DX on the decks — full DJ setup and sound brought into a corporate event space overlooking the NYC skyline.",
-              "thumbnailUrl": "https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc-poster.jpg",
-              "uploadDate": "2026-09-14T12:00:00-04:00",
-              "duration": "PT29S",
-              "contentUrl": "https://djdxmusic.com/videos/corporate-dj-manhattan-office-party-nyc.mp4"
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "ImageObject",
-              "name": "Corporate Event DJ Manhattan — DJ DX at an in-office company party, Midtown NYC",
-              "contentUrl": "https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc.jpg",
-              "uploadDate": "2026-09-14T12:00:00-04:00"
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "ImageObject",
-              "name": "Corporate Event DJ Booth Setup — Manhattan Office Party, Midtown NYC",
-              "contentUrl": "https://djdxmusic.com/corporate-event-dj-booth-manhattan-nyc.jpg",
-              "uploadDate": "2026-09-14T12:00:00-04:00"
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "ImageObject",
-              "name": "Manhattan Corporate Event Space with Skyline Views — Company Party, Midtown NYC",
-              "contentUrl": "https://djdxmusic.com/corporate-event-venue-manhattan-skyline-nyc.jpg",
-              "uploadDate": "2026-09-14T12:00:00-04:00"
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://djdxmusic.com/"},
-                {"@type": "ListItem", "position": 2, "name": "Corporate Event DJ NYC NJ CT", "item": "https://djdxmusic.com/corporate-event-dj-nyc-nj-ct"}
-              ]
-            }
-          ]`}
-        </script>
+        <script type="application/ld+json">{JSON.stringify(CORP_SCHEMA)}</script>
       </Helmet>
 
       <SiteNav />
@@ -188,21 +151,22 @@ export default function Corporate() {
         <div className="epk-hero-bg" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
           <HeroPhotoSlideshow photos={CORPORATE_HERO_PHOTOS} />
         </div>
-        <div className="epk-hero-overlay" style={{ 
+        <div className="epk-hero-overlay" style={{
           position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
           background: 'radial-gradient(circle at bottom right, rgba(12,12,12,1) 0%, rgba(12,12,12,1) 8%, transparent 20%), linear-gradient(to bottom, rgba(12,12,12,0.1) 0%, rgba(12,12,12,0.95) 100%), radial-gradient(circle at 50% 30%, rgba(235, 191, 109, 0.2) 0%, transparent 60%)'
         }} />
-        
+
         <div className="section-inner" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <div className="sec-overline" style={{ justifyContent: 'center' }}>
             <span className="sec-label">Corporate Entertainment</span>
           </div>
           <h1 className="epk-title" style={{ fontSize: 'var(--text-6xl)', marginBottom: '1rem' }}>
-            Elevate Your Corporate Event
+            Corporate Event DJ in NYC, Brooklyn and Jersey City
           </h1>
           <p className="epk-lead" style={{ maxWidth: '600px', margin: '0 auto', fontSize: 'var(--text-lg)' }}>
-            Premium, brand-safe DJ and Producer entertainment for Fortune 500 holiday parties, 
-            galas, and luxury activations across New York, New Jersey, and Connecticut.
+            DJ DX is a corporate event DJ for office parties, client events, and galas in NYC, Brooklyn, Jersey City,
+            and across New York, New Jersey, and Connecticut. Clean sets, a clear MC voice, and paperwork your finance
+            team can approve. Corporate events start at $2,800.
           </p>
           <div style={{ marginTop: '2rem' }}>
             <a href="#booking" className="btn-gold">Request Quote</a>
@@ -223,14 +187,15 @@ export default function Corporate() {
               </div>
               <div className="about-body sr" data-sr-delay="0.12s">
                 <p>
-                  Finding the right entertainment for a corporate event in the NY, NJ, or CT area is entirely different from booking a nightclub or a wedding. 
-                  You need absolute professionalism, perfect volume control for networking, and talent who genuinely understands the flow of an executive "run of show."
+                  Hiring a corporate event DJ in NYC is different from booking a club night or a wedding. A good corporate party DJ keeps the
+                  volume right for networking, follows your run of show, and handles speeches and awards without fuss, then opens up a
+                  dance floor when the room is ready.
                 </p>
                 <p>
-                  <strong>No cheesy gimmicks, no inappropriate playlists.</strong> Whether you book DJ DX individually or the high-energy live DJ/Producer duo Soul Shades, expect seamless, sophisticated music curation that matches the prestige of your brand. We specialize in curating the perfect vibe—from tasteful background music during dinner & cocktails to packed dance floors to close out the night.
+                  <strong>No cheesy gimmicks, no inappropriate playlists.</strong> Whether you book DJ DX individually or the high-energy live DJ/Producer duo Soul Shades, expect music chosen for your crowd and your brand: easy background music during dinner and cocktails, then a packed dance floor to close out the night.
                 </p>
                 <p>
-                  With over 25 years of experience, TEDx features, and countless high-end performances across the NYC/NJ/CT tri-state area, DJ DX and Soul Shades represent the trusted choice for discerning corporate event planners.
+                  DJ DX has been DJing since 1998, with 500+ events across the NYC, NJ, and CT tri-state area, a TEDxYouth@RVA performance, and features in Disrupt Magazine and NJ.com.
                 </p>
                 <p>
                   Recent booking: the <strong>NautaDutilh</strong> reception at <strong>620 Loft &amp; Garden</strong>, a rooftop garden space overlooking St. Patrick's Cathedral and the Rockefeller Center skyline. 175 guests, full evening coverage from cocktail hour through the after-party — DJ DX on the decks with Soul Shades violinist Julie Schatz layering live strings over the set.
@@ -259,6 +224,28 @@ export default function Corporate() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── EVENT TYPES ── */}
+      <section style={{ padding: '72px 24px' }}>
+        <div className="section-inner" style={{ maxWidth: '1000px' }}>
+          <div className="sec-overline" style={{ justifyContent: 'center' }}>
+            <span className="sec-overline-line" /><span className="sec-label">Event Types</span><span className="sec-overline-line" />
+          </div>
+          <h2 className="sec-title" style={{ textAlign: 'center', marginBottom: '28px' }}>
+            Corporate Events <span>DJ DX Plays</span>
+          </h2>
+          <ul className="lp-list">
+            {EVENT_TYPES.map(t => (
+              <li key={t.key}>
+                <strong>{t.name}</strong>{' '}
+                {t.key === 'holiday'
+                  ? <>December office parties and year-end celebrations. See the <Link to="/holiday-party-dj-nyc-nj-ct">office holiday party DJ</Link> page for dates and details.</>
+                  : t.desc}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -388,28 +375,23 @@ export default function Corporate() {
             </div>
           </div>
 
-          <div className="cb-quotes">
-            <div className="cb-quote sr" data-sr-delay="0.05s">
-              <span className="cb-quote-mark" aria-hidden="true">&ldquo;</span>
-              <p className="cb-quote-text">
-                The music was just perfect and the vibe was great. I love the uniqueness of keyboard and violin together with DJing — I don&apos;t think there are a lot of DJs who come with this built into the duo.
-              </p>
-              <div className="cb-quote-name">
-                Sue Krebs<span> — NautaDutilh New York P.C.</span>
-              </div>
-            </div>
-            <div className="cb-quote sr" data-sr-delay="0.1s">
-              <span className="cb-quote-mark" aria-hidden="true">&ldquo;</span>
-              <p className="cb-quote-text">
-                Your performance set the tone for our event, and the addition of the violin amplified our guests&apos; experience and made the evening memorable.
-              </p>
-              <div className="cb-quote-name">
-                Anna Naraine<span> — NautaDutilh New York P.C.</span>
-              </div>
-            </div>
-          </div>
+          <p className="duo-pointer">
+            This booking was Soul Shades, the DJ and live violin duo.{' '}
+            <a href="/soul-shades">See what NautaDutilh said about the duo</a>.
+          </p>
         </div>
       </section>
+
+      {/* ── CASE STUDY PLACEHOLDER: Saks Fifth Avenue, Water Mill ──
+          Pending client permission. Do not publish until Saks approves use of
+          its name. When approved, build as a section like the ones above:
+            Event type: luxury retail client event
+            Setting: garden event, Water Mill (Hamptons), NY
+            Talent: solo DJ (DJ DX)
+            Length: 3-hour garden event
+            Media: embedded vertical video (add the file under /public/videos/
+            and use the cb-shot--vertical-video layout)
+          [SAKS CASE STUDY: fill in once permission is confirmed] */}
 
       {/* ── VENUES & INDUSTRIES ── */}
       <section style={{ padding: '80px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
@@ -425,6 +407,22 @@ export default function Corporate() {
           <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '720px', margin: '0 auto 56px', fontSize: '1rem', lineHeight: 1.7 }}>
             Two decades of corporate work across the tri-state means familiarity with the venues, AV teams, and production cadences planners already know.
           </p>
+
+          <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.15rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '14px', textAlign: 'center' }}>
+            Service Areas
+          </h3>
+          <ul className="lp-list" style={{ marginBottom: '24px' }}>
+            <li><strong>Manhattan:</strong> Midtown, Downtown, Chelsea, and rooftop venues across the island.</li>
+            <li><strong><Link to="/corporate-event-dj-brooklyn-ny">Brooklyn</Link>:</strong> DUMBO, Williamsburg, Navy Yard, and Industry City. DJ DX is based here.</li>
+            <li><strong>Queens:</strong> Long Island City and waterfront event spaces.</li>
+            <li><strong><Link to="/corporate-event-dj-jersey-city-nj">Jersey City</Link>:</strong> Downtown, Newport, and Exchange Place. DJ DX was born and raised here.</li>
+            <li><strong>Hoboken:</strong> waterfront and hotel event spaces.</li>
+            <li><strong>Westchester:</strong> offices, hotels, and retreat venues.</li>
+            <li><strong>Long Island:</strong> corporate campuses, hotels, and summer events.</li>
+            <li><strong>Connecticut:</strong> Stamford, Greenwich, and the Gold Coast.</li>
+          </ul>
+          <ClientNames />
+          <div style={{ marginBottom: '48px' }} />
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', marginBottom: '48px' }}>
             <div>
@@ -501,14 +499,7 @@ export default function Corporate() {
             <h2 className="sec-title">Corporate DJ <span>FAQ</span></h2>
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {[
-              { q: 'What makes DJ DX different from other corporate event DJs in NYC?', a: 'DJ DX brings 25+ years of professional experience, a TEDx performance credit, and a proven track record of 500+ events across New York, New Jersey, and Connecticut to every corporate booking. Specialties include clean, HR-approved playlist curation, professional emcee services, and the ability to read a room — shifting seamlessly from background networking music to a full dance floor closer.' },
-              { q: 'How much does a corporate event DJ cost in New York City?', a: 'Corporate event DJ pricing in NYC typically ranges from $2,800 to $8,000+ depending on event duration, guest count, and whether add-ons like the Soul Shades violin duo are included. DJ DX provides transparent, itemized quotes within 24–48 hours — contact bookings@djdxmusic.com with your event date, venue, and guest count.' },
-              { q: 'Does DJ DX provide clean, work-appropriate playlists for corporate events?', a: 'Yes. DJ DX specializes in radio-edited, HR-approved music programming for professional corporate environments. Sets are curated to maintain appropriate volume for networking during cocktail hour, then escalate to high-energy dance floor programming for the social portion. No inappropriate lyrics, no embarrassing moments.' },
-              { q: 'What types of corporate events does DJ DX perform at in NYC?', a: 'DJ DX performs at Fortune 500 holiday parties, corporate galas, product launches, brand activations, award ceremonies, rooftop events, and executive retreats across NYC, NJ, and CT. The Soul Shades violin and DJ duo is particularly popular for upscale brand activations and gala dinners.' },
-              { q: 'Do you DJ corporate events in Brooklyn?', a: 'Yes. DJ DX regularly performs at corporate events across Brooklyn — including DUMBO loft spaces, Brooklyn Navy Yard venues, Williamsburg rooftops, and Industry City. Setup and load-in are factored into the quote so there are no day-of surprises around freight elevators or load-in windows.' },
-              { q: 'Do you DJ corporate events in Jersey City and Hoboken?', a: 'Yes. Jersey City and Hoboken are core service areas. Frequent venues include Maritime Parc, Liberty House, and the W Hotel Hoboken waterfront. Travel and setup for Hudson County events is included in the standard NYC-area corporate rate.' },
-            ].map(({ q, a }) => (
+            {CORP_FAQ.map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>
                 <p style={{ fontSize: '0.92rem', color: 'rgba(242,242,242,0.58)', lineHeight: 1.7 }}>{a}</p>
@@ -520,7 +511,10 @@ export default function Corporate() {
 
       {/* ── BOOKING ── */}
       <PollPromo />
-      <ProcurementNote />
+      <ProcurementNote heading="Working with procurement and AP" />
+
+      <ProofBlock />
+      <AuthorBio />
 
       <section className="booking" id="booking">
         <div className="section-inner">
@@ -533,18 +527,19 @@ export default function Corporate() {
                 Secure Your Date<br />in the <span>Tri-State</span>
               </h2>
               <p className="booking-blurb">
-                Whether you're planning a massive product launch in Manhattan, an executive retreat in Connecticut, or a holiday gala in New Jersey, fill out the form and I will respond within 24–48 hours to discuss availability, packages, and pricing.
+                Whether you're planning a massive product launch in Manhattan, an executive retreat in Connecticut, or a holiday gala in New Jersey, fill out the form and you will hear back within 24 hours with availability and pricing.
               </p>
+              <p className="booking-blurb"><a href="#quote-calculator" style={{ color: 'var(--gold)' }}>Want a number first? Get an instant starting price</a></p>
             </div>
 
             <div className="booking-right sr" data-sr-delay="0.15s">
-              <BookingForm />
+              <BookingForm initial={{ eventType: 'Corporate Event / Holiday Party' }} />
             </div>
           </div>
         </div>
       </section>
 
-      <QuoteCalculator formName="corporate" />
+      <QuoteCalculator formName="corporate" defaultEvent="corporate" />
       <RelatedServices />
       <StickyMobileCTA formName="corporate_sticky" label="Check My Date" />
       <SiteFooter />

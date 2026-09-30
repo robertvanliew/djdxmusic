@@ -8,6 +8,8 @@ import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 /*
  * Event DJ pricing report for the NYC tri-state market.
  *
@@ -71,7 +73,7 @@ export default function EventDJCost() {
     <>
       <Helmet>
         <title>Event DJ Cost in NYC, NJ &amp; CT: Real 2026 Prices | DJ DX</title>
-        <meta name="description" content="What event DJs actually cost in NYC, New Jersey, and Connecticut in 2026. Real published rates by event type, what drives the price, and how NYC compares to the national average. Corporate from $2,800, private parties from $2,200." />
+        <meta name="description" content="What event DJs cost in NYC, NJ and CT in 2026. Published rates by event type and what drives the price. Corporate from $2,800, private parties from $2,200." />
         <link rel="canonical" href="https://djdxmusic.com/event-dj-cost-nyc-nj-ct" />
         <meta property="og:title" content="Event DJ Cost in NYC, NJ & CT: Real 2026 Prices" />
         <meta property="og:description" content="Published rates by event type, the factors that actually move a DJ quote, and how New York City pricing compares to the national average." />
@@ -269,6 +271,9 @@ export default function EventDJCost() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section className="booking" id="booking">
         <div className="section-inner">
           <div className="booking-layout">

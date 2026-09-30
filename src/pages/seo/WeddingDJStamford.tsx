@@ -5,14 +5,16 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function WeddingDJStamford() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>Wedding DJ Stamford CT | Greenwich, New Canaan, Westport | DJ DX</title>
-        <meta name="description" content="Stamford CT wedding DJ — DJ DX is available for Fairfield County venues including The Loading Dock, Riverside Yacht Club, Belle Haven Club, and Greenwich Country Club. R&B, Hip-Hop, Afrobeats." />
+        <title>Wedding DJ Stamford CT | Greenwich & Westport | DJ DX</title>
+        <meta name="description" content="Stamford CT wedding DJ for Fairfield County venues including The Loading Dock, Riverside Yacht Club, Belle Haven Club and Greenwich Country Club." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-stamford-ct" />
         <meta property="og:title" content="Wedding DJ Stamford CT — DJ DX" />
         <meta property="og:description" content="Fairfield County wedding DJ. Available for Stamford, Greenwich, New Canaan, Westport, and Darien weddings. R&B, Hip-Hop, Afrobeats, and timeless blends." />
@@ -196,6 +198,9 @@ export default function WeddingDJStamford() {
           </div>
         </div>
       </section>
+
+      <ProofBlock />
+      <AuthorBio />
 
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">

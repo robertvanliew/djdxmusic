@@ -5,6 +5,8 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function DestinationDJ() {
   // Always start at top on load
   useEffect(() => {
@@ -210,6 +212,9 @@ export default function DestinationDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section className="booking" id="booking">
         <div className="section-inner">
           <div className="booking-layout">

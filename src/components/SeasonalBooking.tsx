@@ -24,7 +24,7 @@ export default function SeasonalBooking() {
       <div className="season-grid">
         <Link to="/holiday-party-dj-nyc-nj-ct" className="season-card">
           <span className="season-kicker">From $2,800</span>
-          <strong>Holiday &amp; Christmas Parties</strong>
+          <strong>Office Holiday Party DJ</strong>
           <span className="season-desc">Office Christmas parties, corporate holiday parties and private gatherings across NJ, NYC and CT.</span>
           <span className="season-go">See holiday dates <span aria-hidden="true">→</span></span>
         </Link>

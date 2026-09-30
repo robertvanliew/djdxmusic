@@ -5,25 +5,28 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 import BookingForm from '../../components/BookingForm';
+import { Link } from 'react-router-dom';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function DJForHireNYC() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>DJ for Hire NYC | Book a Professional DJ in New York | DJ DX</title>
-        <meta name="description" content="Book DJ DX — NYC's premier DJ for hire. Weddings, corporate events, private parties, rooftops & clubs. R&B, Hip-Hop, Afrobeats, House & more. TED-featured. 500+ events. Request a quote." />
+        <title>DJ for Hire NYC: Parties, Birthdays &amp; Private Events | DJ DX</title>
+        <meta name="description" content="Hire DJ DX for birthdays, private parties and events across NYC and NJ. 25+ years, 500+ events, published starting prices. Check your date today." />
         <link rel="canonical" href="https://djdxmusic.com/dj-for-hire-nyc" />
-        <meta property="og:title" content="DJ for Hire NYC — Professional DJ New York | DJ DX" />
-        <meta property="og:description" content="Book NYC's most versatile DJ. DJ DX performs at weddings, corporate events, private parties, rooftop events, and clubs across NYC, NJ, and the tri-state area. TED-featured, 500+ events." />
+        <meta property="og:title" content="DJ for Hire NYC: Parties, Birthdays &amp; Private Events | DJ DX" />
+        <meta property="og:description" content="Hire DJ DX for birthdays, private parties and events across NYC and NJ. 25+ years, 500+ events, published starting prices. Check your date today." />
         <meta property="og:url" content="https://djdxmusic.com/dj-for-hire-nyc" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="DJ for Hire NYC — DJ DX" />
-        <meta name="twitter:description" content="Book NYC's most versatile DJ for hire. Weddings, corporate events, private parties, rooftops & clubs. TED-featured, 500+ events." />
+        <meta name="twitter:title" content="DJ for Hire NYC: Parties, Birthdays &amp; Private Events | DJ DX" />
+        <meta name="twitter:description" content="Hire DJ DX for birthdays, private parties and events across NYC and NJ. 25+ years, 500+ events, published starting prices. Check your date today." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
           {`[
@@ -33,7 +36,7 @@ export default function DJForHireNYC() {
               "name": "DJ for Hire NYC — Professional DJ New York City",
               "serviceType": "DJ for Hire",
               "url": "https://djdxmusic.com/dj-for-hire-nyc",
-              "description": "DJ DX is a professional DJ for hire in New York City, serving weddings, corporate events, private parties, birthdays, rooftop events, nightclubs, and more across NYC, NJ, and the tri-state area. TED-featured artist. 25+ years experience. 500+ events. R&B, Hip-Hop, Afrobeats, House, and all genres.",
+              "description": "DJ DX is a professional DJ for hire in New York City, serving birthdays, private parties, weddings, rooftop events, nightclubs, and more across NYC, NJ, and the tri-state area. TED-featured artist. 25+ years experience. 500+ events. R&B, Hip-Hop, Afrobeats, House, and all genres.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -82,7 +85,6 @@ export default function DJForHireNYC() {
                 "name": "DJ Services NYC",
                 "itemListElement": [
                   {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wedding DJ NYC"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Corporate Event DJ New York"}},
                   {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Private Party DJ NYC"}},
                   {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Birthday Party DJ New York"}},
                   {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Afrobeats DJ NYC NJ"}},
@@ -101,7 +103,7 @@ export default function DJForHireNYC() {
                   "name": "How do I hire a DJ in New York City?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "To hire DJ DX in New York City, use the booking form on this page or email bookings@djdxmusic.com. Provide your event date, venue, event type, estimated guest count, and any music preferences. DJ DX responds within 24–48 hours with availability confirmation and a custom quote based on your specific event."
+                    "text": "To hire DJ DX in New York City, use the booking form on this page or email bookings@djdxmusic.com. Provide your event date, venue, event type, estimated guest count, and any music preferences. DJ DX responds within 24 hours with availability and a custom quote based on your specific event."
                   }
                 },
                 {
@@ -109,7 +111,7 @@ export default function DJForHireNYC() {
                   "name": "What events does DJ DX perform at in NYC and NJ?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "DJ DX performs at weddings, corporate events, private birthday parties, sweet sixteens, anniversary celebrations, rooftop parties, nightclub residencies, New Year's Eve events, brand activations, destination weddings, and Hamptons luxury events across NYC, NJ, CT, and internationally."
+                    "text": "DJ DX performs at private birthday parties, weddings, sweet sixteens, anniversary celebrations, rooftop parties, nightclub residencies, New Year's Eve events, brand activations, destination weddings, and Hamptons luxury events across NYC, NJ, CT, and internationally."
                   }
                 },
                 {
@@ -125,7 +127,7 @@ export default function DJForHireNYC() {
                   "name": "How much does it cost to hire a DJ in New York City?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "DJ hire rates in NYC range based on event type, duration, equipment, and DJ experience. DJ DX rates typically range from $2,200 for smaller private parties up to $5,000+ for full-day weddings or corporate galas. Custom quotes are provided for every inquiry — email bookings@djdxmusic.com with your event details."
+                    "text": "DJ hire rates in NYC range based on event type, duration, equipment, and DJ experience. DJ DX rates typically range from $2,200 for smaller private parties up to $5,000+ for full-day weddings. Custom quotes are provided for every inquiry. Email bookings@djdxmusic.com with your event details."
                   }
                 }
               ]
@@ -152,14 +154,14 @@ export default function DJForHireNYC() {
         <div className="epk-hero-overlay" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: 'linear-gradient(to bottom, rgba(12,12,12,0.2) 0%, rgba(12,12,12,0.92) 100%)' }} />
         <div className="section-inner" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <div className="sec-overline" style={{ justifyContent: 'center' }}>
-            <span className="sec-label">Professional DJ for Hire — New York City</span>
+            <span className="sec-label">Professional DJ for Hire: New York City</span>
           </div>
           <h1 className="sec-title" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', marginBottom: '1.2rem' }}>
-            Hire NYC's Most <span>Versatile DJ</span>
+            DJ for Hire in NYC <span>for Parties and Private Events</span>
           </h1>
           <p style={{ maxWidth: '640px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
-            Weddings, corporate galas, birthday parties, rooftop events, and club nights —
-            DJ DX brings 25+ years of craft and a TED-featured artist's ear to every booking.
+            Birthdays, private parties, rooftop events, and weddings across NYC and NJ. DJ DX has played
+            500+ events over 25+ years, and private parties start at $2,200.
           </p>
           <a href="#booking" className="btn-gold">Request a Quote</a>
         </div>
@@ -183,8 +185,8 @@ export default function DJForHireNYC() {
             <div className="about-aside">
               {[
                 { num: 'TED', label: 'Featured Artist', sub: 'TEDxYouth@RVA 2022 — the credential that separates DJ DX from every other DJ in the NYC market.' },
-                { num: '500+', label: 'Events Performed', sub: 'Weddings, corporate galas, birthday parties, clubs, rooftops, destination events worldwide.' },
-                { num: '20+', label: 'Years Experience', sub: 'Two decades of crowd-reading, genre mastery, and live performance craft across NYC and NJ.' },
+                { num: '500+', label: 'Events Performed', sub: 'Birthday parties, private parties, weddings, clubs, rooftops, and destination events.' },
+                { num: '25+', label: 'Years Experience', sub: 'DJing since 1998 across NYC and NJ, reading rooms and building sets live.' },
               ].map(s => (
                 <div className="stat-row sr" key={s.label}>
                   <div className="stat-num">{s.num}</div>
@@ -211,7 +213,7 @@ export default function DJForHireNYC() {
           <div className="services-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', marginTop: '48px' }}>
             {[
               { title: 'Wedding DJ NYC & NJ', href: '/wedding-dj-nyc-nj', desc: 'Ceremony, cocktail hour, reception, and after-party. Custom R&B, Hip-Hop, and Afrobeats setlists built around your story.' },
-              { title: 'Corporate Event DJ', href: '/corporate-event-dj-nyc-nj-ct', desc: 'Brand-safe, professional entertainment for galas, holiday parties, product launches, and Fortune 500 activations.' },
+              { title: 'Birthday Party DJ', href: '/birthday-party-dj-nyc-nj', desc: '30th, 40th, 50th and milestone birthdays at homes, restaurants, rooftops, and lounges, with the music built around the guest of honor.' },
               { title: 'Afrobeats & Amapiano DJ', href: '/afrobeats-amapiano-dj-nyc-nj', desc: 'Full African and Caribbean diaspora sound — Burna Boy, Wizkid, South African Amapiano, Dancehall, and Soca.' },
               { title: 'Violin & DJ Duo', href: '/violin-dj-duo-nyc-nj', desc: 'Soul Shades — live violin over DJ sets for luxury weddings and corporate galas. An experience guests never forget.' },
               { title: 'Hamptons Luxury DJ', href: '/hamptons-luxury-dj', desc: 'Premium entertainment for private estates, summer galas, and luxury outdoor events from Southampton to Montauk.' },
@@ -237,6 +239,11 @@ export default function DJForHireNYC() {
               </a>
             ))}
           </div>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', margin: '32px auto 0', maxWidth: '720px', fontSize: '0.98rem', lineHeight: 1.75 }}>
+            Celebrating a milestone? See the <Link to="/birthday-party-dj-nyc-nj" style={{ color: 'var(--gold)' }}>birthday party DJ</Link> page.
+            Planning a company event? See <Link to="/corporate-event-dj-nyc-nj-ct" style={{ color: 'var(--gold)' }}>corporate event DJ services</Link>.
+            December office party? Check dates with an <Link to="/holiday-party-dj-nyc-nj-ct" style={{ color: 'var(--gold)' }}>office holiday party DJ</Link>.
+          </p>
         </div>
       </section>
 
@@ -248,10 +255,10 @@ export default function DJForHireNYC() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'How do I hire a DJ in New York City?', a: 'Use the booking form on this page or email bookings@djdxmusic.com. Provide your event date, venue, event type, estimated guest count, and any music preferences. DJ DX responds within 24–48 hours with availability and a custom quote.' },
-              { q: 'What events does DJ DX perform at in NYC and NJ?', a: 'DJ DX performs at weddings, corporate events, private birthday parties, sweet sixteens, rooftop parties, nightclub residencies, New Year\'s Eve events, brand activations, destination weddings, and Hamptons luxury events across NYC, NJ, CT, and internationally.' },
+              { q: 'How do I hire a DJ in New York City?', a: 'Use the booking form on this page or email bookings@djdxmusic.com. Provide your event date, venue, event type, estimated guest count, and any music preferences. DJ DX responds within 24 hours with availability and a custom quote.' },
+              { q: 'What events does DJ DX perform at in NYC and NJ?', a: 'DJ DX performs at private birthday parties, weddings, sweet sixteens, rooftop parties, nightclub residencies, New Year\'s Eve events, brand activations, destination weddings, and Hamptons luxury events across NYC, NJ, CT, and internationally.' },
               { q: 'What makes DJ DX different from other DJs for hire in NYC?', a: 'DJ DX is a TED-featured artist, a music producer with 100+ originals on Spotify, and a DJ with 25+ years and 500+ events performed. DJ DX plays R&B, Hip-Hop, Afrobeats, Amapiano, House, Jersey Club, Old School, Dancehall, and Soca — one of the broadest authentic genre ranges of any DJ in the NYC market.' },
-              { q: 'How much does it cost to hire a DJ in New York City?', a: 'DJ DX rates typically range from $2,200 for smaller private parties up to $5,000+ for full-day weddings or corporate galas. Custom quotes are provided for every inquiry — email bookings@djdxmusic.com with your event details for transparent pricing.' },
+              { q: 'How much does it cost to hire a DJ in New York City?', a: 'DJ DX rates typically range from $2,200 for smaller private parties up to $5,000+ for full-day weddings. Custom quotes are provided for every inquiry. Email bookings@djdxmusic.com with your event details for transparent pricing.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>
@@ -263,6 +270,9 @@ export default function DJForHireNYC() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">
@@ -270,7 +280,7 @@ export default function DJForHireNYC() {
               <div className="sec-overline"><span className="sec-label">Book Your Date</span></div>
               <h2 className="sec-title">Ready to Book <span>NYC's Best DJ?</span></h2>
               <p style={{ color: 'rgba(242,242,242,0.55)', lineHeight: 1.8, marginTop: '16px' }}>
-                Tell us about your event and we'll respond within 24–48 hours with availability and a transparent custom quote. No hidden fees. No surprises.
+                Tell us about your event and we'll respond within 24 hours with availability and a transparent custom quote. No hidden fees. No surprises.
               </p>
             </div>
             <div className="booking-right">

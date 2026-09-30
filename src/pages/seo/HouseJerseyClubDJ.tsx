@@ -5,14 +5,16 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function HouseJerseyClubDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>House & Jersey Club DJ NYC NJ | Club, Lounge & Event DJ | DJ DX</title>
-        <meta name="description" content="Looking for a house or Jersey Club DJ in NYC or NJ? DJ DX plays deep house, afro house, Jersey Club, and club music for events, lounges & nightclubs across the tri-state area." />
+        <title>House & Jersey Club DJ NYC & NJ | Club and Event DJ | DJ DX</title>
+        <meta name="description" content="House and Jersey Club DJ in NYC and NJ. DJ DX plays deep house, afro house, Jersey Club and club music for events, lounges and nightclubs." />
         <link rel="canonical" href="https://djdxmusic.com/house-jersey-club-dj-nyc-nj" />
         <meta property="og:title" content="House & Jersey Club DJ NYC NJ — DJ DX" />
         <meta property="og:description" content="Professional house and Jersey Club DJ in New York and New Jersey. DJ DX plays deep house, afro house, tech house, and Jersey Club for clubs, lounges, and private events." />
@@ -237,6 +239,9 @@ export default function HouseJerseyClubDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">

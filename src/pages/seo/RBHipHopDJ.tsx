@@ -5,14 +5,16 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function RBHipHopDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>R&B & Hip-Hop DJ NYC & NJ | Events, Weddings & Parties | DJ DX</title>
-        <meta name="description" content="Looking for an R&B and Hip-Hop DJ in New York or New Jersey? DJ DX specializes in classic and modern R&B, Hip-Hop, and Old School for weddings, corporate events, and private parties. TED-featured, 500+ events." />
+        <title>R&B & Hip-Hop DJ NYC & NJ | Weddings & Parties | DJ DX</title>
+        <meta name="description" content="R&B and Hip-Hop DJ in New York and New Jersey. Classic and modern R&B, Hip-Hop and Old School for weddings, corporate events and parties. 500+ events." />
         <link rel="canonical" href="https://djdxmusic.com/rb-hip-hop-dj-nyc-nj" />
         <meta property="og:title" content="R&B & Hip-Hop DJ NYC & NJ — DJ DX" />
         <meta property="og:description" content="Professional R&B and Hip-Hop DJ in New York and New Jersey. DJ DX blends classic and modern R&B, Hip-Hop, and Old School for weddings, parties, and corporate events across the tri-state area." />
@@ -268,6 +270,9 @@ export default function RBHipHopDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
           <div className="booking-layout">

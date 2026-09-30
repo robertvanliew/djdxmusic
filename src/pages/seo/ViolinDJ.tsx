@@ -3,8 +3,11 @@ import { Helmet } from 'react-helmet-async';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
+import DuoTestimonials from '../../components/DuoTestimonials';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function ViolinDJ() {
   // Always start at top on load
   useEffect(() => {
@@ -15,7 +18,7 @@ export default function ViolinDJ() {
     <>
       <Helmet>
         <title>Violin and DJ Duo NYC & NJ | Soul Shades Entertainment</title>
-        <meta name="description" content="Looking for a live Violin and DJ duo? Soul Shades provides premium live strings and DJ entertainment for luxury weddings, corporate events, and parties in NYC, NJ, and CT." />
+        <meta name="description" content="Live violin and DJ duo for weddings, corporate events and parties in NYC, NJ and CT. Soul Shades pairs live strings with a DJ set. From $2,400." />
         <link rel="canonical" href="https://djdxmusic.com/violin-dj-duo-nyc-nj" />
         <meta property="og:title" content="Violin and DJ Duo NYC & NJ — Soul Shades" />
         <meta property="og:description" content="Live violin over DJ sets — Soul Shades is NYC's premier violin and DJ duo for luxury weddings and corporate events. Featuring DJ DX and Julie Schatz." />
@@ -217,6 +220,11 @@ export default function ViolinDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <DuoTestimonials />
+
+      <ProofBlock />
+      <AuthorBio />
+
       <section className="booking" id="booking">
         <div className="section-inner">
           <div className="booking-layout">

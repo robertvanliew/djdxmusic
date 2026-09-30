@@ -5,6 +5,8 @@ import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function WeddingDJManhattan() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -12,7 +14,7 @@ export default function WeddingDJManhattan() {
     <>
       <Helmet>
         <title>Wedding DJ Manhattan NYC | R&B, Hip-Hop, Afrobeats | DJ DX</title>
-        <meta name="description" content="Manhattan wedding DJ — DJ DX is available for premier NYC venues including Cipriani, Tribeca Rooftop, Pier Sixty, and Manhattan rooftops. R&B, Hip-Hop, Afrobeats, Old School. TED-featured. 500+ events." />
+        <meta name="description" content="Manhattan wedding DJ for NYC venues including Cipriani, Tribeca Rooftop and Pier Sixty. R&B, Hip-Hop, Afrobeats, Old School. TED-featured, 500+ events." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-manhattan-nyc" />
         <meta property="og:title" content="Wedding DJ Manhattan NYC — DJ DX" />
         <meta property="og:description" content="Manhattan's premier wedding DJ. Available for top NYC venues — Cipriani, Tribeca Rooftop, Pier Sixty, and more. R&B, Hip-Hop, Afrobeats, and timeless blends." />
@@ -195,6 +197,9 @@ export default function WeddingDJManhattan() {
           </div>
         </div>
       </section>
+
+      <ProofBlock />
+      <AuthorBio />
 
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">

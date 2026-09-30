@@ -8,6 +8,8 @@ import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 const FAQ_ITEMS = [
   {
     q: 'How much does a wedding DJ cost in NYC?',
@@ -32,6 +34,18 @@ const FAQ_ITEMS = [
   {
     q: 'Do you charge for travel?',
     a: 'Travel within New York City is included in the quoted total. Weddings in New Jersey, Long Island, Westchester, and Connecticut are quoted with travel included up front — one number, no surprise fees on the invoice.',
+  },
+  {
+    q: 'How much should a DJ charge for 4 hours?',
+    a: 'At DJ DX, the $2,800 wedding starting rate covers up to five hours of performance, so a four-hour reception starts at the same $2,800 rather than being billed by the hour. Setup and breakdown happen outside those hours and are not charged as extra time. If you only need a shorter ceremony or cocktail hour set, ask for a quote, since that changes what equipment and staffing the day needs.',
+  },
+  {
+    q: 'What is the average wedding DJ cost in NJ?',
+    a: 'Our 2026 event DJ pricing report puts typical wedding DJ quotes across NYC, New Jersey, and Connecticut at $2,000 to $4,000. DJ DX weddings in New Jersey start at $2,800, the same starting rate as New York City, with travel quoted up front as its own line item instead of built into a higher base price.',
+  },
+  {
+    q: 'How much does a wedding DJ cost on Long Island?',
+    a: 'DJ DX weddings on Long Island start at $2,800, with travel quoted up front as its own line. Hamptons and East End weddings start at $3,000 because of the longer travel and setup day. The final number depends on hours, date, and add-ons, and you can see a starting estimate in about 30 seconds with the price calculator.',
   },
   {
     q: 'Are there hidden fees?',
@@ -59,18 +73,18 @@ export default function WeddingDJCost() {
   return (
     <>
       <Helmet>
-        <title>How Much Does a Wedding DJ Cost in NYC? From $2,800 | DJ DX</title>
-        <meta name="description" content="NYC wedding DJs run $2,800-$6,000 in 2026. Real rate table, travel fees, and exactly what's included - from a working DJ, not an agency directory." />
+        <title>Wedding DJ Cost NYC &amp; NJ (2026): Real Prices From $2,800</title>
+        <meta name="description" content="What a wedding DJ really costs in NYC, NJ and Long Island in 2026. Published starting rates, what's included, and a free instant price estimate." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-cost-nyc" />
-        <meta property="og:title" content="How Much Does a Wedding DJ Cost in NYC? From $2,800 | DJ DX" />
-        <meta property="og:description" content="NYC wedding DJs run $2,800-$6,000 in 2026. Real rate table, travel fees, and exactly what's included - from a working DJ, not an agency directory." />
+        <meta property="og:title" content="Wedding DJ Cost NYC &amp; NJ (2026): Real Prices From $2,800" />
+        <meta property="og:description" content="What a wedding DJ really costs in NYC, NJ and Long Island in 2026. Published starting rates, what's included, and a free instant price estimate." />
         <meta property="og:url" content="https://djdxmusic.com/wedding-dj-cost-nyc" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="How Much Does a Wedding DJ Cost in NYC? From $2,800 | DJ DX" />
-        <meta name="twitter:description" content="NYC wedding DJs run $2,800-$6,000 in 2026. Real rate table, travel fees, and exactly what's included - from a working DJ, not an agency directory." />
+        <meta name="twitter:title" content="Wedding DJ Cost NYC &amp; NJ (2026): Real Prices From $2,800" />
+        <meta name="twitter:description" content="What a wedding DJ really costs in NYC, NJ and Long Island in 2026. Published starting rates, what's included, and a free instant price estimate." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
           {`[
@@ -88,14 +102,7 @@ export default function WeddingDJCost() {
                 "image": "https://djdxmusic.com/epk-hero.jpg",
                 "email": "bookings@djdxmusic.com",
                 "priceRange": "$$-$$$",
-                "sameAs": ["https://djdxmusic.com/", "https://www.ted.com/talks/dj_dx_finally_moving", "https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/", "https://share.google/v7RARn4fdsghIcXyX", "https://profile.google.com/@djdxmusic"],
-                "aggregateRating": {
-                  "@type": "AggregateRating",
-                  "ratingValue": "5.0",
-                  "reviewCount": "6",
-                  "bestRating": "5",
-                  "worstRating": "1"
-                }
+                "sameAs": ["https://djdxmusic.com/", "https://www.ted.com/talks/dj_dx_finally_moving", "https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/", "https://share.google/v7RARn4fdsghIcXyX", "https://profile.google.com/@djdxmusic"]
               },
               "areaServed": [
                 {"@type": "City", "name": "New York City"},
@@ -171,15 +178,19 @@ export default function WeddingDJCost() {
             <span className="sec-label">2026 Pricing Guide</span>
           </div>
           <h1 className="sec-title" style={{ fontSize: 'clamp(1.9rem, 4.6vw, 3.2rem)', marginBottom: '1rem', maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto' }}>
-            How Much Does a Wedding DJ <span>Cost in NYC?</span>
+            How Much Does a Wedding DJ <span>Cost in NYC and NJ?</span>
           </h1>
           <p style={{ maxWidth: '680px', margin: '0 auto', fontSize: '1.08rem', color: 'rgba(242,242,242,0.75)', lineHeight: 1.75 }}>
-            A professional wedding DJ in New York City costs <strong style={{ color: 'var(--gold)' }}>$2,800 to $6,000</strong>, depending
-            on hours, date, and add-ons. DJ DX weddings start at <strong style={{ color: 'var(--gold)' }}>$2,800</strong> with sound,
-            wireless mics, and MC work included. Here is exactly where the money goes.
+            A professional wedding DJ in New York City and New Jersey costs <strong style={{ color: 'var(--gold)' }}>$2,800 to $6,000</strong> for
+            a full reception. The price moves with the number of hours, the date, and add-ons like live violin or ceremony sound.
+            DJ DX weddings start at <strong style={{ color: 'var(--gold)' }}>$2,800</strong> and include sound, wireless mics, MC
+            announcements, and a planning call, with travel outside NYC quoted up front as its own line.
           </p>
-          <p style={{ marginTop: '14px', fontSize: '12px', color: 'rgba(242,242,242,0.45)', letterSpacing: '0.08em' }}>
-            Last updated: July 1, 2026 · Written by DJ DX — 25+ years, 500+ events, TED-featured
+          <p style={{ marginTop: '18px' }}>
+            <Link to="/event-dj-cost-nyc-nj-ct#quote-calculator" className="btn-gold">Get your exact starting price</Link>
+          </p>
+          <p style={{ marginTop: '14px', fontSize: '12px', color: 'rgba(242,242,242,0.55)', letterSpacing: '0.08em' }}>
+            Last updated: September 30, 2026 · Written by DJ DX · 25+ years, 500+ events, TED-featured
           </p>
         </div>
       </section>
@@ -276,6 +287,9 @@ export default function WeddingDJCost() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section className="booking" id="booking">
         <div className="section-inner">
           <div className="booking-layout">

@@ -6,6 +6,8 @@ import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 // Real photos from the Saks Fifth Avenue private estate event, Water Mill NY.
 // Every photo from this event is shot by Linsey Kromer (@linseyslens_ on
 // Instagram; "Linsey Kromer" for press/online/print per her terms). Credit must
@@ -96,7 +98,7 @@ export default function Hamptons() {
   return (
     <>
       <Helmet>
-        <title>Luxury DJ in The Hamptons | Private Estates & Summer Events | DJ DX</title>
+        <title>Luxury DJ in the Hamptons | Estates & Summer Events | DJ DX</title>
         <meta name="description" content="Looking for an exclusive DJ for your Hamptons estate party, summer event, or luxury wedding? DJ DX provides premium entertainment from Southampton to Montauk." />
         <link rel="canonical" href="https://djdxmusic.com/hamptons-luxury-dj" />
         <meta property="og:title" content="Luxury DJ in The Hamptons — DJ DX" />
@@ -554,6 +556,9 @@ export default function Hamptons() {
       </section>
 
       {/* ── BOOKING ── */}
+      <ProofBlock />
+      <AuthorBio />
+
       <section className="booking" id="booking">
         <div className="section-inner">
           <div className="booking-layout">

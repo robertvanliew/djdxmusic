@@ -130,8 +130,8 @@ export default function NewsArticle() {
   return (
     <div className="news-page na-page">
       <Helmet>
-        <title>{`${post.headline} — DJ DX`}</title>
-        <meta name="description" content={post.excerpt} />
+        <title>{post.seoTitle ?? `${post.headline} | DJ DX`}</title>
+        <meta name="description" content={post.metaDescription ?? post.excerpt} />
         <link rel="canonical" href={canonicalUrl} />
         <meta property="og:type" content="article" />
         <meta property="og:url" content={canonicalUrl} />

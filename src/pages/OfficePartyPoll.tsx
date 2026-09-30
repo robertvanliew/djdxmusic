@@ -53,7 +53,7 @@ export default function OfficePartyPoll() {
   return (
     <>
       <Helmet>
-        <title>Free Office Party Music Poll | Let Your Team Vote on the Playlist</title>
+        <title>Free Office Party Music Poll: Let Your Team Vote</title>
         <meta name="description" content="Let your team vote on the music before the office party. Share one link, get a crowd report of genres, eras and song requests in minutes. Free." />
         <link rel="canonical" href="https://djdxmusic.com/office-party-music-poll" />
         <meta property="og:title" content="Free Office Party Music Poll — DJ DX" />

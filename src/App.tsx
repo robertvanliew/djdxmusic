@@ -399,8 +399,8 @@ function App() {
     <>
 
       <Helmet>
-        <title>DJ DX — DJ, Producer &amp; Recording Artist | New York &amp; New Jersey</title>
-        <meta name="description" content="DJ DX is a New York/New Jersey-based DJ, producer, and recording artist with 25+ years of experience. Featured on TED, TEDxYouth@RVA, Disrupt Magazine, and NJ.com. Book for weddings, corporate events, clubs, and private parties." />
+        <title>DJ DX: DJ, Producer &amp; Recording Artist in NYC &amp; New Jersey</title>
+        <meta name="description" content="DJ DX is a New York and New Jersey DJ, producer and recording artist. 25+ years, TED-featured. Book for weddings, corporate events and private parties." />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://djdxmusic.com/" />
         <meta property="og:type" content="music.musician" />
@@ -1171,6 +1171,9 @@ function App() {
               <span className="sec-label">Client Feedback</span>
             </div>
             <h2 className="sec-title">What <span>Clients</span> Say</h2>
+            <p style={{ color: 'rgba(242,242,242,0.62)', fontSize: '0.92rem', marginTop: '10px' }}>
+              About Soul Shades, the DJ and live violin duo, at the NautaDutilh New York reception.
+            </p>
           </div>
           <div style={{
             display: 'grid',

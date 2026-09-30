@@ -87,8 +87,8 @@ export default function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contact DJ DX — Booking, Press, Support | DJ DX</title>
-        <meta name="description" content="Get in touch with DJ DX. Booking inquiries, press, Soul Shades collaborations, music store support, legal, and more — routed to the right inbox based on your topic." />
+        <title>Contact DJ DX: Booking, Press and Support</title>
+        <meta name="description" content="Get in touch with DJ DX for bookings, press, Soul Shades collaborations and music store support. Your message goes to the right inbox by topic." />
         <link rel="canonical" href="https://djdxmusic.com/contact" />
         <meta property="og:title" content="Contact DJ DX" />
         <meta property="og:description" content="Reach DJ DX for bookings, press, Soul Shades, support, legal, or general inquiries." />

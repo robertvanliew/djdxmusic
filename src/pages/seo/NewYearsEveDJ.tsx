@@ -7,6 +7,8 @@ import BookingForm from '../../components/BookingForm';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 import ProcurementNote from '../../components/ProcurementNote';
 
+import ProofBlock from '../../components/ProofBlock';
+import AuthorBio from '../../components/AuthorBio';
 export default function NewYearsEveDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -14,7 +16,7 @@ export default function NewYearsEveDJ() {
     <>
       <Helmet>
         <title>New Year's Eve DJ NYC 2026 | Private &amp; Corporate NYE | DJ DX</title>
-        <meta name="description" content="Book NYC's premier NYE DJ — DJ DX delivers an unforgettable New Year's Eve countdown for private parties, corporate galas, and rooftop events across Manhattan, Brooklyn & NJ. Limited dates." />
+        <meta name="description" content="New Year's Eve DJ in NYC for private parties, corporate galas and rooftop events in Manhattan, Brooklyn and NJ. A planned midnight countdown. Limited dates." />
         <link rel="canonical" href="https://djdxmusic.com/new-years-eve-dj-nyc" />
         <meta property="og:title" content="New Year's Eve DJ NYC — DJ DX" />
         <meta property="og:description" content="NYC's premier NYE DJ for private parties, corporate galas, and rooftop countdowns. DJ DX engineers the midnight moment. One slot per year — book early." />
@@ -235,6 +237,9 @@ export default function NewYearsEveDJ() {
 
       {/* ── BOOKING ── */}
       <ProcurementNote />
+
+      <ProofBlock />
+      <AuthorBio />
 
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>
         <div className="section-inner">
