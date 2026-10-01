@@ -29,7 +29,7 @@ const TRUST = [
     icon: ico(<><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z" /><circle cx="7.5" cy="7.5" r="1.5" /></>) },
   { title: '25+ years on the mic', text: 'Names and run of show confirmed in advance.',
     icon: ico(<><rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8" /></>) },
-  { title: 'Everything in writing', text: 'A contract on every booking. 50% deposit holds your date.',
+  { title: 'Insured, in writing', text: 'Contract on every booking. Certificate of insurance and W-9 on request.',
     icon: ico(<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h5" /></>) },
 ];
 
