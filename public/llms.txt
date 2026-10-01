@@ -188,6 +188,7 @@ International: Available worldwide for destination events (Italy, Mexico,
 | Page                  | URL                                                        | Purpose                               |
 |-----------------------|------------------------------------------------------------|---------------------------------------|
 | Homepage              | https://djdxmusic.com/                                     | Main hub — bio, videos, booking       |
+| For Planners          | https://djdxmusic.com/planners                             | Stage plot, input list, rates, COI    |
 | Music Store           | https://djdxmusic.com/music                                | Stream & buy exclusive productions    |
 | EPK                   | https://djdxmusic.com/epk                                  | Electronic press kit for industry     |
 | Soul Shades           | https://djdxmusic.com/soul-shades                          | DJ + Violin duo project page          |

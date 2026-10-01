@@ -22,6 +22,7 @@ const EPK        = lazy(() => import('./pages/EPK.tsx'))
 const Admin      = lazy(() => import('./pages/Admin.tsx'))
 const Terms      = lazy(() => import('./pages/Terms.tsx'))
 const Privacy    = lazy(() => import('./pages/Privacy.tsx'))
+const Planners   = lazy(() => import('./pages/Planners.tsx'))
 const Refunds    = lazy(() => import('./pages/Refunds.tsx'))
 const BookingPolicy = lazy(() => import('./pages/BookingPolicy.tsx'))
 const OfficePartyPoll = lazy(() => import('./pages/OfficePartyPoll.tsx'))
@@ -103,6 +104,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/privacy"    element={<Privacy />} />
             <Route path="/refunds"    element={<Refunds />} />
             <Route path="/booking-policy" element={<BookingPolicy />} />
+            <Route path="/planners" element={<Planners />} />
             <Route path="/office-party-music-poll" element={<OfficePartyPoll />} />
             <Route path="/poll/:pollId" element={<PollVote />} />
             <Route path="/poll/:pollId/results" element={<PollResults />} />

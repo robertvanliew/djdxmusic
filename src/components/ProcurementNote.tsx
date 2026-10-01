@@ -19,7 +19,7 @@ export default function ProcurementNote({ heading }: { heading?: string } = {}) 
           <div className="pn-item"><strong>Invoicing</strong><span>Deposit and balance invoices sent to whoever handles AP.</span></div>
           <div className="pn-item"><strong>Backup coverage</strong><span>A personally vetted backup DJ if an emergency strikes.</span></div>
         </div>
-        <p className="pn-foot">50% deposit holds the date; balance due 14 days before. <Link to="/booking-policy">Full booking policy</Link></p>
+        <p className="pn-foot">50% deposit holds the date; balance due 14 days before. <Link to="/booking-policy">Full booking policy</Link> · <Link to="/planners">Stage plot and input list for planners</Link></p>
       </div>
     </section>
   );

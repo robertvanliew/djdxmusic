@@ -54,6 +54,7 @@ const STATIC_ROUTES = [
   '/privacy',
   '/refunds',
   '/booking-policy',
+  '/planners',
   '/office-party-music-poll',
   '/faq',
   '/contact',

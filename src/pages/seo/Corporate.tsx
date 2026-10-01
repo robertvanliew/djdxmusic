@@ -41,6 +41,18 @@ const CORP_FAQ = [
   { q: 'Do you travel to New Jersey and Connecticut?', a: 'Yes. DJ DX plays corporate events across New Jersey, Westchester, Long Island, and Connecticut, including Stamford and Greenwich. Travel outside NYC is quoted up front as its own line on your quote.' },
 ];
 
+// Three tiers confirmed by DJ DX on 2026-10-01. Essentials matches the
+// published corporate floor in public/pricing.txt; Production includes the
+// Soul Shades duo and videography, in line with the wedding package tiers.
+const CORP_PACKAGES = [
+  { name: 'Essentials', price: 2800, hours: 'Up to 5 hours', blurb: 'The standard office party or client event.',
+    includes: ['Professional sound sized to the room', 'Two wireless mics for speeches and awards', 'MC announcements and run of show', 'Planning call and do-not-play list', 'Contract, COI and W-9'] },
+  { name: 'Signature', price: 4500, hours: 'Up to 5 hours', blurb: 'For galas, launches and parties with a program.',
+    includes: ['Everything in Essentials', 'Uplighting and dance-floor lighting', 'A custom intro or edit produced for your event', 'Second sound zone for a dinner room or terrace'] },
+  { name: 'Production', price: 8000, hours: 'Up to 6 hours', blurb: 'Full production with live music and video.',
+    includes: ['Everything in Signature', 'Soul Shades: live violin or piano with the DJ set', 'Professional videography with an edited highlight reel', 'Full lighting design'] },
+];
+
 const CORP_SCHEMA = [
   {
     '@context': 'https://schema.org',
@@ -69,8 +81,12 @@ const CORP_SCHEMA = [
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Corporate DJ Packages',
-      itemListElement: ['Corporate Gala DJ', 'Office Holiday Party DJ', 'Brand Activation DJ', 'Product Launch Entertainment', 'Live Violin and DJ Duo for Corporate Events']
-        .map(name => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } })),
+      itemListElement: CORP_PACKAGES.map(t => ({
+        '@type': 'Offer', name: `${t.name} Package`, priceCurrency: 'USD', price: String(t.price),
+        priceSpecification: { '@type': 'PriceSpecification', minPrice: String(t.price), priceCurrency: 'USD' },
+        description: `${t.hours}. ${t.includes.join('. ')}.`,
+        itemOffered: { '@type': 'Service', name: `Corporate Event DJ, ${t.name}` },
+      })),
     },
   },
   {
@@ -246,6 +262,37 @@ export default function Corporate() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* ── PACKAGES ── */}
+      <section style={{ padding: '72px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }} id="packages">
+        <div className="section-inner" style={{ maxWidth: '1100px' }}>
+          <div className="sec-overline" style={{ justifyContent: 'center' }}>
+            <span className="sec-overline-line" /><span className="sec-label">Packages</span><span className="sec-overline-line" />
+          </div>
+          <h2 className="sec-title" style={{ textAlign: 'center', marginBottom: '12px' }}>
+            Corporate DJ <span>Packages</span>
+          </h2>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '680px', margin: '0 auto 40px', fontSize: '1rem', lineHeight: 1.7 }}>
+            Starting prices for New York City. Travel outside NYC is quoted up front as its own line. Every package comes with a written contract.
+          </p>
+          <div className="pkg-grid">
+            {CORP_PACKAGES.map(t => (
+              <div className="pkg" key={t.name}>
+                <div className="pkg-name">{t.name}</div>
+                <div className="pkg-price">From ${t.price.toLocaleString('en-US')}{t.name === 'Production' ? '+' : ''}</div>
+                <div className="pkg-hours">{t.hours}</div>
+                <p className="pkg-blurb">{t.blurb}</p>
+                <ul className="pkg-list">{t.includes.map(i => <li key={i}>{i}</li>)}</ul>
+                <a href="#booking" className="btn-gold pkg-cta">Check My Date</a>
+              </div>
+            ))}
+          </div>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.55)', margin: '28px auto 0', fontSize: '0.92rem', lineHeight: 1.7, maxWidth: '680px' }}>
+            Not sure which fits? <a href="#quote-calculator" style={{ color: 'var(--gold)' }}>Get an instant starting price</a> or
+            send your date and headcount and you will have a quote within 24 hours. Planners and agencies: see the <Link to="/planners" style={{ color: 'var(--gold)' }}>planner page</Link> for the stage plot, input list and paperwork.
+          </p>
         </div>
       </section>
 
