@@ -16,7 +16,7 @@ export default function PrivatePartyDJ() {
     <>
       <Helmet>
         <title>Private Party DJ NYC & NJ | Birthdays & Milestones | DJ DX</title>
-        <meta name="description" content="Private party DJ in NYC and NJ for birthdays, anniversaries, launch events and milestones. Custom sets, 500+ events, from $2,200. Book DJ DX." />
+        <meta name="description" content="Private party DJ in NYC and NJ for birthdays, anniversaries, launch events and milestones. Custom sets, 500+ events, from $2,800. Book DJ DX." />
         <link rel="canonical" href="https://djdxmusic.com/private-party-dj-nyc-nj" />
         <meta property="og:title" content="Private Party DJ NYC & NJ — DJ DX" />
         <meta property="og:description" content="Professional private party DJ in New York and New Jersey. DJ DX delivers custom sets for birthday parties, anniversaries, and milestone events. 500+ events performed." />

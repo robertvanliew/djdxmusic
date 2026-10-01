@@ -20,9 +20,9 @@ type EventKey = 'wedding' | 'corporate' | 'private' | 'sweet16' | 'duo';
 const EVENT_TYPES: { key: EventKey; label: string; base: number; blurb: string }[] = [
   { key: 'wedding',   label: 'Wedding',                          base: 2800, blurb: 'Ceremony, cocktail hour, reception, after-party' },
   { key: 'corporate', label: 'Corporate event / holiday party',  base: 2800, blurb: 'Galas, office parties, brand activations, product launches' },
-  { key: 'private',   label: 'Private party',                    base: 2200, blurb: 'Birthdays, anniversaries, house parties, milestones' },
+  { key: 'private',   label: 'Private party',                    base: 2800, blurb: 'Birthdays, anniversaries, house parties, milestones' },
   { key: 'sweet16',   label: 'Sweet 16 / Quinceañera / Mitzvah', base: 1500, blurb: 'Often shorter runtimes and earlier start times' },
-  { key: 'duo',       label: 'DJ + live violin duo (Soul Shades)', base: 2400, blurb: 'Live violin over the DJ set, ceremony through reception' },
+  { key: 'duo',       label: 'DJ + live violin duo (Soul Shades)', base: 3500, blurb: 'Live violin over the DJ set, ceremony through reception' },
 ];
 
 // pricing.txt: NYC travel is included in the quoted total; NJ / Long Island /

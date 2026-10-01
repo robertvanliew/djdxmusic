@@ -27,9 +27,9 @@ const LAST_UPDATED = 'September 15, 2026';
 
 const RATE_TABLE = [
   { type: 'Corporate event / holiday party', djdx: '$2,800', market: '$1,500 – $5,000', note: 'Galas, office parties, brand activations, product launches' },
-  { type: 'Private party (birthday, anniversary)', djdx: '$2,200', market: '$1,200 – $3,500', note: 'Milestone celebrations, house parties' },
+  { type: 'Private party (birthday, anniversary)', djdx: '$2,800', market: '$1,200 – $3,500', note: 'Milestone celebrations, house parties' },
   { type: 'Sweet 16 / Quinceañera / Mitzvah', djdx: '$1,500', market: '$1,000 – $3,000', note: 'Often shorter runtimes and earlier start times' },
-  { type: 'DJ + live violin duo (Soul Shades)', djdx: '$2,400', market: 'Rarely published', note: 'Live strings over the DJ set — ceremony, cocktail hour, reception' },
+  { type: 'DJ + live violin duo (Soul Shades)', djdx: '$3,500', market: 'Rarely published', note: 'Live strings over the DJ set — ceremony, cocktail hour, reception' },
   { type: 'Hamptons / destination', djdx: '$3,000', market: 'Custom-quoted', note: 'Travel, lodging, and technical riders coordinated separately' },
   { type: 'Wedding', djdx: '$2,800', market: '$2,000 – $4,000', note: 'See the dedicated wedding cost breakdown' },
 ];
@@ -46,7 +46,7 @@ const COST_DRIVERS = [
 const FAQ_ITEMS = [
   {
     q: 'How much does an event DJ cost in NYC?',
-    a: 'Professional event DJs in New York City generally range from $1,500 to $5,000 depending on event type, total hours, and the number of sound zones required. That sits well above The Knot\'s national average of $1,800 for a wedding DJ, because NYC carries higher labour, travel, insurance, and venue-access costs. DJ DX publishes fixed starting rates: corporate events from $2,800, private parties from $2,200, and Sweet 16s from $1,500.',
+    a: 'Professional event DJs in New York City generally range from $1,500 to $5,000 depending on event type, total hours, and the number of sound zones required. That sits well above The Knot\'s national average of $1,800 for a wedding DJ, because NYC carries higher labour, travel, insurance, and venue-access costs. DJ DX publishes fixed starting rates: corporate events from $2,800, private parties from $2,800, and Sweet 16s from $1,500.',
   },
   {
     q: 'Why do NYC DJs cost more than the national average?',
@@ -73,7 +73,7 @@ export default function EventDJCost() {
     <>
       <Helmet>
         <title>Event DJ Cost in NYC, NJ &amp; CT: Real 2026 Prices | DJ DX</title>
-        <meta name="description" content="What event DJs cost in NYC, NJ and CT in 2026. Published rates by event type and what drives the price. Corporate from $2,800, private parties from $2,200." />
+        <meta name="description" content="What event DJs cost in NYC, NJ and CT in 2026. Published rates by event type and what drives the price. Corporate and private parties from $2,800." />
         <link rel="canonical" href="https://djdxmusic.com/event-dj-cost-nyc-nj-ct" />
         <meta property="og:title" content="Event DJ Cost in NYC, NJ & CT: Real 2026 Prices" />
         <meta property="og:description" content="Published rates by event type, the factors that actually move a DJ quote, and how New York City pricing compares to the national average." />

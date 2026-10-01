@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'How much does DJ DX cost?',
-    a: 'DJ DX pricing varies by event type and duration. Wedding DJ services start at $2,800 and range up to $6,000+ depending on venue and package. Corporate events start at $2,800. Soul Shades live violin + DJ packages start at $3,000. Private parties start at $2,200. All quotes are custom — contact bookings@djdxmusic.com for transparent pricing.',
+    a: 'DJ DX pricing varies by event type and duration. Wedding DJ services start at $2,800 and range up to $6,000+ depending on venue and package. Corporate events start at $2,800. Soul Shades live violin + DJ packages start at $3,500. Private parties start at $2,800. All quotes are custom — contact bookings@djdxmusic.com for transparent pricing.',
   },
   {
     q: 'Who is Soul Shades?',

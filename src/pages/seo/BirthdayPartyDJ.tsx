@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import LocalLanding, { type FaqItem } from '../../components/LocalLanding';
 
 const FAQ: FaqItem[] = [
-  { q: 'How much does a birthday party DJ cost in NYC and NJ?', a: 'DJ DX private parties, birthdays included, start at $2,200 in NYC. That covers professional sound, wireless mics for toasts, MC announcements, and a planning call about the music. Travel inside NYC is included; New Jersey, Long Island, Westchester, and Connecticut travel is quoted up front as its own line.' },
+  { q: 'How much does a birthday party DJ cost in NYC and NJ?', a: 'DJ DX private parties, birthdays included, start at $2,800 in NYC. That covers professional sound, wireless mics for toasts, MC announcements, and a planning call about the music. Travel inside NYC is included; New Jersey, Long Island, Westchester, and Connecticut travel is quoted up front as its own line.' },
   { q: 'Can the music be built around one decade?', a: 'Yes, and for milestone birthdays that is usually the point. A 40th often wants the late 90s and 2000s, a 50th leans into the late 80s and 90s. The set is built from the years the guest of honor grew up in, then mixed with current songs so younger guests have a way in too.' },
   { q: 'What kind of music do you play at birthday parties?', a: 'R&B, hip-hop, old school, Afrobeats, dancehall, house, and whatever the guest of honor loves. Send a must-play list and a do-not-play list before the party, and requests on the night are welcome.' },
   { q: 'Can you make a custom intro or edit for the guest of honor?', a: 'Yes. DJ DX produces music, so a custom walk-in track, a birthday intro, or an edit of a favorite song can be made for the night. It is priced as an add-on on your quote.' },
@@ -21,7 +21,7 @@ export default function BirthdayPartyDJ() {
       h1={<>Birthday Party DJ <span>in NYC and NJ</span></>}
       answer={<>
         DJ DX is a birthday party DJ for 30th, 40th, 50th and other milestone birthdays in NYC, New Jersey, and the Tri-State.
-        Private parties start at $2,200 with sound, wireless mics, and MC announcements included. The music is built around
+        Private parties start at $2,800 with sound, wireless mics, and MC announcements included. The music is built around
         the guest of honor, from old school and R&amp;B to hip-hop and Afrobeats.
       </>}
       localHeading={<>Built Around the <span>Guest of Honor</span></>}

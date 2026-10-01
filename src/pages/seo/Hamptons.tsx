@@ -167,7 +167,7 @@ export default function Hamptons() {
                 {
                   "@type": "Question",
                   "name": "Can I book the DJ + live violin duo for a Hamptons event?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Yes. Soul Shades — DJ DX paired with violinist Julie Schatz — is available for Hamptons bookings starting at $2,400, adding live strings over the DJ set for cocktail hour and reception."}
+                  "acceptedAnswer": {"@type": "Answer", "text": "Yes. Soul Shades — DJ DX paired with violinist Julie Schatz — is available for Hamptons bookings starting at $3,500, adding live strings over the DJ set for cocktail hour and reception."}
                 },
                 {
                   "@type": "Question",
@@ -543,7 +543,7 @@ export default function Hamptons() {
             {[
               { q: 'How much does a Hamptons DJ cost?', a: 'Hamptons luxury DJ pricing typically starts at $3,000+ depending on estate size, event duration, and season. Peak summer weekends (July-August) command premium rates. DJ DX offers custom quotes — contact bookings@djdxmusic.com.' },
               { q: 'Is DJ DX available for Hamptons private estates and yacht events?', a: 'Yes. DJ DX performs private estate parties, yacht events, and summer galas from Southampton to Montauk, including Sag Harbor, Bridgehampton, East Hampton, Water Mill, and Amagansett.' },
-              { q: 'Can I book the DJ + live violin duo for a Hamptons event?', a: 'Yes. Soul Shades — DJ DX paired with violinist Julie Schatz — is available for Hamptons bookings starting at $2,400, adding live strings over the DJ set for cocktail hour and reception.' },
+              { q: 'Can I book the DJ + live violin duo for a Hamptons event?', a: 'Yes. Soul Shades — DJ DX paired with violinist Julie Schatz — is available for Hamptons bookings starting at $3,500, adding live strings over the DJ set for cocktail hour and reception.' },
               { q: 'How early should I book a Hamptons DJ?', a: 'Summer Hamptons dates (June-September) book up 6-12 months in advance given tight peak-season demand. Reach out as early as possible to confirm your date.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>

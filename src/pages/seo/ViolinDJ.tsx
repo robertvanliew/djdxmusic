@@ -19,7 +19,7 @@ export default function ViolinDJ() {
     <>
       <Helmet>
         <title>Violin and DJ Duo NYC & NJ | Soul Shades Entertainment</title>
-        <meta name="description" content="Live violin and DJ duo for weddings, corporate events and parties in NYC, NJ and CT. Soul Shades pairs live strings with a DJ set. From $2,400." />
+        <meta name="description" content="Live violin and DJ duo for weddings, corporate events and parties in NYC, NJ and CT. Soul Shades pairs live strings with a DJ set. From $3,500." />
         <link rel="canonical" href="https://djdxmusic.com/violin-dj-duo-nyc-nj" />
         <meta property="og:title" content="Violin and DJ Duo NYC & NJ — Soul Shades" />
         <meta property="og:description" content="Live violin over DJ sets — Soul Shades is NYC's premier violin and DJ duo for luxury weddings and corporate events. Featuring DJ DX and Julie Schatz." />

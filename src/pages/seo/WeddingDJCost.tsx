@@ -29,7 +29,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Is a DJ cheaper than a live band for a NYC wedding?',
-    a: 'Significantly. A professional wedding band in NYC runs $8,000–$20,000+. A top-tier DJ is $2,000–$5,000 and can cover every genre and era your guest list spans. If you want live music without band pricing, DJ DX offers a live violin + DJ duo (Soul Shades) from $2,400 — live performance layered over a full DJ set.',
+    a: 'Significantly. A professional wedding band in NYC runs $8,000–$20,000+. A top-tier DJ is $2,000–$5,000 and can cover every genre and era your guest list spans. If you want live music without band pricing, DJ DX offers a live violin + DJ duo (Soul Shades) from $3,500 — live performance layered over a full DJ set.',
   },
   {
     q: 'Do you charge for travel?',
@@ -121,8 +121,8 @@ export default function WeddingDJCost() {
                 {
                   "@type": "Offer",
                   "name": "DJ + Live Violin Duo (Soul Shades)",
-                  "priceSpecification": {"@type": "PriceSpecification", "minPrice": "2400", "priceCurrency": "USD"},
-                  "description": "Live violin over DJ sets for ceremony, cocktail hour, and reception — from $2,400."
+                  "priceSpecification": {"@type": "PriceSpecification", "minPrice": "3500", "priceCurrency": "USD"},
+                  "description": "Live violin over DJ sets for ceremony, cocktail hour, and reception — from $3,500."
                 }
               ]
             },
@@ -218,7 +218,7 @@ export default function WeddingDJCost() {
                 {[
                   ['Wedding DJ (reception)', '$2,800', 'Reception coverage, sound, mics, MC announcements'],
                   ['Ceremony + reception', 'Quoted', 'Separate ceremony sound, processional cues, officiant mic'],
-                  ['DJ + Live Violin Duo (Soul Shades)', '$2,400', 'Live violin over DJ sets — ceremony through reception'],
+                  ['DJ + Live Violin Duo (Soul Shades)', '$3,500', 'Live violin over DJ sets — ceremony through reception'],
                   ['Live violin add-on', '$150/hr', 'Added to any DJ package for cocktail hour or ceremony'],
                   ['Destination wedding', '$3,000', 'The Hamptons, Catskills, international — travel coordinated'],
                 ].map(([pkg, price, desc]) => (
@@ -265,7 +265,7 @@ export default function WeddingDJCost() {
               A professional wedding band in NYC runs $8,000–$20,000+. A top-tier DJ covers every era and genre your
               guest list spans for $2,000–$5,000. The middle path most couples never hear about: live musicians layered
               over a DJ set. The <Link to="/violin-dj-duo-nyc-nj" style={{ color: 'var(--gold)' }}>Soul Shades violin + DJ duo</Link> starts
-              at $2,400 — live performance energy at a quarter of band pricing.
+              at $3,500, a fraction of band pricing for live performance.
             </p>
           </div>
         </div>

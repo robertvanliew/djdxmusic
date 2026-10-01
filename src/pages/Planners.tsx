@@ -16,9 +16,9 @@ const RATES = [
   ['Corporate event', 'From $2,800', 'Essentials, Signature ($4,500) and Production ($8,000+) packages'],
   ['Office holiday party', 'From $2,800', 'December dates fill 90 to 120 days out'],
   ['Wedding', 'From $2,800', 'Ceremony through after-party'],
-  ['Private party or birthday', 'From $2,200', 'Homes, restaurants, rooftops, lounges'],
+  ['Private party or birthday', 'From $2,800', 'Homes, restaurants, rooftops, lounges'],
   ['Sweet 16, quinceañera, mitzvah', 'From $1,500', 'Often shorter runtimes'],
-  ['Soul Shades: DJ + live violin', 'From $2,400', 'Live violin or piano over the DJ set'],
+  ['Soul Shades: DJ + live violin', 'From $3,500', 'Live violin or piano over the DJ set'],
   ['Live violin add-on', 'From $150/hour', 'Added to any DJ package'],
   ['Hamptons, destination, international', 'From $3,000', 'Travel and riders coordinated by DJ DX'],
 ];

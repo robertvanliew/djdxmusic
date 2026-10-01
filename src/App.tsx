@@ -311,7 +311,7 @@ const genreLinks: Record<string, string> = {
 const eventLinks = [
   { label: 'Weddings', kicker: 'From $2,800', desc: 'Ceremony through after-party, NYC and NJ.', to: '/wedding-dj-nyc-nj' },
   { label: 'Corporate Events', kicker: 'From $2,800', desc: 'Office parties, galas and client events. COI and W-9 ready.', to: '/corporate-event-dj-nyc-nj-ct' },
-  { label: 'Birthdays & Private Parties', kicker: 'From $2,200', desc: 'Milestone birthdays, home parties, rooftops and lounges.', to: '/birthday-party-dj-nyc-nj' },
+  { label: 'Birthdays & Private Parties', kicker: 'From $2,800', desc: 'Milestone birthdays, home parties, rooftops and lounges.', to: '/birthday-party-dj-nyc-nj' },
   { label: 'Instant Price Estimate', kicker: 'Free, 30 seconds', desc: 'Pick your event and hours, get a starting price.', to: '/event-dj-cost-nyc-nj-ct#quote-calculator' },
 ];
 
