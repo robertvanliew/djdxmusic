@@ -80,7 +80,7 @@ const riderSections = [
     color: 'rgba(201,168,76,0.38)',
     rows: [
       { item: 'Controller', spec: 'Rane One DJ controller — provided by DJ DX. Requires stable, level surface and 2 power outlets.' },
-      { item: 'DJ Booth',   spec: 'Minimum 6-foot sturdy table or professional DJ booth. DJ faces the crowd.' },
+      { item: 'DJ Booth',   spec: 'DJ DX brings a DJ booth with façade to every event. No table needed. DJ faces the crowd.' },
       { item: 'Power',      spec: 'Two dedicated 15-amp surge-protected circuits. Surge protection provided by DJ DX.' },
     ],
   },

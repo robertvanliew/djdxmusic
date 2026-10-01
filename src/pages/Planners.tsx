@@ -24,7 +24,7 @@ const RATES = [
 ];
 
 const PLOT = [
-  ['DJ position', 'Facing the room, near the dance floor. Needs a level, stable surface. A 6-foot table with black linen if the venue provides it; DJ DX can bring a booth façade on request.'],
+  ['DJ position', 'Facing the room, near the dance floor, on a level floor. DJ DX brings a DJ booth with a façade to every event, so no table or linen is needed from the venue.'],
   ['Footprint', 'About 8 feet wide by 6 feet deep including speaker stands. Two speakers on stands either side of the booth, subwoofer at floor level.'],
   ['Sound', 'Self-contained: DJ DX brings a professional PA sized to the room and headcount, with subwoofer. No house system needed. Can also feed the house system (see input list).'],
   ['Power', 'Two dedicated 15-amp circuits within 25 feet of the DJ position. DJ DX brings surge protection and cabling.'],
@@ -154,7 +154,7 @@ export default function Planners() {
       <section style={{ padding: '0 24px 72px' }}>
         <div className="section-inner" style={{ maxWidth: '900px' }}>
           <h2 className="sec-title" style={h2}>Stage <span>Plot</span></h2>
-          <p style={lead}>The standard setup, adjusted to the room. DJ DX brings sound, mics and cabling; the venue provides the position, the table and the power.</p>
+          <p style={lead}>The standard setup, adjusted to the room. DJ DX brings the booth, sound, mics and cabling; the venue provides the position and the power.</p>
           <Table head={['Item', 'Spec']} rows={PLOT} />
         </div>
       </section>
