@@ -129,6 +129,9 @@ body {
 /* Hide scroll-anchor links on mid-size screens so page links stay full size */
 @media (max-width: 1180px) and (min-width: 901px) {
   .nav-link--anchor { display: none; }
+  /* Spotify/YouTube stay in the footer and phone menu; the room goes to the Clients menu */
+  .nav-links .nav-stream-group { display: none; }
+  .nav-links { gap: 16px; }
 }
 
 .nav-links a:hover { color: var(--gold); }

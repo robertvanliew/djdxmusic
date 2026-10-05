@@ -26,6 +26,7 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
             <Link to="/contact" className="footer-nav-link">Contact</Link>
             <Link to="/faq" className="footer-nav-link">FAQ</Link>
             <Link to="/booking-policy" className="footer-nav-link">Booking Policy</Link>
+            <Link to="/plan" className="footer-nav-link">Plan Your Music</Link>
             <Link to="/planners" className="footer-nav-link">For Planners</Link>
           </div>
 

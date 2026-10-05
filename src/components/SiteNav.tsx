@@ -37,6 +37,13 @@ const MUSIC: Item[] = [
   { label: 'EPK', to: '/epk' },
   { label: 'Shop', external: SHOP },
 ];
+// For booked clients and planners. /plan stays noindex; this just lets
+// clients find it without the emailed link.
+const CLIENTS: Item[] = [
+  { label: 'Plan Your Music', to: '/plan' },
+  { label: 'For Planners', to: '/planners' },
+  { label: 'Booking Policy', to: '/booking-policy' },
+];
 
 export default function SiteNav() {
   const { pathname } = useLocation();
@@ -97,6 +104,7 @@ export default function SiteNav() {
           <li><Link to="/event-dj-cost-nyc-nj-ct#quote-calculator">Pricing</Link></li>
           <li><Link to="/office-party-music-poll" onClick={toTop}>Music Poll</Link></li>
           {dropdown('music', 'Music', MUSIC)}
+          {dropdown('clients', 'Clients', CLIENTS)}
           <li className="nav-link--anchor"><a href={href('#about')}>About</a></li>
           <li className="nav-stream-group">
             <a href={`${SPOTIFY}?autoplay_ok=1`} target="_blank" rel="noopener noreferrer" className="nav-stream-btn" aria-label="Listen on Spotify"><SpotifyIcon /></a>
@@ -145,6 +153,7 @@ export default function SiteNav() {
               <li><a href={href('#about')} onClick={close}>About</a></li>
               {MUSIC.map(it => <li key={it.label}>{renderItem(it, close)}</li>)}
               <li><Link to="/new-years-eve-dj-nyc" onClick={toTop}>New Year's Eve</Link></li>
+              {CLIENTS.map(it => <li key={it.label}>{renderItem(it, close)}</li>)}
             </ul>
             <div className="nav-drawer-streams">
               <a href={SPOTIFY} target="_blank" rel="noopener noreferrer" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.516 17.318a.75.75 0 0 1-1.032.25c-2.827-1.727-6.39-2.117-10.585-1.16a.75.75 0 0 1-.334-1.463c4.592-1.048 8.533-.597 11.701 1.341a.75.75 0 0 1 .25 1.032zm1.472-3.27a.937.937 0 0 1-1.288.308c-3.232-1.987-8.158-2.563-11.984-1.402a.937.937 0 1 1-.543-1.794c4.37-1.323 9.8-.682 13.507 1.6a.937.937 0 0 1 .308 1.288zm.127-3.408C15.37 8.39 9.386 8.2 5.896 9.26a1.124 1.124 0 1 1-.651-2.151c4.07-1.233 10.83-1.003 15.102 1.585a1.124 1.124 0 0 1-1.232 1.936z"/></svg></a>
