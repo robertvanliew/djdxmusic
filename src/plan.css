@@ -1,0 +1,91 @@
+/* ═════════════════════════════════════════════════════════════
+   MUSIC PLAN (/plan, booked clients only). Reuses the poll form
+   controls in poll.css (.opp-field, .opp-chip, .opp-check, .opp-hp).
+   ═════════════════════════════════════════════════════════════ */
+.mp { background: var(--black); min-height: 100vh; }
+.mp-main { padding: 108px 16px 64px; }
+.mp-inner { max-width: 760px; margin: 0 auto; }
+
+.mp-head { margin-bottom: 22px; }
+.mp-title { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.2rem, 7vw, 3.2rem); font-weight: 800; line-height: 1.05; color: var(--white); margin: 0 0 14px; }
+.mp-head p, .mp-done p { font-size: 1.02rem; line-height: 1.7; color: rgba(242,242,242,0.78); margin: 0 0 14px; }
+.mp-progress { font-size: 0.86rem !important; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold) !important; margin: 18px 0 8px !important; }
+.mp-bar { height: 4px; border-radius: 4px; background: var(--dim3); overflow: hidden; }
+.mp-bar span { display: block; height: 100%; background: var(--gold); transition: width 0.3s ease; }
+
+/* cards */
+.mp-card { background: var(--panel); border: 1px solid var(--edge); border-radius: 12px; margin-bottom: 12px; }
+.mp-card.is-open { border-color: var(--gold-line); }
+.mp-card-h { margin: 0; }
+.mp-card-h button {
+  width: 100%; min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px 18px; background: none; border: 0; color: var(--white); cursor: pointer; text-align: left;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; font-weight: 800; letter-spacing: 0.01em;
+}
+.mp-card-h button:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; border-radius: 12px; }
+.mp-card-meta { display: flex; align-items: center; gap: 12px; }
+.mp-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--gold); }
+.mp-chev { font-size: 1.5rem; line-height: 1; color: var(--gold); width: 18px; text-align: center; }
+.mp-panel { padding: 4px 18px 20px; display: flex; flex-direction: column; gap: 16px; }
+
+/* fields */
+.mp-field label { display: block; }
+.mp-field label > span { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); }
+.mp-field label > span em { font-style: normal; font-weight: 400; text-transform: none; letter-spacing: 0; color: rgba(242,242,242,0.6); margin-left: 6px; font-size: 0.8rem; }
+.mp-field textarea, .mp-row select, .mp-three select {
+  width: 100%; padding: 12px 13px; background: var(--dark); color: var(--white); border: 1px solid var(--edge);
+  border-radius: 8px; font-size: 1rem; font-family: inherit; min-height: 46px; resize: vertical;
+}
+.mp-field textarea:focus-visible, .mp-three select:focus-visible { outline: 2px solid var(--gold); outline-offset: 1px; }
+.mp-field input[aria-invalid], .mp-field select[aria-invalid] { border-color: #e8836f; }
+.opp-field .mp-mini { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(242,242,242,0.7); }
+.mp-help { font-size: 0.86rem; line-height: 1.55; color: rgba(242,242,242,0.65); margin: 0; }
+.mp-err { font-size: 0.86rem; color: #f0a08f; font-weight: 600; }
+.mp-two { margin-bottom: 0; }
+.mp-panel input:disabled { opacity: 0.45; }
+.opp-field input[type="date"], .opp-field input[type="time"] { color-scheme: dark; }
+
+/* radio and checkbox pills */
+.mp-pills { border: 0; padding: 0; margin: 0; min-width: 0; }
+.mp-pills legend, .mp-group > legend, .mp-moment > legend {
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; padding: 0;
+}
+.mp-pills .opp-chip { font-size: 0.9rem; padding: 10px 14px; min-height: 44px; color: rgba(242,242,242,0.8); }
+
+.mp-genres { display: flex; flex-direction: column; gap: 14px; }
+.mp-genres .mp-pills legend { color: var(--white); text-transform: none; letter-spacing: 0; font-size: 0.98rem; font-weight: 600; }
+
+/* song pairs, repeatable rows, moments */
+.mp-song { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mp-three { display: grid; grid-template-columns: 1.2fr 1fr 1.2fr; gap: 10px; }
+.mp-group { border: 0; padding: 0; margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.mp-rows { display: flex; flex-direction: column; gap: 10px; }
+.mp-row { display: flex; gap: 10px; align-items: flex-end; padding-bottom: 10px; border-bottom: 1px solid var(--dim3); }
+.mp-row-body { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.mp-remove { flex: none; min-height: 44px; padding: 0 10px; background: none; border: 1px solid var(--edge); border-radius: 8px; color: rgba(242,242,242,0.65); font-size: 0.8rem; cursor: pointer; }
+.mp-add { align-self: flex-start; min-height: 44px; padding: 0 14px; background: none; border: 1px dashed var(--gold-line); border-radius: 8px; color: var(--gold); font-weight: 700; font-size: 0.9rem; cursor: pointer; }
+.mp-remove:focus-visible, .mp-add:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.mp-moment { border: 1px solid var(--edge); border-radius: 10px; padding: 14px; margin: 0; min-width: 0; display: flex; flex-direction: column; gap: 10px; background: rgba(255,255,255,0.015); }
+.mp-moment-opts { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+.mp-moment .opp-check { min-height: 36px; align-items: center; }
+
+/* submit */
+.mp-submit { margin-top: 22px; display: flex; flex-direction: column; gap: 12px; }
+.mp-note { font-size: 0.92rem; line-height: 1.6; color: rgba(242,242,242,0.72); margin: 0; }
+.mp-error { font-size: 0.95rem; line-height: 1.6; color: #f0a08f; background: rgba(232,131,111,0.08); border: 1px solid rgba(232,131,111,0.35); border-radius: 8px; padding: 12px 14px; margin: 0; }
+.mp-error a { color: var(--white); text-decoration: underline; }
+.mp-send { width: 100%; min-height: 54px; font-size: 1rem; }
+.mp-send:disabled { opacity: 0.6; cursor: wait; }
+
+.mp-done { padding: 40px 0 20px; }
+.mp-sign { font-family: 'Barlow Condensed', sans-serif; font-size: 1.4rem !important; font-weight: 800; color: var(--gold) !important; }
+
+@media (max-width: 640px) {
+  .mp-main { padding-top: 92px; }
+  .mp-row.opp-row, .opp-row.mp-two { grid-template-columns: 1fr; }
+  .mp-three { grid-template-columns: 1fr; }
+  .mp-song { grid-template-columns: 1fr 1fr; }
+  .mp-panel { padding: 4px 14px 18px; }
+  .mp-card-h button { padding: 14px; font-size: 1.2rem; }
+}
+@media (prefers-reduced-motion: reduce) { .mp-bar span { transition: none; } }

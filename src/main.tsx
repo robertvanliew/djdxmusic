@@ -8,6 +8,7 @@ import './news.css'
 import './poll.css'
 import './nav.css'
 import './service.css'
+import './plan.css'
 import App from './App.tsx'
 import { CartProvider } from './components/CartContext.tsx'
 import { PlayerProvider } from './components/PlayerContext.tsx'
@@ -15,7 +16,16 @@ import { ToastProvider } from './components/Toast.tsx'
 import { trackPageView } from './lib/analytics.ts'
 import { initTrackingPixelsDeferred } from './lib/pixels.ts'
 
-initTrackingPixelsDeferred()
+// /plan links carry the client's name and date in the query string. An inline
+// script in index.html already moved it into window.__planQuery before Google
+// Analytics loaded; this is the fallback. The ad pixels stay off that page
+// entirely (no tracking of who a client is or what they type).
+const isPlan = window.location.pathname.replace(/\/+$/, '') === '/plan'
+if (isPlan && window.location.search) {
+  ;(window as unknown as { __planQuery?: string }).__planQuery = window.location.search
+  window.history.replaceState(window.history.state, '', window.location.pathname)
+}
+if (!isPlan) initTrackingPixelsDeferred()
 
 // Lazy load all non-home routes — they only download when first visited
 const EPK        = lazy(() => import('./pages/EPK.tsx'))
@@ -65,6 +75,7 @@ const NewsArticle       = lazy(() => import('./pages/NewsArticle.tsx'))
 const FAQ               = lazy(() => import('./pages/FAQ.tsx'))
 const ThankYou          = lazy(() => import('./pages/ThankYou.tsx'))
 const Contact           = lazy(() => import('./pages/Contact.tsx'))
+const MusicPlan         = lazy(() => import('./pages/MusicPlan.tsx'))
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -105,6 +116,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/refunds"    element={<Refunds />} />
             <Route path="/booking-policy" element={<BookingPolicy />} />
             <Route path="/planners" element={<Planners />} />
+            <Route path="/plan" element={<MusicPlan />} />
             <Route path="/office-party-music-poll" element={<OfficePartyPoll />} />
             <Route path="/poll/:pollId" element={<PollVote />} />
             <Route path="/poll/:pollId/results" element={<PollResults />} />

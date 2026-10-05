@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
 
+    <!-- /plan links carry a client's name and date. Move the query into
+         memory and clean the address bar before Google Analytics loads, so
+         no tracker ever sees it. src/pages/MusicPlan.tsx reads __planQuery. -->
+    <script>
+      if (location.pathname.replace(/\/+$/, '') === '/plan' && location.search) {
+        window.__planQuery = location.search;
+        history.replaceState(history.state, '', location.pathname);
+      }
+    </script>
     <!-- Google tag (gtag.js) — Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8XB8C4F0WR"></script>
     <script>

@@ -1,8 +1,9 @@
 # robots.txt — djdxmusic.com
-# Updated: 2026-04-10
+# Updated: 2026-10-05
 
 # ── Allow all crawlers ───────────────────────────────────────────────────────
 User-agent: *
+Disallow: /plan
 Allow: /
 
 # Block backend / admin paths
@@ -16,60 +17,74 @@ Disallow: /api/booking
 
 # ── Google ───────────────────────────────────────────────────────────────────
 User-agent: Googlebot
+Disallow: /plan
 Allow: /
 Disallow: /admin
 Disallow: /api/
 
 User-agent: Googlebot-Image
+Disallow: /plan
 Allow: /
 Disallow: /api/
 
 User-agent: Googlebot-Video
+Disallow: /plan
 Allow: /
 Disallow: /api/
 
 # ── Bing ─────────────────────────────────────────────────────────────────────
 User-agent: Bingbot
+Disallow: /plan
 Allow: /
 Disallow: /api/
 
 # ── AI / Answer Engine crawlers ──────────────────────────────────────────────
 User-agent: GPTBot
+Disallow: /plan
 Allow: /
 Disallow: /api/
 
 User-agent: ChatGPT-User
+Disallow: /plan
 Allow: /
 
 User-agent: PerplexityBot
+Disallow: /plan
 Allow: /
 
 # Anthropic AI crawlers (all three user agents Anthropic uses)
 User-agent: Claude-Web
+Disallow: /plan
 Allow: /
 
 User-agent: ClaudeBot
+Disallow: /plan
 Allow: /
 
 User-agent: anthropic-ai
+Disallow: /plan
 Allow: /
 
 # Google Gemini + AI Overviews
 User-agent: Google-Extended
+Disallow: /plan
 Allow: /
 Disallow: /api/
 
 # Apple Intelligence
 User-agent: Applebot
+Disallow: /plan
 Allow: /
 Disallow: /api/
 
 # Meta AI
 User-agent: meta-externalagent
+Disallow: /plan
 Allow: /
 
 # Yandex (international traffic — Russia/Eastern Europe)
 User-agent: Yandex
+Disallow: /plan
 Allow: /
 Disallow: /api/
 
