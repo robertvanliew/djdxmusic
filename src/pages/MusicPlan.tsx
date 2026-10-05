@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { Helmet } from 'react-helmet-async';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
+import SongPicker from '../components/SongPicker';
 
 // Private music planning form for booked clients: djdxmusic.com/plan.
 // Unlisted (not in nav, footer or sitemap), noindex, disallowed in robots.txt,
@@ -69,7 +70,7 @@ const MOMENTS: Record<Exclude<EventType, ''>, MomentDef[]> = {
   ],
 };
 
-type Song = { song: string; artist: string };
+type Song = { song: string; artist: string; art?: string };
 type Moment = Song & { dj: boolean; notes: string; who: string; choice: string; skipped: boolean };
 const song = (): Song => ({ song: '', artist: '' });
 const moment = (): Moment => ({ song: '', artist: '', dj: false, notes: '', who: '', choice: '', skipped: false });
@@ -169,15 +170,18 @@ function Checks({ legend, options, values, onChange }: { legend: string; options
   );
 }
 
-function SongInputs({ value, onChange, disabled, idBase }: { value: Song; onChange: (s: Song) => void; disabled?: boolean; idBase: string }) {
+// Song search via the same iTunes picker the music poll uses (free, no key).
+// Falls back to typing title and artist if search is down or the song is
+// not in Apple's catalog. When the moment is left to the DJ or skipped, the
+// picker is replaced by a short note.
+function SongInputs({ value, onChange, disabled, idBase, label = 'Song', offText = "Left to the DJ" }: {
+  value: Song; onChange: (s: Song) => void; disabled?: boolean; idBase: string; label?: string; offText?: string;
+}) {
+  if (disabled) return <p className="mp-off" id={`${idBase}-off`}>{offText}</p>;
   return (
-    <div className="mp-song">
-      <label className="opp-field"><span className="mp-mini">Song</span>
-        <input id={`${idBase}-song`} value={value.song} disabled={disabled} onChange={e => onChange({ ...value, song: e.target.value })} maxLength={200} />
-      </label>
-      <label className="opp-field"><span className="mp-mini">Artist</span>
-        <input value={value.artist} disabled={disabled} onChange={e => onChange({ ...value, artist: e.target.value })} maxLength={200} />
-      </label>
+    <div className="mp-songpick" id={`${idBase}-song`}>
+      <SongPicker label={label} value={{ title: value.song, artist: value.artist, art: value.art }}
+        onChange={v => onChange({ song: v.title, artist: v.artist, art: v.art })} />
     </div>
   );
 }
@@ -218,7 +222,8 @@ function MomentRow({ def, value, onChange }: { def: MomentDef; value: Moment; on
           <input value={value.who} onChange={e => onChange({ ...value, who: e.target.value })} maxLength={120} />
         </label>
       )}
-      <SongInputs idBase={id} value={value} disabled={off} onChange={s => onChange({ ...value, ...s })} />
+      <SongInputs idBase={id} label={def.label} value={value} disabled={off} offText={value.skipped ? 'Skipping this' : 'Left to the DJ'}
+        onChange={s => onChange({ ...value, ...s })} />
       <div className="mp-moment-opts">
         <label className="opp-check"><input type="checkbox" checked={value.dj} disabled={value.skipped} onChange={e => onChange({ ...value, dj: e.target.checked })} />Your choice, DJ</label>
         {def.skip && <label className="opp-check"><input type="checkbox" checked={value.skipped} onChange={e => onChange({ ...value, skipped: e.target.checked })} />Skip this</label>}
@@ -332,7 +337,7 @@ export default function MusicPlan() {
       query: init.query,
     };
     try {
-      const r = await fetch('/api/music-plan', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      const r = await fetch('/api/music-plan', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body, (k, v) => (k === 'art' ? undefined : v)) });
       if (!r.ok) throw new Error(String(r.status));
       store.del(init.key);
       setStatus('sent');
@@ -445,9 +450,9 @@ export default function MusicPlan() {
                       <>
                         <fieldset className="mp-group">
                           <legend>Must-play songs</legend>
-                          <p className="mp-help">The songs that have to happen. I'll make sure they land at the right moment.</p>
+                          <p className="mp-help">The songs that have to happen. I'll make sure they land at the right moment. Search by song or artist, up to 15.</p>
                           <Rows items={plan.mustPlay} max={15} make={song} addLabel="Add another song" onChange={v => set('mustPlay', v)}
-                            render={(it, upd, i) => <SongInputs idBase={`must-${i}`} value={it} onChange={upd} />} />
+                            render={(it, upd, i) => <SongInputs idBase={`must-${i}`} label={`Must-play song ${i + 1}`} value={it} onChange={upd} />} />
                         </fieldset>
                         {area('doNotPlay', 'Do not play', 'Songs, artists, or whole genres to avoid.')}
                         {textInput('playlist', 'Playlist link', { type: 'url', max: 500, mode: 'url', help: 'Spotify, Apple Music, or YouTube playlist that captures your taste. Optional but very helpful.' })}
@@ -485,7 +490,7 @@ export default function MusicPlan() {
                               render={(it, upd, i) => (
                                 <>
                                   <label className="opp-field"><span className="mp-mini">Honoree or group</span><input value={it.who} onChange={e => upd({ ...it, who: e.target.value })} maxLength={160} /></label>
-                                  <SongInputs idBase={`candle-${i}`} value={it} onChange={sv => upd({ ...it, ...sv })} />
+                                  <SongInputs idBase={`candle-${i}`} label={`Candle ${i + 1} song`} value={it} onChange={sv => upd({ ...it, ...sv })} />
                                 </>
                               )} />
                           </fieldset>
@@ -502,7 +507,7 @@ export default function MusicPlan() {
                                 render={(it, upd, i) => (
                                   <>
                                     <label className="opp-field"><span className="mp-mini">Moment</span><input value={it.name} onChange={e => upd({ ...it, name: e.target.value })} maxLength={120} /></label>
-                                    <SongInputs idBase={`other-${i}`} value={it} onChange={sv => upd({ ...it, ...sv })} />
+                                    <SongInputs idBase={`other-${i}`} label={`Other moment ${i + 1} song`} value={it} onChange={sv => upd({ ...it, ...sv })} />
                                     <label className="opp-field"><span className="mp-mini">Notes</span><input value={it.notes} onChange={e => upd({ ...it, notes: e.target.value })} maxLength={500} /></label>
                                   </>
                                 )} />
@@ -537,7 +542,7 @@ export default function MusicPlan() {
                         <fieldset className="mp-group">
                           <legend>Songs you'd love to hear live</legend>
                           <Rows items={plan.liveSongs} max={8} make={song} addLabel="Add another song" onChange={v => set('liveSongs', v)}
-                            render={(it, upd, i) => <SongInputs idBase={`live-${i}`} value={it} onChange={upd} />} />
+                            render={(it, upd, i) => <SongInputs idBase={`live-${i}`} label={`Live song ${i + 1}`} value={it} onChange={upd} />} />
                         </fieldset>
                       </>
                     )}
