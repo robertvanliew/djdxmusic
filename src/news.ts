@@ -19,6 +19,30 @@ export interface NewsPost {
 
 export const newsPosts: NewsPost[] = [
   {
+    slug: 'groove-on-grove-jersey-journal',
+    headline: 'DJ DX Performs at Groove on Grove, Makes the Jersey Journal Front Page',
+    seoTitle: 'DJ DX at Groove on Grove | Jersey Journal Front Page',
+    subheadline: 'A Jersey City native, DJing since 1998, on the front page of his hometown paper.',
+    datePublished: '2026-10-07T12:00:00-04:00',
+    dateModified: '2026-10-07T12:00:00-04:00',
+    displayDate: 'October 7, 2026',
+    category: 'Press',
+    excerpt: 'Jersey City native DJ DX performed as a featured artist at Groove on Grove and made the front page and arts section of the Jersey Journal.',
+    metaDescription: 'Jersey City native DJ DX performed as a featured artist at Groove on Grove and made the front page and arts section of the Jersey Journal.',
+    image: '/epk-hero.jpg',
+    imageAlt: 'DJ DX (Robert Van Liew), Jersey City DJ, featured artist at Groove on Grove',
+    tags: ['Press', 'Jersey Journal', 'Groove on Grove', 'Jersey City', 'DJ DX'],
+    body: `
+<p class="news-lede">In 2015, <strong>DJ DX</strong> took the stage as a featured artist at <strong>Groove on Grove</strong>, the free summer concert series at the Grove Street PATH Plaza in Downtown Jersey City. The performance put him on the front page of the <strong>Jersey Journal</strong> and in its arts section.</p>
+
+<p>Groove on Grove has brought local musicians to Grove Street every summer since 2008. For a Jersey City native who has been DJing since 1998, playing it was a homecoming: the same streets where he started, now on the front page of the hometown paper.</p>
+
+<p>See the front page in <a href="https://www.instagram.com/p/2b9zGOMKw4/" target="_blank" rel="noopener">his Instagram post from May 2015</a>, and read more about his Jersey City roots in the <a href="https://jerseycitysound.com/entry-dj-dx.html" target="_blank" rel="noopener">Jersey City Sound archive</a>.</p>
+
+<p>Planning an event in Jersey City? See <a href="/corporate-event-dj-jersey-city-nj">corporate event DJ in Jersey City</a>, the <a href="/venues">venues DJ DX has played</a>, or the <a href="/epk">press kit</a>.</p>
+`,
+  },
+  {
     slug: 'voyage-atl-feature',
     headline: 'DJ DX Featured in Voyage ATL: From Jersey City Mixtapes to the TED Stage',
     seoTitle: 'DJ DX in Voyage ATL: Jersey City Mixtapes to the TED Stage',

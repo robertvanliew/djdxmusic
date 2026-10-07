@@ -487,6 +487,48 @@
   </url>
 
   <url>
+    <loc>https://djdxmusic.com/venues</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/venues/the-argyle-chelsea</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/venues/620-loft-garden-rockefeller-center</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/venues/coral-house-baldwin-ny</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/venues/culture-lab-lic</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/news/groove-on-grove-jersey-journal</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://djdxmusic.com/refunds</loc>
     <lastmod>2026-03-31</lastmod>
     <changefreq>yearly</changefreq>

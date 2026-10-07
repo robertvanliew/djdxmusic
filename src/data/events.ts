@@ -45,17 +45,44 @@ export const GIGS: GigEntry[] = [
     showVenueName: true,
     pages: [CORPORATE, HOLIDAY, BROOKLYN, JERSEY_CITY],
   },
+  // The four below are public: named in DJ DX's own posts and already on the
+  // site (corporate, holiday, Hamptons and violin pages). Added 2026-10-07.
   {
-    eventType: 'Corporate event',
+    eventType: 'In-office corporate reception',
     clientName: 'LS Power',
-    showClientName: false, // switch to true once LS Power confirms it's OK to name them
-    clientGeneric: 'energy investment firm',
-    venueName: '[VENUE: fill in]',
-    venueCity: 'Manhattan, NY',
-    date: '[DATE: fill in]',
+    showClientName: true,
+    venueCity: 'Midtown Manhattan',
+    date: '2026-09',
     showVenueName: false,
-    // add HOLIDAY if it was a holiday party; add JERSEY_CITY / BROOKLYN if the venue is there
-    pages: [CORPORATE],
+    pages: [CORPORATE, HOLIDAY],
+  },
+  {
+    eventType: 'Private estate event',
+    clientName: 'Saks Fifth Avenue',
+    showClientName: true,
+    venueCity: 'Water Mill, NY',
+    date: '2026-08',
+    showVenueName: false,
+    pages: [CORPORATE, '/hamptons-luxury-dj'],
+  },
+  {
+    // Site copy says June 2026; one of his posts suggests July. Confirm the month.
+    eventType: 'Rooftop reception with Soul Shades',
+    clientName: 'NautaDutilh',
+    showClientName: true,
+    venueName: '620 Loft & Garden',
+    venueCity: 'Rockefeller Center, Manhattan',
+    date: '2026-06',
+    showVenueName: true,
+    pages: [CORPORATE, HOLIDAY, '/violin-dj-duo-nyc-nj', '/rooftop-party-dj-nyc'],
+  },
+  {
+    eventType: "New Year's Eve party",
+    venueName: 'The Argyle',
+    venueCity: 'Chelsea, Manhattan',
+    date: '2025-12-31',
+    showVenueName: true,
+    pages: ['/new-years-eve-dj-nyc', CORPORATE, HOLIDAY],
   },
   // {
   //   eventType: 'Holiday party',

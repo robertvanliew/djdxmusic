@@ -76,6 +76,8 @@ const FAQ               = lazy(() => import('./pages/FAQ.tsx'))
 const ThankYou          = lazy(() => import('./pages/ThankYou.tsx'))
 const Contact           = lazy(() => import('./pages/Contact.tsx'))
 const MusicPlan         = lazy(() => import('./pages/MusicPlan.tsx'))
+const Venues            = lazy(() => import('./pages/Venues.tsx'))
+const Venue             = lazy(() => import('./pages/Venue.tsx'))
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -117,6 +119,8 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/booking-policy" element={<BookingPolicy />} />
             <Route path="/planners" element={<Planners />} />
             <Route path="/plan" element={<MusicPlan />} />
+            <Route path="/venues" element={<Venues />} />
+            <Route path="/venues/:slug" element={<Venue />} />
             <Route path="/office-party-music-poll" element={<OfficePartyPoll />} />
             <Route path="/poll/:pollId" element={<PollVote />} />
             <Route path="/poll/:pollId/results" element={<PollResults />} />
