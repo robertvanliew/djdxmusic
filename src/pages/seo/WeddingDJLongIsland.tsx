@@ -6,6 +6,7 @@ import RelatedServices from '../../components/RelatedServices';
 import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
+import { Link } from 'react-router-dom';
 import AuthorBio from '../../components/AuthorBio';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 export default function WeddingDJLongIsland() {
@@ -202,6 +203,9 @@ export default function WeddingDJLongIsland() {
         </div>
       </section>
 
+      <p className="cost-pointer">
+        Planning the budget? See <Link to="/wedding-dj-cost-nyc">how much a wedding DJ costs in NYC and NJ</Link>, with published starting rates and what's included.
+      </p>
       <ProofBlock />
       <AuthorBio />
 

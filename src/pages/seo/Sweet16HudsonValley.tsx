@@ -14,17 +14,17 @@ export default function Sweet16HudsonValley() {
   return (
     <>
       <Helmet>
-        <title>Sweet 16 DJ Hudson Valley: Kingston, New Paltz &amp; Beyond</title>
-        <meta name="description" content="Sweet 16 DJ for Kingston, New Paltz, Saugerties, Millbrook, Wappingers Falls and the Hudson Valley. Clean, high-energy sets. Published starting prices." />
+        <title>Sweet 16 DJ Hudson Valley: Kingston, Red Hook &amp; New Paltz</title>
+        <meta name="description" content="Sweet 16 DJ for Kingston, Red Hook, New Paltz, Saugerties, Millbrook and the Hudson Valley. Clean, high-energy sets. Now booking 2027 dates." />
         <link rel="canonical" href="https://djdxmusic.com/sweet-16-dj-hudson-valley-ny" />
-        <meta property="og:title" content="Sweet 16 DJ Hudson Valley: Kingston, New Paltz &amp; Beyond" />
+        <meta property="og:title" content="Sweet 16 DJ Hudson Valley: Kingston, Red Hook &amp; New Paltz" />
         <meta property="og:description" content="Sweet 16 DJ serving Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and the greater Hudson Valley. Hip-hop, pop, Afrobeats, and custom sets for her night." />
         <meta property="og:url" content="https://djdxmusic.com/sweet-16-dj-hudson-valley-ny" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Sweet 16 DJ Hudson Valley: Kingston, New Paltz &amp; Beyond" />
+        <meta name="twitter:title" content="Sweet 16 DJ Hudson Valley: Kingston, Red Hook &amp; New Paltz" />
         <meta name="twitter:description" content="Sweet 16 DJ serving Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and the greater Hudson Valley." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">

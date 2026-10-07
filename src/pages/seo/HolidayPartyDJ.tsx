@@ -9,6 +9,7 @@ import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 import { Link } from 'react-router-dom';
+import { CORP_PACKAGES } from '../../data/packages';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
@@ -368,6 +369,33 @@ export default function HolidayPartyDJ() {
           <div className="lp-cta">
             <a href="#booking" className="btn-gold">Check My December Date</a>
             <a href="#quote-calculator" className="lp-cta-alt">Get an instant starting price</a>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PACKAGES (same tiers as the corporate page) ── */}
+      <section style={{ padding: '72px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }} id="packages">
+        <div className="section-inner" style={{ maxWidth: '1100px' }}>
+          <div className="sec-overline" style={{ justifyContent: 'center' }}>
+            <span className="sec-overline-line" /><span className="sec-label">Holiday Party Packages</span><span className="sec-overline-line" />
+          </div>
+          <h2 className="sec-title" style={{ textAlign: 'center', marginBottom: '12px' }}>
+            Office Holiday Party <span>Packages</span>
+          </h2>
+          <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '680px', margin: '0 auto 40px', fontSize: '1rem', lineHeight: 1.7 }}>
+            Starting prices for New York City. Travel outside NYC is quoted up front as its own line. A written contract and a 50% deposit hold your December date.
+          </p>
+          <div className="pkg-grid">
+            {CORP_PACKAGES.map(t => (
+              <div className="pkg" key={t.name}>
+                <div className="pkg-name">{t.name}</div>
+                <div className="pkg-price">From ${t.price.toLocaleString('en-US')}{t.name === 'Production' ? '+' : ''}</div>
+                <div className="pkg-hours">{t.hours}</div>
+                <p className="pkg-blurb">{t.blurb}</p>
+                <ul className="pkg-list">{t.includes.map(i => <li key={i}>{i}</li>)}</ul>
+                <a href="#booking" className="btn-gold pkg-cta">Check My December Date</a>
+              </div>
+            ))}
           </div>
         </div>
       </section>

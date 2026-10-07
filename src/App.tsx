@@ -351,6 +351,16 @@ function SkillsGrid() {
             </Link>
           ))}
         </div>
+        {/* Plain-text links worded the way people search, so Google sends
+            those searches to the dedicated page instead of the homepage. */}
+        <p className="home-local">
+          Also: <Link to="/corporate-event-dj-jersey-city-nj">corporate event DJ in Jersey City</Link>
+          {' · '}<Link to="/corporate-event-dj-brooklyn-ny">corporate event DJ in Brooklyn</Link>
+          {' · '}<Link to="/holiday-party-dj-nyc-nj-ct">office holiday party DJ</Link>
+          {' · '}<Link to="/wedding-dj-cost-nyc">how much a wedding DJ costs</Link>
+          {' · '}<Link to="/wedding-dj-manhattan-nyc">Manhattan wedding DJ</Link>
+          {' · '}<Link to="/sweet-16-dj-hudson-valley-ny">Sweet 16 DJ in the Hudson Valley</Link>
+        </p>
       </nav>
     </>
   );
