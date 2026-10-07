@@ -25,7 +25,7 @@ export interface Venue {
   // Gallery photos live in public/venues/<name>.jpg and .webp; give the base path without extension.
   photos?: { src: string; alt: string; w: number; h: number }[];
   // Self-hosted highlight reel (public/videos). Emitted as VideoObject schema and listed in the video sitemap.
-  video?: { src: string; poster: string; name: string; description: string; uploadDate: string; duration: string };
+  video?: { src: string; poster: string; name: string; description: string; uploadDate: string; duration: string; w: number; h: number };
   intro: string[];
   sections: VenueSection[];
   cta: string;
@@ -93,6 +93,7 @@ export const VENUES: Venue[] = [
       description: "Highlights from The Argyle's New Year's Eve party in Chelsea, NYC, December 31, 2025: DJ DX on the decks with Julie Schatz on live violin, and a full dance floor past midnight.",
       uploadDate: '2026-10-07T18:00:00-04:00',
       duration: 'PT44S',
+      w: 720, h: 1280,
     },
     event: { name: "New Year's Eve at The Argyle", startDate: '2025-12-31' },
     pages: [NYE, CORPORATE, HOLIDAY],
@@ -101,7 +102,7 @@ export const VENUES: Venue[] = [
     slug: '620-loft-garden-rockefeller-center',
     name: '620 Loft & Garden',
     area: 'Rockefeller Center, Manhattan',
-    summary: 'Soul Shades rooftop reception for NautaDutilh, 2026',
+    summary: 'Soul Shades rooftop reception for NautaDutilh, June 2, 2026',
     title: '620 Loft & Garden DJ | Rockefeller Center Rooftop | DJ DX',
     description: 'DJ DX and Soul Shades played the 620 Loft & Garden rooftop at Rockefeller Center. DJ with live violin and keys for corporate, holiday and private events.',
     h1: 'DJ at 620 Loft & Garden, Rockefeller Center',
@@ -109,7 +110,7 @@ export const VENUES: Venue[] = [
     address: { street: '620 5th Ave', locality: 'New York', region: 'NY', postalCode: '10020' },
     image: { src: '/nautadutilh-dj-dx-620-loft-garden-nyc.jpg', alt: "DJ DX performing on the 620 Loft & Garden rooftop at Rockefeller Center, with St. Patrick's Cathedral behind" },
     intro: [
-      "620 Loft & Garden is the rooftop garden above Fifth Avenue at Rockefeller Center, facing St. Patrick's Cathedral. In 2026 DJ DX brought [Soul Shades](/soul-shades) to the rooftop for a 175-guest reception for the international law firm NautaDutilh: DJ mixing with live violin from Julie Schatz layered on top, from cocktail hour through the after-party.",
+      "620 Loft & Garden is the rooftop garden above Fifth Avenue at Rockefeller Center, facing St. Patrick's Cathedral. On June 2, 2026, DJ DX brought [Soul Shades](/soul-shades) to the rooftop for a 175-guest reception for the international law firm NautaDutilh: DJ mixing with live violin from Julie Schatz layered on top, from cocktail hour through the after-party.",
     ],
     sections: [
       {
@@ -129,6 +130,7 @@ export const VENUES: Venue[] = [
     ],
     cta: 'Hosting a holiday party, product launch or private event at 620 Loft & Garden? Send your date and you will hear back within 24 hours.',
     bookingEventType: 'Corporate Event / Holiday Party',
+    event: { name: 'NautaDutilh reception with Soul Shades at 620 Loft & Garden', startDate: '2026-06-02' },
     pages: [CORPORATE, HOLIDAY, '/violin-dj-duo-nyc-nj', '/rooftop-party-dj-nyc'],
   },
   {
@@ -172,14 +174,14 @@ export const VENUES: Venue[] = [
     slug: 'culture-lab-lic',
     name: 'Culture Lab LIC',
     area: 'Long Island City, Queens',
-    summary: 'Soul Shades festival set, October 2024',
+    summary: 'Culture Lab Festival, Soul Shades set, October 2024',
     title: 'Culture Lab LIC DJ | Soul Shades Festival Set | DJ DX',
-    description: 'DJ DX and Soul Shades played the outdoor stage at Culture Lab LIC in Long Island City, Queens, in October 2024. Festival and outdoor event DJ.',
+    description: 'DJ DX and Soul Shades played the Culture Lab Festival at Culture Lab LIC in Long Island City, Queens, in October 2024. Festival and outdoor event DJ.',
     h1: 'DJ DX and Soul Shades at Culture Lab LIC, Long Island City',
     overline: 'Venue: Culture Lab LIC, 46th Avenue',
     address: { street: '5-25 46th Ave', locality: 'Long Island City', region: 'NY', postalCode: '11101' },
     intro: [
-      'Culture Lab LIC is a nonprofit gallery, performance venue and community hub at 5-25 46th Avenue in Long Island City, Queens, with an outdoor lot that hosts free concerts and festivals. On October 27, 2024, Culture Lab booked DJ DX for a festival day on its outdoor stage, performing as Soul Shades with Julie Schatz on violin and keys for an all-ages, walk-in crowd.',
+      'Culture Lab LIC is a nonprofit gallery, performance venue and community hub at 5-25 46th Avenue in Long Island City, Queens, with an outdoor lot that hosts free concerts and festivals. On October 27, 2024, Culture Lab booked DJ DX for the Culture Lab Festival on its outdoor stage, performing as Soul Shades with Julie Schatz on violin and keys for an all-ages, walk-in crowd.',
     ],
     sections: [
       {
@@ -206,12 +208,62 @@ export const VENUES: Venue[] = [
     video: {
       src: '/videos/culture-lab-lic-soul-shades-2024.mp4',
       poster: '/videos/culture-lab-lic-soul-shades-2024-poster.jpg',
-      name: 'Soul Shades live at Culture Lab LIC, Long Island City (October 2024)',
+      name: 'Soul Shades live at the Culture Lab Festival, Long Island City (October 2024)',
       description: 'DJ DX and Julie Schatz (Soul Shades) performing on the outdoor stage at Culture Lab LIC, Long Island City, Queens, on October 27, 2024.',
       uploadDate: '2026-10-07T18:00:00-04:00',
       duration: 'PT24S',
+      w: 720, h: 1280,
     },
+    event: { name: 'Culture Lab Festival', startDate: '2024-10-27' },
     pages: [CORPORATE, '/house-jersey-club-dj-nyc-nj', '/violin-dj-duo-nyc-nj'],
+  },
+  {
+    slug: 'santacruzan-festival-jersey-city',
+    name: 'Santacruzan Festival',
+    area: 'Manila Avenue, Jersey City',
+    summary: '37th Santacruzan & Flores de Mayo Festival, May 2015',
+    title: 'Santacruzan Festival Jersey City | DJ DX Live (2015) | DJ DX',
+    description: 'DJ DX performed at the 37th Santacruzan & Flores de Mayo Festival on Manila Avenue in Jersey City, May 24, 2015. Video and photos from the stage.',
+    h1: 'DJ DX at the Santacruzan Festival, Jersey City',
+    overline: 'Festival: Manila Avenue, Jersey City',
+    address: { street: 'Manila Ave', locality: 'Jersey City', region: 'NJ', postalCode: '07302' },
+    intro: [
+      'The Santacruzan & Flores de Mayo Festival is the largest and longest-running Santacruzan celebration on the East Coast, held every May on Manila Avenue in Downtown Jersey City by the Filipino community. On May 24, 2015, at the 37th edition, DJ DX took the stage in his hometown.',
+    ],
+    sections: [
+      {
+        h2: 'A Jersey City stage',
+        paras: [
+          'Jersey City is where DJ DX started DJing in 1998, and its street festivals are where a lot of the city hears live music for the first time each year. The year before, he headlined [Groove on Grove](/news/groove-on-grove-jersey-journal) at the Grove Street PATH Plaza.',
+          'Planning an event in Hudson County? See [corporate event DJ in Jersey City](/corporate-event-dj-jersey-city-nj) and [private party DJ](/private-party-dj-nyc-nj).',
+        ],
+      },
+      {
+        h2: 'What a street festival set takes',
+        bullets: [
+          'A set that works for every age on the block, from families to the evening crowd.',
+          'Quick changeovers on a shared stage with other performers.',
+          'Sound that carries down the street without drowning out the vendors.',
+        ],
+      },
+    ],
+    cta: 'Running a street festival, block party or community event in Jersey City? Send the date and format, and you will hear back within 24 hours.',
+    bookingEventType: 'Corporate Event / Holiday Party',
+    photos: [
+      { src: '/venues/santacruzan-festival-jersey-city-2015-stage', alt: 'DJ DX performing at the 37th Santacruzan & Flores de Mayo Festival stage on Manila Avenue, Jersey City, May 2015', w: 640, h: 640 },
+      { src: '/venues/santacruzan-festival-jersey-city-2015-keys', alt: 'DJ DX on stage with a keyboard player at the Santacruzan Festival in Jersey City, 2015', w: 640, h: 640 },
+    ],
+    video: {
+      src: '/videos/santacruzan-festival-jersey-city-2015-dj-dx.mp4',
+      poster: '/videos/santacruzan-festival-jersey-city-2015-dj-dx-poster.jpg',
+      name: 'DJ DX live at the 37th Santacruzan & Flores de Mayo Festival, Jersey City (May 24, 2015)',
+      description: 'DJ DX performing at the 37th Santacruzan & Flores de Mayo Festival on Manila Avenue in Jersey City, NJ, on May 24, 2015.',
+      uploadDate: '2026-10-07T19:00:00-04:00',
+      duration: 'PT38S',
+      w: 568, h: 320,
+    },
+    event: { name: '37th Santacruzan & Flores de Mayo Festival', startDate: '2015-05-24' },
+    pages: ['/corporate-event-dj-jersey-city-nj'],
   },
 ];
 

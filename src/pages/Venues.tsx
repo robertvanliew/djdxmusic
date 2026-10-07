@@ -65,6 +65,22 @@ export default function Venues() {
           <div className="vn-sec">
             <h2 className="vn-h2">Past venues</h2>
             <p className="vn-p">
+              <strong>Rebel NYC (Club Rebel), Midtown Manhattan (closed 2013).</strong> DJ DX played Rebel, the three-level club at
+              251 West 30th Street near Madison Square Garden, before it closed in April 2013.
+            </p>
+            <div className="vn-gallery">
+              {[
+                ['rebel-nyc-dj-dx-cdjs-midtown', 'DJ DX on the CDJs at Rebel NYC (Club Rebel), Midtown Manhattan', 1280, 853],
+                ['rebel-nyc-dj-dx-mic-midtown', 'DJ DX on the mic at Rebel NYC, West 30th Street, Manhattan', 853, 1280],
+                ['rebel-nyc-dj-dx-decks-midtown', 'DJ DX mixing at Rebel NYC, Midtown Manhattan', 1280, 853],
+              ].map(([src, alt, w, h]) => (
+                <picture key={src as string}>
+                  <source type="image/webp" srcSet={`/venues/${src}.webp`} />
+                  <img src={`/venues/${src}.jpg`} alt={alt as string} width={w as number} height={h as number} loading="lazy" decoding="async" />
+                </picture>
+              ))}
+            </div>
+            <p className="vn-p">
               <strong>LITM, Downtown Jersey City (closed 2020).</strong> From 2007 to 2009, DJ DX played LITM, the
               Newark Avenue art bar that anchored Downtown Jersey City nightlife for 17 years. More on his Jersey City roots in
               the <a href="https://jerseycitysound.com/entry-dj-dx.html" target="_blank" rel="noopener">Jersey City Sound archive</a>.

@@ -78,6 +78,7 @@ const Contact           = lazy(() => import('./pages/Contact.tsx'))
 const MusicPlan         = lazy(() => import('./pages/MusicPlan.tsx'))
 const Venues            = lazy(() => import('./pages/Venues.tsx'))
 const Venue             = lazy(() => import('./pages/Venue.tsx'))
+const NotFound          = lazy(() => import('./pages/NotFound.tsx'))
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -161,6 +162,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/faq"            element={<FAQ />} />
             <Route path="/thank-you"      element={<ThankYou />} />
             <Route path="/contact"        element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
         </PlayerProvider>

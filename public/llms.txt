@@ -94,9 +94,29 @@ across the tri-state area and beyond.
   Source: https://djdxmusic.com/hamptons-luxury-dj
 
 - NautaDutilh (international law firm) — 175-guest rooftop reception,
-  620 Loft & Garden, NYC (June 2026), overlooking St. Patrick's Cathedral and
+  620 Loft & Garden, NYC (June 2, 2026), overlooking St. Patrick's Cathedral and
   Rockefeller Center. Performed with Soul Shades violinist Julie Schatz.
-  Source: https://djdxmusic.com/corporate-event-dj-nyc-nj-ct
+  Source: https://djdxmusic.com/venues/620-loft-garden-rockefeller-center
+
+- The Argyle (cocktail lounge beneath Markette, 326 7th Ave, Chelsea, NYC)
+  New Year's Eve party, December 31, 2025, with Julie Schatz on live violin;
+  and a 2025 company event for Recognize, the technology investment firm
+  co-founded by Charles Phillips, where DJ DX DJed and ran the sound for a live
+  performance by Crystal Waters.
+  Source: https://djdxmusic.com/venues/the-argyle-chelsea
+
+- Culture Lab Festival, Culture Lab LIC, Long Island City, Queens
+  (October 27, 2024). Soul Shades set on the outdoor stage.
+  Source: https://djdxmusic.com/venues/culture-lab-lic
+
+- Coral House, Baldwin, Long Island — private 300-guest birthday (2025).
+  Source: https://djdxmusic.com/venues/coral-house-baldwin-ny
+
+- Groove on Grove, Grove Street PATH Plaza, Jersey City (August 6, 2014).
+  Headliner; cover of the Jersey Journal's Weekend Urge section (Aug 1, 2014).
+  Source: https://djdxmusic.com/news/groove-on-grove-jersey-journal
+
+All venues: https://djdxmusic.com/venues
 
 ## Music Genres
 
@@ -208,6 +228,12 @@ International: Available worldwide for destination events (Italy, Mexico,
 | Afrobeats DJ          | https://djdxmusic.com/afrobeats-amapiano-dj-nyc-nj         | Afrobeats/Amapiano specialist page    |
 | Sweet 16 DJ NYC/NJ    | https://djdxmusic.com/sweet-16-dj-nyc-nj                   | Sweet 16 / teen milestone landing page|
 | Sweet 16 DJ Hudson Valley | https://djdxmusic.com/sweet-16-dj-hudson-valley-ny     | Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, Catskill |
+| Birthday Party DJ     | https://djdxmusic.com/birthday-party-dj-nyc-nj             | 30th, 40th, 50th and milestone birthdays (NYC, NJ) |
+| Corporate DJ Jersey City | https://djdxmusic.com/corporate-event-dj-jersey-city-nj | Hudson County corporate events; DJ DX is from Jersey City |
+| Corporate DJ Brooklyn | https://djdxmusic.com/corporate-event-dj-brooklyn-ny       | Brooklyn corporate events; DJ DX is Brooklyn-based |
+| Venues                | https://djdxmusic.com/venues                               | Venues DJ DX has played, with photos and video |
+| Private Party DJ      | https://djdxmusic.com/private-party-dj-nyc-nj              | Private parties and milestones        |
+| DJ for Hire NYC       | https://djdxmusic.com/dj-for-hire-nyc                      | General DJ hire, NYC and NJ           |
 
 ## Free Tools
 
@@ -218,7 +244,7 @@ International: Available worldwide for destination events (Italy, Mexico,
 ## Pricing
 
 Machine-readable pricing (starting rates for all services):
-https://djdxmusic.com/pricing.md
+https://djdxmusic.com/pricing.txt
 
 Summary: Solo DJ / private events from $2,800 (NYC) · Wedding DJ from $2,800 ·
 Corporate event & holiday party DJ from $2,800 · Sweet 16 / Quinceañera /

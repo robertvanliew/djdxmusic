@@ -56,6 +56,8 @@ const STATIC_ROUTES = [
   '/booking-policy',
   '/planners',
   '/plan',
+  '/venues/santacruzan-festival-jersey-city',
+  '/404',
   '/venues',
   '/venues/the-argyle-chelsea',
   '/venues/620-loft-garden-rockefeller-center',
@@ -229,6 +231,13 @@ async function prerender() {
   }
 
   console.log(`\nprerender: ${results.size}/${routes.length} routes written`);
+  // Vercel serves dist/404.html, with a real 404 status, for any URL that has
+  // no file (vercel.json has no catch-all rewrite). See src/pages/NotFound.tsx.
+  if (existsSync(join(DIST, '404', 'index.html'))) {
+    await writeFile(join(DIST, '404.html'), await readFile(join(DIST, '404', 'index.html')));
+    console.log('prerender: wrote dist/404.html');
+  }
+
   if (failures.length) {
     console.error(`prerender: failed routes: ${failures.join(', ')}`);
     process.exit(1);

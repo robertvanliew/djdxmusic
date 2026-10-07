@@ -92,8 +92,8 @@ export default function Venue() {
           {v.intro.map((p, i) => <p className="vn-p vn-lead" key={i}><RichText text={p} /></p>)}
           {v.image && <img className="vn-img" src={v.image.src} alt={v.image.alt} width="1200" height="800" loading="eager" decoding="async" />}
           {v.video && (
-            <figure className="vn-video">
-              <video controls playsInline preload="none" poster={v.video.poster} src={v.video.src} aria-label={v.video.name} width="720" height="1280" />
+            <figure className={`vn-video${v.video.w > v.video.h ? ' vn-video--wide' : ''}`}>
+              <video controls playsInline preload="none" poster={v.video.poster} src={v.video.src} aria-label={v.video.name} width={v.video.w} height={v.video.h} style={{ aspectRatio: `${v.video.w} / ${v.video.h}` }} />
               <figcaption>{v.video.name}</figcaption>
             </figure>
           )}

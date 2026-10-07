@@ -66,18 +66,17 @@ export const GIGS: GigEntry[] = [
     pages: [CORPORATE, '/hamptons-luxury-dj'],
   },
   {
-    // Site copy says June 2026; one of his posts suggests July. Confirm the month.
     eventType: 'Rooftop reception with Soul Shades',
     clientName: 'NautaDutilh',
     showClientName: true,
     venueName: '620 Loft & Garden',
     venueCity: 'Rockefeller Center, Manhattan',
-    date: '2026-06',
+    date: '2026-06-02',
     showVenueName: true,
     pages: [CORPORATE, HOLIDAY, '/violin-dj-duo-nyc-nj', '/rooftop-party-dj-nyc'],
   },
   {
-    eventType: 'Soul Shades festival set',
+    eventType: 'Culture Lab Festival, Soul Shades set',
     venueName: 'Culture Lab LIC',
     venueCity: 'Long Island City, Queens',
     date: '2024-10-27',

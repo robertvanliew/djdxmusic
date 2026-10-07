@@ -39,7 +39,7 @@
       "destination": "/poll-shell.html"
     },
     {
-      "source": "/((?!api/).*)",
+      "source": "/admin",
       "destination": "/index.html"
     }
   ],

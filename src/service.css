@@ -133,5 +133,11 @@
 .na-article figure { margin: 22px 0; }
 .na-article figcaption { font-size: 0.85rem; color: rgba(242,242,242,0.6); margin-top: 6px; }
 .vn-video { margin: 16px auto 6px; max-width: 380px; }
-.vn-video video { width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 12px; background: #000; display: block; }
+.vn-video video { width: 100%; height: auto; border-radius: 12px; background: #000; display: block; }
+.vn-video--wide { max-width: none; }
 .vn-video figcaption { font-size: 0.85rem; color: rgba(242,242,242,0.6); margin-top: 6px; text-align: center; }
+
+/* 404 page */
+.nf-main { padding: 140px 20px 80px; text-align: center; background: var(--black); min-height: 60vh; }
+.nf-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin-top: 22px; }
+.nf-links a { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }

@@ -491,6 +491,15 @@
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/rebel-nyc-dj-dx-cdjs-midtown.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/rebel-nyc-dj-dx-mic-midtown.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/rebel-nyc-dj-dx-decks-midtown.jpg</image:loc>
+    </image:image>
   </url>
 
   <url>
@@ -498,6 +507,15 @@
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/argyle-new-years-eve-dance-floor-chelsea.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/argyle-crystal-waters-live-chelsea.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/argyle-lounge-chelsea-nyc.jpg</image:loc>
+    </image:image>
     <video:video>
       <video:thumbnail_loc>https://djdxmusic.com/videos/argyle-new-years-eve-2025-dj-dx-soul-shades-poster.jpg</video:thumbnail_loc>
       <video:title>New Year's Eve 2025 at The Argyle, Chelsea NYC | DJ DX and Soul Shades</video:title>
@@ -520,6 +538,15 @@
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/coral-house-dj-dx-booth-baldwin-ny.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/coral-house-ballroom-from-dj-booth-baldwin.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/coral-house-ballroom-baldwin-ny.jpg</image:loc>
+    </image:image>
   </url>
 
   <url>
@@ -527,6 +554,12 @@
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/culture-lab-lic-soul-shades-stage.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/culture-lab-lic-festival-lot-crowd-queens.jpg</image:loc>
+    </image:image>
     <video:video>
       <video:thumbnail_loc>https://djdxmusic.com/videos/culture-lab-lic-soul-shades-2024-poster.jpg</video:thumbnail_loc>
       <video:title>Soul Shades live at Culture Lab LIC, Long Island City (October 2024)</video:title>
@@ -538,10 +571,37 @@
   </url>
 
   <url>
+    <loc>https://djdxmusic.com/venues/santacruzan-festival-jersey-city</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/santacruzan-festival-jersey-city-2015-stage.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/santacruzan-festival-jersey-city-2015-keys.jpg</image:loc>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/santacruzan-festival-jersey-city-2015-dj-dx-poster.jpg</video:thumbnail_loc>
+      <video:title>DJ DX live at the 37th Santacruzan &amp; Flores de Mayo Festival, Jersey City (May 24, 2015)</video:title>
+      <video:description>DJ DX performing at the 37th Santacruzan &amp; Flores de Mayo Festival on Manila Avenue in Jersey City, NJ, on May 24, 2015.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/santacruzan-festival-jersey-city-2015-dj-dx.mp4</video:content_loc>
+      <video:duration>38</video:duration>
+      <video:publication_date>2026-10-07T19:00:00-04:00</video:publication_date>
+    </video:video>
+  </url>
+
+  <url>
     <loc>https://djdxmusic.com/news/groove-on-grove-jersey-journal</loc>
     <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/groove-on-grove-dj-dx-stage-jersey-city-2014.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/groove-on-grove-grove-street-plaza-jersey-city-2014.jpg</image:loc>
+    </image:image>
     <video:video>
       <video:thumbnail_loc>https://djdxmusic.com/videos/groove-on-grove-dj-dx-jersey-city-2014-poster.jpg</video:thumbnail_loc>
       <video:title>DJ DX live at Groove on Grove, Jersey City (August 6, 2014)</video:title>

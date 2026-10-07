@@ -48,17 +48,7 @@ export default function News() {
             "name": "DJ DX",
             "url": "https://djdxmusic.com/"
           },
-          "publisher": {
-            "@type": "Organization",
-            "@id": "https://djdxmusic.com/#organization",
-            "name": "DJ DX Music",
-            "url": "https://djdxmusic.com/",
-            "logo": { "@type": "ImageObject", "url": "https://djdxmusic.com/og-image.jpg" },
-            "sameAs": [
-              "https://open.spotify.com/artist/4gGFdpDwEe8zIY1XSE3dGe",
-              "https://www.youtube.com/channel/UCqXcClmim62rc3Jqnzp855w"
-            ]
-          },
+          "publisher": { "@id": "https://djdxmusic.com/#service" },
           "about": [
             { "@type": "Thing", "name": "Music" },
             { "@type": "Thing", "name": "Events" },
