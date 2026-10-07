@@ -462,7 +462,7 @@ namespace AiVis {
         headers: { Authorization: `Bearer ${auth}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ model: MODEL, messages: [{ role: 'user', content: `${question}. Name specific DJs or companies and cite your sources.` }] }),
       });
-      if (!r.ok) return { question, named: false, cited: false, citedPages: [], competitors: [], error: `http_${r.status}` };
+      if (!r.ok) return { question, named: false, cited: false, citedPages: [], competitors: [], error: `http_${r.status}: ${(await r.text()).slice(0, 160)}` };
       const d = await r.json();
       const content: string = d.choices?.[0]?.message?.content || '';
       const raw = JSON.stringify(d);
