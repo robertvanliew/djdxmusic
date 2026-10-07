@@ -132,3 +132,6 @@
 .na-article video, .na-article figure img { width: 100%; height: auto; border-radius: 10px; }
 .na-article figure { margin: 22px 0; }
 .na-article figcaption { font-size: 0.85rem; color: rgba(242,242,242,0.6); margin-top: 6px; }
+.vn-video { margin: 16px auto 6px; max-width: 380px; }
+.vn-video video { width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 12px; background: #000; display: block; }
+.vn-video figcaption { font-size: 0.85rem; color: rgba(242,242,242,0.6); margin-top: 6px; text-align: center; }

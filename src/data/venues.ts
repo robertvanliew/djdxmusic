@@ -24,6 +24,8 @@ export interface Venue {
   image?: { src: string; alt: string };
   // Gallery photos live in public/venues/<name>.jpg and .webp; give the base path without extension.
   photos?: { src: string; alt: string; w: number; h: number }[];
+  // Self-hosted highlight reel (public/videos). Emitted as VideoObject schema and listed in the video sitemap.
+  video?: { src: string; poster: string; name: string; description: string; uploadDate: string; duration: string };
   intro: string[];
   sections: VenueSection[];
   cta: string;
@@ -54,7 +56,7 @@ export const VENUES: Venue[] = [
       {
         h2: "New Year's Eve at The Argyle",
         paras: [
-          "The Argyle booked DJ DX for its New Year's Eve party on December 31, 2025. The night built from cocktail-hour soul and R&B into open-format dance sets, then a countdown into midnight and a full dance floor after the drop.",
+          "The Argyle booked DJ DX for its New Year's Eve party on December 31, 2025, with Julie Schatz on live violin as Soul Shades. The night built from cocktail-hour soul and R&B into open-format dance sets, then a countdown into midnight and a dance floor that stayed full well past it.",
           "Planning a New Year's Eve party in a lounge or private room? See [New Year's Eve DJ NYC](/new-years-eve-dj-nyc).",
         ],
       },
@@ -84,6 +86,14 @@ export const VENUES: Venue[] = [
       { src: '/venues/argyle-crystal-waters-live-chelsea', alt: 'Crystal Waters performing live at a Recognize company event at The Argyle, Chelsea, with sound by DJ DX', w: 530, h: 942 },
       { src: '/venues/argyle-lounge-chelsea-nyc', alt: 'The Argyle cocktail lounge beneath Markette in Chelsea, NYC, before guests arrive', w: 1600, h: 1200 },
     ],
+    video: {
+      src: '/videos/argyle-new-years-eve-2025-dj-dx-soul-shades.mp4',
+      poster: '/videos/argyle-new-years-eve-2025-dj-dx-soul-shades-poster.jpg',
+      name: "New Year's Eve 2025 at The Argyle, Chelsea NYC | DJ DX and Soul Shades",
+      description: "Highlights from The Argyle's New Year's Eve party in Chelsea, NYC, December 31, 2025: DJ DX on the decks with Julie Schatz on live violin, and a full dance floor past midnight.",
+      uploadDate: '2026-10-07T18:00:00-04:00',
+      duration: 'PT44S',
+    },
     event: { name: "New Year's Eve at The Argyle", startDate: '2025-12-31' },
     pages: [NYE, CORPORATE, HOLIDAY],
   },
@@ -162,14 +172,14 @@ export const VENUES: Venue[] = [
     slug: 'culture-lab-lic',
     name: 'Culture Lab LIC',
     area: 'Long Island City, Queens',
-    summary: 'Festival DJ, November 2024',
-    title: 'Culture Lab LIC DJ | Festival & Outdoor Event DJ | DJ DX',
-    description: 'DJ DX was the festival DJ at Culture Lab LIC in Long Island City, Queens. Festival, outdoor and arts-event DJ with his own sound, across NYC and NJ.',
-    h1: 'Festival DJ at Culture Lab LIC, Long Island City',
+    summary: 'Soul Shades festival set, October 2024',
+    title: 'Culture Lab LIC DJ | Soul Shades Festival Set | DJ DX',
+    description: 'DJ DX and Soul Shades played the outdoor stage at Culture Lab LIC in Long Island City, Queens, in October 2024. Festival and outdoor event DJ.',
+    h1: 'DJ DX and Soul Shades at Culture Lab LIC, Long Island City',
     overline: 'Venue: Culture Lab LIC, 46th Avenue',
     address: { street: '5-25 46th Ave', locality: 'Long Island City', region: 'NY', postalCode: '11101' },
     intro: [
-      'Culture Lab LIC is a nonprofit gallery, performance venue and community hub at 5-25 46th Avenue in Long Island City, Queens, with an outdoor lot that hosts free concerts and festivals. In November 2024, Culture Lab booked DJ DX as the festival DJ, to carry the day between acts and keep an all-ages, walk-in crowd moving.',
+      'Culture Lab LIC is a nonprofit gallery, performance venue and community hub at 5-25 46th Avenue in Long Island City, Queens, with an outdoor lot that hosts free concerts and festivals. On October 27, 2024, Culture Lab booked DJ DX for a festival day on its outdoor stage, performing as Soul Shades with Julie Schatz on violin and keys for an all-ages, walk-in crowd.',
     ],
     sections: [
       {
@@ -189,7 +199,19 @@ export const VENUES: Venue[] = [
     ],
     cta: 'Running a festival, block party or gala? Send the date and format, and you will hear back within 24 hours. A certificate of insurance and W-9 are available for nonprofits and municipalities.',
     bookingEventType: 'Corporate Event / Holiday Party',
-    pages: [CORPORATE, '/house-jersey-club-dj-nyc-nj'],
+    photos: [
+      { src: '/venues/culture-lab-lic-soul-shades-stage', alt: 'Soul Shades on the Culture Lab LIC outdoor stage: Julie Schatz on violin and DJ DX on keys, Long Island City, Queens', w: 788, h: 870 },
+      { src: '/venues/culture-lab-lic-festival-lot-crowd-queens', alt: 'Festival crowd and vendor tents in the Culture Lab LIC lot, Long Island City, October 2024', w: 977, h: 1302 },
+    ],
+    video: {
+      src: '/videos/culture-lab-lic-soul-shades-2024.mp4',
+      poster: '/videos/culture-lab-lic-soul-shades-2024-poster.jpg',
+      name: 'Soul Shades live at Culture Lab LIC, Long Island City (October 2024)',
+      description: 'DJ DX and Julie Schatz (Soul Shades) performing on the outdoor stage at Culture Lab LIC, Long Island City, Queens, on October 27, 2024.',
+      uploadDate: '2026-10-07T18:00:00-04:00',
+      duration: 'PT24S',
+    },
+    pages: [CORPORATE, '/house-jersey-club-dj-nyc-nj', '/violin-dj-duo-nyc-nj'],
   },
 ];
 

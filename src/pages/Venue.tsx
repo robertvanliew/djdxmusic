@@ -51,6 +51,14 @@ export default function Venue() {
       caption: ph.alt, creator: { '@id': 'https://djdxmusic.com/#djdx' }, copyrightHolder: { '@id': 'https://djdxmusic.com/#djdx' },
     })));
   }
+  if (v.video) {
+    schema.push({
+      '@context': 'https://schema.org', '@type': 'VideoObject', name: v.video.name, description: v.video.description,
+      thumbnailUrl: `https://djdxmusic.com${v.video.poster}`, contentUrl: `https://djdxmusic.com${v.video.src}`,
+      uploadDate: v.video.uploadDate, duration: v.video.duration, creator: { '@id': 'https://djdxmusic.com/#djdx' },
+      contentLocation: place,
+    });
+  }
   if (v.event) {
     schema.push({
       '@context': 'https://schema.org', '@type': 'MusicEvent', name: v.event.name, startDate: v.event.startDate,
@@ -83,6 +91,12 @@ export default function Venue() {
           <h1 className="sec-title vn-h1">{v.h1}</h1>
           {v.intro.map((p, i) => <p className="vn-p vn-lead" key={i}><RichText text={p} /></p>)}
           {v.image && <img className="vn-img" src={v.image.src} alt={v.image.alt} width="1200" height="800" loading="eager" decoding="async" />}
+          {v.video && (
+            <figure className="vn-video">
+              <video controls playsInline preload="none" poster={v.video.poster} src={v.video.src} aria-label={v.video.name} width="720" height="1280" />
+              <figcaption>{v.video.name}</figcaption>
+            </figure>
+          )}
           {v.photos && v.photos.length > 0 && (
             <div className="vn-gallery">
               {v.photos.map((ph, i) => (
