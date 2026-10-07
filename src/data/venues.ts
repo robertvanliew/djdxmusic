@@ -22,6 +22,8 @@ export interface Venue {
   overline: string;
   address?: { street: string; locality: string; region: string; postalCode: string };
   image?: { src: string; alt: string };
+  // Gallery photos live in public/venues/<name>.jpg and .webp; give the base path without extension.
+  photos?: { src: string; alt: string; w: number; h: number }[];
   intro: string[];
   sections: VenueSection[];
   cta: string;
@@ -39,9 +41,9 @@ export const VENUES: Venue[] = [
     slug: 'the-argyle-chelsea',
     name: 'The Argyle',
     area: 'Chelsea, Manhattan',
-    summary: "New Year's Eve party and a private company event with Crystal Waters live",
+    summary: "New Year's Eve 2025 and a Recognize company event with Crystal Waters live",
     title: "The Argyle NYC DJ | New Year's Eve & Private Events | DJ DX",
-    description: "DJ DX has played The Argyle in Chelsea twice: the lounge's New Year's Eve party and a private company event with Crystal Waters live. Book the same setup.",
+    description: "DJ DX has played The Argyle in Chelsea twice: the lounge's New Year's Eve party and a Recognize company event with Crystal Waters live. Book the same setup.",
     h1: 'DJ at The Argyle, Chelsea',
     overline: 'Venue: The Argyle, 326 7th Avenue',
     address: { street: '326 7th Ave', locality: 'New York', region: 'NY', postalCode: '10001' },
@@ -57,9 +59,9 @@ export const VENUES: Venue[] = [
         ],
       },
       {
-        h2: 'Private company event with Crystal Waters',
+        h2: 'Recognize company event with Crystal Waters',
         paras: [
-          "For a private 2025 company event hosted by one of New York's best-known technology investors, DJ DX handled both the DJ sets and the full sound for Crystal Waters' live performance. That meant one point of contact for the whole night: music before and after her set, and a clean, tuned sound system for a headline vocalist in an intimate lounge.",
+          "For a 2025 company event for Recognize, the technology investment firm co-founded by Charles Phillips (former president of Oracle and CEO of Infor), DJ DX handled both the DJ sets and the full sound for Crystal Waters' live performance. That meant one point of contact for the whole night: music before and after her set, and a clean, tuned sound system for a headline vocalist in an intimate lounge.",
           'If your event includes a live performer, a speaker or a toast, DJ DX can supply and run the sound for it. See [corporate event DJ in NYC](/corporate-event-dj-nyc-nj-ct).',
         ],
       },
@@ -77,6 +79,11 @@ export const VENUES: Venue[] = [
     ],
     cta: 'Already booked The Argyle or Markette for your event? DJ DX knows the room. Send your date and you will hear back within 24 hours.',
     bookingEventType: 'Corporate Event / Holiday Party',
+    photos: [
+      { src: '/venues/argyle-new-years-eve-dance-floor-chelsea', alt: "Full dance floor at The Argyle's New Year's Eve party in Chelsea, NYC, with DJ DX on the decks", w: 611, h: 814 },
+      { src: '/venues/argyle-crystal-waters-live-chelsea', alt: 'Crystal Waters performing live at a Recognize company event at The Argyle, Chelsea, with sound by DJ DX', w: 530, h: 942 },
+      { src: '/venues/argyle-lounge-chelsea-nyc', alt: 'The Argyle cocktail lounge beneath Markette in Chelsea, NYC, before guests arrive', w: 1600, h: 1200 },
+    ],
     event: { name: "New Year's Eve at The Argyle", startDate: '2025-12-31' },
     pages: [NYE, CORPORATE, HOLIDAY],
   },
@@ -118,14 +125,14 @@ export const VENUES: Venue[] = [
     slug: 'coral-house-baldwin-ny',
     name: 'Coral House',
     area: 'Baldwin, Long Island',
-    summary: 'Private birthday celebration',
+    summary: 'Private birthday celebration for 300 guests, 2025',
     title: 'Coral House Baldwin DJ | Long Island Party DJ | DJ DX',
-    description: 'DJ DX has played a private birthday celebration at the Coral House in Baldwin, NY. Long Island birthday, milestone and private party DJ. Quote in 24 hours.',
+    description: 'DJ DX played a 300-guest private birthday at the Coral House in Baldwin, NY in 2025. Long Island birthday, milestone and private party DJ.',
     h1: 'DJ at the Coral House, Baldwin NY',
     overline: 'Venue: Coral House, Milburn Lake',
     address: { street: '70 Milburn Ave', locality: 'Baldwin', region: 'NY', postalCode: '11510' },
     intro: [
-      "The Coral House is the waterfront event venue on Milburn Lake in Baldwin, on Long Island's South Shore. DJ DX played a private birthday celebration there, for a family-and-friends crowd that spanned generations.",
+      "The Coral House is the waterfront event venue on Milburn Lake in Baldwin, on Long Island's South Shore. In 2025 DJ DX played a private birthday celebration there for 300 guests, a family-and-friends crowd that spanned generations.",
       'A room like that is where open-format DJing pays off: classic soul and R&B for the elders, hip-hop and current hits for everyone else, and one DJ reading the floor all night instead of one playlist on shuffle.',
     ],
     sections: [
@@ -144,20 +151,25 @@ export const VENUES: Venue[] = [
     ],
     cta: 'Celebrating at the Coral House? Send your date and guest count, and you will hear back within 24 hours with availability and pricing.',
     bookingEventType: 'Private Party / Birthday',
+    photos: [
+      { src: '/venues/coral-house-dj-dx-booth-baldwin-ny', alt: 'DJ DX at his DJ booth with keys at a private birthday at the Coral House, Baldwin, NY', w: 611, h: 814 },
+      { src: '/venues/coral-house-ballroom-from-dj-booth-baldwin', alt: 'View from the DJ booth across the Coral House ballroom in Baldwin, Long Island, during a 300-guest birthday', w: 611, h: 814 },
+      { src: '/venues/coral-house-ballroom-baldwin-ny', alt: 'The Coral House ballroom in Baldwin, NY set for a private birthday celebration', w: 611, h: 814 },
+    ],
     pages: ['/birthday-party-dj-nyc-nj', '/private-party-dj-nyc-nj', '/wedding-dj-long-island-ny'],
   },
   {
     slug: 'culture-lab-lic',
     name: 'Culture Lab LIC',
     area: 'Long Island City, Queens',
-    summary: 'Festival DJ',
+    summary: 'Festival DJ, November 2024',
     title: 'Culture Lab LIC DJ | Festival & Outdoor Event DJ | DJ DX',
     description: 'DJ DX was the festival DJ at Culture Lab LIC in Long Island City, Queens. Festival, outdoor and arts-event DJ with his own sound, across NYC and NJ.',
     h1: 'Festival DJ at Culture Lab LIC, Long Island City',
     overline: 'Venue: Culture Lab LIC, 46th Avenue',
     address: { street: '5-25 46th Ave', locality: 'Long Island City', region: 'NY', postalCode: '11101' },
     intro: [
-      'Culture Lab LIC is a nonprofit gallery, performance venue and community hub at 5-25 46th Avenue in Long Island City, Queens, with an outdoor lot that hosts free concerts and festivals. Culture Lab booked DJ DX as the festival DJ, to carry the day between acts and keep an all-ages, walk-in crowd moving.',
+      'Culture Lab LIC is a nonprofit gallery, performance venue and community hub at 5-25 46th Avenue in Long Island City, Queens, with an outdoor lot that hosts free concerts and festivals. In November 2024, Culture Lab booked DJ DX as the festival DJ, to carry the day between acts and keep an all-ages, walk-in crowd moving.',
     ],
     sections: [
       {
@@ -171,7 +183,7 @@ export const VENUES: Venue[] = [
       {
         h2: 'Other arts and community events',
         paras: [
-          'DJ DX plays gallery openings, galas, fundraisers and public festivals across NYC and New Jersey. He made the front page of the Jersey Journal for his [Groove on Grove](/news/groove-on-grove-jersey-journal) performance in Jersey City. See [corporate and gala DJ](/corporate-event-dj-nyc-nj-ct) and [house and Jersey Club DJ](/house-jersey-club-dj-nyc-nj).',
+          "DJ DX plays gallery openings, galas, fundraisers and public festivals across NYC and New Jersey. He made the cover of the Jersey Journal's weekend section when he headlined [Groove on Grove](/news/groove-on-grove-jersey-journal) in Jersey City. See [corporate and gala DJ](/corporate-event-dj-nyc-nj-ct) and [house and Jersey Club DJ](/house-jersey-club-dj-nyc-nj).",
         ],
       },
     ],

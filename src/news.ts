@@ -14,30 +14,60 @@ export interface NewsPost {
   body: string;                // HTML string
   tags: string[];
   // Press posts: the outside feature this post is about (emitted as schema citation)
-  source?: { publisher: string; publisherUrl: string; headline: string; url: string; datePublished: string };
+  source?: { publisher: string; publisherUrl: string; headline: string; url?: string; datePublished: string; author?: string };
+  // Self-hosted video shown in the post; emitted as VideoObject schema.
+  video?: { url: string; poster: string; name: string; description: string; uploadDate: string; duration: string };
 }
 
 export const newsPosts: NewsPost[] = [
   {
     slug: 'groove-on-grove-jersey-journal',
-    headline: 'DJ DX Performs at Groove on Grove, Makes the Jersey Journal Front Page',
-    seoTitle: 'DJ DX at Groove on Grove | Jersey Journal Front Page',
-    subheadline: 'A Jersey City native, DJing since 1998, on the front page of his hometown paper.',
+    headline: 'DJ DX Headlines Groove on Grove and Makes the Jersey Journal Weekend Cover',
+    seoTitle: 'DJ DX at Groove on Grove | Jersey Journal Cover (2014)',
+    subheadline: 'August 2014: a Jersey City native, DJing since 1998, on the cover of his hometown paper\'s weekend section.',
     datePublished: '2026-10-07T12:00:00-04:00',
-    dateModified: '2026-10-07T12:00:00-04:00',
+    dateModified: '2026-10-07T16:00:00-04:00',
     displayDate: 'October 7, 2026',
     category: 'Press',
-    excerpt: 'Jersey City native DJ DX performed as a featured artist at Groove on Grove and made the front page and arts section of the Jersey Journal.',
-    metaDescription: 'Jersey City native DJ DX performed as a featured artist at Groove on Grove and made the front page and arts section of the Jersey Journal.',
-    image: '/epk-hero.jpg',
-    imageAlt: 'DJ DX (Robert Van Liew), Jersey City DJ, featured artist at Groove on Grove',
+    excerpt: 'In August 2014, DJ DX headlined Groove on Grove in Jersey City and made the cover of the Jersey Journal\'s Weekend Urge section.',
+    metaDescription: 'In August 2014, Jersey City native DJ DX headlined Groove on Grove and made the cover of the Jersey Journal\'s Weekend Urge section. Photos and video.',
+    image: '/venues/groove-on-grove-dj-dx-stage-jersey-city-2014.jpg',
+    imageAlt: 'DJ DX performing on the Groove on Grove stage at the Grove Street PATH Plaza, Jersey City, August 2014',
     tags: ['Press', 'Jersey Journal', 'Groove on Grove', 'Jersey City', 'DJ DX'],
+    source: {
+      publisher: 'The Jersey Journal',
+      publisherUrl: 'https://www.nj.com/jjournal-news/',
+      headline: 'DJ DX headlines at Groove on Grove this week',
+      author: 'Summer Dawn Hortillosa',
+      datePublished: '2014-08-01',
+    },
+    video: {
+      url: '/videos/groove-on-grove-dj-dx-jersey-city-2014.mp4',
+      poster: '/videos/groove-on-grove-dj-dx-jersey-city-2014-poster.jpg',
+      name: 'DJ DX live at Groove on Grove, Jersey City (August 6, 2014)',
+      description: 'DJ DX headlining Groove on Grove at the Grove Street PATH Plaza in Jersey City, NJ, on August 6, 2014. Featured on the cover of the Jersey Journal\'s Weekend Urge section.',
+      uploadDate: '2026-10-07T12:00:00-04:00',
+      duration: 'PT9S',
+    },
     body: `
-<p class="news-lede">In 2015, <strong>DJ DX</strong> took the stage as a featured artist at <strong>Groove on Grove</strong>, the free summer concert series at the Grove Street PATH Plaza in Downtown Jersey City. The performance put him on the front page of the <strong>Jersey Journal</strong> and in its arts section.</p>
+<p class="news-lede">On Wednesday, August 6, 2014, <strong>DJ DX</strong> headlined <strong>Groove on Grove</strong>, the free summer concert series at the Grove Street PATH Plaza in Downtown Jersey City. The week before, the <strong>Jersey Journal</strong> put him on the cover of its <em>Weekend Urge</em> section under the headline "Catch the Beat," with a feature inside by staff writer Summer Dawn Hortillosa.</p>
 
-<p>Groove on Grove has brought local musicians to Grove Street every summer since 2008. For a Jersey City native who has been DJing since 1998, playing it was a homecoming: the same streets where he started, now on the front page of the hometown paper.</p>
+<figure>
+  <video controls playsinline preload="none" poster="/videos/groove-on-grove-dj-dx-jersey-city-2014-poster.jpg" src="/videos/groove-on-grove-dj-dx-jersey-city-2014.mp4" aria-label="DJ DX live at Groove on Grove, Jersey City, August 6, 2014"></video>
+  <figcaption>Live at Groove on Grove, Grove Street PATH Plaza, Jersey City, August 6, 2014.</figcaption>
+</figure>
 
-<p>See the front page in <a href="https://www.instagram.com/p/2b9zGOMKw4/" target="_blank" rel="noopener">his Instagram post from May 2015</a>, and read more about his Jersey City roots in the <a href="https://jerseycitysound.com/entry-dj-dx.html" target="_blank" rel="noopener">Jersey City Sound archive</a>.</p>
+<p>Groove on Grove has brought local musicians to Grove Street every summer since 2008. That night DJ DX shared the bill with Liam Brown and the Pounds and Universal Rebel. For a Jersey City native who has been DJing since 1998, it was a homecoming: the same streets where he started, now on the cover of the hometown paper.</p>
+
+<figure>
+  <picture>
+    <source type="image/webp" srcset="/venues/groove-on-grove-grove-street-plaza-jersey-city-2014.webp">
+    <img src="/venues/groove-on-grove-grove-street-plaza-jersey-city-2014.jpg" alt="DJ DX on stage at Groove on Grove, Grove Street PATH Plaza, Jersey City, August 2014" width="949" height="534" loading="lazy">
+  </picture>
+  <figcaption>The Groove on Grove stage at the Grove Street PATH Plaza.</figcaption>
+</figure>
+
+<p>See the cover in <a href="https://www.instagram.com/p/2b9zGOMKw4/" target="_blank" rel="noopener">his Instagram post</a>, and read more about his Jersey City roots in the <a href="https://jerseycitysound.com/entry-dj-dx.html" target="_blank" rel="noopener">Jersey City Sound archive</a>.</p>
 
 <p>Planning an event in Jersey City? See <a href="/corporate-event-dj-jersey-city-nj">corporate event DJ in Jersey City</a>, the <a href="/venues">venues DJ DX has played</a>, or the <a href="/epk">press kit</a>.</p>
 `,

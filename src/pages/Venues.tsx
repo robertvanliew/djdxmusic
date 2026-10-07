@@ -56,7 +56,7 @@ export default function Venues() {
               <Link to="/news/groove-on-grove-jersey-journal" className="season-card">
                 <span className="season-kicker">Jersey City, NJ</span>
                 <strong>Groove on Grove</strong>
-                <span className="season-desc">Featured artist, Jersey Journal front page</span>
+                <span className="season-desc">Headliner, August 2014. Jersey Journal weekend cover</span>
                 <span className="season-go">Read the story <span aria-hidden="true">→</span></span>
               </Link>
             </li>
@@ -65,7 +65,7 @@ export default function Venues() {
           <div className="vn-sec">
             <h2 className="vn-h2">Past venues</h2>
             <p className="vn-p">
-              <strong>LITM, Downtown Jersey City (closed 2020).</strong> Before it closed, DJ DX was part of the scene at LITM, the
+              <strong>LITM, Downtown Jersey City (closed 2020).</strong> From 2007 to 2009, DJ DX played LITM, the
               Newark Avenue art bar that anchored Downtown Jersey City nightlife for 17 years. More on his Jersey City roots in
               the <a href="https://jerseycitysound.com/entry-dj-dx.html" target="_blank" rel="noopener">Jersey City Sound archive</a>.
             </p>

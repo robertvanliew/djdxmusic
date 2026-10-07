@@ -126,3 +126,9 @@
 .vn-hub .season-card { height: 100%; }
 @media (max-width: 640px) { .vn-hub { grid-template-columns: 1fr; } .vn-main { padding-top: 96px; } }
 .pb-more { margin: 12px 0 0; font-size: 0.9rem; }
+
+.vn-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin: 14px 0 6px; }
+.vn-gallery img { width: 100%; height: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px; display: block; }
+.na-article video, .na-article figure img { width: 100%; height: auto; border-radius: 10px; }
+.na-article figure { margin: 22px 0; }
+.na-article figcaption { font-size: 0.85rem; color: rgba(242,242,242,0.6); margin-top: 6px; }

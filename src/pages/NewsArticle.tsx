@@ -117,10 +117,23 @@ export default function NewsArticle() {
       "citation": {
         "@type": "Article",
         "headline": post.source.headline,
-        "url": post.source.url,
+        ...(post.source.url ? { "url": post.source.url } : {}),
+        ...(post.source.author ? { "author": { "@type": "Person", "name": post.source.author } } : {}),
         "datePublished": post.source.datePublished,
         "publisher": { "@type": "Organization", "name": post.source.publisher, "url": post.source.publisherUrl },
         "about": { "@type": "Person", "name": "Robert Van Liew", "alternateName": "DJ DX", "url": "https://djdxmusic.com/" }
+      }
+    } : {}),
+    ...(post.video ? {
+      "video": {
+        "@type": "VideoObject",
+        "name": post.video.name,
+        "description": post.video.description,
+        "thumbnailUrl": `https://djdxmusic.com${post.video.poster}`,
+        "contentUrl": `https://djdxmusic.com${post.video.url}`,
+        "uploadDate": post.video.uploadDate,
+        "duration": post.video.duration,
+        "creator": { "@id": "https://djdxmusic.com/#djdx" }
       }
     } : {})
   };

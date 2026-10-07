@@ -45,6 +45,12 @@ export default function Venue() {
       ],
     },
   ];
+  if (v.photos?.length) {
+    schema.push(...v.photos.map(ph => ({
+      '@context': 'https://schema.org', '@type': 'ImageObject', contentUrl: `https://djdxmusic.com${ph.src}.jpg`,
+      caption: ph.alt, creator: { '@id': 'https://djdxmusic.com/#djdx' }, copyrightHolder: { '@id': 'https://djdxmusic.com/#djdx' },
+    })));
+  }
   if (v.event) {
     schema.push({
       '@context': 'https://schema.org', '@type': 'MusicEvent', name: v.event.name, startDate: v.event.startDate,
@@ -64,7 +70,7 @@ export default function Venue() {
         <meta property="og:description" content={v.description} />
         <meta property="og:url" content={url} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content={`https://djdxmusic.com${v.image?.src || '/epk-hero.jpg'}`} />
+        <meta property="og:image" content={`https://djdxmusic.com${v.image?.src || (v.photos?.[0] ? `${v.photos[0].src}.jpg` : '/epk-hero.jpg')}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
@@ -77,6 +83,16 @@ export default function Venue() {
           <h1 className="sec-title vn-h1">{v.h1}</h1>
           {v.intro.map((p, i) => <p className="vn-p vn-lead" key={i}><RichText text={p} /></p>)}
           {v.image && <img className="vn-img" src={v.image.src} alt={v.image.alt} width="1200" height="800" loading="eager" decoding="async" />}
+          {v.photos && v.photos.length > 0 && (
+            <div className="vn-gallery">
+              {v.photos.map((ph, i) => (
+                <picture key={ph.src}>
+                  <source type="image/webp" srcSet={`${ph.src}.webp`} />
+                  <img src={`${ph.src}.jpg`} alt={ph.alt} width={ph.w} height={ph.h} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+                </picture>
+              ))}
+            </div>
+          )}
 
           {v.sections.map(s => (
             <div className="vn-sec" key={s.h2}>

@@ -77,6 +77,14 @@ export const GIGS: GigEntry[] = [
     pages: [CORPORATE, HOLIDAY, '/violin-dj-duo-nyc-nj', '/rooftop-party-dj-nyc'],
   },
   {
+    eventType: 'Festival DJ',
+    venueName: 'Culture Lab LIC',
+    venueCity: 'Long Island City, Queens',
+    date: '2024-11',
+    showVenueName: true,
+    pages: [CORPORATE, '/house-jersey-club-dj-nyc-nj'],
+  },
+  {
     eventType: "New Year's Eve party",
     venueName: 'The Argyle',
     venueCity: 'Chelsea, Manhattan',
