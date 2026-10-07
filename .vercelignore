@@ -13,3 +13,7 @@ Heatmap/
 business-card/
 DJ-DX_Masters/
 NautaDutilh Reception*/
+Events/
+
+# Local test harness, screenshots and bundles
+.tmp-test/
