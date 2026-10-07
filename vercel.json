@@ -86,6 +86,33 @@
           "value": "noindex, nofollow"
         }
       ]
+    },
+    {
+      "source": "/pricing.md",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://djdxmusic.com/pricing.txt>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/pricing.txt",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://djdxmusic.com/pricing.txt>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "<https://djdxmusic.com/llms.txt>; rel=\"canonical\""
+        }
+      ]
     }
   ]
 }
