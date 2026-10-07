@@ -27,6 +27,22 @@
   ],
   "rewrites": [
     {
+      "source": "/api/mcp",
+      "destination": "/api/agent?p=mcp"
+    },
+    {
+      "source": "/api/a2a",
+      "destination": "/api/agent?p=a2a"
+    },
+    {
+      "source": "/api/attest",
+      "destination": "/api/agent?p=attest"
+    },
+    {
+      "source": "/api/ai-visibility",
+      "destination": "/api/agent?p=aivis"
+    },
+    {
       "source": "/pricing.md",
       "destination": "/pricing.txt"
     },
@@ -157,12 +173,12 @@
   ],
   "crons": [
     {
-      "path": "/api/ai-visibility",
+      "path": "/api/agent?p=aivis",
       "schedule": "0 14 1 * *"
     }
   ],
   "functions": {
-    "api/ai-visibility.ts": {
+    "api/agent.ts": {
       "maxDuration": 300
     }
   }
