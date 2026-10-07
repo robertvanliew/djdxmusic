@@ -309,7 +309,7 @@ export default function Sweet16HudsonValley() {
               <div className="sec-overline"><span className="sec-label">Book Your Date</span></div>
               <h2 className="sec-title">Make Her Sweet 16 <span>Unforgettable</span></h2>
               <p style={{ color: 'rgba(242,242,242,0.55)', lineHeight: 1.8, marginTop: '16px' }}>
-                Looking for a sweet 16 DJ in the Hudson Valley? Fill out the form and we'll respond within 24–48 hours with availability and a custom, itemized quote.
+                Looking for a sweet 16 DJ in the Hudson Valley? Fill out the form and we'll respond within 24 hours with availability and a custom, itemized quote.
               </p>
             </div>
             <div className="booking-right">

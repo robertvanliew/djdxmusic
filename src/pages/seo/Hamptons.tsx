@@ -157,7 +157,7 @@ export default function Hamptons() {
                 {
                   "@type": "Question",
                   "name": "How much does a Hamptons DJ cost?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Hamptons luxury DJ pricing typically starts at $3,000+ depending on estate size, event duration, and season. Peak summer weekends (July-August) command premium rates. DJ DX offers custom quotes — contact bookings@djdxmusic.com for your date."}
+                  "acceptedAnswer": {"@type": "Answer", "text": "Hamptons events with DJ DX start at $3,000, with sound, wireless microphones and MC announcements included, and the live violin duo (Soul Shades) starts at $3,500. Price depends on estate size, hours and season, and peak July and August weekends book first. Send your date and location to bookings@djdxmusic.com for a quote within 24 hours."}
                 },
                 {
                   "@type": "Question",
@@ -541,7 +541,7 @@ export default function Hamptons() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'How much does a Hamptons DJ cost?', a: 'Hamptons luxury DJ pricing typically starts at $3,000+ depending on estate size, event duration, and season. Peak summer weekends (July-August) command premium rates. DJ DX offers custom quotes — contact bookings@djdxmusic.com.' },
+              { q: 'How much does a Hamptons DJ cost?', a: 'Hamptons events with DJ DX start at $3,000, with sound, wireless microphones and MC announcements included, and the live violin duo (Soul Shades) starts at $3,500. Price depends on estate size, hours and season, and peak July and August weekends book first. Send your date and location to bookings@djdxmusic.com for a quote within 24 hours.' },
               { q: 'Is DJ DX available for Hamptons private estates and yacht events?', a: 'Yes. DJ DX performs private estate parties, yacht events, and summer galas from Southampton to Montauk, including Sag Harbor, Bridgehampton, East Hampton, Water Mill, and Amagansett.' },
               { q: 'Can I book the DJ + live violin duo for a Hamptons event?', a: 'Yes. Soul Shades — DJ DX paired with violinist Julie Schatz — is available for Hamptons bookings starting at $3,500, adding live strings over the DJ set for cocktail hour and reception.' },
               { q: 'How early should I book a Hamptons DJ?', a: 'Summer Hamptons dates (June-September) book up 6-12 months in advance given tight peak-season demand. Reach out as early as possible to confirm your date.' },
@@ -570,7 +570,7 @@ export default function Hamptons() {
                 Reserve Your <br /><span>Hamptons</span> Date
               </h2>
               <p className="booking-blurb">
-                Summer dates in the Hamptons fill up fast. Whether you are in East Hampton, Sag Harbor, or Montauk, fill out the form below and I will respond within 24–48 hours to discuss the vibe and vision for your event.
+                Summer dates in the Hamptons fill up fast. Whether you are in East Hampton, Sag Harbor, or Montauk, fill out the form below and I will respond within 24 hours to discuss the vibe and vision for your event.
               </p>
             </div>
 

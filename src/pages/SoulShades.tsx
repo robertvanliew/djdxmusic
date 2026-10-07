@@ -493,7 +493,7 @@ export default function SoulShades() {
           <div className="ss-section-label">05 — Get In Touch</div>
           <h2 className="ss-section-title">Book Soul <span>Shades</span></h2>
           <p className="ss-booking-sub">
-            Available for clubs, events, private bookings, and collaborations. Fill out the form and we'll get back to you within 24–48 hours.
+            Available for clubs, events, private bookings, and collaborations. Fill out the form and we'll get back to you within 24 hours.
           </p>
           <BookingForm />
         </section>

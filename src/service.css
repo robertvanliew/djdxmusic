@@ -141,3 +141,21 @@
 .nf-main { padding: 140px 20px 80px; text-align: center; background: var(--black); min-height: 60vh; }
 .nf-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin-top: 22px; }
 .nf-links a { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Instant estimate after an inquiry */
+.bf-estimate { margin-top: 18px; padding: 16px 18px; border-radius: 10px; border: 1px solid var(--gold-line); background: var(--gold-dim); display: flex; flex-direction: column; gap: 4px; text-align: left; }
+.bf-estimate-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+.bf-estimate strong { font-family: 'Barlow Condensed', sans-serif; font-size: 1.9rem; color: var(--white); line-height: 1.1; }
+.bf-estimate span { font-size: 0.9rem; color: rgba(242,242,242,0.75); }
+.bf-estimate a { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; margin-top: 4px; }
+
+/* Verified passport + client confirmations */
+.vf-badge { margin: 18px 0 6px; padding: 12px 14px; border-radius: 10px; font-size: 0.92rem; line-height: 1.6; border: 1px solid var(--edge); color: rgba(242,242,242,0.8); }
+.vf-badge code, .vn-list code { font-size: 0.85em; color: var(--gold); word-break: break-all; }
+.vf-valid { border-color: rgba(108,200,140,0.5); background: rgba(108,200,140,0.08); color: #bfe8cc; }
+.vf-invalid { border-color: rgba(232,131,111,0.5); background: rgba(232,131,111,0.08); }
+.vf-confirmed { margin: 16px 0; padding: 14px 16px; border-radius: 10px; border: 1px solid rgba(108,200,140,0.45); background: rgba(108,200,140,0.07); color: rgba(242,242,242,0.85); font-size: 0.95rem; display: flex; flex-direction: column; gap: 8px; }
+.vf-confirmed strong { color: #bfe8cc; }
+.vf-confirmed blockquote { margin: 4px 0 0; padding-left: 12px; border-left: 2px solid var(--gold); font-style: italic; }
+.vf-confirmed a { color: var(--gold); font-size: 0.85rem; text-decoration: underline; }
+.vn-p a, .vn-list a { color: var(--gold); }

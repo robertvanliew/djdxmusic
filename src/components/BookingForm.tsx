@@ -1,6 +1,8 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { trackEvent, trackLead, trackFormSubmit, trackFormError } from '../lib/analytics';
 import AddressAutocomplete from './AddressAutocomplete';
+import { getAiReferral } from '../lib/aiReferral';
+import { STARTING_PRICES, FORM_TYPE_TO_PRICE } from '../lib/pricing';
 import { textHref, trackTextClick, TEXT_NUMBER_DISPLAY } from '../lib/textLink';
 
 const Send = () => (
@@ -42,10 +44,17 @@ interface BookingFormProps {
   pollId?: string;
 }
 
-const EMPTY = { name: '', email: '', phone: '', eventType: '', eventDate: '', eventStartTime: '', eventEndTime: '', location: '', locationCity: '', locationState: '', locationCountry: '', message: '', company: '' };
+const EMPTY = { name: '', email: '', phone: '', eventType: '', eventDate: '', eventStartTime: '', eventEndTime: '', location: '', locationCity: '', locationState: '', locationCountry: '', message: '', company: '', guests: '', budget: '', heard: '' };
+
+const GUESTS = ['Under 50', '50 to 100', '100 to 150', '150 to 250', 'Over 250'];
+const BUDGETS = ['Under $3,000', '$3,000 to $5,000', '$5,000 to $8,000', '$8,000 and up', 'Not sure yet'];
+const AI_OPTION = 'ChatGPT or another AI assistant';
+const HEARD = ['Google search', AI_OPTION, 'Instagram or TikTok', 'A friend or past client', 'A venue or planner', 'Eventective or PartySlate', 'Other'];
 
 export default function BookingForm({ initial, formName = 'booking_widget', pollId }: BookingFormProps = {}) {
-  const [fields, setFields] = useState({ ...EMPTY, ...(initial || {}) });
+  const aiRef = typeof window !== 'undefined' ? getAiReferral() : null;
+  const [fields, setFields] = useState({ ...EMPTY, ...(aiRef ? { heard: AI_OPTION } : {}), ...(initial || {}) });
+  const [estimate, setEstimate] = useState<{ type: string; price: number; travel: boolean } | null>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const mountedAt = useRef(Date.now());
 
@@ -66,12 +75,16 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
           elapsedMs: Date.now() - mountedAt.current,
           metaEventId,
           pageUrl: window.location.href,
+          ...(aiRef ? { aiReferral: aiRef.source, aiLanding: aiRef.landing } : {}),
           ...(pollId ? { pollId } : {}),
         }),
       });
       if (!res.ok) throw new Error(`http_${res.status}`);
       trackLead({ form: formName, event_type: fields.eventType, ...(pollId ? { poll_id: pollId } : {}) }, metaEventId);
       if (pollId) trackEvent('booking_submitted_from_poll', { poll_id: pollId });
+      const key = FORM_TYPE_TO_PRICE[fields.eventType];
+      const st = (fields.locationState || '').toUpperCase();
+      setEstimate(key ? { type: fields.eventType, price: STARTING_PRICES[key], travel: !!st && st !== 'NY' } : null);
       setStatus('sent');
       setFields(EMPTY);
       mountedAt.current = Date.now();
@@ -86,6 +99,14 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
       <div className="booking-success-icon">✓</div>
       <h3>Inquiry sent!</h3>
       <p>You'll get a straight yes or no on your date within 24 hours. Check your inbox for a confirmation.</p>
+      {estimate && (
+        <div className="bf-estimate">
+          <span className="bf-estimate-label">Your starting price</span>
+          <strong>From ${estimate.price.toLocaleString('en-US')}</strong>
+          <span>{estimate.type}{estimate.travel ? '. Travel outside NYC is quoted as its own line.' : '.'} Your exact quote comes with the reply.</span>
+          <a href="/event-dj-cost-nyc-nj-ct#quote-calculator">Build a detailed estimate</a>
+        </div>
+      )}
     </div>
   );
 
@@ -144,6 +165,29 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
           onChange={v => set('location', v)}
           onSelect={d => setFields(f => ({ ...f, locationCity: d.city, locationState: d.state, locationCountry: d.country }))}
         />
+      </div>
+      <div className="form-row">
+        <div className="form-field">
+          <label htmlFor="bf-guests">Guests <span className="bf-opt">optional</span></label>
+          <select id="bf-guests" value={fields.guests} onChange={e => set('guests', e.target.value)}>
+            <option value="">Select…</option>
+            {GUESTS.map(g => <option key={g}>{g}</option>)}
+          </select>
+        </div>
+        <div className="form-field">
+          <label htmlFor="bf-budget">Budget <span className="bf-opt">optional</span></label>
+          <select id="bf-budget" value={fields.budget} onChange={e => set('budget', e.target.value)}>
+            <option value="">Select…</option>
+            {BUDGETS.map(b => <option key={b}>{b}</option>)}
+          </select>
+        </div>
+      </div>
+      <div className="form-field">
+        <label htmlFor="bf-heard">How did you hear about DJ DX? <span className="bf-opt">optional</span></label>
+        <select id="bf-heard" value={fields.heard} onChange={e => set('heard', e.target.value)}>
+          <option value="">Select…</option>
+          {HEARD.map(h => <option key={h}>{h}</option>)}
+        </select>
       </div>
       <details className="bf-more" open={!!initial?.message}>
         <summary>Add times and details <span className="bf-opt">optional</span></summary>

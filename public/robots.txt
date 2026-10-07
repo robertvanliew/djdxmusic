@@ -4,6 +4,7 @@
 # ── Allow all crawlers ───────────────────────────────────────────────────────
 User-agent: *
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 
 # Block backend / admin paths
@@ -18,73 +19,87 @@ Disallow: /api/booking
 # ── Google ───────────────────────────────────────────────────────────────────
 User-agent: Googlebot
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 Disallow: /admin
 Disallow: /api/
 
 User-agent: Googlebot-Image
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 Disallow: /api/
 
 User-agent: Googlebot-Video
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 Disallow: /api/
 
 # ── Bing ─────────────────────────────────────────────────────────────────────
 User-agent: Bingbot
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 Disallow: /api/
 
 # ── AI / Answer Engine crawlers ──────────────────────────────────────────────
 User-agent: GPTBot
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 Disallow: /api/
 
 User-agent: ChatGPT-User
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 
 User-agent: PerplexityBot
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 
 # Anthropic AI crawlers (all three user agents Anthropic uses)
 User-agent: Claude-Web
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 
 User-agent: ClaudeBot
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 
 User-agent: anthropic-ai
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 
 # Google Gemini + AI Overviews
 User-agent: Google-Extended
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 Disallow: /api/
 
 # Apple Intelligence
 User-agent: Applebot
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 Disallow: /api/
 
 # Meta AI
 User-agent: meta-externalagent
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 
 # Yandex (international traffic — Russia/Eastern Europe)
 User-agent: Yandex
 Disallow: /plan
+Disallow: /confirm
 Allow: /
 Disallow: /api/
 

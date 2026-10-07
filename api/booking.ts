@@ -139,6 +139,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Set when the inquiry comes from a music poll's "Book DJ DX to play this crowd" button
   const pollId = typeof req.body.pollId === 'string' && /^[a-z0-9]{6,12}$/.test(req.body.pollId) ? req.body.pollId : '';
   let { email, phone, eventStartTime, eventEndTime, location, message } = req.body;
+  // Optional qualifiers (full form) and auto-detected AI referral (any form)
+  const opt = (v: unknown, max = 80) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
+  const guests = opt(req.body.guests), budget = opt(req.body.budget), heard = opt(req.body.heard);
+  const aiReferral = opt(req.body.aiReferral, 40), aiLanding = opt(req.body.aiLanding, 200);
 
   if (quick) {
     if (!name || !eventType || !eventDate || (!email && !phone)) {
@@ -211,7 +215,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       from: process.env.FROM_EMAIL || 'DJ DX <noreply@djdxmusic.com>',
       to: ['bookings@djdxmusic.com'],
       replyTo: email || undefined,
-      subject: `${quick ? 'Quick Inquiry' : 'New Booking Inquiry'}${pollId ? ' (from Music Poll)' : ''} — ${safeEventType} | ${safeEventDate}`,
+      subject: `${aiReferral ? `[AI: ${escapeHtml(aiReferral)}] ` : ''}${quick ? 'Quick Inquiry' : 'New Booking Inquiry'}${pollId ? ' (from Music Poll)' : ''} — ${safeEventType} | ${safeEventDate}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; color: #111; padding: 0; border-radius: 8px; overflow: hidden; border: 1px solid #e5e5e5;">
           <div style="background: #111111; padding: 28px 32px; border-bottom: 3px solid #C9A84C;">
@@ -253,6 +257,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Location</td>
                 <td style="padding: 10px 0; color: #111; font-size: 15px;">${safeLocation}</td>
               </tr>
+${[guests ? `              <tr style="border-top: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Guests</td>
+                <td style="padding: 10px 0; color: #111; font-size: 15px;">${escapeHtml(guests)}</td>
+              </tr>` : '', budget ? `              <tr style="border-top: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Budget</td>
+                <td style="padding: 10px 0; color: #111; font-size: 15px;">${escapeHtml(budget)}</td>
+              </tr>` : '', heard ? `              <tr style="border-top: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Heard about us</td>
+                <td style="padding: 10px 0; color: #111; font-size: 15px;">${escapeHtml(heard)}</td>
+              </tr>` : '', aiReferral ? `              <tr style="border-top: 1px solid #eee;">
+                <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">AI referral</td>
+                <td style="padding: 10px 0; color: #111; font-size: 15px;">${escapeHtml(aiReferral) + (aiLanding ? ' → ' + escapeHtml(aiLanding) : '') + ' (auto-detected)'}</td>
+              </tr>` : ''].join('')}
               <tr style="border-top: 1px solid #eee;">
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; vertical-align: top;">Message</td>
                 <td style="padding: 10px 0; color: #111; font-size: 15px; line-height: 1.7;">${safeMessage.replace(/\n/g, '<br>')}</td>

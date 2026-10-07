@@ -36,3 +36,6 @@ Heatmap/
 business-card/
 DJ-DX_Masters/
 .tmp-test/
+
+# identity build scratch
+.tmp-identity/

@@ -1275,7 +1275,7 @@ function App() {
                 Let's Make<br />Your Event<br /><span>Memorable</span>
               </h2>
               <p className="booking-blurb">
-                Fill out the form and DJ DX will respond within 24–48 hours
+                Fill out the form and DJ DX will respond within 24 hours
                 to discuss availability, packages, and pricing. All events
                 welcome — from intimate to large-scale.
               </p>

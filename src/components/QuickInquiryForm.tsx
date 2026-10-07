@@ -1,6 +1,7 @@
 import { useRef, useState, type FormEvent } from 'react';
 import { trackLead, trackFormSubmit, trackFormError } from '../lib/analytics';
 import { textHref, trackTextClick, TEXT_NUMBER_DISPLAY } from '../lib/textLink';
+import { getAiReferral } from '../lib/aiReferral';
 
 interface Props {
   formName: string;
@@ -31,6 +32,7 @@ export default function QuickInquiryForm({ formName, onSent }: Props) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          ...(() => { const r = getAiReferral(); return r ? { aiReferral: r.source, aiLanding: r.landing } : {}; })(),
           quick: true,
           name: fields.name,
           email: isEmail ? fields.contact : '',

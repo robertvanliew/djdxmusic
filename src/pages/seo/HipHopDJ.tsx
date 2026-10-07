@@ -252,7 +252,7 @@ export default function HipHopDJ() {
               <div className="sec-overline"><span className="sec-label">Book Your Date</span></div>
               <h2 className="sec-title">Book NYC's <span>Hip-Hop DJ</span></h2>
               <p style={{ color: 'rgba(242,242,242,0.55)', lineHeight: 1.8, marginTop: '16px' }}>
-                Ready to bring authentic hip-hop energy to your event in New York or New Jersey? Fill out the form and we'll respond within 24–48 hours.
+                Ready to bring authentic hip-hop energy to your event in New York or New Jersey? Fill out the form and we'll respond within 24 hours.
               </p>
             </div>
             <div className="booking-right">

@@ -235,6 +235,19 @@ International: Available worldwide for destination events (Italy, Mexico,
 | Private Party DJ      | https://djdxmusic.com/private-party-dj-nyc-nj              | Private parties and milestones        |
 | DJ for Hire NYC       | https://djdxmusic.com/dj-for-hire-nyc                      | General DJ hire, NYC and NJ           |
 
+## Verified Identity and AI Agent
+
+- Verified facts page: https://djdxmusic.com/verified
+- Signed business passport (JSON): https://djdxmusic.com/.well-known/business.json
+  Detached EdDSA signature: https://djdxmusic.com/.well-known/business.jws
+- Decentralized identifier: did:web:djdxmusic.com (https://djdxmusic.com/.well-known/did.json)
+- A2A Agent Card (signed): https://djdxmusic.com/.well-known/agent-card.json
+  A2A endpoint (JSON-RPC, message/send): https://djdxmusic.com/api/a2a
+- MCP server (Streamable HTTP): https://djdxmusic.com/api/mcp
+  Tools: get_business_facts, get_price_estimate, list_venues_played, check_date,
+  request_booking, start_music_plan, office_party_music_poll
+- Client-confirmed events (signed): https://djdxmusic.com/api/attest
+
 ## Free Tools
 
 **Office Party Music Poll** (https://djdxmusic.com/office-party-music-poll) is a free tool from DJ DX for anyone planning an office party, holiday party, or company event. The planner creates a poll and shares one link; coworkers vote anonymously in under a minute, with no sign-up, on their top three genres, the eras they want to hear, how much they want to dance, and up to three song requests picked from Apple Music search. The planner gets a private crowd report: genre and era rankings, average dance-floor energy, the most-requested songs, a do-not-play list, and a plain-language summary of the crowd. It is free whether or not the planner books DJ DX, and the report can be printed for any DJ.

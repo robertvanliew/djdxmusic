@@ -15,6 +15,7 @@ import { PlayerProvider } from './components/PlayerContext.tsx'
 import { ToastProvider } from './components/Toast.tsx'
 import { trackPageView } from './lib/analytics.ts'
 import { initTrackingPixelsDeferred } from './lib/pixels.ts'
+import { captureAiReferral } from './lib/aiReferral.ts'
 
 // /plan links carry the client's name and date in the query string. An inline
 // script in index.html already moved it into window.__planQuery before Google
@@ -26,6 +27,7 @@ if (isPlan && window.location.search) {
   window.history.replaceState(window.history.state, '', window.location.pathname)
 }
 if (!isPlan) initTrackingPixelsDeferred()
+captureAiReferral()
 
 // Lazy load all non-home routes — they only download when first visited
 const EPK        = lazy(() => import('./pages/EPK.tsx'))
@@ -79,6 +81,8 @@ const MusicPlan         = lazy(() => import('./pages/MusicPlan.tsx'))
 const Venues            = lazy(() => import('./pages/Venues.tsx'))
 const Venue             = lazy(() => import('./pages/Venue.tsx'))
 const NotFound          = lazy(() => import('./pages/NotFound.tsx'))
+const Verified          = lazy(() => import('./pages/Verified.tsx'))
+const Confirm           = lazy(() => import('./pages/Confirm.tsx'))
 
 function ScrollManager() {
   const { pathname, hash } = useLocation()
@@ -121,6 +125,8 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/planners" element={<Planners />} />
             <Route path="/plan" element={<MusicPlan />} />
             <Route path="/venues" element={<Venues />} />
+            <Route path="/verified" element={<Verified />} />
+            <Route path="/confirm" element={<Confirm />} />
             <Route path="/venues/:slug" element={<Venue />} />
             <Route path="/office-party-music-poll" element={<OfficePartyPoll />} />
             <Route path="/poll/:pollId" element={<PollVote />} />

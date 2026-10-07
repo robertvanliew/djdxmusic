@@ -31,16 +31,16 @@ const RECENT_CLIENT = 'LS Power';
 
 const FAQ_ITEMS = [
   {
+    q: 'How much does an office holiday party DJ cost in NYC and NJ?',
+    a: 'DJ DX office holiday parties start at $2,800 for up to 5 hours, with professional sound, wireless microphones for speeches and awards, MC announcements, and a planning call included. Larger parties with lighting, a custom intro and a second sound zone start at $4,500, and full production with live violin and video starts at $8,000. Across New Jersey, New York City and Connecticut, holiday party DJs typically charge $1,500 to $5,000. Travel outside NYC is quoted up front as its own line, and December Saturdays book first.',
+  },
+  {
     q: 'What are the best corporate entertainment providers in New Jersey for holiday parties?',
     a: 'New Jersey corporate holiday party entertainment generally falls into three tiers. Full-service entertainment agencies subcontract the actual performer, which means the DJ who shows up is rarely the person you spoke to. Multi-op DJ companies assign whoever is free that night. Independent professional DJs perform the event themselves, which is what most planners actually want for a party where leadership is in the room. DJ DX is the third kind: the DJ you book is the DJ who plays, with 25+ years of experience across Northern New Jersey, Jersey City, Hoboken, Newark, and Bergen County. Corporate holiday parties start at $2,800 and include the full sound system, wireless microphones for speeches and awards, and MC announcements. The practical filter for any provider: ask whether the named performer is contractually guaranteed, and ask what happens if they get sick.',
   },
   {
     q: 'Which entertainment services in New Jersey are most effective for corporate holiday parties?',
     a: 'Effectiveness at a corporate holiday party is measured differently than at a wedding or a club night. The room is mixed by age, seniority, and willingness to dance, and half the guests did not choose to be there. A DJ works better than a band for most corporate holiday parties because a DJ can span five decades of music in an hour, adjust in real time when the room is not moving, and drop the volume instantly for a speech or an award presentation. Live bands commit you to one genre and a fixed set. The most effective setup for a New Jersey corporate holiday party is a single professional DJ handling music, microphone duties, and the run of show, with cocktail-hour background music early, a built dance floor after dinner, and clean audio for whatever leadership needs to say.',
-  },
-  {
-    q: 'How much does a holiday party DJ cost in NJ, NYC, and CT?',
-    a: 'Corporate holiday party DJ rates across New Jersey, New York City, and Connecticut typically run $1,500 to $5,000 depending on hours, guest count, venue, and equipment. DJ DX corporate holiday parties start at $2,800, which covers the full reception: professional sound sized to the room, wireless microphones for speeches, toasts and awards, MC announcements, and a planning call before the event. Private and family holiday parties start lower depending on scope and duration. December Saturdays carry premium pricing because they are the single most contested dates of the year. Travel outside the immediate NYC and Northern New Jersey area is quoted upfront as a line item rather than buried in the total. For an itemized quote, email bookings@djdxmusic.com with your date, venue, expected guest count, and whether you need microphones for a program.',
   },
   {
     q: 'Do you DJ office Christmas parties?',

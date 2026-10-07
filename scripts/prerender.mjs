@@ -58,6 +58,8 @@ const STATIC_ROUTES = [
   '/plan',
   '/venues/santacruzan-festival-jersey-city',
   '/404',
+  '/verified',
+  '/confirm',
   '/venues',
   '/venues/the-argyle-chelsea',
   '/venues/620-loft-garden-rockefeller-center',

@@ -15,14 +15,16 @@ import { trackEvent, trackLead, trackFormSubmit, trackFormError } from '../lib/a
 // also turns the add-on list into demand research: the submitted quote says
 // exactly which extras the client wanted.
 
+import { STARTING_PRICES, HAMPTONS_FLOOR as HAMPTONS_MIN, VIOLIN_HOURLY as VIOLIN_RATE } from '../lib/pricing';
+
 type EventKey = 'wedding' | 'corporate' | 'private' | 'sweet16' | 'duo';
 
 const EVENT_TYPES: { key: EventKey; label: string; base: number; blurb: string }[] = [
-  { key: 'wedding',   label: 'Wedding',                          base: 2800, blurb: 'Ceremony, cocktail hour, reception, after-party' },
-  { key: 'corporate', label: 'Corporate event / holiday party',  base: 2800, blurb: 'Galas, office parties, brand activations, product launches' },
-  { key: 'private',   label: 'Private party',                    base: 2800, blurb: 'Birthdays, anniversaries, house parties, milestones' },
-  { key: 'sweet16',   label: 'Sweet 16 / Quinceañera / Mitzvah', base: 1500, blurb: 'Often shorter runtimes and earlier start times' },
-  { key: 'duo',       label: 'DJ + live violin duo (Soul Shades)', base: 3500, blurb: 'Live violin over the DJ set, ceremony through reception' },
+  { key: 'wedding',   label: 'Wedding',                          base: STARTING_PRICES.wedding, blurb: 'Ceremony, cocktail hour, reception, after-party' },
+  { key: 'corporate', label: 'Corporate event / holiday party',  base: STARTING_PRICES.corporate, blurb: 'Galas, office parties, brand activations, product launches' },
+  { key: 'private',   label: 'Private party',                    base: STARTING_PRICES.private, blurb: 'Birthdays, anniversaries, house parties, milestones' },
+  { key: 'sweet16',   label: 'Sweet 16 / Quinceañera / Mitzvah', base: STARTING_PRICES.sweet16, blurb: 'Often shorter runtimes and earlier start times' },
+  { key: 'duo',       label: 'DJ + live violin duo (Soul Shades)', base: STARTING_PRICES.duo, blurb: 'Live violin over the DJ set, ceremony through reception' },
 ];
 
 // pricing.txt: NYC travel is included in the quoted total; NJ / Long Island /
@@ -35,8 +37,8 @@ const REGIONS: { key: RegionKey; label: string; note: string }[] = [
   { key: 'hamptons', label: 'Hamptons, destination or international', note: 'Starts at $3,000; travel and riders coordinated separately' },
 ];
 
-const HAMPTONS_FLOOR = 3000;
-const VIOLIN_HOURLY = 150; // pricing.txt: "From $150/hour added to any DJ package"
+const HAMPTONS_FLOOR = HAMPTONS_MIN;
+const VIOLIN_HOURLY = VIOLIN_RATE; // pricing.txt: "From $150/hour added to any DJ package"
 const INCLUDED_HOURS = 5;  // EventDJCost: "Most quotes assume four to five hours"
 
 // Extras DJ DX has not published a flat price for. Shown as interest

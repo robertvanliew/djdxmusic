@@ -561,7 +561,7 @@ export default function EPK() {
               Let's Make Something<br /><span>Unforgettable</span>
             </h2>
             <p className="epkr-cta-sub">
-              Fill out the form below and DJ DX will get back to you within 24–48 hours.
+              Fill out the form below and DJ DX will get back to you within 24 hours.
             </p>
             <BookingForm />
           </div>

@@ -83,6 +83,14 @@ export default function NewYearsEveDJ() {
               "mainEntity": [
                 {
                   "@type": "Question",
+                  "name": "How much does a New Year's Eve DJ cost in NYC?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "DJ DX New Year's Eve bookings are quoted individually, because he takes one New Year's Eve event a year and the price depends on hours, venue and guest count. For reference, his published rates start at $2,800 for corporate and private events. Send your venue, guest count and hours to bookings@djdxmusic.com for a quote within 24 hours; inquiries by November 1 get priority."
+                  }
+                },
+                {
+                  "@type": "Question",
                   "name": "How do I book DJ DX for New Year's Eve in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
@@ -221,6 +229,7 @@ export default function NewYearsEveDJ() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
+              { q: 'How much does a New Year\'s Eve DJ cost in NYC?', a: 'DJ DX New Year\'s Eve bookings are quoted individually, because he takes one New Year\'s Eve event a year and the price depends on hours, venue and guest count. For reference, his published rates start at $2,800 for corporate and private events. Send your venue, guest count and hours to bookings@djdxmusic.com for a quote within 24 hours; inquiries by November 1 get priority.' },
               { q: 'How do I book DJ DX for New Year\'s Eve in NYC?', a: 'Email bookings@djdxmusic.com or use the form below. NYE is DJ DX\'s single most in-demand date — only one slot is available per year. Inquiries received by November 1st receive priority. Include your event type, venue, expected guest count, and budget range.' },
               { q: 'What type of NYE events does DJ DX perform at?', a: 'DJ DX performs at private NYE parties, corporate New Year\'s Eve galas, rooftop countdown parties, nightclub NYE residencies, and restaurant and lounge NYE celebrations across NYC and NJ. Every NYE set is engineered specifically for the midnight moment.' },
               { q: 'What does a DJ DX NYE set look like musically?', a: 'A DJ DX NYE set is built in phases: elegant early-evening R&B and neo-soul, a building mid-night ramp-up with hip-hop and Afrobeats, a scripted countdown sequence, and a post-midnight floor peak that keeps the party going until 2–3am. The midnight moment is engineered to make the entire room erupt.' },

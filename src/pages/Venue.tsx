@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import SiteNav from '../components/SiteNav';
@@ -15,6 +15,11 @@ export default function Venue() {
   const { slug = '' } = useParams();
   const v = venueBySlug(slug);
   useEffect(() => { window.scrollTo(0, 0); }, [slug]);
+  const [confirmed, setConfirmed] = useState<{ event: string; date: string; displayName?: string; quote?: string; confirmedAt: string }[]>([]);
+  useEffect(() => {
+    if (!slug) return;
+    fetch(`/api/attest?slug=${encodeURIComponent(slug)}`).then(r => (r.ok ? r.json() : { attestations: [] })).then(d => setConfirmed(d.attestations || [])).catch(() => {});
+  }, [slug]);
 
   if (!v) {
     return (
@@ -105,6 +110,18 @@ export default function Venue() {
                   <img src={`${ph.src}.jpg`} alt={ph.alt} width={ph.w} height={ph.h} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
                 </picture>
               ))}
+            </div>
+          )}
+
+          {confirmed.length > 0 && (
+            <div className="vf-confirmed" role="region" aria-label="Confirmed by the client">
+              {confirmed.map((a, i) => (
+                <div key={i}>
+                  <strong>✓ Confirmed by the client</strong>: {a.event}, {a.date}{a.displayName ? `, ${a.displayName}` : ''}
+                  {a.quote && <blockquote>“{a.quote}”</blockquote>}
+                </div>
+              ))}
+              <a href="/verified">What this means</a>
             </div>
           )}
 

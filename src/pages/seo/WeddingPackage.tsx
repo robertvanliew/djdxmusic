@@ -60,7 +60,7 @@ const ADDONS = [
 const FAQ_ITEMS = [
   {
     q: 'How much does a full wedding entertainment package cost in NYC and NJ?',
-    a: 'DJ DX\'s full wedding entertainment packages — DJ, live music, and professional videography combined — start at $6,200 and range up to $14,000+ depending on tier, hours, and add-ons like staging or lighting. Every package is one price, one contract, one point of contact. Custom quotes provided within 24-48 hours.',
+    a: 'DJ DX\'s full wedding entertainment packages — DJ, live music, and professional videography combined — start at $6,200 and range up to $14,000+ depending on tier, hours, and add-ons like staging or lighting. Every package is one price, one contract, one point of contact. Custom quotes provided within 24 hours.',
   },
   {
     q: 'Why book a bundled package instead of separate vendors?',
@@ -337,7 +337,7 @@ export default function WeddingPackage() {
               <div className="sec-overline"><span className="sec-label">Book Your Package</span></div>
               <h2 className="sec-title">Request a <span>Package Quote</span></h2>
               <p style={{ color: 'rgba(242,242,242,0.55)', lineHeight: 1.8, marginTop: '16px' }}>
-                Tell us your date, venue, and which package you're leaning toward — DJ DX will confirm final pricing and availability within 24–48 hours. Prefer email? Reach the packages team directly at <a href="mailto:packages@djdxmusic.com" style={{ color: 'var(--gold)' }}>packages@djdxmusic.com</a>.
+                Tell us your date, venue, and which package you're leaning toward — DJ DX will confirm final pricing and availability within 24 hours. Prefer email? Reach the packages team directly at <a href="mailto:packages@djdxmusic.com" style={{ color: 'var(--gold)' }}>packages@djdxmusic.com</a>.
               </p>
             </div>
             <div className="booking-right">

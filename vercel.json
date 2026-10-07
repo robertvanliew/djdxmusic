@@ -113,6 +113,57 @@
           "value": "<https://djdxmusic.com/llms.txt>; rel=\"canonical\""
         }
       ]
+    },
+    {
+      "source": "/.well-known/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, s-maxage=300"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/business.jws",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/jose; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/did.json",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/did+json; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/confirm",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
-  ]
+  ],
+  "crons": [
+    {
+      "path": "/api/ai-visibility",
+      "schedule": "0 14 1 * *"
+    }
+  ],
+  "functions": {
+    "api/ai-visibility.ts": {
+      "maxDuration": 300
+    }
+  }
 }

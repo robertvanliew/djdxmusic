@@ -252,7 +252,7 @@ export default function RnBDJ() {
               <div className="sec-overline"><span className="sec-label">Book Your Date</span></div>
               <h2 className="sec-title">Book the <span>R&B DJ Experience</span></h2>
               <p style={{ color: 'rgba(242,242,242,0.55)', lineHeight: 1.8, marginTop: '16px' }}>
-                Looking for an R&B DJ in New York or New Jersey? Fill out the form with your event details and we'll respond within 24–48 hours with availability and custom pricing.
+                Looking for an R&B DJ in New York or New Jersey? Fill out the form with your event details and we'll respond within 24 hours with availability and custom pricing.
               </p>
             </div>
             <div className="booking-right">

@@ -302,7 +302,7 @@ export default function RooftopDJ() {
               <div className="sec-overline"><span className="sec-label">Book Your Date</span></div>
               <h2 className="sec-title">Book the <span>Rooftop DJ Experience</span></h2>
               <p style={{ color: 'rgba(242,242,242,0.55)', lineHeight: 1.8, marginTop: '16px' }}>
-                Planning an outdoor or rooftop event in New York City or the Hamptons? Fill out the form and we'll respond within 24–48 hours.
+                Planning an outdoor or rooftop event in New York City or the Hamptons? Fill out the form and we'll respond within 24 hours.
               </p>
             </div>
             <div className="booking-right">

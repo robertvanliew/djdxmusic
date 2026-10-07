@@ -278,7 +278,7 @@ export default function AfrobeatsDJ() {
                 Bring the Vibes to<br /><span>Your Event</span>
               </h2>
               <p className="booking-blurb">
-                If you're looking for an unforgettable night of global music and relentless energy in NYC or NJ, fill out the form. We'll respond within 24-48 hours.
+                If you're looking for an unforgettable night of global music and relentless energy in NYC or NJ, fill out the form. We'll respond within 24 hours.
               </p>
             </div>
 
