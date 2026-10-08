@@ -102,7 +102,8 @@ namespace Mcp {
     }, async ({ search }) => {
       const p = await passport();
       const q = (search || '').toLowerCase();
-      const list = p.venuesPlayed.filter((v: { name: string; area: string }) => !q || `${v.name} ${v.area}`.toLowerCase().includes(q));
+      const all = [...p.venuesPlayed, ...(p.pastVenues || []).map((v: { period: string | null }) => ({ ...v, date: v.period ? v.period.replace('/', ' to ') : 'closed venue' }))];
+      const list = all.filter((v: { name: string; area: string }) => !q || `${v.name} ${v.area}`.toLowerCase().includes(q));
       if (!list.length) return text(`No listed venue matches "${search}". DJ DX has played 500+ events; ask him directly: ${SITE}/#booking. All venues: ${SITE}/venues`);
       return text(list.map((v: { name: string; area: string; summary: string; date: string | null; page: string }) => `${v.name} (${v.area}${v.date ? `, ${v.date}` : ''}): ${v.summary}. ${v.page}`).join('\n'));
     });
@@ -247,12 +248,13 @@ namespace A2a {
       if (/(birthday|private|party)/.test(t)) return `Private parties and birthdays from ${money(sp.private_party_or_birthday)} for up to 5 hours. ${SITE}/birthday-party-dj-nyc-nj`;
       return `DJ DX starting prices: weddings ${money(sp.wedding)}, corporate and holiday parties ${money(sp.corporate_event_or_holiday_party)}, private parties ${money(sp.private_party_or_birthday)}, Sweet 16 ${money(sp.sweet16_quinceanera_mitzvah)}, DJ + violin duo ${money(sp.dj_and_live_violin_duo)}, Hamptons ${money(sp.hamptons_or_destination)}. ${p.pricing.note} Estimate: ${SITE}/event-dj-cost-nyc-nj-ct#quote-calculator`;
     }
-    if (/(venue|played|argyle|loft|coral|culture lab|santacruzan|groove|hutong|glasshouse)/.test(t)) {
-      const list = p.venuesPlayed.filter((v: { name: string }) => {
+    if (/(venue|played|argyle|loft|coral|culture lab|santacruzan|groove|hutong|glasshouse|rebel|litm)/.test(t)) {
+      const all = [...p.venuesPlayed, ...(p.pastVenues || []).map((v: { period: string | null }) => ({ ...v, date: v.period ? v.period.replace('/', ' to ') : 'closed venue' }))];
+      const list = all.filter((v: { name: string }) => {
         const word = v.name.toLowerCase().replace(/^the\s+/, '').split(/\s+/)[0].replace(/[^a-z0-9]/g, '');
         return word.length > 2 && t.includes(word);
       });
-      const show = list.length ? list : p.venuesPlayed;
+      const show = list.length ? list : all;
       return show.map((v: { name: string; area: string; date: string | null; page: string }) => `${v.name} (${v.area}${v.date ? `, ${v.date}` : ''}) ${v.page}`).join('\n') + `\nAll venues: ${SITE}/venues`;
     }
     if (/(insur|coi|w-?9|contract|deposit|cancel|backup|terms|policy)/.test(t)) {

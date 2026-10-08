@@ -5,7 +5,7 @@
 //   - the AI agent (api/mcp.ts and api/a2a.ts read the published JSON)
 // Every fact links to where it can be checked. Only confirmed facts go here.
 
-import { VENUES } from './venues';
+import { VENUES, PAST_VENUES } from './venues';
 import { GIGS, isLive } from './events';
 import { CORP_PACKAGES } from './packages';
 import { STARTING_PRICES, HAMPTONS_FLOOR, VIOLIN_HOURLY } from '../lib/pricing';
@@ -97,6 +97,7 @@ export function buildPassport() {
       page: `${SITE}/venues/${v.slug}`,
       evidence: [v.photos?.length ? 'photos' : '', v.video ? 'video' : ''].filter(Boolean),
     })),
+    pastVenues: PAST_VENUES.map(v => ({ ...v, page: `${SITE}/venues` })),
     recentEvents: GIGS.filter(isLive).map(g => ({
       eventType: g.eventType,
       client: g.showClientName && g.clientName ? g.clientName : g.clientGeneric || null,

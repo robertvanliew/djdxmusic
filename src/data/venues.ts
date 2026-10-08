@@ -269,3 +269,21 @@ export const VENUES: Venue[] = [
 
 export const venueBySlug = (slug: string) => VENUES.find(v => v.slug === slug);
 export const venuesForPage = (path: string) => VENUES.filter(v => v.pages.includes(path));
+
+// Closed venues, shown in the "Past venues" section of /venues and listed in
+// the signed passport. Only add venues DJ DX has confirmed.
+export interface PastVenue { name: string; area: string; summary: string; period: string | null }
+export const PAST_VENUES: PastVenue[] = [
+  {
+    name: 'Rebel NYC (Club Rebel)',
+    area: 'Midtown Manhattan (251 West 30th Street, near Madison Square Garden)',
+    summary: 'Three-level Midtown nightclub; DJ DX played there before it closed in April 2013.',
+    period: null,
+  },
+  {
+    name: 'LITM',
+    area: 'Downtown Jersey City (Newark Avenue)',
+    summary: 'Art bar that anchored Downtown Jersey City nightlife for 17 years; DJ DX played there 2007 to 2009.',
+    period: '2007/2009',
+  },
+];

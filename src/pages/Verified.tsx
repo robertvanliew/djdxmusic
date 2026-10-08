@@ -120,6 +120,9 @@ export default function Verified() {
               {p.venuesPlayed.map(v => (
                 <li key={v.page}><a href={v.page.replace('https://djdxmusic.com', '')}>{v.name}</a><span>{v.area}{v.date ? `, ${v.date}` : ''}</span></li>
               ))}
+              {(p.pastVenues || []).map(v => (
+                <li key={v.name}><a href="/venues">{v.name}</a><span>{v.area}{v.period ? `, ${v.period.replace('/', ' to ')}` : ''} (closed)</span></li>
+              ))}
             </ul>
           </div>
 
