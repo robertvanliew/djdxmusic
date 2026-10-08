@@ -470,7 +470,8 @@ namespace AiVis {
       const ours = urls.filter(u => /djdxmusic\.com/i.test(u));
       const competitors = Array.from(new Set(urls.filter(u => !/djdxmusic\.com|ai-gateway|vercel\.sh/i.test(u)).map(u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } }).filter(Boolean))).slice(0, 8);
       // The sentence where DJ DX is mentioned, so the report shows how he was described
-      const mention = (content.replace(/\s+/g, ' ').split(/(?<=[.!?])\s+/).find(x => /\bDJ ?DX\b/i.test(x)) || '').replace(/\[\d+\]/g, '').slice(0, 260);
+      const plain = content.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/\*\*|__|#+ /g, '').replace(/\|/g, ' ').replace(/^\s*[-*]\s+/gm, '');
+      const mention = (plain.replace(/\s+/g, ' ').split(/(?<=[.!?])\s+/).find(x => /\bDJ ?DX\b/i.test(x)) || '').replace(/\[\d+\]/g, '').slice(0, 260);
       return { question, named: /\bDJ ?DX\b/i.test(content), cited: ours.length > 0, citedPages: ours, competitors, ...(mention ? { mention } : {}) };
     } catch (e) {
       return { question, named: false, cited: false, citedPages: [], competitors: [], error: e instanceof Error ? e.message : 'error' };
