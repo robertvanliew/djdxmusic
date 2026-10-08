@@ -453,7 +453,7 @@ namespace AiVis {
     return r.ok ? ((await r.json()) as { result?: unknown }[]).map(o => o.result) : [];
   }
 
-  interface Row { question: string; named: boolean; cited: boolean; citedPages: string[]; competitors: string[]; error?: string }
+  interface Row { question: string; named: boolean; cited: boolean; citedPages: string[]; competitors: string[]; mention?: string; error?: string }
 
   async function ask(question: string, auth: string): Promise<Row> {
     try {
@@ -469,7 +469,9 @@ namespace AiVis {
       const urls = Array.from(new Set((raw.match(/https?:\/\/[^\s"'\\)\]]+/g) || []).map(u => u.replace(/[.,]+$/, ''))));
       const ours = urls.filter(u => /djdxmusic\.com/i.test(u));
       const competitors = Array.from(new Set(urls.filter(u => !/djdxmusic\.com|ai-gateway|vercel\.sh/i.test(u)).map(u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } }).filter(Boolean))).slice(0, 8);
-      return { question, named: /\bDJ ?DX\b/i.test(content), cited: ours.length > 0, citedPages: ours, competitors };
+      // The sentence where DJ DX is mentioned, so the report shows how he was described
+      const mention = (content.replace(/\s+/g, ' ').split(/(?<=[.!?])\s+/).find(x => /\bDJ ?DX\b/i.test(x)) || '').replace(/\[\d+\]/g, '').slice(0, 260);
+      return { question, named: /\bDJ ?DX\b/i.test(content), cited: ours.length > 0, citedPages: ours, competitors, ...(mention ? { mention } : {}) };
     } catch (e) {
       return { question, named: false, cited: false, citedPages: [], competitors: [], error: e instanceof Error ? e.message : 'error' };
     }
@@ -511,9 +513,9 @@ namespace AiVis {
         subject: `AI visibility ${month}: named in ${report.named}/${report.total}, site cited in ${report.cited}/${report.total}`,
         html: `<h2>AI visibility report, ${month}</h2><p>Engine: ${MODEL} (live web search). Same ${report.total} planner questions every month.</p>
   <table cellpadding="6" style="border-collapse:collapse;font-family:Arial;font-size:14px">
-  <tr style="background:#111;color:#C9A84C"><th align="left">Question</th><th>Named</th><th>Site cited</th><th align="left">Who else got cited</th></tr>
-  ${rows.map(r => `<tr style="border-top:1px solid #ddd"><td>${esc(r.question)}</td><td align="center">${r.named ? '✓' : '—'}</td><td align="center">${r.cited ? '✓' : '—'}</td><td>${r.error ? `error: ${esc(r.error)}` : esc(r.competitors.join(', '))}</td></tr>`).join('')}
-  </table><p>Cited pages: ${rows.flatMap(r => r.citedPages).map(esc).join(', ') || 'none yet'}</p>`,
+  <tr style="background:#111;color:#C9A84C"><th align="left">Question</th><th>DJ DX named</th><th align="left">How DJ DX was mentioned / your page cited</th><th align="left">Competitors in this answer</th></tr>
+  ${rows.map(r => `<tr style="border-top:1px solid #ddd;vertical-align:top"><td>${esc(r.question)}</td><td align="center" style="font-size:18px">${r.named ? '✓' : '—'}</td><td>${r.error ? `<em>not checked this run (${esc(r.error.slice(0, 40))})</em>` : `${r.mention ? `“${esc(r.mention)}”<br>` : ''}${r.citedPages.length ? Array.from(new Set(r.citedPages)).map(u => `<a href="${esc(u)}">${esc(u.replace('https://djdxmusic.com', '') || '/')}</a>`).join(' ') : (r.named ? '' : '<span style="color:#999">not mentioned</span>')}`}</td><td style="color:#666">${r.error ? '' : esc(r.competitors.join(', '))}</td></tr>`).join('')}
+  </table><p style="font-size:13px;color:#666">✓ means Perplexity named DJ DX in its answer. AI answers vary run to run, so watch the trend month to month.</p>`,
       });
     } catch (e) { console.error('aivis email failed', e); }
 
