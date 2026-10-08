@@ -4,6 +4,10 @@ import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/
 import { z } from 'zod';
 import { Resend } from 'resend';
 import { randomUUID, createPrivateKey, createPublicKey, sign, verify, createHash } from 'crypto';
+import { generateText } from 'ai';
+import { openai } from '@ai-sdk/openai';
+import { google } from '@ai-sdk/google';
+import { anthropic } from '@ai-sdk/anthropic';
 
 // One serverless function for the AI identity stack. The Vercel Hobby plan
 // allows 12 functions per deployment, so the MCP server, the A2A agent,
@@ -417,18 +421,20 @@ namespace Attest {
 
 // ═══ api/ai-visibility.ts (merged) ═══
 namespace AiVis {
-
-  // Monthly AI visibility tracker. Asks an AI answer engine with live web search
-  // (Perplexity Sonar through the Vercel AI Gateway) the questions planners
-  // actually ask, and records whether DJ DX is named and whether djdxmusic.com is
-  // cited. Saves each run in Redis and emails a one-page report to bookings@.
+  // Monthly AI visibility tracker. Asks the AI answer engines planners use the
+  // same 10 questions, each with live web search, and records whether DJ DX is
+  // named and whether djdxmusic.com is cited:
+  //   Perplexity (Sonar)        native search
+  //   ChatGPT  (GPT-5 mini)     OpenAI web search
+  //   Gemini   (2.5 Flash)      Google Search grounding: the closest proxy for
+  //                             Google's AI Overviews, which have no API
+  //   Claude   (Haiku 4.5)      Anthropic web search; needs paid AI Gateway
+  //                             credit, so it only runs when AIVIS_CLAUDE=1
+  // Saves each run in Redis and emails a report to bookings@.
   //
-  // Runs from the Vercel cron in vercel.json (1st of the month). Manual run:
+  // Cron: /api/agent?p=aivis (vercel.json, 1st of the month). Manual run:
   //   curl -H "Authorization: Bearer $CRON_SECRET" https://djdxmusic.com/api/ai-visibility
-  // Latest stored report: add ?report=latest (same header).
-  //
-  // Auth to the gateway: AI_GATEWAY_API_KEY if set, otherwise the deployment's
-  // Vercel OIDC token. Self-contained (no local imports): see api/booking.ts.
+  // Latest stored report: ?report=latest (same header).
 
   const QUESTIONS = [
     'corporate holiday party DJ in Midtown Manhattan',
@@ -442,10 +448,17 @@ namespace AiVis {
     'how much does a wedding DJ cost in NYC',
     'R&B and hip-hop DJ for a 40th birthday party in New Jersey',
   ];
-  const MODEL = 'perplexity/sonar';
+  interface Engine { id: string; label: string; model: string }
+  const ENGINES: Engine[] = [
+    { id: 'perplexity', label: 'Perplexity', model: 'perplexity/sonar' },
+    { id: 'chatgpt', label: 'ChatGPT', model: 'openai/gpt-5-mini' },
+    { id: 'gemini', label: 'Gemini (Google)', model: 'google/gemini-2.5-flash' },
+    ...(process.env.AIVIS_CLAUDE === '1' ? [{ id: 'claude', label: 'Claude', model: 'anthropic/claude-haiku-4.5' }] : []),
+  ];
   const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL || '';
   const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN || '';
   const FROM = process.env.FROM_EMAIL || 'DJ DX <noreply@djdxmusic.com>';
+  const ASK = (q: string) => `${q}. Name specific DJs or companies and cite your sources.`;
 
   async function redis(cmds: (string | number)[][]): Promise<unknown[]> {
     if (!REDIS_URL || !REDIS_TOKEN) return [];
@@ -453,29 +466,65 @@ namespace AiVis {
     return r.ok ? ((await r.json()) as { result?: unknown }[]).map(o => o.result) : [];
   }
 
-  interface Row { question: string; named: boolean; cited: boolean; citedPages: string[]; competitors: string[]; mention?: string; error?: string }
+  interface Row { engine: string; question: string; named: boolean; cited: boolean; citedPages: string[]; competitors: string[]; mention?: string; error?: string }
 
-  async function ask(question: string, auth: string): Promise<Row> {
-    try {
-      const r = await fetch('https://ai-gateway.vercel.sh/v1/chat/completions', {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${auth}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ model: MODEL, messages: [{ role: 'user', content: `${question}. Name specific DJs or companies and cite your sources.` }] }),
-      });
-      if (!r.ok) return { question, named: false, cited: false, citedPages: [], competitors: [], error: `http_${r.status}: ${(await r.text()).slice(0, 160)}` };
-      const d = await r.json();
-      const content: string = d.choices?.[0]?.message?.content || '';
-      const raw = JSON.stringify(d);
-      const urls = Array.from(new Set((raw.match(/https?:\/\/[^\s"'\\)\]]+/g) || []).map(u => u.replace(/[.,]+$/, ''))));
-      const ours = urls.filter(u => /djdxmusic\.com/i.test(u));
-      const competitors = Array.from(new Set(urls.filter(u => !/djdxmusic\.com|ai-gateway|vercel\.sh/i.test(u)).map(u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } }).filter(Boolean))).slice(0, 8);
-      // The sentence where DJ DX is mentioned, so the report shows how he was described
-      const plain = content.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/\*\*|__|#+ /g, '').replace(/\|/g, ' ').replace(/^\s*[-*]\s+/gm, '');
-      const mention = (plain.replace(/\s+/g, ' ').split(/(?<=[.!?])\s+/).find(x => /\bDJ ?DX\b/i.test(x)) || '').replace(/\[\d+\]/g, '').slice(0, 260);
-      return { question, named: /\bDJ ?DX\b/i.test(content), cited: ours.length > 0, citedPages: ours, competitors, ...(mention ? { mention } : {}) };
-    } catch (e) {
-      return { question, named: false, cited: false, citedPages: [], competitors: [], error: e instanceof Error ? e.message : 'error' };
+  const host = (u: string) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch { return ''; } };
+  function score(engine: string, question: string, content: string, sources: { url: string; title?: string }[]): Row {
+    // Gemini returns Google redirect links; its source titles carry the domain
+    const domains = sources.map(s => (/vertexaisearch|googleusercontent/.test(s.url) ? (s.title || '') : host(s.url)).toLowerCase().replace(/^www\./, '')).filter(Boolean);
+    const ours = sources.filter((s, i) => /djdxmusic\.com/i.test(s.url) || domains[i] === 'djdxmusic.com').map(s => (/djdxmusic\.com/i.test(s.url) ? s.url.replace(/[?#].*$/, '') : 'djdxmusic.com'));
+    const competitors = Array.from(new Set(domains.filter(d => d && !/djdxmusic\.com|ai-gateway|vercel\.sh/.test(d)))).slice(0, 8);
+    const plain = content.replace(/\[([^\]]+)\]\([^)]*\)/g, '$1').replace(/\*\*|__|#+ /g, '').replace(/\|/g, ' ').replace(/^\s*[-*]\s+/gm, '');
+    const mention = (plain.replace(/\s+/g, ' ').split(/(?<=[.!?])\s+/).find(x => /\bDJ ?DX\b/i.test(x)) || '').replace(/\[\d+\]/g, '').trim().slice(0, 260);
+    return { engine, question, named: /\bDJ ?DX\b/i.test(content), cited: ours.length > 0, citedPages: Array.from(new Set(ours)), competitors, ...(mention ? { mention } : {}) };
+  }
+
+  async function askPerplexity(question: string, auth: string): Promise<Row> {
+    const r = await fetch('https://ai-gateway.vercel.sh/v1/chat/completions', {
+      method: 'POST', headers: { Authorization: `Bearer ${auth}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ model: 'perplexity/sonar', messages: [{ role: 'user', content: ASK(question) }] }),
+    });
+    if (!r.ok) throw new Error(`http_${r.status}: ${(await r.text()).slice(0, 160)}`);
+    const d = await r.json();
+    const urls = Array.from(new Set((JSON.stringify(d).match(/https?:\/\/[^\s"'\\)\]]+/g) || []).map(u => u.replace(/[.,]+$/, ''))));
+    return score('perplexity', question, d.choices?.[0]?.message?.content || '', urls.map(url => ({ url })));
+  }
+
+  async function askWithTools(engine: Engine, question: string): Promise<Row> {
+    const tools: Record<string, unknown> =
+      engine.id === 'chatgpt' ? { web_search: openai.tools.webSearch({}) }
+      : engine.id === 'gemini' ? { google_search: google.tools.googleSearch({}) }
+      : { web_search: anthropic.tools.webSearch_20250305({ maxUses: 3 }) };
+    const r = await generateText({
+      model: engine.model,
+      tools: tools as Parameters<typeof generateText>[0]['tools'],
+      prompt: ASK(question),
+      providerOptions: { openai: { reasoningEffort: 'low' } },
+    });
+    const sources = ((r.sources || []) as { url?: string; title?: string }[]).filter(s => s.url).map(s => ({ url: s.url as string, title: s.title }));
+    return score(engine.id, question, r.text, sources);
+  }
+
+  // One engine: questions in order, spaced for the free tier's 5 requests a
+  // minute per model, one retry on a 429.
+  async function runEngine(engine: Engine, auth: string): Promise<Row[]> {
+    const pause = (ms: number) => new Promise(r => setTimeout(r, ms));
+    const rows: Row[] = [];
+    for (const [i, q] of QUESTIONS.entries()) {
+      if (i) await pause(12_500);
+      const once = () => (engine.id === 'perplexity' ? askPerplexity(q, auth) : askWithTools(engine, q));
+      try {
+        rows.push(await once());
+      } catch (e) {
+        const msg = e instanceof Error ? e.message : String(e);
+        if (/429|rate limit/i.test(msg)) {
+          await pause(30_000);
+          try { rows.push(await once()); continue; } catch (e2) { rows.push({ engine: engine.id, question: q, named: false, cited: false, citedPages: [], competitors: [], error: String(e2 instanceof Error ? e2.message : e2).slice(0, 160) }); continue; }
+        }
+        rows.push({ engine: engine.id, question: q, named: false, cited: false, citedPages: [], competitors: [], error: msg.slice(0, 160) });
+      }
     }
+    return rows;
   }
 
   export async function handler(req: VercelRequest, res: VercelResponse) {
@@ -489,41 +538,43 @@ namespace AiVis {
 
     const auth = process.env.AI_GATEWAY_API_KEY || process.env.VERCEL_OIDC_TOKEN || (req.headers['x-vercel-oidc-token'] as string) || '';
     if (!auth) return res.status(200).json({ skipped: true, reason: 'No AI_GATEWAY_API_KEY and no Vercel OIDC token available' });
+    // The AI SDK's gateway provider reads these from the environment
+    if (!process.env.AI_GATEWAY_API_KEY && !process.env.VERCEL_OIDC_TOKEN) process.env.VERCEL_OIDC_TOKEN = auth;
 
-    const rows: Row[] = [];
-    // The free AI Gateway tier allows 5 requests a minute: space the questions
-  // ~13s apart (10 questions fit in ~2.5 minutes) and retry once on a 429.
-  const pause = (ms: number) => new Promise(r => setTimeout(r, ms));
-  for (const [i, q] of QUESTIONS.entries()) {
-    if (i) await pause(13_000);
-    let row = await ask(q, auth);
-    if (row.error?.startsWith('http_429')) { await pause(30_000); row = await ask(q, auth); }
-    rows.push(row);
-  }
+    const only = typeof req.query.engine === 'string' ? req.query.engine : '';
+    const engines = ENGINES.filter(e => !only || e.id === only);
+    const rows = (await Promise.all(engines.map(e => runEngine(e, auth)))).flat();
+
     const month = new Date().toISOString().slice(0, 7);
-    const report = {
-      month, model: MODEL, ranAt: new Date().toISOString(),
-      named: rows.filter(r => r.named).length, cited: rows.filter(r => r.cited).length, total: rows.length, rows,
-    };
+    const summary = engines.map(e => {
+      const r = rows.filter(x => x.engine === e.id);
+      return { engine: e.id, label: e.label, named: r.filter(x => x.named).length, cited: r.filter(x => x.cited).length, checked: r.filter(x => !x.error).length };
+    });
+    const report = { month, ranAt: new Date().toISOString(), questions: QUESTIONS, engines: summary, rows };
     await redis([['SET', `aivis:${month}`, JSON.stringify(report)], ['SET', 'aivis:latest', JSON.stringify(report)]]);
 
     const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+    const cell = (r?: Row) => !r ? '' : r.error ? '<span style="color:#999">not checked</span>'
+      : `<div style="font-size:16px">${r.named ? '✓' : '—'}</div>${r.mention ? `<div style="font-size:12px;color:#333">“${esc(r.mention)}”</div>` : ''}${r.citedPages.length ? `<div style="font-size:12px">${r.citedPages.map(u => `<a href="${esc(u.startsWith('http') ? u : `https://${u}`)}">${esc(u.replace('https://djdxmusic.com', '') || '/')}</a>`).join(' ')}</div>` : ''}`;
+    const competitorsFor = (q: string) => Array.from(new Set(rows.filter(r => r.question === q).flatMap(r => r.competitors))).slice(0, 6).join(', ');
     try {
       await new Resend(process.env.RESEND_API_KEY).emails.send({
         from: FROM, to: ['bookings@djdxmusic.com'],
-        subject: `AI visibility ${month}: named in ${report.named}/${report.total}, site cited in ${report.cited}/${report.total}`,
-        html: `<h2>AI visibility report, ${month}</h2><p>Engine: ${MODEL} (live web search). Same ${report.total} planner questions every month.</p>
-  <table cellpadding="6" style="border-collapse:collapse;font-family:Arial;font-size:14px">
-  <tr style="background:#111;color:#C9A84C"><th align="left">Question</th><th>DJ DX named</th><th align="left">How DJ DX was mentioned / your page cited</th><th align="left">Competitors in this answer</th></tr>
-  ${rows.map(r => `<tr style="border-top:1px solid #ddd;vertical-align:top"><td>${esc(r.question)}</td><td align="center" style="font-size:18px">${r.named ? '✓' : '—'}</td><td>${r.error ? `<em>not checked this run (${esc(r.error.slice(0, 40))})</em>` : `${r.mention ? `“${esc(r.mention)}”<br>` : ''}${r.citedPages.length ? Array.from(new Set(r.citedPages)).map(u => `<a href="${esc(u)}">${esc(u.replace('https://djdxmusic.com', '') || '/')}</a>`).join(' ') : (r.named ? '' : '<span style="color:#999">not mentioned</span>')}`}</td><td style="color:#666">${r.error ? '' : esc(r.competitors.join(', '))}</td></tr>`).join('')}
-  </table><p style="font-size:13px;color:#666">✓ means Perplexity named DJ DX in its answer. AI answers vary run to run, so watch the trend month to month.</p>`,
+        subject: `AI visibility ${month}: ${summary.map(s => `${s.label} ${s.named}/${s.checked}`).join(' · ')}`,
+        html: `<h2 style="font-family:Arial">AI visibility report, ${month}</h2>
+<p style="font-family:Arial;font-size:14px">Same ${QUESTIONS.length} planner questions every month, each engine with live web search. ✓ = the answer named DJ DX; the quote shows how; links are your pages it cited. Gemini uses Google Search, the closest stand-in for Google's AI Overviews.</p>
+<table style="font-family:Arial;font-size:13px;margin-bottom:14px"><tr>${summary.map(s => `<td style="padding:8px 14px;border:1px solid #ddd"><strong>${esc(s.label)}</strong><br>named in ${s.named}/${s.checked}, site cited in ${s.cited}/${s.checked}</td>`).join('')}</tr></table>
+<table cellpadding="8" style="border-collapse:collapse;font-family:Arial;font-size:13px">
+<tr style="background:#111;color:#C9A84C"><th align="left">Question</th>${engines.map(e => `<th align="left">${esc(e.label)}</th>`).join('')}<th align="left">Competitors in these answers</th></tr>
+${QUESTIONS.map(q => `<tr style="border-top:1px solid #ddd;vertical-align:top"><td><strong>${esc(q)}</strong></td>${engines.map(e => `<td style="max-width:240px">${cell(rows.find(r => r.engine === e.id && r.question === q))}</td>`).join('')}<td style="color:#666;font-size:12px">${esc(competitorsFor(q))}</td></tr>`).join('')}
+</table><p style="font-family:Arial;font-size:12px;color:#666">AI answers vary run to run; watch the trend month to month.${process.env.AIVIS_CLAUDE === '1' ? '' : ' Claude is off: it needs paid AI Gateway credit (set AIVIS_CLAUDE=1 after topping up).'}</p>`,
       });
     } catch (e) { console.error('aivis email failed', e); }
 
     return res.status(200).json(report);
   }
-
 }
+
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const p = String(req.query.p || '');
