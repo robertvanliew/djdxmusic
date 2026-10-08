@@ -488,7 +488,15 @@ namespace AiVis {
     if (!auth) return res.status(200).json({ skipped: true, reason: 'No AI_GATEWAY_API_KEY and no Vercel OIDC token available' });
 
     const rows: Row[] = [];
-    for (const q of QUESTIONS) rows.push(await ask(q, auth)); // sequential: gentle on rate limits
+    // The free AI Gateway tier allows 5 requests a minute: space the questions
+  // ~13s apart (10 questions fit in ~2.5 minutes) and retry once on a 429.
+  const pause = (ms: number) => new Promise(r => setTimeout(r, ms));
+  for (const [i, q] of QUESTIONS.entries()) {
+    if (i) await pause(13_000);
+    let row = await ask(q, auth);
+    if (row.error?.startsWith('http_429')) { await pause(30_000); row = await ask(q, auth); }
+    rows.push(row);
+  }
     const month = new Date().toISOString().slice(0, 7);
     const report = {
       month, model: MODEL, ranAt: new Date().toISOString(),
