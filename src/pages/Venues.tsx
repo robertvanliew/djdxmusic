@@ -4,12 +4,44 @@ import { Link } from 'react-router-dom';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
 import StickyMobileCTA from '../components/StickyMobileCTA';
-import { VENUES } from '../data/venues';
+import { VENUES, type Venue } from '../data/venues';
+
+// Card cover: the venue's first gallery photo (served as .jpg + .webp), or
+// its single hero image when it has no gallery.
+function cover(v: Venue): { base: string; webp: boolean; alt: string } {
+  const p = v.photos?.[0];
+  if (p) return { base: p.src, webp: true, alt: p.alt };
+  return { base: (v.image?.src || '').replace(/\.jpg$/, ''), webp: false, alt: v.image?.alt || v.name };
+}
+function CardPhoto({ base, webp, alt }: { base: string; webp?: boolean; alt: string }) {
+  if (!base) return null;
+  return (
+    <span className="vn-card-img">
+      <picture>
+        {webp && <source type="image/webp" srcSet={`${base}.webp`} />}
+        <img src={`${base}.jpg`} alt={alt} loading="lazy" decoding="async" width={800} height={500} />
+      </picture>
+    </span>
+  );
+}
 
 // Hub for /venues. Venue pages come from src/data/venues.ts; the two rows
 // below are not booking pages (a press appearance and a closed venue).
 export default function Venues() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  // Card photos reveal the first time they scroll into view. The class goes on
+  // only once JS runs, so the prerendered page shows every photo.
+  useEffect(() => {
+    if (!('IntersectionObserver' in window)) return;
+    const root = document.querySelector('.vn-hub');
+    if (!root) return;
+    root.classList.add('vn-reveal');
+    const io = new IntersectionObserver(entries => {
+      for (const e of entries) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    }, { rootMargin: '0px 0px -60px 0px' });
+    root.querySelectorAll('.vn-card-img').forEach(el => io.observe(el));
+    return () => io.disconnect();
+  }, []);
   const schema = [
     {
       '@context': 'https://schema.org', '@type': 'ItemList', name: 'Venues DJ DX has played',
@@ -44,20 +76,26 @@ export default function Venues() {
           <ul className="vn-hub">
             {VENUES.map(v => (
               <li key={v.slug}>
-                <Link to={`/venues/${v.slug}`} className="season-card">
-                  <span className="season-kicker">{v.area}</span>
-                  <strong>{v.name}</strong>
-                  <span className="season-desc">{v.summary}</span>
-                  <span className="season-go">See the venue <span aria-hidden="true">→</span></span>
+                <Link to={`/venues/${v.slug}`} className="season-card vn-card">
+                  <CardPhoto {...cover(v)} />
+                  <span className="vn-card-body">
+                    <span className="season-kicker">{v.area}</span>
+                    <strong>{v.name}</strong>
+                    <span className="season-desc">{v.summary}</span>
+                    <span className="season-go">See the venue <span aria-hidden="true">→</span></span>
+                  </span>
                 </Link>
               </li>
             ))}
             <li>
-              <Link to="/news/groove-on-grove-jersey-journal" className="season-card">
-                <span className="season-kicker">Jersey City, NJ</span>
-                <strong>Groove on Grove</strong>
-                <span className="season-desc">Headliner, August 2014. Jersey Journal weekend cover</span>
-                <span className="season-go">Read the story <span aria-hidden="true">→</span></span>
+              <Link to="/news/groove-on-grove-jersey-journal" className="season-card vn-card">
+                <CardPhoto base="/venues/groove-on-grove-dj-dx-stage-jersey-city-2014" webp alt="DJ DX headlining Groove on Grove on Grove Street, Jersey City, August 2014" />
+                <span className="vn-card-body">
+                  <span className="season-kicker">Jersey City, NJ</span>
+                  <strong>Groove on Grove</strong>
+                  <span className="season-desc">Headliner, August 2014. Jersey Journal weekend cover</span>
+                  <span className="season-go">Read the story <span aria-hidden="true">→</span></span>
+                </span>
               </Link>
             </li>
           </ul>

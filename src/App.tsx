@@ -281,19 +281,6 @@ const pressItems = [
   },
 ] as const;
 
-// Vinyl groove colors per genre
-const genreColors: Record<string, string> = {
-  "R&B / Soul":        "#8B5CF6",
-  "Hip-Hop":           "#EF4444",
-  "Blends & Remixes":  "#C9A84C",
-  "House / Jersey Club":"#06B6D4",
-  "Afrobeats":         "#F97316",
-  "Old School":        "#84CC16",
-  "Reggaeton":         "#EC4899",
-  "Private Events":    "#6366F1",
-  "Live Violinist / DJ":"#14B8A6",
-};
-
 // Genre cards link to their service page where one exists, so homepage
 // visitors (and crawlers) have a path into the booking pages.
 const genreLinks: Record<string, string> = {
@@ -322,7 +309,7 @@ function SkillsGrid() {
         {services.map((s, i) => {
           const inner = (
             <>
-              <div style={{ color: genreColors[s.name] ?? 'var(--gold)', marginBottom: '16px' }}>
+              <div style={{ color: 'var(--gold)', marginBottom: '16px' }}>
                 {React.createElement(s.icon, { size: 36, strokeWidth: 1.5 })}
               </div>
               <h3 className="service-name">{s.name}</h3>

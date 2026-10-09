@@ -228,7 +228,7 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
       </div>
       {status === 'error' && <p className="form-error">Something went wrong. Please try again or email bookings@djdxmusic.com directly.</p>}
       <button type="submit" className="form-submit" disabled={status === 'sending'}>
-        {status === 'sending' ? 'Sending…' : <><span>Send Inquiry</span> <Send /></>}
+        {status === 'sending' ? <><span className="bf-disc" aria-hidden="true" /><span>Sending…</span></> : <><span>Send Inquiry</span> <Send /></>}
       </button>
       <p className="text-alt">
         Prefer to text? <a href={textHref()} onClick={() => trackTextClick('booking_form')}>Text {TEXT_NUMBER_DISPLAY}</a>

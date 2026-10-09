@@ -116,8 +116,9 @@
 .vn-p a, .vn-list a, .pb-what a, .pb-more a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
 .vn-img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 12px; margin: 10px 0 8px; }
 .vn-sec { margin-top: 34px; }
-.vn-list { margin: 0; padding-left: 20px; color: rgba(242,242,242,0.75); line-height: 1.8; }
-.vn-list li { margin-bottom: 6px; }
+.vn-list { list-style: none; margin: 0; padding: 0; color: rgba(242,242,242,0.75); line-height: 1.8; }
+.vn-list li { position: relative; margin-bottom: 6px; padding-left: 22px; }
+.vn-list li::before { content: ''; position: absolute; left: 0; top: 0.9em; width: 10px; height: 2px; border-radius: 1px; background: var(--gold); }
 .vn-others { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--dim3); }
 .vn-others li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--dim3); }
 .vn-others a { color: var(--gold); font-weight: 600; }
@@ -139,6 +140,7 @@
 
 /* 404 page */
 .nf-main { padding: 140px 20px 80px; text-align: center; background: var(--black); min-height: 60vh; }
+.nf-main .sec-title { line-height: 1.08; margin-bottom: 22px; }
 .nf-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin-top: 22px; }
 .nf-links a { color: var(--gold); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
@@ -151,7 +153,8 @@
 
 /* Verified passport + client confirmations */
 .vf-badge { margin: 18px 0 6px; padding: 12px 14px; border-radius: 10px; font-size: 0.92rem; line-height: 1.6; border: 1px solid var(--edge); color: rgba(242,242,242,0.8); }
-.vf-badge code, .vn-list code { font-size: 0.85em; color: var(--gold); word-break: break-all; }
+.vf-badge code, .vn-list code { font-size: 0.85em; color: var(--gold); white-space: nowrap; }
+.nowrap { white-space: nowrap; }
 .vf-valid { border-color: rgba(108,200,140,0.5); background: rgba(108,200,140,0.08); color: #bfe8cc; }
 .vf-invalid { border-color: rgba(232,131,111,0.5); background: rgba(232,131,111,0.08); }
 .vf-confirmed { margin: 16px 0; padding: 14px 16px; border-radius: 10px; border: 1px solid rgba(108,200,140,0.45); background: rgba(108,200,140,0.07); color: rgba(242,242,242,0.85); font-size: 0.95rem; display: flex; flex-direction: column; gap: 8px; }
@@ -159,3 +162,32 @@
 .vf-confirmed blockquote { margin: 4px 0 0; padding-left: 12px; border-left: 2px solid var(--gold); font-style: italic; }
 .vf-confirmed a { color: var(--gold); font-size: 0.85rem; text-decoration: underline; }
 .vn-p a, .vn-list a { color: var(--gold); }
+
+/* Verified fact tables: one label width, stacked on phones */
+.vf-table td:first-child { width: 34%; }
+@media (max-width: 640px) {
+  .vf-table tr { display: block; padding: 12px 0; border-bottom: 1px solid var(--dim3); }
+  .vf-table td { display: block; width: auto !important; padding: 0; border: 0; }
+  .vf-table td:first-child { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+}
+
+/* Verified seal draws itself once when the signature checks out */
+.vf-valid { display: flex; align-items: center; gap: 10px; }
+.vf-seal { flex: none; width: 26px; height: 26px; }
+.vf-seal circle, .vf-seal path { fill: none; stroke: #8fd9a8; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.vf-seal circle { stroke-dasharray: 76; stroke-dashoffset: 76; animation: vf-draw 700ms cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+.vf-seal path { stroke-dasharray: 16; stroke-dashoffset: 16; animation: vf-draw 320ms cubic-bezier(0.23, 1, 0.32, 1) 520ms forwards; }
+@keyframes vf-draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .vf-seal circle, .vf-seal path { animation: none; stroke-dashoffset: 0; } }
+
+/* Venue cards with a cover photo */
+.vn-card { padding: 0; overflow: hidden; }
+.vn-card-img { display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--dim3); }
+.vn-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 500ms cubic-bezier(0.23, 1, 0.32, 1); }
+.vn-card-body { display: flex; flex-direction: column; gap: 8px; padding: 20px 24px 24px; flex: 1; }
+@media (hover: hover) and (pointer: fine) { .vn-card:hover .vn-card-img img { transform: scale(1.04); } }
+/* Photos reveal upward the first time they scroll into view. JS adds the
+   classes, so crawlers and no-JS visitors see the photos as-is. */
+.vn-reveal .vn-card-img img { clip-path: inset(100% 0 0 0); transition: clip-path 800ms cubic-bezier(0.77, 0, 0.175, 1), transform 500ms cubic-bezier(0.23, 1, 0.32, 1); }
+.vn-reveal .vn-card-img.is-in img { clip-path: inset(0 0 0 0); }
+@media (prefers-reduced-motion: reduce) { .vn-reveal .vn-card-img img { clip-path: none; transition: none; } }

@@ -72,26 +72,26 @@ export default function Verified() {
 
           <div className={`vf-badge vf-${check}`} role="status" aria-live="polite">
             {check === 'checking' && 'Checking signature…'}
-            {check === 'valid' && <>✓ Signature valid. These facts are signed by <code>{DID}</code> and unaltered.</>}
+            {check === 'valid' && <><svg className="vf-seal" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11.5" /><path d="M8 13.4l3.4 3.3L18.2 9.6" /></svg><span>Signature valid. These facts are signed by <code>{DID}</code> and unaltered.</span></>}
             {check === 'invalid' && 'Signature could not be verified. Refresh to try again.'}
             {check === 'unsupported' && <>Signed by <code>{DID}</code>. Your browser can't check Ed25519 signatures; any standard JWS library can.</>}
           </div>
 
           <div className="vn-sec">
             <h2 className="vn-h2">The basics</h2>
-            <table className="lp-table"><tbody>
+            <table className="lp-table vf-table"><tbody>
               <tr><td>Name</td><td>DJ DX ({p.subject.realName})</td></tr>
               <tr><td>What</td><td>Event DJ, producer and recording artist</td></tr>
               <tr><td>Active since</td><td>{p.subject.activeSince}, {p.subject.eventsPerformed} events</td></tr>
               <tr><td>From / based in</td><td>{p.subject.hometown} / {p.subject.baseLocation}</td></tr>
               <tr><td>Service area</td><td>{p.subject.serviceArea.join(', ')}</td></tr>
-              <tr><td>Contact</td><td><a href={`mailto:${p.contact.email}`}>{p.contact.email}</a>, text {p.contact.text.replace('+1-', '')}. Reply {p.contact.responseTime.toLowerCase()}.</td></tr>
+              <tr><td>Contact</td><td><a href={`mailto:${p.contact.email}`}>{p.contact.email}</a>, text <span className="nowrap">{p.contact.text.replace('+1-', '')}</span>. Reply {p.contact.responseTime.toLowerCase()}.</td></tr>
             </tbody></table>
           </div>
 
           <div className="vn-sec">
             <h2 className="vn-h2">Published starting prices</h2>
-            <table className="lp-table"><tbody>
+            <table className="lp-table vf-table"><tbody>
               <tr><td>Wedding</td><td>From {money(sp.wedding)}</td></tr>
               <tr><td>Corporate event or holiday party</td><td>From {money(sp.corporate_event_or_holiday_party)} (packages {p.pricing.corporatePackages.map(x => `${x.name} ${money(x.from)}`).join(', ')})</td></tr>
               <tr><td>Private party or birthday</td><td>From {money(sp.private_party_or_birthday)}</td></tr>
