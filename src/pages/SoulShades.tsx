@@ -170,15 +170,7 @@ export default function SoulShades() {
             "datePublished": "2024",
             "genre": ["Deep House", "Afro House"],
             "description": "Buzz In London is the breakout single by Soul Shades — the New York duo of DJ DX and violinist Julie Schatz. A deep house and Afro house original blending live violin with DJ production.",
-            "byArtist": {
-              "@type": "MusicGroup",
-              "name": "Soul Shades",
-              "url": "https://djdxmusic.com/soul-shades",
-              "member": [
-                {"@type": "Person", "name": "DJ DX"},
-                {"@type": "Person", "name": "Julie Schatz"}
-              ]
-            },
+            "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"},
             "image": "https://djdxmusic.com/ss-hero.jpg",
             "sameAs": [
               "https://open.spotify.com/artist/2GES5fSFNcx25lv9RFcQjP",
@@ -191,38 +183,33 @@ export default function SoulShades() {
             "name": "Soul Shades — Originals, Blends & Remixes",
             "url": "https://djdxmusic.com/soul-shades",
             "itemListElement": [
-              {"@type": "ListItem", "position": 1,  "item": {"@type": "MusicRecording", "name": "Wait For Me",                          "datePublished": "2025", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 2,  "item": {"@type": "MusicRecording", "name": "Beyond Your Mind",                     "datePublished": "2025", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 3,  "item": {"@type": "MusicRecording", "name": "Kiss Of Life",                         "datePublished": "2025", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 4,  "item": {"@type": "MusicRecording", "name": "Buzz In London",                       "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 5,  "item": {"@type": "MusicRecording", "name": "Always On Time x Fired Up",            "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 6,  "item": {"@type": "MusicRecording", "name": "Be Honest x Everything",               "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 7,  "item": {"@type": "MusicRecording", "name": "Cola x Vivrant Thing",                 "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 8,  "item": {"@type": "MusicRecording", "name": "Hannah x Everybody Everybody",         "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 9,  "item": {"@type": "MusicRecording", "name": "Money Talks (Dirty Cash) x RIZZ",      "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 10, "item": {"@type": "MusicRecording", "name": "Rock The Boat x You Are The One",      "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 11, "item": {"@type": "MusicRecording", "name": "Streets x Rapture III x Violin",       "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 12, "item": {"@type": "MusicRecording", "name": "The Way You x Everybody x Never x Beso","datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 13, "item": {"@type": "MusicRecording", "name": "Unthinkable x Life Gets Hard",         "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}},
-              {"@type": "ListItem", "position": 14, "item": {"@type": "MusicRecording", "name": "Addicted x Give Me The Night",         "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "name": "Soul Shades"}}}
+              {"@type": "ListItem", "position": 1,  "item": {"@type": "MusicRecording", "name": "Wait For Me",                          "datePublished": "2025", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 2,  "item": {"@type": "MusicRecording", "name": "Beyond Your Mind",                     "datePublished": "2025", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 3,  "item": {"@type": "MusicRecording", "name": "Kiss Of Life",                         "datePublished": "2025", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 4,  "item": {"@type": "MusicRecording", "name": "Buzz In London",                       "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 5,  "item": {"@type": "MusicRecording", "name": "Always On Time x Fired Up",            "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 6,  "item": {"@type": "MusicRecording", "name": "Be Honest x Everything",               "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 7,  "item": {"@type": "MusicRecording", "name": "Cola x Vivrant Thing",                 "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 8,  "item": {"@type": "MusicRecording", "name": "Hannah x Everybody Everybody",         "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 9,  "item": {"@type": "MusicRecording", "name": "Money Talks (Dirty Cash) x RIZZ",      "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 10, "item": {"@type": "MusicRecording", "name": "Rock The Boat x You Are The One",      "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 11, "item": {"@type": "MusicRecording", "name": "Streets x Rapture III x Violin",       "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 12, "item": {"@type": "MusicRecording", "name": "The Way You x Everybody x Never x Beso","datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 13, "item": {"@type": "MusicRecording", "name": "Unthinkable x Life Gets Hard",         "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}},
+              {"@type": "ListItem", "position": 14, "item": {"@type": "MusicRecording", "name": "Addicted x Give Me The Night",         "datePublished": "2024", "byArtist": {"@type": "MusicGroup", "@id": "https://djdxmusic.com/soul-shades#group", "name": "Soul Shades"}}}
             ]
           },
           {
             "@context": "https://schema.org",
             "@type": ["MusicGroup", "EntertainmentBusiness"],
+              "@id": "https://djdxmusic.com/soul-shades#group",
               "name": "Soul Shades",
               "url": "https://djdxmusic.com/soul-shades",
               "description": "Soul Shades is a New York-based duo formed by DJ DX and vocalist/instrumentalist Julie Schatz. Blends deep house, jazz, Afro house, and R&B.",
               "image": "https://djdxmusic.com/ss-hero.jpg",
               "member": [
-                {
-                  "@type": "Person",
-                  "name": "DJ DX"
-                },
-                {
-                  "@type": "Person",
-                  "name": "Julie Schatz"
-                }
+                {"@type": "Person", "@id": "https://djdxmusic.com/#djdx", "name": "DJ DX", "url": "https://djdxmusic.com/"},
+                {"@type": "Person", "name": "Julie Schatz", "jobTitle": "Violinist"}
               ],
               "genre": ["Deep House", "Jazz", "Afro House", "R&B", "Hip-Hop"],
               "address": {

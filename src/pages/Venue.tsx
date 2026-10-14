@@ -68,7 +68,9 @@ export default function Venue() {
     schema.push({
       '@context': 'https://schema.org', '@type': 'MusicEvent', name: v.event.name, startDate: v.event.startDate,
       eventStatus: 'https://schema.org/EventScheduled', eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-      location: place, performer: { '@id': 'https://djdxmusic.com/#djdx' },
+      location: place, performer: v.soulShades
+        ? [{ '@id': 'https://djdxmusic.com/#djdx' }, { '@type': 'MusicGroup', '@id': 'https://djdxmusic.com/soul-shades#group', name: 'Soul Shades', url: 'https://djdxmusic.com/soul-shades' }]
+        : { '@id': 'https://djdxmusic.com/#djdx' },
     });
   }
   const others = VENUES.filter(o => o.slug !== v.slug);

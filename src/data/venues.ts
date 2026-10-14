@@ -31,6 +31,7 @@ export interface Venue {
   cta: string;
   bookingEventType: string;
   event?: { name: string; startDate: string };  // only when the date is confirmed
+  soulShades?: boolean;         // performed as Soul Shades (DJ DX + Julie Schatz on violin)
   pages: string[];              // service pages that list this venue
 }
 
@@ -41,6 +42,7 @@ const NYE = '/new-years-eve-dj-nyc';
 export const VENUES: Venue[] = [
   {
     slug: 'the-argyle-chelsea',
+    soulShades: true,
     name: 'The Argyle',
     area: 'Chelsea, Manhattan',
     summary: "New Year's Eve 2025 and a Recognize company event with Crystal Waters live",
@@ -100,6 +102,7 @@ export const VENUES: Venue[] = [
   },
   {
     slug: '620-loft-garden-rockefeller-center',
+    soulShades: true,
     name: '620 Loft & Garden',
     area: 'Rockefeller Center, Manhattan',
     summary: 'Soul Shades rooftop reception for NautaDutilh, June 2, 2026',
@@ -172,6 +175,7 @@ export const VENUES: Venue[] = [
   },
   {
     slug: 'culture-lab-lic',
+    soulShades: true,
     name: 'Culture Lab LIC',
     area: 'Long Island City, Queens',
     summary: 'Culture Lab Festival, Soul Shades set, October 2024',
