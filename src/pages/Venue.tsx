@@ -40,7 +40,7 @@ export default function Venue() {
     ...(v.address ? { address: { '@type': 'PostalAddress', streetAddress: v.address.street, addressLocality: v.address.locality, addressRegion: v.address.region, postalCode: v.address.postalCode, addressCountry: 'US' } } : {}),
   };
   const schema: object[] = [
-    { '@context': 'https://schema.org', '@type': 'WebPage', name: v.h1, url, description: v.description, about: place, mentions: { '@id': 'https://djdxmusic.com/#djdx' } },
+    { '@context': 'https://schema.org', '@type': 'WebPage', name: v.h1, url, description: v.description, about: place, mentions: v.soulShades ? [{ '@id': 'https://djdxmusic.com/#djdx' }, { '@id': 'https://djdxmusic.com/soul-shades#group' }] : { '@id': 'https://djdxmusic.com/#djdx' } },
     {
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [

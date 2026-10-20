@@ -143,7 +143,7 @@ export const VENUES: Venue[] = [
     area: 'Baldwin, Long Island',
     summary: 'Private birthday celebration for 300 guests with live violin, 2025',
     title: 'Coral House Baldwin DJ | Long Island Party DJ | DJ DX',
-    description: 'DJ DX and violinist Julie Schatz (Soul Shades) played a 300-guest private birthday at the Coral House in Baldwin, NY in 2025. Long Island birthday, milestone and private party DJ.',
+    description: 'DJ DX and violinist Julie Schatz (Soul Shades) played a 300-guest birthday at the Coral House in Baldwin, NY in 2025. Long Island party and birthday DJ.',
     h1: 'DJ at the Coral House, Baldwin NY',
     overline: 'Venue: Coral House, Milburn Lake',
     address: { street: '70 Milburn Ave', locality: 'Baldwin', region: 'NY', postalCode: '11510' },
