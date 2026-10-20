@@ -500,6 +500,13 @@ export default function EPK() {
         {/* ── 05 · ASSETS ── */}
         <section className="epkr-chapter">
           <ChapterHead num="05" label="Downloads" title="Assets &amp;" accent="Media" />
+          <p id="photo-use" style={{ fontSize: '0.88rem', lineHeight: 1.7, color: 'rgba(242,242,242,0.65)', maxWidth: 760, margin: '0 0 28px' }}>
+            <strong style={{ color: 'var(--white)' }}>Photo credits and use.</strong> The Saks Fifth Avenue Water Mill photos are
+            © Linsey Kromer and appear with her permission; credit them as &ldquo;Linsey Kromer.&rdquo; Other photos on this site are
+            owned by or used with permission of DJ DX unless credited otherwise. To use any photo, email{' '}
+            <a href="mailto:bookings@djdxmusic.com?subject=Photo%20use%20request" style={{ color: 'var(--gold)' }}>bookings@djdxmusic.com</a>{' '}
+            and DJ DX will confirm permission or connect you with the photographer.
+          </p>
 
           <div className="epkr-assets-grid">
 

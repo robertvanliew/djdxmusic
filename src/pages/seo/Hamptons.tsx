@@ -189,7 +189,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "DJ DX — Packed Dance Floor, Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-dj-dx-dancefloor-water-mill-hamptons.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-08-21T12:00:00-04:00"
             },
             {
@@ -197,7 +197,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "DJ DX — Behind the Decks, Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-dj-dx-behind-the-decks-water-mill-hamptons.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-08-21T12:00:00-04:00"
             },
             {
@@ -205,7 +205,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "DJ DX — Full DJ Booth Setup, Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-dj-dx-booth-setup-water-mill-hamptons.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-09-11T12:00:00-04:00"
             },
             {
@@ -213,7 +213,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "Sailcloth Tent After Dark — Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-tent-night-water-mill-hamptons.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-09-11T12:00:00-04:00"
             },
             {
@@ -221,7 +221,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "Poolside Lounge — Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-estate-poolside-water-mill-hamptons.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-09-11T12:00:00-04:00"
             },
             {
@@ -229,7 +229,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "DJ DX — Golden Hour, Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-dj-dx-water-mill-hamptons.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-08-03T12:00:00-04:00"
             },
             {
@@ -237,7 +237,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "DJ DX Mixing — Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-dj-dx-mixing-water-mill-hamptons.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-08-03T12:00:00-04:00"
             },
             {
@@ -245,7 +245,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "DJ Booth Under the Tent — Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-dj-booth-tent-water-mill-nyc.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-08-03T12:00:00-04:00"
             },
             {
@@ -253,7 +253,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "Cocktail Lounge and Bar — Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-tent-bar-lounge-water-mill-nyc.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-08-03T12:00:00-04:00"
             },
             {
@@ -261,7 +261,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "Saks Fifth Avenue x Jared Lehr Place Card — Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-jared-lehr-place-card-water-mill-hamptons.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-09-11T12:00:00-04:00"
             },
             {
@@ -269,7 +269,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "Golden Hour Under the Tent — Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-golden-hour-tent-water-mill-hamptons.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-08-21T12:00:00-04:00"
             },
             {
@@ -277,7 +277,7 @@ export default function Hamptons() {
               "@type": "ImageObject",
               "name": "Jared Lehr Showcase — Saks Fifth Avenue Private Estate Event, Water Mill",
               "contentUrl": "https://djdxmusic.com/saks-jared-lehr-showcase-water-mill-hamptons.jpg",
-              "creator": {"@type": "Person", "name": "Linsey Kromer"},
+              "creator": {"@type": "Person", "name": "Linsey Kromer"}, "creditText": "Linsey Kromer", "copyrightNotice": "© Linsey Kromer. Used by DJ DX with permission.", "license": "https://djdxmusic.com/epk#photo-use", "acquireLicensePage": "https://djdxmusic.com/contact",
               "uploadDate": "2026-08-21T12:00:00-04:00"
             },
             {
