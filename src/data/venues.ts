@@ -138,17 +138,18 @@ export const VENUES: Venue[] = [
   },
   {
     slug: 'coral-house-baldwin-ny',
+    soulShades: true,
     name: 'Coral House',
     area: 'Baldwin, Long Island',
-    summary: 'Private birthday celebration for 300 guests, 2025',
+    summary: 'Private birthday celebration for 300 guests with live violin, 2025',
     title: 'Coral House Baldwin DJ | Long Island Party DJ | DJ DX',
-    description: 'DJ DX played a 300-guest private birthday at the Coral House in Baldwin, NY in 2025. Long Island birthday, milestone and private party DJ.',
+    description: 'DJ DX and violinist Julie Schatz (Soul Shades) played a 300-guest private birthday at the Coral House in Baldwin, NY in 2025. Long Island birthday, milestone and private party DJ.',
     h1: 'DJ at the Coral House, Baldwin NY',
     overline: 'Venue: Coral House, Milburn Lake',
     address: { street: '70 Milburn Ave', locality: 'Baldwin', region: 'NY', postalCode: '11510' },
     intro: [
-      "The Coral House is the waterfront event venue on Milburn Lake in Baldwin, on Long Island's South Shore. In 2025 DJ DX played a private birthday celebration there for 300 guests, a family-and-friends crowd that spanned generations.",
-      'A room like that is where open-format DJing pays off: classic soul and R&B for the elders, hip-hop and current hits for everyone else, and one DJ reading the floor all night instead of one playlist on shuffle.',
+      "The Coral House is the waterfront event venue on Milburn Lake in Baldwin, on Long Island's South Shore. In 2025 DJ DX played a private birthday celebration there for 300 guests, a family-and-friends crowd that spanned generations, with Julie Schatz on live violin as Soul Shades, his DJ and violin duo.",
+      'A room like that is where open-format DJing pays off: classic soul and R&B for the elders, hip-hop and current hits for everyone else, live violin over the mix, and a DJ reading the floor all night instead of one playlist on shuffle.',
     ],
     sections: [
       {
@@ -161,7 +162,7 @@ export const VENUES: Venue[] = [
       },
       {
         h2: 'Other Long Island events',
-        paras: ['DJ DX plays birthdays, milestone parties and weddings across Nassau and Suffolk. See [birthday party DJ](/birthday-party-dj-nyc-nj), [private party DJ](/private-party-dj-nyc-nj) and [Long Island wedding DJ](/wedding-dj-long-island-ny).'],
+        paras: ['DJ DX plays birthdays, milestone parties and weddings across Nassau and Suffolk, solo or with live violin. See [birthday party DJ](/birthday-party-dj-nyc-nj), [private party DJ](/private-party-dj-nyc-nj), [Long Island wedding DJ](/wedding-dj-long-island-ny) and [DJ and violin duo](/violin-dj-duo-nyc-nj).'],
       },
     ],
     cta: 'Celebrating at the Coral House? Send your date and guest count, and you will hear back within 24 hours with availability and pricing.',
