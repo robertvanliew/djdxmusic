@@ -6,6 +6,7 @@
 // Every fact links to where it can be checked. Only confirmed facts go here.
 
 import { VENUES, PAST_VENUES } from './venues';
+import { RIDER, TRAVEL, WORK_AUTHORIZATION } from './rider';
 import { GIGS, isLive } from './events';
 import { CORP_PACKAGES } from './packages';
 import { STARTING_PRICES, HAMPTONS_FLOOR, VIOLIN_HOURLY } from '../lib/pricing';
@@ -61,13 +62,21 @@ export function buildPassport() {
       sources: [{ label: 'Pricing (plain text)', url: `${SITE}/pricing.txt` }, { label: 'Instant price estimate', url: `${SITE}/event-dj-cost-nyc-nj-ct#quote-calculator` }],
     },
     bookingTerms: {
-      deposit: '50% deposit and a signed contract hold the date',
+      deposit: '50% deposit and a signed contract confirm the date',
+      dateHold: 'Requesting a date holds it free for 72 hours while the quote is sent; it releases automatically if not confirmed',
       balance: 'Due 14 days before the event',
       dateChange: 'One free date change within 12 months, subject to availability',
       backup: 'A DJ personally vetted by DJ DX covers emergencies',
-      insurance: 'Certificate of insurance available on request',
+      insurance: 'Certificate of insurance (COI) naming the venue, provided free',
       taxForm: 'W-9 available on request',
       source: `${SITE}/booking-policy`,
+    },
+    travel: TRAVEL,
+    workAuthorization: WORK_AUTHORIZATION,
+    technicalRider: {
+      appliesTo: "Venues that supply their own PA (clubs, concerts, some destination venues). Private and corporate bookings include DJ DX's own sound system and wireless microphones.",
+      sections: RIDER,
+      page: `${SITE}/epk#epk-rider`,
     },
     verifiedProfiles: [
       { label: 'Google Business Profile', url: 'https://maps.google.com/?cid=4966958562421956436' },

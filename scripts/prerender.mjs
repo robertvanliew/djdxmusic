@@ -61,6 +61,12 @@ const STATIC_ROUTES = [
   '/verified',
   '/confirm',
   '/venues',
+  '/office-holiday-party-playlist',
+  '/80s-90s-throwback-party-dj-nyc-nj',
+  '/bilingual-dj-emcee-nyc-nj',
+  '/open-dates',
+  '/live-run-of-show',
+  '/venues/the-glasshouse-hells-kitchen',
   '/venues/the-argyle-chelsea',
   '/venues/620-loft-garden-rockefeller-center',
   '/venues/coral-house-baldwin-ny',
@@ -165,6 +171,9 @@ async function writePollShell() {
   if (!raw.includes('</head>')) throw new Error('prerender: no </head> in dist/index.html');
   await writeFile(join(DIST, 'poll-shell.html'), raw.replace('</head>', `    ${head}\n  </head>`));
   console.log('prerender: wrote dist/poll-shell.html');
+  const showHead = ['<title>Run of Show | DJ DX</title>', '<meta name="robots" content="noindex, nofollow" />', '<meta name="referrer" content="no-referrer" />'].join('\n    ');
+  await writeFile(join(DIST, 'show-shell.html'), raw.replace('</head>', `    ${showHead}\n  </head>`));
+  console.log('prerender: wrote dist/show-shell.html');
 }
 
 async function prerender() {

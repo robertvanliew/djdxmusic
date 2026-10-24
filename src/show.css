@@ -1,0 +1,64 @@
+/* /show/:id — live run of show (edit + booth) and Set Receipt */
+.sh-wrap { min-height: 100dvh; max-width: 760px; margin: 0 auto; padding: 28px 16px 60px; background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; }
+.sh-empty { padding: 30vh 0; text-align: center; color: rgba(242,242,242,0.7); }
+.sh-head { margin-bottom: 18px; }
+.sh-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-line); border-radius: 999px; padding: 5px 12px; }
+.sh-head h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.6rem, 6vw, 2.4rem); line-height: 1.1; margin: 12px 0 4px; }
+.sh-head p { color: rgba(242,242,242,0.65); margin: 0; }
+.sh-status { font-size: 0.85rem; color: rgba(242,242,242,0.6); margin: 0 0 12px; }
+.sh-items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.sh-item { display: grid; grid-template-columns: 96px 1fr auto; gap: 10px; align-items: start; padding: 12px; background: var(--panel); border: 1px solid var(--edge); border-radius: 12px; }
+.sh-item input { width: 100%; background: transparent; border: 0; border-bottom: 1px solid var(--edge); color: var(--white); font: inherit; padding: 8px 2px; min-height: 40px; outline: none; }
+.sh-item input:focus { border-color: var(--gold); }
+.sh-time { font-variant-numeric: tabular-nums; font-weight: 600; }
+.sh-label { font-weight: 600; font-size: 1.02rem; }
+.sh-note { font-size: 0.9rem; color: rgba(242,242,242,0.75) !important; }
+.sh-fields { display: flex; flex-direction: column; gap: 2px; }
+.sh-tools { display: flex; gap: 4px; }
+.sh-tools button { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--edge); background: transparent; color: rgba(242,242,242,0.8); cursor: pointer; font-size: 0.95rem; }
+.sh-tools button:disabled { opacity: 0.3; cursor: default; }
+.sh-add { margin-top: 10px; width: 100%; min-height: 48px; border-radius: 12px; border: 1px dashed var(--gold-line); background: transparent; color: var(--gold); font: inherit; font-weight: 700; cursor: pointer; }
+.sh-card { margin-top: 22px; padding: 18px; border: 1px solid var(--edge); border-radius: 14px; background: var(--panel); }
+.sh-card h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 800; margin: 0 0 8px; }
+.sh-muted { color: rgba(242,242,242,0.65); font-size: 0.92rem; line-height: 1.6; margin: 0 0 12px; }
+.sh-copy, .sh-receipt-btn, .sh-serato button { min-height: 44px; padding: 0 20px; border-radius: 8px; border: 0; background: var(--gold); color: #0c0c0c; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1); }
+.sh-copy:active, .sh-receipt-btn:active, .sh-serato button:active { transform: scale(0.97); }
+.sh-receipt-btn:disabled, .sh-serato button:disabled { opacity: 0.5; cursor: default; }
+.sh-log { list-style: none; margin: 0; padding: 0; }
+.sh-log li { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--dim3); font-size: 0.9rem; color: rgba(242,242,242,0.8); }
+.sh-log time { flex: none; width: 82px; color: var(--gold); font-variant-numeric: tabular-nums; }
+.sh-foot { margin-top: 26px; text-align: center; font-size: 0.82rem; color: rgba(242,242,242,0.5); }
+.sh-foot a { color: var(--gold); }
+/* Booth: big, glanceable from a few feet away */
+.sh-booth-items .sh-item { grid-template-columns: 110px 1fr auto; padding: 16px; transition: border-color 0.3s, background-color 0.3s; }
+.sh-time-big { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--gold); font-variant-numeric: tabular-nums; }
+.sh-booth-items strong { display: block; font-size: 1.25rem; }
+.sh-note-big { display: block; margin-top: 4px; color: rgba(242,242,242,0.75); }
+.sh-fresh { border-color: var(--gold); background: var(--gold-dim); }
+.sh-pill { align-self: center; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0c0c0c; background: var(--gold); padding: 4px 10px; border-radius: 999px; white-space: nowrap; }
+.sh-np { list-style: none; margin: 0 0 12px; padding: 0; }
+.sh-np li { display: flex; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--dim3); color: rgba(242,242,242,0.75); font-size: 0.92rem; }
+.sh-np time { flex: none; width: 70px; font-family: monospace; color: rgba(242,242,242,0.5); }
+.sh-np-now { color: var(--white) !important; font-weight: 700; }
+.sh-serato label { display: block; font-size: 0.8rem; color: rgba(242,242,242,0.6); margin-bottom: 6px; }
+.sh-serato div { display: flex; gap: 8px; }
+.sh-serato input { flex: 1; min-height: 44px; background: transparent; border: 1px solid var(--edge); border-radius: 8px; color: var(--white); font: inherit; padding: 0 12px; }
+.sh-msg { margin: 10px 0 0; color: var(--gold); }
+.sh-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+.sh-stats div { text-align: center; padding: 14px 6px; border-radius: 10px; background: var(--gold-dim); }
+.sh-stats strong { display: block; font-family: 'Archivo Black', sans-serif; font-size: 1.6rem; }
+.sh-stats span { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(242,242,242,0.7); }
+.sh-stats .sh-bad strong { color: #ff8a80; }
+.sh-mp { list-style: none; margin: 0 0 12px; padding: 0; }
+.sh-mp li { display: flex; flex-direction: column; padding: 8px 0; border-bottom: 1px solid var(--dim3); }
+.sh-mp span { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+.sh-ok span { color: #8fd9a8; }
+.sh-miss span { color: rgba(242,242,242,0.5); }
+.sh-receipt details summary { cursor: pointer; color: var(--gold); font-weight: 600; margin: 8px 0; }
+@media (max-width: 560px) {
+  .sh-item { grid-template-columns: 76px 1fr; }
+  .sh-tools { grid-column: 1 / -1; justify-content: flex-end; }
+  .sh-booth-items .sh-item { grid-template-columns: 84px 1fr; }
+  .sh-pill { grid-column: 1 / -1; justify-self: start; }
+}
+@media (hover: hover) and (pointer: fine) { .sh-tools button:not(:disabled):hover { border-color: var(--gold-line); color: var(--white); } }

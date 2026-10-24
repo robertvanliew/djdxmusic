@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { Resend } from 'resend';
-import { createHash } from 'crypto';
+import { createHash, randomUUID } from 'crypto';
 
 // Music planning form for booked clients (/plan). Emails the plan to
 // bookings@ and a copy to the client. No database: email is the record.
@@ -204,6 +204,35 @@ function renderHtml(summary: Item[], sections: Section[], intro = '') {
 </div>`;
 }
 
+// ── Live run of show + Set Receipt record ────────────────────────────────────
+// Same shape api/agent.ts (namespace Show) reads at /show/<id>. Kept until 90
+// days after the event, as agreed with DJ DX (2026-10-24).
+async function createShow(b: Obj, name: string, email: string, date: string, typeLabel: string) {
+  if (!REDIS_URL || !REDIS_TOKEN) return null;
+  const tok = (n: number) => randomUUID().replace(/-/g, '').slice(0, n);
+  const items = [
+    ...list(b.moments, 20).filter(m => m.skipped !== true).map(m => ({ label: str(m.label, 120), note: songText(m) })),
+    ...list(b.speeches, 20).map(r => ({ label: str(r.who, 100) ? `Toast: ${str(r.who, 100)}` : '', note: str(r.when, 200) })),
+  ].filter(i => i.label).slice(0, 40).map(i => ({ id: tok(8), time: '', label: i.label, note: i.note.slice(0, 300) }));
+  const rec = {
+    id: tok(10).toLowerCase(), editToken: tok(24), boothToken: tok(24),
+    title: `${typeLabel}: ${name}`.slice(0, 120), date, clientName: name, clientEmail: email,
+    items: items.length ? items : [{ id: tok(8), time: '', label: 'Guests arrive', note: '' }, { id: tok(8), time: '', label: 'Dancing', note: '' }, { id: tok(8), time: '', label: 'Last song', note: '' }],
+    log: [{ at: Date.now(), text: 'Created from the music plan' }],
+    plan: {
+      mustPlay: list(b.mustPlay, 15).map(m => ({ title: str(m.song, 200), artist: str(m.artist, 200) })).filter(m => m.title),
+      doNotPlay: str(b.doNotPlay).split(/[;,\n]+/).map(x => x.trim()).filter(x => x.length > 2).slice(0, 40),
+    },
+    seratoUrl: '', receipt: null, createdAt: Date.now(), updatedAt: Date.now(),
+  };
+  const ttl = Math.max(7 * 86400, Math.round((Date.parse(`${date}T23:59:59Z`) - Date.now()) / 1000) + 90 * 86400);
+  try {
+    const r = await fetch(`${REDIS_URL}/pipeline`, { method: 'POST', headers: { Authorization: `Bearer ${REDIS_TOKEN}`, 'Content-Type': 'application/json' }, body: JSON.stringify([['SET', `show:${rec.id}`, JSON.stringify(rec), 'EX', String(ttl)]]) });
+    if (!r.ok) return null;
+  } catch { return null; }
+  return { edit: `https://djdxmusic.com/show/${rec.id}?t=${rec.editToken}`, booth: `https://djdxmusic.com/show/${rec.id}?t=${rec.boothToken}` };
+}
+
 // ── Rate limit (Upstash REST). Fails open if storage is not configured. ──────
 const clientIp = (req: VercelRequest) =>
   String(req.headers['x-real-ip'] || String(req.headers['x-forwarded-for'] || '').split(',')[0] || 'unknown').trim();
@@ -254,6 +283,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const submittedAt = new Date().toISOString();
   const raw = { ...b, company_website: undefined, submittedAt };
   const text = renderText(summary, sections);
+  const show = await createShow(b, name, email, date, typeLabel);
+  const boothNote = show ? `<p style="font-family:Arial;font-size:14px;max-width:640px;margin:0 auto 14px;padding:12px 16px;background:#fbf6e8;border:1px solid #C9A84C;border-radius:6px">Booth link for this event (live run of show, now playing, Set Receipt): <a href="${show.booth}">${show.booth}</a></p>` : '';
 
   try {
     const { error } = await resend.emails.send({
@@ -261,7 +292,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       to: [TO],
       replyTo: email,
       subject: `Music Plan | ${name} | ${typeLabel} | ${date}`,
-      html: renderHtml(summary, sections) +
+      html: boothNote + renderHtml(summary, sections) +
         `<div style="font-family:monospace;font-size:11px;color:#666;max-width:640px;margin:16px auto 0;padding-top:12px;border-top:1px dashed #ccc;white-space:pre-wrap">${escapeHtml(JSON.stringify(raw, null, 2))}</div>`,
       text: `${text}\n\n----------\nRaw submission (${submittedAt}):\n${JSON.stringify(raw, null, 2)}`,
     });
@@ -273,7 +304,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // Client copy. Best-effort: the plan already reached DJ DX.
   const first = name.split(/\s+/)[0];
-  const greeting = `Hi ${first},\n\nThank you for sending your music plan. Here's a copy of everything you shared. I'll go through it before our planning call, and if anything changes you can send an update anytime from the same link.\n\nRobert Van Liew\nDJ DX\n${PHONE}\n${TO}`;
+  const greeting = `Hi ${first},\n\nThank you for sending your music plan. Here's a copy of everything you shared. I'll go through it before our planning call, and if anything changes you can send an update anytime from the same link.${show ? `\n\nYour live run of show: ${show.edit}\nYou or your planner can change the timeline from a phone, even on the night, and I see every change at the booth. After the event you'll get a Set Receipt: every song played, checked against your must-play and do-not-play lists.` : ''}\n\nRobert Van Liew\nDJ DX\n${PHONE}\n${TO}`;
   try {
     const { error } = await resend.emails.send({
       from: FROM,
@@ -289,5 +320,5 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.error('music-plan: client copy failed', err);
   }
 
-  return res.status(200).json({ ok: true });
+  return res.status(200).json({ ok: true, ...(show ? { showUrl: show.edit } : {}) });
 }

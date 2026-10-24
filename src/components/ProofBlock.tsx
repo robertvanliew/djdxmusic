@@ -86,6 +86,19 @@ export default function ProofBlock() {
 }
 
 // "Companies DJ DX has played for": only clients who have agreed to be named.
+// Homepage "Played for" strip. Named clients come from events.ts (only those who
+// agreed to be named); the extras are public credits already named on the site.
+const PUBLIC_CREDITS = ['Recognize', 'TEDxYouth@RVA'];
+export function PlayedForStrip() {
+  const names = [...new Set([...namedClients(), ...PUBLIC_CREDITS])];
+  return (
+    <section className="played-for" aria-label="Companies and stages DJ DX has played for">
+      <span className="played-for-label">Played for</span>
+      <ul>{names.map(n => <li key={n}>{n}</li>)}</ul>
+    </section>
+  );
+}
+
 export function ClientNames() {
   const names = namedClients();
   if (!names.length) return null;

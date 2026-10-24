@@ -127,9 +127,44 @@
 
   <url>
     <loc>https://djdxmusic.com/holiday-party-dj-nyc-nj-ct</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/80s-90s-throwback-party-dj-nyc-nj</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/bilingual-dj-emcee-nyc-nj</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/live-run-of-show</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/open-dates</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/office-holiday-party-playlist</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <url>
@@ -554,6 +589,30 @@
     <image:image>
       <image:loc>https://djdxmusic.com/venues/coral-house-ballroom-baldwin-ny.jpg</image:loc>
     </image:image>
+  </url>
+
+  <url>
+    <loc>https://djdxmusic.com/venues/the-glasshouse-hells-kitchen</loc>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/glasshouse-dj-dx-contentsquare-cx-circle-hells-kitchen.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/glasshouse-event-space-hudson-views-hells-kitchen-nyc.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/glasshouse-dj-booth-setup-12th-avenue-nyc.jpg</image:loc>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/glasshouse-contentsquare-cx-circle-2026-dj-dx-poster.jpg</video:thumbnail_loc>
+      <video:title>DJ DX at Contentsquare's CX Circle NYC 2026, The Glasshouse</video:title>
+      <video:description>The crowd and the Contentsquare booth at CX Circle NYC 2026, then DJ DX at the decks, at The Glasshouse, 660 12th Avenue, Hell's Kitchen, October 13, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/glasshouse-contentsquare-cx-circle-2026-dj-dx.mp4</video:content_loc>
+      <video:duration>36</video:duration>
+      <video:publication_date>2026-10-24T12:00:00-04:00</video:publication_date>
+    </video:video>
   </url>
 
   <url>

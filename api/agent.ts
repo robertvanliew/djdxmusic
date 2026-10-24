@@ -30,6 +30,17 @@ namespace Mcp {
   type Passport = any; // eslint-disable-line @typescript-eslint/no-explicit-any
   let cache: { at: number; data: Passport } | null = null;
 
+  // Live 72-hour holds from api/booking.ts (dates only, no personal data)
+  async function heldUntil(date: string): Promise<number | null> {
+    try {
+      const r = await fetch(`${SITE}/api/booking?holds=1`);
+      if (!r.ok) return null;
+      const d = await r.json() as { holds?: { date: string; expiresAt: number }[] };
+      return d.holds?.find(h => h.date === date)?.expiresAt ?? null;
+    } catch { return null; }
+  }
+  const et = (ms: number) => new Date(ms).toLocaleString('en-US', { timeZone: 'America/New_York', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' ET';
+
   async function passport(): Promise<Passport> {
     if (cache && Date.now() - cache.at < 10 * 60_000) return cache.data;
     const r = await fetch(`${SITE}/.well-known/business.json`);
@@ -65,6 +76,8 @@ namespace Mcp {
         `Active since ${s.activeSince}, ${s.eventsPerformed} events. From ${s.hometown}, based in ${s.baseLocation}.`,
         `Service area: ${s.serviceArea.join(', ')}.`,
         `Booking: ${p.bookingTerms.deposit}; balance ${p.bookingTerms.balance.toLowerCase()}. ${p.bookingTerms.insurance}. ${p.bookingTerms.taxForm}.`,
+        ...(p.travel ? [`Travel: ${p.travel.includedArea}. ${p.travel.regional}. ${p.travel.destination}. ${p.travel.international}.`] : []),
+        ...(p.workAuthorization ? [`Authorized to work: ${p.workAuthorization.authorizedToWorkIn}, plus ${p.workAuthorization.territories.join(', ')}.`] : []),
         `Contact: ${p.contact.email}, text ${p.contact.text}. Reply ${p.contact.responseTime.toLowerCase()}.`,
         `Verified profiles: ${p.verifiedProfiles.map((x: { label: string; url: string }) => `${x.label} ${x.url}`).join('; ')}.`,
         `Full verified facts: ${SITE}/verified`,
@@ -108,6 +121,18 @@ namespace Mcp {
       return text(list.map((v: { name: string; area: string; summary: string; date: string | null; page: string }) => `${v.name} (${v.area}${v.date ? `, ${v.date}` : ''}): ${v.summary}. ${v.page}`).join('\n'));
     });
 
+    server.registerTool('get_technical_rider', {
+      title: 'DJ DX technical rider',
+      description: 'What a venue needs to provide for DJ DX: PA, monitor, power, microphones, load-in, outdoor cover. Private and corporate bookings include his own sound.',
+      inputSchema: {},
+      annotations: { readOnlyHint: true, openWorldHint: false },
+    }, async () => {
+      const p = await passport();
+      const r = p.technicalRider;
+      if (!r) return text(`Technical rider: ${SITE}/epk#epk-rider`);
+      return text([`Applies to: ${r.appliesTo}`, ...r.sections.map((sec: { title: string; rows: { item: string; spec: string }[] }) => `${sec.title}: ${sec.rows.map(x => `${x.item}: ${x.spec}`).join(' | ')}`), `Full rider: ${r.page}`].join('\n'));
+    });
+
     server.registerTool('check_date', {
       title: 'Check a date',
       description: 'Whether a date is listed as booked. A date not listed is not guaranteed open; DJ DX confirms availability within 24 hours.',
@@ -115,8 +140,10 @@ namespace Mcp {
       annotations: { readOnlyHint: true, openWorldHint: false },
     }, async ({ date }) => {
       const p = await passport();
-      if (p.availability.booked.includes(date)) return text(`${date} is already booked for DJ DX. Other dates: ${SITE}/#booking`);
-      return text(`${date} is not listed as booked. DJ DX confirms availability within 24 hours; use request_booking (with the user's permission) or ${SITE}/#booking to hold it. A written contract and 50% deposit hold the date.`);
+      if (p.availability.booked.includes(date)) return text(`${date} is already booked for DJ DX. Other dates: ${SITE}/open-dates`);
+      const h = await heldUntil(date);
+      if (h) return text(`${date} is on hold for another client until ${et(h)} (a free 72-hour hold). If it is not confirmed by then it opens up. Other dates: ${SITE}/open-dates`);
+      return text(`${date} is not listed as booked. DJ DX confirms availability within 24 hours. Requesting it with request_booking (with the user's permission) or at ${SITE}/open-dates holds it free for 72 hours; a written contract and 50% deposit confirm it.`);
     });
 
     server.registerTool('request_booking', {
@@ -135,11 +162,13 @@ namespace Mcp {
           name, email, eventDate: event_date, eventType: FORM_TYPE[event_type], location: location || '', guests: guests || '',
           message: `${notes || ''}\n\n(Sent through the DJ DX AI agent${event_type === 'new_years_eve' ? ' — New Year\'s Eve' : ''}.)`.trim(),
           heard: 'ChatGPT or another AI assistant', aiReferral: 'AI agent (MCP)', aiLanding: '/api/mcp',
-          honeypot: '', elapsedMs: 5000, pageUrl: `${SITE}/api/mcp`,
+          honeypot: '', elapsedMs: 5000, pageUrl: `${SITE}/api/mcp`, hold: true,
         }),
       });
       if (!r.ok) return { ...text(`The inquiry could not be sent (${r.status}). Please use ${SITE}/#booking or email bookings@djdxmusic.com.`), isError: true };
-      return text(`Sent. DJ DX will reply to ${email} within 24 hours about ${event_date}. A written contract and a 50% deposit hold the date.`);
+      const out = await r.json().catch(() => ({})) as { hold?: { status: string; expiresAt?: number } };
+      const held = out.hold?.status === 'held' && out.hold.expiresAt ? ` ${event_date} is now held for ${name} until ${et(out.hold.expiresAt)} (free 72-hour hold).` : out.hold?.status === 'taken' ? ` Note: ${event_date} is on hold for another client right now.` : '';
+      return text(`Sent. DJ DX will reply to ${email} within 24 hours about ${event_date}.${held} A written contract and a 50% deposit confirm the date.`);
     });
 
     server.registerTool('start_music_plan', {
@@ -204,6 +233,17 @@ namespace A2a {
   const SITE = 'https://djdxmusic.com';
   type Passport = any; // eslint-disable-line @typescript-eslint/no-explicit-any
   let cache: { at: number; data: Passport } | null = null;
+  // Live 72-hour holds from api/booking.ts (dates only, no personal data)
+  async function heldUntil(date: string): Promise<number | null> {
+    try {
+      const r = await fetch(`${SITE}/api/booking?holds=1`);
+      if (!r.ok) return null;
+      const d = await r.json() as { holds?: { date: string; expiresAt: number }[] };
+      return d.holds?.find(h => h.date === date)?.expiresAt ?? null;
+    } catch { return null; }
+  }
+  const et = (ms: number) => new Date(ms).toLocaleString('en-US', { timeZone: 'America/New_York', weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' ET';
+
   async function passport(): Promise<Passport> {
     if (cache && Date.now() - cache.at < 10 * 60_000) return cache.data;
     const r = await fetch(`${SITE}/.well-known/business.json`);
@@ -234,11 +274,20 @@ namespace A2a {
 
     if (date || /\b(available|availability|open|free on|book(ed)?|date)\b/.test(t)) {
       if (!date) return `Send a date (for example 2026-12-12) and I'll check it. DJ DX confirms availability within 24 hours: ${SITE}/#booking`;
-      return p.availability.booked.includes(date)
-        ? `${date} is already booked for DJ DX. Other dates: ${SITE}/#booking`
-        : `${date} is not listed as booked. DJ DX confirms availability within 24 hours. Request it at ${SITE}/#booking (a written contract and a 50% deposit hold the date).`;
+      if (p.availability.booked.includes(date)) return `${date} is already booked for DJ DX. Other dates: ${SITE}/open-dates`;
+      const h = await heldUntil(date);
+      if (h) return `${date} is on hold for another client until ${et(h)} (a free 72-hour hold). If it is not confirmed by then it opens up. Other dates: ${SITE}/open-dates`;
+      return `${date} is not listed as booked. DJ DX confirms availability within 24 hours. Requesting it at ${SITE}/open-dates holds it free for 72 hours; a written contract and a 50% deposit confirm it.`;
     }
     if (/new year|nye/.test(t)) return `New Year's Eve with DJ DX is quoted individually (one NYE event a year). Other events start at ${money(sp.corporate_event_or_holiday_party)}. ${SITE}/new-years-eve-dj-nyc`;
+    if (p.travel && /(travel|puerto rico|destination|international|abroad|out of state|fly|hamptons|work authori|authorized to work)/.test(t)) {
+      const w = p.workAuthorization;
+      return `${p.travel.includedArea}. ${p.travel.regional}. ${p.travel.destination}. ${p.travel.international}.${w ? ` Authorized to work in the ${w.authorizedToWorkIn}, plus ${w.territories.join(', ')}.` : ''} ${SITE}/destination-wedding-dj`;
+    }
+    if (p.technicalRider && /(rider|equipment|tech spec|technical|power|outlet|load.?in|pa system|speakers|sound system|monitor)/.test(t)) {
+      const r = p.technicalRider;
+      return `${r.appliesTo} Key needs: ${r.sections.flatMap((x: { rows: { item: string; spec: string }[] }) => x.rows).filter((x: { item: string }) => /power|load-in|outdoor|microphones/i.test(x.item)).map((x: { item: string; spec: string }) => `${x.item}: ${x.spec}`).join(' ')} Full rider: ${r.page}`;
+    }
     if (/(price|cost|charge|rate|how much|budget|fee)/.test(t)) {
       if (/wedding/.test(t)) return `DJ DX weddings start at ${money(sp.wedding)} for up to 5 hours, with sound, wireless mics, MC and a planning call. ${SITE}/wedding-dj-cost-nyc`;
       if (/(corporate|holiday|office|company|gala)/.test(t)) return `DJ DX corporate events and office holiday parties start at ${money(sp.corporate_event_or_holiday_party)} for up to 5 hours. Packages: ${p.pricing.corporatePackages.map((x: { name: string; from: number }) => `${x.name} from ${money(x.from)}`).join(', ')}. ${SITE}/corporate-event-dj-nyc-nj-ct#packages`;
@@ -578,8 +627,271 @@ ${QUESTIONS.map(q => `<tr style="border-top:1px solid #ddd;vertical-align:top"><
 }
 
 
+// ═══ Live Run-of-Show + Set Receipt (/api/show) ═══
+// One private event record per show. Two secret links:
+//   edit  (planner / client): change the timeline from a phone; every change is
+//          timestamped in a log the DJ sees at the booth.
+//   booth (DJ DX): read-only timeline that refreshes itself, now playing from
+//          Serato, and "End set" which builds and emails the Set Receipt.
+// Records come from /plan (api/music-plan.ts writes the same shape) or from the
+// free tool on /live-run-of-show. They expire 90 days after the event.
+//   show:<id>       JSON ShowRecord
+//   show:np:<id>    cached now-playing (20 s)
+//   show:rl:<ip>:h  create rate limit
+namespace Show {
+  const SITE = 'https://djdxmusic.com';
+  const FROM = process.env.FROM_EMAIL || 'DJ DX <noreply@djdxmusic.com>';
+  const TO = 'bookings@djdxmusic.com';
+  const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL || '';
+  const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN || '';
+  const SERATO_USER = process.env.SERATO_USERNAME || '';
+  const DAY = 86400;
+
+  export interface Item { id: string; time: string; label: string; note: string }
+  export interface Song { artist: string; title: string }
+  export interface Track { at: string; artist: string; title: string; raw: string }
+  export interface Receipt { createdAt: number; source: string; tracks: Track[]; mustPlay: { song: Song; playedAt: string | null }[]; doNotPlayHits: { entry: string; track: Track }[] }
+  export interface ShowRecord {
+    id: string; editToken: string; boothToken: string;
+    title: string; date: string; clientName: string; clientEmail: string;
+    items: Item[]; log: { at: number; text: string }[];
+    plan: { mustPlay: Song[]; doNotPlay: string[] };
+    seratoUrl: string; receipt: Receipt | null; createdAt: number; updatedAt: number;
+  }
+
+  async function redis(cmds: (string | number)[][]): Promise<unknown[]> {
+    if (!REDIS_URL || !REDIS_TOKEN) return [];
+    const r = await fetch(`${REDIS_URL}/pipeline`, { method: 'POST', headers: { Authorization: `Bearer ${REDIS_TOKEN}`, 'Content-Type': 'application/json' }, body: JSON.stringify(cmds.map(c => c.map(String))) });
+    return r.ok ? ((await r.json()) as { result?: unknown }[]).map(o => o.result) : [];
+  }
+  const tok = (n: number) => randomUUID().replace(/-/g, '').slice(0, n);
+  const s = (v: unknown, max: number) => (typeof v === 'string' ? v.trim().slice(0, max) : '');
+  const esc = (x: string) => x.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  // Keep the record until 90 days after the event (at least 7 days from now)
+  const ttl = (date: string) => Math.max(7 * DAY, Math.round((Date.parse(`${date}T23:59:59Z`) - Date.now()) / 1000) + 90 * DAY);
+
+  async function load(id: string): Promise<ShowRecord | null> {
+    if (!/^[a-z0-9]{10}$/.test(id)) return null;
+    const [raw] = await redis([['GET', `show:${id}`]]);
+    try { return raw ? JSON.parse(String(raw)) as ShowRecord : null; } catch { return null; }
+  }
+  async function save(rec: ShowRecord) {
+    rec.updatedAt = Date.now();
+    await redis([['SET', `show:${rec.id}`, JSON.stringify(rec), 'EX', ttl(rec.date)]]);
+  }
+  function role(rec: ShowRecord, t: unknown): 'edit' | 'booth' | null {
+    if (typeof t !== 'string') return null;
+    if (t === rec.editToken) return 'edit';
+    if (t === rec.boothToken) return 'booth';
+    return null;
+  }
+  // What each link may see: never the other link's token or the client's email
+  function view(rec: ShowRecord, r: 'edit' | 'booth') {
+    const { editToken: _e, boothToken: _b, clientEmail: _c, ...rest } = rec;
+    return { ...rest, role: r, ...(r === 'edit' ? { boothUrl: `${SITE}/show/${rec.id}?t=${rec.boothToken}` } : {}) };
+  }
+  function cleanItems(v: unknown): Item[] {
+    return (Array.isArray(v) ? v : []).slice(0, 40).map(x => {
+      const o = (x && typeof x === 'object' ? x : {}) as Record<string, unknown>;
+      return { id: s(o.id, 12) || tok(8), time: s(o.time, 20), label: s(o.label, 120), note: s(o.note, 300) };
+    }).filter(i => i.label || i.time || i.note);
+  }
+  // Human summary of what changed, for the booth log
+  function diff(a: Item[], b: Item[]): string {
+    const byId = new Map(a.map(i => [i.id, i]));
+    const out: string[] = [];
+    for (const i of b) {
+      const o = byId.get(i.id);
+      if (!o) out.push(`Added "${i.label || i.time}"`);
+      else if (o.time !== i.time) out.push(`"${i.label}" moved ${o.time || '—'} → ${i.time || '—'}`);
+      else if (o.label !== i.label || o.note !== i.note) out.push(`"${i.label}" updated`);
+      byId.delete(i.id);
+    }
+    for (const o of byId.values()) out.push(`Removed "${o.label || o.time}"`);
+    if (!out.length && a.map(i => i.id).join() !== b.map(i => i.id).join()) out.push('Order changed');
+    return out.join('; ');
+  }
+
+  // ── Serato ──────────────────────────────────────────────────────────────
+  // Public serato.com playlist pages list rows like
+  //   <div class="playlist-track" id="track_…"><div class="playlist-tracktime">00:02:47</div>
+  //   <div class="playlist-trackname">Artist - Title</div>
+  export function parseSerato(html: string): Track[] {
+    const out: Track[] = [];
+    const re = /class="playlist-track[\s\S]*?class="playlist-tracktime">\s*([\d:]+)\s*<\/div>[\s\S]*?class="playlist-trackname">\s*([\s\S]*?)\s*<\/div>/g;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(html))) {
+      const raw = m[2].replace(/&amp;/g, '&').replace(/&#039;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
+      const cut = raw.indexOf(' - ');
+      out.push({ at: m[1], raw, artist: cut > 0 ? raw.slice(0, cut) : '', title: cut > 0 ? raw.slice(cut + 3) : raw });
+    }
+    return out;
+  }
+  async function seratoUrl(rec: ShowRecord): Promise<string> {
+    if (/^https:\/\/serato\.com\/playlists\/[\w.-]+\/[\w.-]+$/.test(rec.seratoUrl)) return rec.seratoUrl;
+    if (!SERATO_USER) return '';
+    // Newest playlist on the profile (the live one while a set is running)
+    try {
+      const html = await (await fetch(`https://serato.com/playlists/${encodeURIComponent(SERATO_USER)}`, { headers: { 'User-Agent': 'Mozilla/5.0 (DJ DX set receipt)' } })).text();
+      const m = new RegExp(`href="/playlists/${SERATO_USER.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/([\\w.-]+)"`).exec(html);
+      return m ? `https://serato.com/playlists/${SERATO_USER}/${m[1]}` : '';
+    } catch { return ''; }
+  }
+  async function fetchTracks(url: string): Promise<Track[]> {
+    if (!url) return [];
+    const r = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (DJ DX set receipt)' } });
+    return r.ok ? parseSerato(await r.text()) : [];
+  }
+
+  // ── Matching ────────────────────────────────────────────────────────────
+  export const norm = (x: string) => x.toLowerCase()
+    .replace(/\((?:feat|ft|with)[^)]*\)|\[(?:feat|ft)[^\]]*\]/g, ' ')
+    .replace(/\b(feat|ft|featuring)\.?\s.*$/g, ' ')
+    .replace(/\((?:clean|dirty|radio|explicit|intro|outro|extended|edit|remix|mix|version|remaster(?:ed)?)[^)]*\)/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+  export function buildReceipt(tracks: Track[], plan: ShowRecord['plan'], source: string): Receipt {
+    // Normalize artist and title separately: a 'ft' in the artist must not eat the title
+    const played = tracks.map(t => ({ t, title: norm(t.title), all: `${norm(t.artist)} ${norm(t.title)}` }));
+    const mustPlay = plan.mustPlay.map(song => {
+      const title = norm(song.title), artist = norm(song.artist).split(' ')[0] || '';
+      const hit = played.find(p => title && (p.title === title || p.title.startsWith(title) || (title.length > 5 && p.all.includes(title))) && (!artist || p.all.includes(artist)));
+      return { song, playedAt: hit ? hit.t.at : null };
+    });
+    const doNotPlayHits: Receipt['doNotPlayHits'] = [];
+    for (const entry of plan.doNotPlay) {
+      const e = norm(entry);
+      if (e.length < 3) continue;
+      const hit = played.find(p => p.all.includes(e) || (p.title.length > 4 && e.includes(p.title)));
+      if (hit) doNotPlayHits.push({ entry, track: hit.t });
+    }
+    return { createdAt: Date.now(), source, tracks, mustPlay, doNotPlayHits };
+  }
+
+  function receiptHtml(rec: ShowRecord, r: Receipt): string {
+    const hit = r.mustPlay.filter(m => m.playedAt).length;
+    const row = (a: string, b: string, c = '') => `<tr><td style="padding:7px 10px 7px 0;color:#888;font-size:12px;font-family:monospace;vertical-align:top;white-space:nowrap">${esc(a)}</td><td style="padding:7px 0;color:#111;font-size:14px">${esc(b)}</td><td style="padding:7px 0 7px 10px;font-size:13px;color:#2e7d4f;font-weight:700;text-align:right;white-space:nowrap">${c}</td></tr>`;
+    return `<div style="font-family:Arial,sans-serif;max-width:640px;margin:0 auto;border:1px solid #e5e5e5;border-radius:8px;overflow:hidden">
+  <div style="background:#111;padding:24px 28px;border-bottom:3px solid #C9A84C"><h1 style="color:#C9A84C;font-size:20px;margin:0;letter-spacing:.06em">SET RECEIPT</h1><p style="color:rgba(255,255,255,.6);margin:6px 0 0;font-size:13px">${esc(rec.title)} · ${esc(rec.date)} · DJ DX</p></div>
+  <div style="padding:22px 28px">
+    <table style="width:100%;border-collapse:collapse;margin-bottom:18px"><tr>
+      <td style="padding:12px;background:#f7f4ea;border-radius:6px;text-align:center"><div style="font-size:26px;font-weight:800;color:#111">${r.tracks.length}</div><div style="font-size:11px;color:#666;letter-spacing:.08em">SONGS PLAYED</div></td><td style="width:10px"></td>
+      <td style="padding:12px;background:#f7f4ea;border-radius:6px;text-align:center"><div style="font-size:26px;font-weight:800;color:#111">${hit}/${r.mustPlay.length}</div><div style="font-size:11px;color:#666;letter-spacing:.08em">MUST-PLAYS HIT</div></td><td style="width:10px"></td>
+      <td style="padding:12px;background:#f7f4ea;border-radius:6px;text-align:center"><div style="font-size:26px;font-weight:800;color:${r.doNotPlayHits.length ? '#b3261e' : '#111'}">${r.doNotPlayHits.length}</div><div style="font-size:11px;color:#666;letter-spacing:.08em">DO-NOT-PLAYS PLAYED</div></td>
+    </tr></table>
+    ${r.mustPlay.length ? `<h2 style="font-size:13px;letter-spacing:.08em;color:#C9A84C;margin:18px 0 6px">YOUR MUST-PLAYS</h2><table style="width:100%;border-collapse:collapse">${r.mustPlay.map(m => row(m.playedAt || '—', `${m.song.title}${m.song.artist ? `, ${m.song.artist}` : ''}`, m.playedAt ? 'PLAYED' : '<span style="color:#888">not played</span>')).join('')}</table>` : ''}
+    ${r.doNotPlayHits.length ? `<h2 style="font-size:13px;letter-spacing:.08em;color:#b3261e;margin:18px 0 6px">DO-NOT-PLAY MATCHES</h2><table style="width:100%;border-collapse:collapse">${r.doNotPlayHits.map(h => row(h.track.at, `${h.track.raw} (matched “${h.entry}”)`)).join('')}</table>` : ''}
+    <h2 style="font-size:13px;letter-spacing:.08em;color:#C9A84C;margin:18px 0 6px">EVERY SONG, IN ORDER</h2>
+    <table style="width:100%;border-collapse:collapse">${r.tracks.map(t => row(t.at, t.raw)).join('')}</table>
+    <p style="font-size:12px;color:#888;margin-top:18px">Times are minutes into the set, recorded live by DJ DX's Serato software. Matching is automatic; if something looks off, reply to this email.</p>
+  </div></div>`;
+  }
+
+  async function overLimit(ip: string): Promise<boolean> {
+    const hour = Math.floor(Date.now() / 3_600_000);
+    const key = `show:rl:${createHash('sha256').update(ip).digest('hex').slice(0, 24)}:${hour}`;
+    const [n] = await redis([['INCR', key], ['EXPIRE', key, 3600]]);
+    return Number(n) > 6;
+  }
+
+  export async function handler(req: VercelRequest, res: VercelResponse) {
+    res.setHeader('Cache-Control', 'no-store');
+    res.setHeader('X-Robots-Tag', 'noindex');
+    const q = req.query;
+    if (req.method === 'GET') {
+      const rec = await load(String(q.id || ''));
+      const r = rec && role(rec, q.t);
+      if (!rec || !r) return res.status(404).json({ error: 'Not found' });
+      if (q.now) {
+        const [cached] = await redis([['GET', `show:np:${rec.id}`]]);
+        if (cached) return res.status(200).json(JSON.parse(String(cached)));
+        const url = await seratoUrl(rec);
+        const tracks = await fetchTracks(url).catch(() => []);
+        const out = { url, live: tracks.length > 0, recent: tracks.slice(-3).reverse() };
+        await redis([['SET', `show:np:${rec.id}`, JSON.stringify(out), 'EX', 20]]);
+        return res.status(200).json(out);
+      }
+      return res.status(200).json(view(rec, r));
+    }
+    if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+    const b = (req.body && typeof req.body === 'object' ? req.body : {}) as Record<string, unknown>;
+    const action = s(b.action, 20);
+
+    if (action === 'create') {
+      if (s(b.website, 100)) return res.status(200).json({ ok: true }); // honeypot
+      const title = s(b.title, 120), date = s(b.date, 10), email = s(b.email, 200);
+      if (!title || !/^\d{4}-\d{2}-\d{2}$/.test(date) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Event name, date and a valid email are required' });
+      const ip = String(req.headers['x-real-ip'] || String(req.headers['x-forwarded-for'] || '').split(',')[0] || 'unknown');
+      if (await overLimit(ip)) return res.status(429).json({ error: 'Too many links created. Try again in an hour.' });
+      const items = cleanItems(b.items);
+      const rec: ShowRecord = {
+        id: tok(10).toLowerCase(), editToken: tok(24), boothToken: tok(24), title, date, clientName: s(b.name, 120), clientEmail: email,
+        items: items.length ? items : [
+          { id: tok(8), time: '', label: 'Doors open', note: '' },
+          { id: tok(8), time: '', label: 'Welcome remarks', note: '' },
+          { id: tok(8), time: '', label: 'Dinner', note: '' },
+          { id: tok(8), time: '', label: 'Dancing', note: '' },
+          { id: tok(8), time: '', label: 'Last song', note: '' },
+        ],
+        log: [{ at: Date.now(), text: 'Run of show created' }], plan: { mustPlay: [], doNotPlay: [] },
+        seratoUrl: '', receipt: null, createdAt: Date.now(), updatedAt: Date.now(),
+      };
+      await save(rec);
+      const editUrl = `${SITE}/show/${rec.id}?t=${rec.editToken}`;
+      const boothUrl = `${SITE}/show/${rec.id}?t=${rec.boothToken}`;
+      try {
+        const resend = new Resend(process.env.RESEND_API_KEY);
+        await resend.emails.send({ from: FROM, to: [email], replyTo: TO, subject: `Your live run of show: ${title}`,
+          html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#0c0c0c;color:#fff;padding:36px;border-radius:12px"><h1 style="color:#C9A84C;font-size:22px;margin:0 0 14px">Your run of show is live</h1><p style="color:rgba(255,255,255,.8);line-height:1.7">Edit it from any phone, any time, including the night of. Every change is timestamped.</p><p><a href="${editUrl}" style="display:inline-block;background:#C9A84C;color:#111;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:700">Open my run of show</a></p><p style="color:rgba(255,255,255,.7);line-height:1.7">Send this booth link to your DJ so they see every change live:<br><a href="${boothUrl}" style="color:#C9A84C">${boothUrl}</a></p><p style="color:rgba(255,255,255,.45);font-size:12px">Free from DJ DX · djdxmusic.com</p></div>` });
+        await resend.emails.send({ from: FROM, to: [TO], replyTo: email, subject: `[Run of show] ${title} | ${date}`, html: `<p>${esc(email)} created a live run of show for <strong>${esc(title)}</strong> on ${esc(date)}.</p><p>Booth link: <a href="${boothUrl}">${boothUrl}</a></p>` });
+      } catch (e) { console.error('show: email failed', e); }
+      return res.status(200).json({ id: rec.id, editUrl });
+    }
+
+    const rec = await load(s(b.id, 12));
+    const r = rec && role(rec, b.t);
+    if (!rec || !r) return res.status(404).json({ error: 'Not found' });
+
+    if (action === 'update') {
+      if (r !== 'edit') return res.status(403).json({ error: 'Read only' });
+      const items = cleanItems(b.items);
+      const change = diff(rec.items, items);
+      rec.items = items;
+      if (change) rec.log = [...rec.log, { at: Date.now(), text: change }].slice(-60);
+      if (typeof b.title === 'string' && s(b.title, 120)) rec.title = s(b.title, 120);
+      await save(rec);
+      return res.status(200).json(view(rec, r));
+    }
+    if (action === 'serato') {
+      if (r !== 'booth') return res.status(403).json({ error: 'Booth only' });
+      const url = s(b.url, 200);
+      if (url && !/^https:\/\/serato\.com\/playlists\/[\w.-]+\/[\w.-]+$/.test(url)) return res.status(400).json({ error: 'Paste a serato.com playlist link' });
+      rec.seratoUrl = url;
+      await save(rec);
+      return res.status(200).json(view(rec, r));
+    }
+    if (action === 'receipt') {
+      if (r !== 'booth') return res.status(403).json({ error: 'Booth only' });
+      const url = await seratoUrl(rec);
+      const tracks = await fetchTracks(url).catch(() => []);
+      if (!tracks.length) return res.status(409).json({ error: 'No tracks found on the Serato playlist yet. Check the playlist link and that Live Playlists is on.' });
+      rec.receipt = buildReceipt(tracks, rec.plan, url);
+      rec.log = [...rec.log, { at: Date.now(), text: `Set Receipt sent: ${tracks.length} songs` }].slice(-60);
+      await save(rec);
+      try {
+        const resend = new Resend(process.env.RESEND_API_KEY);
+        const html = receiptHtml(rec, rec.receipt);
+        if (rec.clientEmail) await resend.emails.send({ from: FROM, to: [rec.clientEmail], replyTo: TO, subject: `Your Set Receipt: ${rec.title}`, html });
+        await resend.emails.send({ from: FROM, to: [TO], subject: `[Set Receipt sent] ${rec.title} | ${rec.date}`, html });
+      } catch (e) { console.error('show: receipt email failed', e); }
+      return res.status(200).json(view(rec, r));
+    }
+    return res.status(400).json({ error: 'Unknown action' });
+  }
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const p = String(req.query.p || '');
+  if (p === 'show') return Show.handler(req, res);
   if (p === 'mcp') return Mcp.handler(req, res);
   if (p === 'a2a') return A2a.handler(req, res);
   if (p === 'attest') return Attest.handler(req, res);

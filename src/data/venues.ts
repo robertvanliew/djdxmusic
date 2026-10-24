@@ -41,6 +41,56 @@ const NYE = '/new-years-eve-dj-nyc';
 
 export const VENUES: Venue[] = [
   {
+    slug: 'the-glasshouse-hells-kitchen',
+    soulShades: true,
+    name: 'The Glasshouse',
+    area: "Hell's Kitchen, Manhattan",
+    summary: "Contentsquare's CX Circle NYC 2026, 1,000+ guests, with live violin",
+    title: 'The Glasshouse NYC DJ | Contentsquare CX Circle 2026 | DJ DX',
+    description: "DJ DX and violinist Julie Schatz (Soul Shades) played Contentsquare's CX Circle NYC 2026 at The Glasshouse, 660 12th Avenue, for 1,000+ guests.",
+    h1: "DJ at The Glasshouse, Hell's Kitchen",
+    overline: 'Venue: The Glasshouse, 660 12th Avenue',
+    address: { street: '660 12th Ave', locality: 'New York', region: 'NY', postalCode: '10019' },
+    intro: [
+      "The Glasshouse is the large event space at 660 12th Avenue in Hell's Kitchen, on the Hudson River side of Midtown, with floor-to-ceiling windows looking out over the water. On October 13, 2026, DJ DX played Contentsquare's CX Circle NYC 2026 there, performing as Soul Shades, his DJ and live violin duo with Julie Schatz, for a crowd of more than 1,000 guests.",
+    ],
+    sections: [
+      {
+        h2: "Contentsquare's CX Circle NYC 2026",
+        paras: [
+          "CX Circle is Contentsquare's customer-experience conference, a one-day event for marketing, product and digital leaders. DJ DX and Julie Schatz played from 5 to 7 pm as the day moved into the evening, with the sun going down over the Hudson behind the DJ booth.",
+          "Running a conference, product launch or company event in a large room? See [corporate event DJ in NYC](/corporate-event-dj-nyc-nj-ct) and [DJ and live violin duo](/violin-dj-duo-nyc-nj).",
+        ],
+      },
+      {
+        h2: 'What a conference crowd this size needs',
+        bullets: [
+          'Music that sits under conversation while people are networking, then lifts as the room fills.',
+          'Sound sized for a room of 1,000+ guests, set up and tested before doors open.',
+          'One point of contact for the music, with live violin available for the reception.',
+        ],
+      },
+    ],
+    cta: 'Planning an event at The Glasshouse? DJ DX knows the room. Send your date and guest count, and you will hear back within 24 hours.',
+    bookingEventType: 'Corporate Event / Holiday Party',
+    photos: [
+      { src: '/venues/glasshouse-dj-dx-contentsquare-cx-circle-hells-kitchen', alt: "DJ DX at the decks at Contentsquare's CX Circle NYC 2026, The Glasshouse, Hell's Kitchen, with the Hudson River at sunset behind him", w: 1200, h: 1600 },
+      { src: '/venues/glasshouse-event-space-hudson-views-hells-kitchen-nyc', alt: "The Glasshouse event space at 660 12th Avenue, Hell's Kitchen, with floor-to-ceiling windows, before guests arrive", w: 1200, h: 1600 },
+      { src: '/venues/glasshouse-dj-booth-setup-12th-avenue-nyc', alt: 'DJ DX booth set up at The Glasshouse on 12th Avenue, NYC, for Contentsquare CX Circle', w: 1200, h: 1600 },
+    ],
+    video: {
+      src: '/videos/glasshouse-contentsquare-cx-circle-2026-dj-dx.mp4',
+      poster: '/videos/glasshouse-contentsquare-cx-circle-2026-dj-dx-poster.jpg',
+      name: "DJ DX at Contentsquare's CX Circle NYC 2026, The Glasshouse",
+      description: "The crowd and the Contentsquare booth at CX Circle NYC 2026, then DJ DX at the decks, at The Glasshouse, 660 12th Avenue, Hell's Kitchen, October 13, 2026.",
+      uploadDate: '2026-10-24T12:00:00-04:00',
+      duration: 'PT36S',
+      w: 720, h: 1280,
+    },
+    event: { name: "Contentsquare CX Circle NYC 2026 at The Glasshouse", startDate: '2026-10-13' },
+    pages: [CORPORATE, '/violin-dj-duo-nyc-nj'],
+  },
+  {
     slug: 'the-argyle-chelsea',
     soulShades: true,
     name: 'The Argyle',

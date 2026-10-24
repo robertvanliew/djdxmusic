@@ -31,7 +31,7 @@ const TRUST = [
     icon: ico(<><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z" /><circle cx="7.5" cy="7.5" r="1.5" /></>) },
   { title: '25+ years on the mic', text: 'Names and run of show confirmed in advance.',
     icon: ico(<><rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v4M8 22h8" /></>) },
-  { title: 'Insured, in writing', text: 'Contract on every booking. Certificate of insurance and W-9 on request.',
+  { title: 'Insured, in writing', text: 'Contract on every booking. Free certificate of insurance for your venue, W-9 on request.',
     icon: ico(<><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M8 13h8M8 17h5" /></>) },
 ];
 
@@ -56,6 +56,9 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
   const [fields, setFields] = useState({ ...EMPTY, ...(aiRef ? { heard: AI_OPTION } : {}), ...(initial || {}) });
   const [estimate, setEstimate] = useState<{ type: string; price: number; travel: boolean } | null>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  // Free 72-hour date hold, on by default (see api/booking.ts)
+  const [holdDate, setHoldDate] = useState(true);
+  const [hold, setHold] = useState<{ status: string; expiresAt?: number } | null>(null);
   const mountedAt = useRef(Date.now());
 
   const set = (k: string, v: string) => setFields(f => ({ ...f, [k]: v }));
@@ -77,9 +80,12 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
           pageUrl: window.location.href,
           ...(aiRef ? { aiReferral: aiRef.source, aiLanding: aiRef.landing } : {}),
           ...(pollId ? { pollId } : {}),
+          hold: holdDate,
         }),
       });
       if (!res.ok) throw new Error(`http_${res.status}`);
+      const body = await res.json().catch(() => ({}));
+      setHold(body && body.hold ? body.hold : null);
       trackLead({ form: formName, event_type: fields.eventType, ...(pollId ? { poll_id: pollId } : {}) }, metaEventId);
       if (pollId) trackEvent('booking_submitted_from_poll', { poll_id: pollId });
       const key = FORM_TYPE_TO_PRICE[fields.eventType];
@@ -97,8 +103,12 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
   if (status === 'sent') return (
     <div className="booking-success">
       <div className="booking-success-icon">✓</div>
-      <h3>Inquiry sent!</h3>
-      <p>You'll get a straight yes or no on your date within 24 hours. Check your inbox for a confirmation.</p>
+      <h3>{hold?.status === 'held' ? 'Your date is on hold' : 'Inquiry sent!'}</h3>
+      {hold?.status === 'held' && hold.expiresAt
+        ? <p>It's held for you, free, until <strong>{new Date(hold.expiresAt).toLocaleString('en-US', { weekday: 'long', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</strong>. DJ DX will send your quote and contract within 24 hours. Check your inbox for the confirmation.</p>
+        : hold?.status === 'taken'
+          ? <p>That date is on hold for another client right now. DJ DX will reply within 24 hours, and you'll hear first if it opens up.</p>
+          : <p>You'll get a straight yes or no on your date within 24 hours. Check your inbox for a confirmation.</p>}
       {estimate && (
         <div className="bf-estimate">
           <span className="bf-estimate-label">Your starting price</span>
@@ -189,6 +199,12 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
           {HEARD.map(h => <option key={h}>{h}</option>)}
         </select>
       </div>
+      {fields.eventDate && (
+        <label className="bf-hold">
+          <input type="checkbox" checked={holdDate} onChange={e => setHoldDate(e.target.checked)} />
+          <span><strong>Hold this date for 72 hours, free.</strong> Nobody else can book it while you decide. No obligation.</span>
+        </label>
+      )}
       <details className="bf-more" open={!!initial?.message}>
         <summary>Add times and details <span className="bf-opt">optional</span></summary>
         <div className="form-row">

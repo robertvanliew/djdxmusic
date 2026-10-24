@@ -35,6 +35,7 @@ const Admin      = lazy(() => import('./pages/Admin.tsx'))
 const Terms      = lazy(() => import('./pages/Terms.tsx'))
 const Privacy    = lazy(() => import('./pages/Privacy.tsx'))
 const Planners   = lazy(() => import('./pages/Planners.tsx'))
+const HolidayPlaylist = lazy(() => import('./pages/HolidayPlaylist.tsx'))
 const Refunds    = lazy(() => import('./pages/Refunds.tsx'))
 const BookingPolicy = lazy(() => import('./pages/BookingPolicy.tsx'))
 const OfficePartyPoll = lazy(() => import('./pages/OfficePartyPoll.tsx'))
@@ -63,6 +64,11 @@ const HolidayPartyDJ = lazy(() => import('./pages/seo/HolidayPartyDJ.tsx'))
 const CorporateJerseyCity = lazy(() => import('./pages/seo/CorporateJerseyCity.tsx'))
 const CorporateBrooklyn = lazy(() => import('./pages/seo/CorporateBrooklyn.tsx'))
 const BirthdayPartyDJ = lazy(() => import('./pages/seo/BirthdayPartyDJ.tsx'))
+const ThrowbackDJ = lazy(() => import('./pages/seo/ThrowbackDJ.tsx'))
+const BilingualEmceeDJ = lazy(() => import('./pages/seo/BilingualEmceeDJ.tsx'))
+const OpenDates = lazy(() => import('./pages/OpenDates.tsx'))
+const LiveRunOfShow = lazy(() => import('./pages/LiveRunOfShow.tsx'))
+const ShowPage = lazy(() => import('./pages/ShowPage.tsx'))
 const PrivatePartyDJ = lazy(() => import('./pages/seo/PrivatePartyDJ.tsx'))
 const HipHopDJ    = lazy(() => import('./pages/seo/HipHopDJ.tsx'))
 const Sweet16DJ   = lazy(() => import('./pages/seo/Sweet16DJ.tsx'))
@@ -125,6 +131,7 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/planners" element={<Planners />} />
             <Route path="/plan" element={<MusicPlan />} />
             <Route path="/venues" element={<Venues />} />
+            <Route path="/office-holiday-party-playlist" element={<HolidayPlaylist />} />
             <Route path="/verified" element={<Verified />} />
             <Route path="/confirm" element={<Confirm />} />
             <Route path="/venues/:slug" element={<Venue />} />
@@ -154,6 +161,11 @@ createRoot(document.getElementById('root')!).render(
             <Route path="/corporate-event-dj-jersey-city-nj" element={<CorporateJerseyCity />} />
             <Route path="/corporate-event-dj-brooklyn-ny" element={<CorporateBrooklyn />} />
             <Route path="/birthday-party-dj-nyc-nj" element={<BirthdayPartyDJ />} />
+            <Route path="/80s-90s-throwback-party-dj-nyc-nj" element={<ThrowbackDJ />} />
+            <Route path="/bilingual-dj-emcee-nyc-nj" element={<BilingualEmceeDJ />} />
+            <Route path="/open-dates" element={<OpenDates />} />
+            <Route path="/live-run-of-show" element={<LiveRunOfShow />} />
+            <Route path="/show/:id" element={<ShowPage />} />
             <Route path="/private-party-dj-nyc-nj" element={<PrivatePartyDJ />} />
             <Route path="/hip-hop-dj-nyc-nj" element={<HipHopDJ />} />
             <Route path="/sweet-16-dj-nyc-nj" element={<Sweet16DJ />} />

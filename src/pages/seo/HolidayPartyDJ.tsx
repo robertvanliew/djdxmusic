@@ -32,7 +32,7 @@ const RECENT_CLIENT = 'LS Power';
 const FAQ_ITEMS = [
   {
     q: 'How much does an office holiday party DJ cost in NYC and NJ?',
-    a: 'DJ DX office holiday parties start at $2,800 for up to 5 hours, with professional sound, wireless microphones for speeches and awards, MC announcements, and a planning call included. Larger parties with lighting, a custom intro and a second sound zone start at $4,500, and full production with live violin and video starts at $8,000. Across New Jersey, New York City and Connecticut, holiday party DJs typically charge $1,500 to $5,000. Travel outside NYC is quoted up front as its own line, and December Saturdays book first.',
+    a: 'DJ DX office holiday parties start at $2,800 for up to 5 hours, with professional sound, wireless microphones for speeches and awards, MC announcements, a planning call and a free certificate of insurance (COI) for your venue included. Larger parties with lighting, a custom intro and a second sound zone start at $4,500, and full production with live violin and video starts at $8,000. Across New Jersey, New York City and Connecticut, holiday party DJs typically charge $1,500 to $5,000. Travel outside NYC is quoted up front as its own line, and December Saturdays book first.',
   },
   {
     q: 'What are the best corporate entertainment providers in New Jersey for holiday parties?',
@@ -60,7 +60,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'How do we hold a December date?',
-    a: 'Every booking has a written contract, and a 50% deposit holds the date. The balance is due 14 days before the party. A certificate of insurance and a W-9 are available on request for your venue and your accounts payable team. Send your date and venue and you will hear back within 24 hours.',
+    a: 'Every booking has a written contract, and a 50% deposit holds the date. The balance is due 14 days before the party. A certificate of insurance (COI) naming your venue is included free, and a W-9 is available for your accounts payable team. Send your date and venue and you will hear back within 24 hours.',
   },
   {
     q: 'What if our holiday party date changes?',
@@ -208,7 +208,7 @@ export default function HolidayPartyDJ() {
           </h1>
           <p style={{ maxWidth: '640px', margin: '0 auto 1rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
             An office holiday party DJ for corporate Christmas parties, year-end client events, and
-            private holiday gatherings. One DJ, 25+ years, full sound and microphones included.
+            private holiday gatherings. One DJ, 25+ years, full sound, microphones and a free venue insurance certificate (COI) included.
           </p>
           <p style={{ maxWidth: '540px', margin: '0 auto 2rem', fontSize: '0.9rem', color: 'var(--gold)', fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase' }}>
             From $2,800 · December {year} dates booking now
@@ -443,6 +443,9 @@ export default function HolidayPartyDJ() {
       </section>
 
       {/* ── BOOKING ── */}
+      <p className="pb-clients">
+        <span>Free:</span> the <Link to="/office-holiday-party-playlist">clean office holiday party playlist</Link>, in the order the night runs.
+      </p>
       <PollPromo />
       <ProcurementNote />
 

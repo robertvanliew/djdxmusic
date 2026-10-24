@@ -11,7 +11,7 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
           <div className="footer-brand-col">
             <div className="footer-brand-name">DJ DX</div>
             <div className="footer-tagline">Soulful · Nostalgic · Live</div>
-            <p className="footer-brand-bio">Based in New York / New Jersey. Available worldwide for concerts, private events, tours &amp; more.</p>
+            <p className="footer-brand-bio">Based in New York / New Jersey. Available across the US and Puerto Rico for weddings, corporate events, private parties &amp; concerts.</p>
             <a href={`mailto:${email}`} className="footer-email">{email}</a>
             <a href={textHref()} onClick={() => trackTextClick('footer')} className="footer-email">Text {TEXT_NUMBER_DISPLAY}</a>
           </div>
@@ -47,6 +47,10 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
             <Link to="/office-party-music-poll" className="footer-nav-link">Office Party Music Poll</Link>
             <Link to="/private-party-dj-nyc-nj" className="footer-nav-link">Private Party DJ</Link>
             <Link to="/birthday-party-dj-nyc-nj" className="footer-nav-link">Birthday Party DJ</Link>
+            <Link to="/80s-90s-throwback-party-dj-nyc-nj" className="footer-nav-link">80s &amp; 90s Throwback DJ</Link>
+            <Link to="/bilingual-dj-emcee-nyc-nj" className="footer-nav-link">Bilingual DJ &amp; Emcee</Link>
+            <Link to="/open-dates" className="footer-nav-link">Open Dates</Link>
+            <Link to="/live-run-of-show" className="footer-nav-link">Live Run of Show</Link>
             <Link to="/afrobeats-amapiano-dj-nyc-nj" className="footer-nav-link">Afrobeats DJ NYC</Link>
             <Link to="/rb-hip-hop-dj-nyc-nj" className="footer-nav-link">R&amp;B / Hip-Hop DJ</Link>
             <Link to="/hip-hop-dj-nyc-nj" className="footer-nav-link">Hip-Hop DJ NYC</Link>

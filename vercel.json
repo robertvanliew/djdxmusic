@@ -27,6 +27,14 @@
   ],
   "rewrites": [
     {
+      "source": "/api/show",
+      "destination": "/api/agent?p=show"
+    },
+    {
+      "source": "/show/(.*)",
+      "destination": "/show-shell.html"
+    },
+    {
       "source": "/api/mcp",
       "destination": "/api/agent?p=mcp"
     },
@@ -169,12 +177,29 @@
           "value": "noindex, nofollow"
         }
       ]
+    },
+    {
+      "source": "/show/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        }
+      ]
     }
   ],
   "crons": [
     {
       "path": "/api/agent?p=aivis",
       "schedule": "0 14 1 * *"
+    },
+    {
+      "path": "/api/booking?cron=holds",
+      "schedule": "0 15 * * *"
     }
   ],
   "functions": {

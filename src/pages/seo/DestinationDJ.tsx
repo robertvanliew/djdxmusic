@@ -17,28 +17,28 @@ export default function DestinationDJ() {
   return (
     <>
       <Helmet>
-        <title>Destination Wedding DJ | International Luxury Events | DJ DX</title>
-        <meta name="description" content="Looking for a Destination Wedding DJ? DJ DX brings the premium, high-energy NYC nightclub standard to luxury weddings and international events worldwide." />
+        <title>Destination Wedding DJ: Puerto Rico, Hamptons & More | DJ DX</title>
+        <meta name="description" content="Destination wedding DJ from New York for Puerto Rico, the Hamptons and anywhere in the US, live violin available. Bookings from $3,000 plus travel." />
         <link rel="canonical" href="https://djdxmusic.com/destination-wedding-dj" />
-        <meta property="og:title" content="Destination Wedding DJ — International Luxury Events | DJ DX" />
-        <meta property="og:description" content="Bring NYC's premier DJ to your destination wedding. DJ DX travels internationally for luxury weddings in Italy, Mexico, the Caribbean, Europe, and beyond." />
+        <meta property="og:title" content="Destination Wedding DJ: Puerto Rico, Hamptons & More | DJ DX" />
+        <meta property="og:description" content="A New York DJ for your wedding in Puerto Rico, the Hamptons or anywhere in the US. Destination bookings from $3,000 plus travel." />
         <meta property="og:url" content="https://djdxmusic.com/destination-wedding-dj" />
         <meta property="og:image" content="https://djdxmusic.com/destination-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
         <meta name="twitter:title" content="Destination Wedding DJ — DJ DX" />
-        <meta name="twitter:description" content="Bring NYC's premier DJ to your destination wedding. DJ DX travels internationally for luxury weddings in Italy, Mexico, the Caribbean, and beyond." />
+        <meta name="twitter:description" content="A New York DJ for your wedding in Puerto Rico, the Hamptons or anywhere in the US." />
         <meta name="twitter:image" content="https://djdxmusic.com/destination-hero.jpg" />
         <script type="application/ld+json">
           {`[
             {
               "@context": "https://schema.org",
               "@type": "Service",
-              "name": "Destination Wedding DJ — International Luxury Events",
+              "name": "Destination Wedding DJ: Puerto Rico and the US",
               "serviceType": "Destination Wedding DJ",
               "url": "https://djdxmusic.com/destination-wedding-dj",
-              "description": "DJ DX is an internationally available destination wedding DJ based in New York City. Bringing the NYC nightclub standard to luxury weddings in Italy, Mexico, the Caribbean, Europe, and beyond. TED-featured artist with 500+ events performed worldwide.",
+              "description": "DJ DX is a New York destination wedding DJ who travels to Puerto Rico and anywhere in the United States. Weddings outside the US are considered on request. TEDxYouth@RVA performer with 500+ events since 1998.",
               "provider": {
                 "@type": ["EntertainmentBusiness", "LocalBusiness"],
                 "name": "DJ DX",
@@ -55,23 +55,15 @@ export default function DestinationDJ() {
               },
               "areaServed": [
                 {"@type": "Country", "name": "United States"},
-                {"@type": "Country", "name": "Italy"},
-                {"@type": "Country", "name": "Mexico"},
-                {"@type": "Country", "name": "France"},
-                {"@type": "Country", "name": "Spain"},
-                {"@type": "Country", "name": "Greece"},
-                {"@type": "Place", "name": "Caribbean"},
-                {"@type": "Place", "name": "Worldwide"}
+                {"@type": "Place", "name": "Puerto Rico"}
               ],
               "hasOfferCatalog": {
                 "@type": "OfferCatalog",
                 "name": "Destination Wedding DJ Packages",
                 "itemListElement": [
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Destination Wedding DJ Italy"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Destination Wedding DJ Mexico"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Caribbean Wedding DJ"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "International Luxury Event DJ"}},
-                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "European Wedding DJ from New York"}}
+                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Destination Wedding DJ Puerto Rico"}},
+                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Hamptons Wedding DJ"}},
+                  {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Destination Wedding DJ, United States"}}
                 ]
               }
             },
@@ -82,22 +74,22 @@ export default function DestinationDJ() {
                 {
                   "@type": "Question",
                   "name": "How much does a destination wedding DJ cost?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Destination and international DJ bookings start at $3,000, with travel and technical coordination quoted separately based on location. Contact bookings@djdxmusic.com with your destination and dates for a custom quote."}
+                  "acceptedAnswer": {"@type": "Answer", "text": "Destination DJ bookings start at $3,000, with travel and lodging quoted separately based on location. Contact bookings@djdxmusic.com with your destination and dates for a custom quote."}
                 },
                 {
                   "@type": "Question",
-                  "name": "Does DJ DX travel internationally for weddings?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "Yes. DJ DX is based in New York and available for destination weddings worldwide, including Italy, Mexico, the Caribbean, France, Spain, and Greece."}
+                  "name": "Where does DJ DX travel for destination weddings?",
+                  "acceptedAnswer": {"@type": "Answer", "text": "Anywhere in the United States and Puerto Rico. DJ DX is based in New York and is authorized to work in all 50 states. For a wedding outside the US, send the destination and date and he will tell you within 24 hours whether he can take it."}
                 },
                 {
                   "@type": "Question",
-                  "name": "How does technical equipment work for an international destination wedding?",
+                  "name": "How does sound equipment work for a destination wedding?",
                   "acceptedAnswer": {"@type": "Answer", "text": "DJ DX coordinates directly with the venue's local AV company and your wedding planner in advance, over email and video call, to confirm the technical rider is met on-site before arrival."}
                 },
                 {
                   "@type": "Question",
                   "name": "How far in advance should I book a destination wedding DJ?",
-                  "acceptedAnswer": {"@type": "Answer", "text": "International destination bookings require significant lead time for travel and technical coordination — reach out as early as possible with your destination and date to confirm availability."}
+                  "acceptedAnswer": {"@type": "Answer", "text": "As early as you can. Destination weddings need time to plan flights, lodging and the sound setup with the venue, so send your destination and date as soon as they are set."}
                 }
               ]
             },
@@ -118,7 +110,7 @@ export default function DestinationDJ() {
       {/* ── HERO ── */}
       <section className="epk-hero" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
         <div className="epk-hero-bg" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
-          <img src="/destination-hero.jpg" alt="Destination Wedding DJ from New York City — DJ DX performing at international luxury wedding" width="1920" height="1080" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 35%', filter: 'contrast(1.05) saturate(1.1)' }} />
+          <img src="/destination-hero.jpg" alt="DJ DX, destination wedding DJ from New York City" width="1920" height="1080" fetchPriority="high" loading="eager" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 35%', filter: 'contrast(1.05) saturate(1.1)' }} />
         </div>
         <div className="epk-hero-overlay" style={{ 
           position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
@@ -127,14 +119,14 @@ export default function DestinationDJ() {
         
         <div className="section-inner" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <div className="sec-overline" style={{ justifyContent: 'center' }}>
-            <span className="sec-label">Worldwide Travel Available</span>
+            <span className="sec-label">Puerto Rico · Hamptons · Anywhere in the US</span>
           </div>
           <h1 className="epk-title" style={{ fontSize: 'var(--text-6xl)', marginBottom: '1rem' }}>
-            Destination Events &<br />International Weddings
+            Destination Weddings &<br />Events Away From Home
           </h1>
           <p className="epk-lead" style={{ maxWidth: '600px', margin: '0 auto', fontSize: 'var(--text-lg)' }}>
-            Don't risk your destination wedding on a random resort DJ. 
-            Bring the premium, high-energy NYC standard to your international celebration.
+            Getting married in Puerto Rico, the Hamptons or another state? Bring a New York DJ who
+            already knows your music, instead of meeting the resort DJ on the day.
           </p>
           <div style={{ marginTop: '2rem' }}>
             <a href="#booking" className="btn-gold">Request Booking & Travel Estimate</a>
@@ -155,13 +147,13 @@ export default function DestinationDJ() {
               </div>
               <div className="about-body sr" data-sr-delay="0.12s">
                 <p>
-                  When you are investing tens or hundreds of thousands of dollars into a destination wedding in Tulum, Lake Como, the Amalfi Coast, or the Caribbean, the last thing you want to do is leave the entertainment up to chance. Too often, local resort DJs play outdated playlists and lack the ability to truly read an international luxury crowd.
+                  A destination wedding is the one time most couples hire a DJ they have never met: whoever the resort or venue works with. That DJ has not heard your playlist, does not know your families, and is meeting your crowd for the first time on the night.
                 </p>
                 <p>
-                  <strong>Bring the exact vibe you want, anywhere in the world.</strong> Based in NYC, DJ DX and the Soul Shades duo are accustomed to performing for highly discerning, elite crowds. We understand modern luxury pacing—from tasteful, curated cocktail hour ambiance to an explosive, seamless dance floor experience that your guests will talk about for years.
+                  <strong>Bring your own DJ instead.</strong> DJ DX has played more than 500 events since 1998, from New York lounges to a Saks Fifth Avenue estate event in Water Mill. He plans the night with you before you fly, and can bring <a href="/soul-shades" style={{ color: 'var(--gold)' }}>Soul Shades</a>, his duo with violinist Julie Schatz, for the ceremony and cocktail hour.
                 </p>
                 <p>
-                  As an experienced multi-genre producer and DJ, DX flawlessly blends classics, deep house, top 40, and custom requests into a cohesive journey, ensuring your international event is nothing short of spectacular.
+                  The music is open format: R&amp;B, hip-hop, house, Afrobeats, reggaeton and the classics your parents will dance to, built from your must-play and do-not-play lists. Available now anywhere in the US and in Puerto Rico; for a wedding outside the US, send the date and you will get a straight answer within 24 hours.
                 </p>
               </div>
             </div>
@@ -169,8 +161,8 @@ export default function DestinationDJ() {
             <div className="about-aside">
               <div className="stat-row sr" data-sr-delay="0.05s">
                 <div className="stat-meta">
-                  <div className="stat-label" style={{ color: 'var(--gold)' }}>Seamless International Logistics</div>
-                  <div className="stat-sub">We handle our own fast-tracked travel planning, passports, and necessary coordination with your venue so you don't have to stress.</div>
+                  <div className="stat-label" style={{ color: 'var(--gold)' }}>Travel Handled</div>
+                  <div className="stat-sub">DJ DX books his own flights and lodging and works out the sound setup with your venue or planner before the trip. Travel is quoted up front as its own line.</div>
                 </div>
               </div>
               <div className="stat-row sr" data-sr-delay="0.15s">
@@ -198,10 +190,10 @@ export default function DestinationDJ() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
-              { q: 'How much does a destination wedding DJ cost?', a: 'Destination and international DJ bookings start at $3,000, with travel and technical coordination quoted separately based on location. Contact bookings@djdxmusic.com with your destination and dates for a custom quote.' },
-              { q: 'Does DJ DX travel internationally for weddings?', a: 'Yes. DJ DX is based in New York and available for destination weddings worldwide, including Italy, Mexico, the Caribbean, France, Spain, and Greece.' },
-              { q: 'How does technical equipment work for an international destination wedding?', a: "DJ DX coordinates directly with the venue's local AV company and your wedding planner in advance, over email and video call, to confirm the technical rider is met on-site before arrival." },
-              { q: 'How far in advance should I book a destination wedding DJ?', a: 'International destination bookings require significant lead time for travel and technical coordination — reach out as early as possible with your destination and date to confirm availability.' },
+              { q: 'How much does a destination wedding DJ cost?', a: 'Destination DJ bookings start at $3,000, with travel and lodging quoted separately based on location. Contact bookings@djdxmusic.com with your destination and dates for a custom quote.' },
+              { q: 'Where does DJ DX travel for destination weddings?', a: 'Anywhere in the United States and Puerto Rico. DJ DX is based in New York and is authorized to work in all 50 states. For a wedding outside the US, send the destination and date and he will tell you within 24 hours whether he can take it.' },
+              { q: 'How does sound equipment work for a destination wedding?', a: "DJ DX coordinates directly with the venue's local AV company and your wedding planner in advance, over email and video call, to confirm the technical rider is met on-site before arrival." },
+              { q: 'How far in advance should I book a destination wedding DJ?', a: 'As early as you can. Destination weddings need time to plan flights, lodging and the sound setup with the venue, so send your destination and date as soon as they are set.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>
@@ -224,10 +216,10 @@ export default function DestinationDJ() {
                 <span className="sec-label">Bookings</span>
               </div>
               <h2 className="booking-big-title">
-                Reserve Your Date<br /><span>Worldwide</span>
+                Reserve Your<br /><span>Destination Date</span>
               </h2>
               <p className="booking-blurb">
-                International engagements require significant lead time for travel and technical coordination. Please fill out the form below with your exact destination location and event dates so we can provide a customized quote covering performance and travel logistics.
+                Send your destination and date below. You will hear back within 24 hours with availability and a quote that lists the performance and the travel separately.
               </p>
             </div>
 

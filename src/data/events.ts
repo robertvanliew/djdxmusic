@@ -47,6 +47,18 @@ export const GIGS: GigEntry[] = [
   },
   // The four below are public: named in DJ DX's own posts and already on the
   // site (corporate, holiday, Hamptons and violin pages). Added 2026-10-07.
+  // Contentsquare's CX Circle NYC 2026 at The Glasshouse; client named with the
+  // user's OK (2026-10-14). Booked through an agency.
+  {
+    eventType: 'Conference reception with Soul Shades',
+    clientName: 'Contentsquare',
+    showClientName: true,
+    venueName: 'The Glasshouse',
+    showVenueName: true,
+    venueCity: 'Manhattan, NY',
+    date: '2026-10-13',
+    pages: [CORPORATE, HOLIDAY, '/violin-dj-duo-nyc-nj'],
+  },
   {
     eventType: 'In-office corporate reception',
     clientName: 'LS Power',

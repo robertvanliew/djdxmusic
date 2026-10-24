@@ -82,7 +82,7 @@ export default function CorporateJerseyCity() {
       ]}
       faq={FAQ}
       links={<>
-        More: <Link to="/corporate-event-dj-nyc-nj-ct" style={{ color: 'var(--gold)' }}>corporate event DJ in NYC, NJ and CT</Link>
+        More: <Link to="/corporate-event-dj-nyc-nj-ct" style={{ color: 'var(--gold)' }}>corporate event DJ in NYC</Link>
         {' · '}<Link to="/holiday-party-dj-nyc-nj-ct" style={{ color: 'var(--gold)' }}>office holiday party DJ</Link>
         {' · '}<Link to="/corporate-event-dj-brooklyn-ny" style={{ color: 'var(--gold)' }}>corporate event DJ in Brooklyn</Link>
       </>}

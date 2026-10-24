@@ -14,6 +14,7 @@ import { fetchCatalog, defaultCatalog, type Track } from './catalog';
 import BookingForm from './components/BookingForm';
 import { useToast } from './components/Toast';
 import ViralMomentsSection from './components/ViralMomentsSection';
+import { PlayedForStrip } from './components/ProofBlock';
 
 // Catalog is managed via /admin — loaded from catalog.ts + localStorage
 
@@ -683,7 +684,7 @@ function App() {
                 {"@type": "ListItem", "position": 8,  "item": {"@type": "MusicRecording", "name": "Nasty", "byArtist": {"@type": "MusicGroup", "name": "Tinashe × DJ DX"}, "genre": "Blend", "datePublished": "2024"}},
                 {"@type": "ListItem", "position": 9,  "item": {"@type": "MusicRecording", "name": "The Weekend (Moment For Life)", "byArtist": {"@type": "MusicGroup", "name": "SZA × Nicki Minaj"}, "genre": "Blend", "datePublished": "2023"}},
                 {"@type": "ListItem", "position": 10, "item": {"@type": "MusicRecording", "name": "Suit & Tie", "byArtist": {"@type": "MusicGroup", "name": "Justin Timberlake × JAY Z × DJ DX"}, "genre": "Remix", "datePublished": "2022"}},
-                {"@type": "ListItem", "position": 11, "item": {"@type": "MusicRecording", "name": "Niggas In Paris Jersey Club", "byArtist": {"@type": "MusicGroup", "name": "JAY Z × Kanye West"}, "genre": "Blend", "datePublished": "2023"}},
+                {"@type": "ListItem", "position": 11, "item": {"@type": "MusicRecording", "name": "N****s In Paris Jersey Club", "byArtist": {"@type": "MusicGroup", "name": "JAY Z × Kanye West"}, "genre": "Blend", "datePublished": "2023"}},
                 {"@type": "ListItem", "position": 12, "item": {"@type": "MusicRecording", "name": "Pills & Potions", "byArtist": {"@type": "MusicGroup", "name": "Nicki Minaj × DJ DX"}, "genre": "Remix", "datePublished": "2022"}},
                 {"@type": "ListItem", "position": 13, "item": {"@type": "MusicRecording", "name": "Deadly Combo", "byArtist": {"@type": "MusicGroup", "name": "Notorious B.I.G × BIG L"}, "genre": "Blend", "datePublished": "2023"}},
                 {"@type": "ListItem", "position": 14, "item": {"@type": "MusicRecording", "name": "Exchange Location", "byArtist": {"@type": "MusicGroup", "name": "Khalid × DJ DX"}, "genre": "Blend", "datePublished": "2023"}},
@@ -712,12 +713,12 @@ function App() {
                 {"@type": "ListItem", "position": 37, "item": {"@type": "MusicRecording", "name": "Because of You", "byArtist": {"@type": "MusicGroup", "name": "DJ DX"}, "genre": "Blend", "datePublished": "2024"}},
                 {"@type": "ListItem", "position": 38, "item": {"@type": "MusicRecording", "name": "Good Energy", "byArtist": {"@type": "MusicGroup", "name": "Yung Wylin × PM Dawn × DJ DX"}, "genre": "Blend", "datePublished": "2023"}},
                 {"@type": "ListItem", "position": 39, "item": {"@type": "MusicRecording", "name": "All Gold Everything", "byArtist": {"@type": "MusicGroup", "name": "Trinidad James × DJ DX"}, "genre": "Blend", "datePublished": "2022"}},
-                {"@type": "ListItem", "position": 40, "item": {"@type": "MusicRecording", "name": "Don't Fuck With DX", "byArtist": {"@type": "MusicGroup", "name": "Busta Rhymes × DJ DX"}, "genre": "Remix", "datePublished": "2023"}},
+                {"@type": "ListItem", "position": 40, "item": {"@type": "MusicRecording", "name": "Don't F*** With DX", "byArtist": {"@type": "MusicGroup", "name": "Busta Rhymes × DJ DX"}, "genre": "Remix", "datePublished": "2023"}},
                 {"@type": "ListItem", "position": 41, "item": {"@type": "MusicRecording", "name": "Lady Melody", "byArtist": {"@type": "MusicGroup", "name": "D'Angelo × Nas × DJ DX"}, "genre": "Blend", "datePublished": "2024"}},
                 {"@type": "ListItem", "position": 42, "item": {"@type": "MusicRecording", "name": "Yo Se Lo Que (Te Gusta)", "byArtist": {"@type": "MusicGroup", "name": "DJ DX × DJ Madden"}, "genre": "Blend", "datePublished": "2023"}},
                 {"@type": "ListItem", "position": 43, "item": {"@type": "MusicRecording", "name": "Defasio", "byArtist": {"@type": "MusicGroup", "name": "Daddy Yankee × Don Omar × DJ DX"}, "genre": "Blend", "datePublished": "2023"}},
                 {"@type": "ListItem", "position": 44, "item": {"@type": "MusicRecording", "name": "6 Foot 7 Foot", "byArtist": {"@type": "MusicGroup", "name": "JAY Z × DJ DX"}, "genre": "Blend", "datePublished": "2022"}},
-                {"@type": "ListItem", "position": 45, "item": {"@type": "MusicRecording", "name": "Fuck MDK", "byArtist": {"@type": "MusicGroup", "name": "Joe Budden × DJ DX"}, "genre": "Remix", "datePublished": "2022"}},
+                {"@type": "ListItem", "position": 45, "item": {"@type": "MusicRecording", "name": "F*** MDK", "byArtist": {"@type": "MusicGroup", "name": "Joe Budden × DJ DX"}, "genre": "Remix", "datePublished": "2022"}},
                 {"@type": "ListItem", "position": 46, "item": {"@type": "MusicRecording", "name": "I Run New York", "byArtist": {"@type": "MusicGroup", "name": "50 Cent × Diddy × JAY Z × DJ DX"}, "genre": "Remix", "datePublished": "2022"}},
                 {"@type": "ListItem", "position": 47, "item": {"@type": "MusicRecording", "name": "Otis (Massacre Blend)", "byArtist": {"@type": "MusicGroup", "name": "JAY Z × Kanye West × DJ DX × DJ Madden"}, "genre": "Blend", "datePublished": "2022"}},
                 {"@type": "ListItem", "position": 48, "item": {"@type": "MusicRecording", "name": "Work Out", "byArtist": {"@type": "MusicGroup", "name": "J. Cole × DJ DX"}, "genre": "Blend", "datePublished": "2024"}},
@@ -922,6 +923,8 @@ function App() {
         </div>
 
       </section>
+
+      <PlayedForStrip />
 
       {/* ── ABOUT ── */}
       <section className="about" id="about">

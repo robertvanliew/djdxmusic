@@ -134,17 +134,17 @@ export default function Corporate() {
   return (
     <>
       <Helmet>
-        <title>Corporate Event DJ NYC, Brooklyn &amp; Jersey City | DJ DX</title>
+        <title>Corporate Event DJ NYC | Office Parties &amp; Company Events</title>
         <meta name="description" content="Corporate event and office party DJ for NYC, Brooklyn, Jersey City and the Tri-State. Law firm and luxury retail clients. COI and W-9 ready. Quote in 24 hours." />
         <link rel="canonical" href="https://djdxmusic.com/corporate-event-dj-nyc-nj-ct" />
-        <meta property="og:title" content="Corporate Event DJ NYC, Brooklyn &amp; Jersey City | DJ DX" />
+        <meta property="og:title" content="Corporate Event DJ NYC | Office Parties &amp; Company Events" />
         <meta property="og:description" content="Corporate event and office party DJ for NYC, Brooklyn, Jersey City and the Tri-State. Law firm and luxury retail clients. COI and W-9 ready. Quote in 24 hours." />
         <meta property="og:url" content="https://djdxmusic.com/corporate-event-dj-nyc-nj-ct" />
         <meta property="og:image" content="https://djdxmusic.com/latest-corporate-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Corporate Event DJ NYC, Brooklyn &amp; Jersey City | DJ DX" />
+        <meta name="twitter:title" content="Corporate Event DJ NYC | Office Parties &amp; Company Events" />
         <meta name="twitter:description" content="Corporate event and office party DJ for NYC, Brooklyn, Jersey City and the Tri-State. COI and W-9 ready. Quote in 24 hours." />
         <meta name="twitter:image" content="https://djdxmusic.com/latest-corporate-hero.jpg" />
         <script type="application/ld+json">{JSON.stringify(CORP_SCHEMA)}</script>

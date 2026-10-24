@@ -17,6 +17,7 @@ interface Props {
 export default function QuickInquiryForm({ formName, onSent }: Props) {
   const [fields, setFields] = useState({ name: '', contact: '', eventDate: '', eventType: '', company: '' });
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [held, setHeld] = useState<number | null>(null);
   const mountedAt = useRef(Date.now());
 
   const set = (k: string, v: string) => setFields(f => ({ ...f, [k]: v }));
@@ -34,6 +35,7 @@ export default function QuickInquiryForm({ formName, onSent }: Props) {
         body: JSON.stringify({
           ...(() => { const r = getAiReferral(); return r ? { aiReferral: r.source, aiLanding: r.landing } : {}; })(),
           quick: true,
+          hold: isEmail,
           name: fields.name,
           email: isEmail ? fields.contact : '',
           phone: isEmail ? '' : fields.contact,
@@ -46,6 +48,8 @@ export default function QuickInquiryForm({ formName, onSent }: Props) {
         }),
       });
       if (!res.ok) throw new Error(`http_${res.status}`);
+      const body = await res.json().catch(() => ({}));
+      setHeld(body?.hold?.status === 'held' ? body.hold.expiresAt : null);
       trackLead({ form: formName, event_type: fields.eventType }, metaEventId);
       setStatus('sent');
       onSent?.();
@@ -58,8 +62,10 @@ export default function QuickInquiryForm({ formName, onSent }: Props) {
   if (status === 'sent') return (
     <div className="booking-success">
       <div className="booking-success-icon">✓</div>
-      <h3>Got it!</h3>
-      <p>DJ DX will text or call you within 24 hours to confirm availability for your date.</p>
+      <h3>{held ? 'Your date is on hold' : 'Got it!'}</h3>
+      <p>{held
+        ? <>Held for you, free, until <strong>{new Date(held).toLocaleString('en-US', { weekday: 'long', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</strong>. DJ DX will reach out within 24 hours with your quote.</>
+        : 'DJ DX will text or call you within 24 hours to confirm availability for your date.'}</p>
     </div>
   );
 

@@ -1,3 +1,4 @@
+import { RIDER } from '../data/rider';
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import BookingForm from '../components/BookingForm';
@@ -65,44 +66,7 @@ const pressItems = [
   { href: 'https://www.youtube.com/watch?v=V2uWYlWhv64',                                                                                           name: 'HearRVA',          quote: "Featured on HearRVA — Richmond's premier music discovery channel" },
 ];
 
-const riderSections = [
-  {
-    title: 'Audio & Sound',
-    color: 'rgba(201,168,76,0.55)',
-    rows: [
-      { item: 'PA System',   spec: 'Professional full-range PA with subwoofers capable of filling the venue. Complete coverage required.' },
-      { item: 'DJ Monitor',  spec: 'One floor wedge or monitor at the DJ booth for clear mix reference.' },
-      { item: 'Mixer Input', spec: 'Line-level stereo input from Rane One controller. RCA or XLR accepted.' },
-    ],
-  },
-  {
-    title: 'DJ Setup',
-    color: 'rgba(201,168,76,0.38)',
-    rows: [
-      { item: 'Controller', spec: 'Rane One DJ controller — provided by DJ DX. Requires stable, level surface and 2 power outlets.' },
-      { item: 'DJ Booth',   spec: 'DJ DX brings a DJ booth with façade to every event. No table needed. DJ faces the crowd.' },
-      { item: 'Power',      spec: 'Two dedicated 15-amp surge-protected circuits. Surge protection provided by DJ DX.' },
-    ],
-  },
-  {
-    title: 'Stage & Comms',
-    color: 'rgba(201,168,76,0.22)',
-    rows: [
-      { item: 'Microphones', spec: 'Two wireless handheld mics + one mic stand for MC and announcements.' },
-      { item: 'Lighting',    spec: 'Stage or wash lighting toward DJ booth. Avoid direct spotlight into eyes.' },
-      { item: 'Load-In',     spec: 'Minimum 60 minutes before doors. Parking or loading dock access required.' },
-    ],
-  },
-  {
-    title: 'Logistics',
-    color: 'rgba(201,168,76,0.12)',
-    rows: [
-      { item: 'Outdoor',     spec: 'All outdoor setups require a waterproof canopy covering equipment against sun, rain, and wind.' },
-      { item: 'Hospitality', spec: 'Still water (6+ bottles) provided by venue. Healthy catering options appreciated.' },
-      { item: 'Live Add-On', spec: 'For live violin/keys hybrid shows — additional DI boxes, outlets, and monitor mixes per musician.' },
-    ],
-  },
-];
+const riderSections = RIDER.map((sec, i) => ({ ...sec, color: ['rgba(201,168,76,0.55)', 'rgba(201,168,76,0.38)', 'rgba(201,168,76,0.22)', 'rgba(201,168,76,0.12)'][i] }));
 
 const socials = [
   { name: 'Instagram', handle: '@djdx',           stat: 'Follow',  cta: 'View Profile',  href: 'https://instagram.com/djdx',              Icon: InstagramIcon, gradient: 'linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)', color: '#fd1d1d' },

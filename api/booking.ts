@@ -127,7 +127,113 @@ function escapeHtml(str: string): string {
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX = { name: 120, email: 254, phone: 30, eventType: 100, eventDate: 40, eventTime: 10, location: 200, message: 2000 };
 
+// ── Free 72-hour date holds ────────────────────────────────────────────────
+// Requesting a date (with an email) holds it automatically for 72 hours, so a
+// client cannot ghost a date into limbo and DJ DX quotes while they are still
+// committed. A signed contract and 50% deposit confirm it; otherwise it
+// releases by itself. DJ DX gets a one-click release link.
+//   hold:<date>      JSON { email, name, token, expiresAt, reminded } (TTL 72h)
+//   holdtok:<token>  date (TTL 72h)
+//   holds:index      sorted set of dates scored by expiry (pruned on read)
+// GET ?holds=1 lists held dates (no personal data), GET ?release=<token>
+// releases one, GET ?cron=holds (CRON_SECRET) sends the last-day reminder.
+const SITE = 'https://djdxmusic.com';
+const FROM = process.env.FROM_EMAIL || 'DJ DX <noreply@djdxmusic.com>';
+const HOLD_SECONDS = 72 * 3600;
+const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL || '';
+const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN || '';
+const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+
+async function redis(cmds: (string | number)[][]): Promise<unknown[]> {
+  if (!REDIS_URL || !REDIS_TOKEN) return [];
+  const r = await fetch(`${REDIS_URL}/pipeline`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${REDIS_TOKEN}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(cmds.map(c => c.map(String))),
+  });
+  return r.ok ? ((await r.json()) as { result?: unknown }[]).map(o => o.result) : [];
+}
+
+const fmtExpiry = (ms: number) => new Date(ms).toLocaleString('en-US', { timeZone: 'America/New_York', weekday: 'long', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit' }) + ' ET';
+const fmtDate = (iso: string) => new Date(`${iso}T12:00:00Z`).toLocaleDateString('en-US', { timeZone: 'UTC', weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+
+async function bookedDates(): Promise<string[]> {
+  try {
+    const r = await fetch(`${SITE}/.well-known/business.json`);
+    const j = await r.json() as { availability?: { booked?: string[] } };
+    return j.availability?.booked || [];
+  } catch { return []; }
+}
+
+async function activeHolds(): Promise<{ date: string; expiresAt: number }[]> {
+  const now = Date.now();
+  const [, list] = await redis([['ZREMRANGEBYSCORE', 'holds:index', 0, now], ['ZRANGE', 'holds:index', 0, -1, 'WITHSCORES']]) as [unknown, string[] | undefined];
+  const out: { date: string; expiresAt: number }[] = [];
+  for (let i = 0; list && i < list.length; i += 2) out.push({ date: list[i], expiresAt: Number(list[i + 1]) });
+  return out;
+}
+
+type HoldResult = { status: 'held' | 'taken' | 'booked' | 'unavailable'; expiresAt?: number; token?: string };
+
+async function placeHold(date: string, email: string, name: string): Promise<HoldResult> {
+  if (!ISO_DATE.test(date) || !email || !REDIS_URL) return { status: 'unavailable' };
+  const today = new Date().toISOString().slice(0, 10);
+  if (date <= today) return { status: 'unavailable' };
+  if ((await bookedDates()).includes(date)) return { status: 'booked' };
+  const token = Array.from(crypto.getRandomValues(new Uint8Array(18)), b => b.toString(16).padStart(2, '0')).join('');
+  const expiresAt = Date.now() + HOLD_SECONDS * 1000;
+  const [set] = await redis([['SET', `hold:${date}`, JSON.stringify({ email, name, token, expiresAt, reminded: false }), 'NX', 'EX', HOLD_SECONDS]]);
+  if (set === 'OK') {
+    await redis([['SET', `holdtok:${token}`, date, 'EX', HOLD_SECONDS], ['ZADD', 'holds:index', expiresAt, date]]);
+    return { status: 'held', expiresAt, token };
+  }
+  const [cur] = await redis([['GET', `hold:${date}`]]);
+  try {
+    const h = JSON.parse(String(cur)) as { email: string; expiresAt: number; token: string };
+    if (h.email.toLowerCase() === email.toLowerCase()) return { status: 'held', expiresAt: h.expiresAt, token: h.token };
+    return { status: 'taken', expiresAt: h.expiresAt };
+  } catch { return { status: 'unavailable' }; }
+}
+
+async function handleGet(req: VercelRequest, res: VercelResponse) {
+  if (req.query.holds) {
+    res.setHeader('Cache-Control', 'no-store');
+    return res.status(200).json({ holds: await activeHolds() });
+  }
+  if (typeof req.query.release === 'string' && /^[a-f0-9]{36}$/.test(req.query.release)) {
+    const tok = req.query.release;
+    const [date] = await redis([['GET', `holdtok:${tok}`]]) as [string | null];
+    if (date) await redis([['DEL', `hold:${date}`, `holdtok:${tok}`], ['ZREM', 'holds:index', date]]);
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    return res.status(200).send(`<!doctype html><meta name="viewport" content="width=device-width"><meta name="robots" content="noindex"><body style="font-family:Arial;background:#0c0c0c;color:#fff;padding:40px"><h1 style="color:#C9A84C">${date ? `Hold released: ${escapeHtml(fmtDate(date))}` : 'This hold already ended'}</h1><p>${date ? 'The date shows as open again on djdxmusic.com.' : 'It expired or was released earlier. Nothing else to do.'}</p></body>`);
+  }
+  if (req.query.cron === 'holds') {
+    const secret = process.env.CRON_SECRET;
+    if (!secret || req.headers.authorization !== `Bearer ${secret}`) return res.status(401).json({ error: 'Unauthorized' });
+    // Last-day reminder: holds ending within the next 30 hours, sent once.
+    const soon = (await activeHolds()).filter(h => h.expiresAt - Date.now() < 30 * 3600 * 1000);
+    let sent = 0;
+    for (const h of soon) {
+      const [raw] = await redis([['GET', `hold:${h.date}`]]);
+      if (!raw) continue;
+      const hold = JSON.parse(String(raw)) as { email: string; name: string; token: string; expiresAt: number; reminded: boolean };
+      if (hold.reminded) continue;
+      await resend.emails.send({
+        from: FROM, to: [hold.email], replyTo: 'bookings@djdxmusic.com',
+        subject: `Your hold on ${fmtDate(h.date)} ends soon — DJ DX`,
+        html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#0c0c0c;color:#fff;padding:40px;border-radius:12px"><h1 style="color:#C9A84C;font-size:22px;margin:0 0 16px">Your date is still held, ${escapeHtml(hold.name.split(' ')[0])}.</h1><p style="color:rgba(255,255,255,0.8);font-size:16px;line-height:1.7">${escapeHtml(fmtDate(h.date))} is held for you until <strong>${escapeHtml(fmtExpiry(hold.expiresAt))}</strong>. To keep it, reply to this email or sign the contract and send the 50% deposit. After that the date opens up for other clients.</p><p style="color:rgba(255,255,255,0.5);font-size:13px">DJ DX · djdxmusic.com · bookings@djdxmusic.com</p></div>`,
+      });
+      const ttl = Math.max(60, Math.round((hold.expiresAt - Date.now()) / 1000));
+      await redis([['SET', `hold:${h.date}`, JSON.stringify({ ...hold, reminded: true }), 'EX', ttl]]);
+      sent++;
+    }
+    return res.status(200).json({ checked: soon.length, reminded: sent });
+  }
+  return res.status(405).json({ error: 'Method not allowed' });
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  if (req.method === 'GET') return handleGet(req, res);
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   // "quick" is the stripped-down 4-field sticky-CTA form (name, phone-or-email,
@@ -199,6 +305,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Invalid email address' });
   }
 
+  // Free 72-hour hold (needs an email to confirm it to the client)
+  const hold: HoldResult | null = req.body.hold === true && email ? await placeHold(String(eventDate), email, String(name)).catch(() => ({ status: 'unavailable' as const })) : null;
+  const holdTag = hold?.status === 'held' ? '[HELD 72h] ' : hold?.status === 'taken' ? '[DATE ON HOLD FOR SOMEONE ELSE] ' : hold?.status === 'booked' ? '[DATE ALREADY BOOKED] ' : '';
+
   // Escape all fields before HTML interpolation
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
@@ -215,7 +325,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       from: process.env.FROM_EMAIL || 'DJ DX <noreply@djdxmusic.com>',
       to: ['bookings@djdxmusic.com'],
       replyTo: email || undefined,
-      subject: `${aiReferral ? `[AI: ${escapeHtml(aiReferral)}] ` : ''}${quick ? 'Quick Inquiry' : 'New Booking Inquiry'}${pollId ? ' (from Music Poll)' : ''} — ${safeEventType} | ${safeEventDate}`,
+      subject: `${holdTag}${aiReferral ? `[AI: ${escapeHtml(aiReferral)}] ` : ''}${quick ? 'Quick Inquiry' : 'New Booking Inquiry'}${pollId ? ' (from Music Poll)' : ''} — ${safeEventType} | ${safeEventDate}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; color: #111; padding: 0; border-radius: 8px; overflow: hidden; border: 1px solid #e5e5e5;">
           <div style="background: #111111; padding: 28px 32px; border-bottom: 3px solid #C9A84C;">
@@ -224,6 +334,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           </div>
 
           <div style="padding: 28px 32px;">
+            ${hold?.status === 'held' && hold.token && hold.expiresAt ? `<div style="margin: 0 0 18px; padding: 14px 16px; background: #fbf6e8; border: 1px solid #C9A84C; border-radius: 6px; font-size: 14px; line-height: 1.6; color: #111;">
+              <strong>Date held for this client until ${escapeHtml(fmtExpiry(hold.expiresAt))}.</strong> Send the quote and contract while they are committed. Can't take it, or spam?
+              <a href="${SITE}/api/booking?release=${hold.token}" style="color: #8a6d1f; font-weight: 700;">Release the hold</a>
+            </div>` : hold && hold.status !== 'unavailable' ? `<div style="margin: 0 0 18px; padding: 14px 16px; background: #f4f4f4; border-radius: 6px; font-size: 14px; color: #111;">${hold.status === 'booked' ? 'This date is already on your booked list.' : `This date is already on hold for another client until ${escapeHtml(fmtExpiry(hold.expiresAt || Date.now()))}.`}</div>` : ''}
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
                 <td style="padding: 10px 0; color: #888; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; width: 120px; vertical-align: top;">Name</td>
@@ -302,8 +416,12 @@ ${[guests ? `              <tr style="border-top: 1px solid #eee;">
             <p style="color: rgba(255,255,255,0.75); font-size: 16px; line-height: 1.7; margin: 0 0 24px;">
               Hey ${safeName.split(' ')[0]}, your booking inquiry for <strong style="color:#fff;">${safeEventType}</strong> on <strong style="color:#fff;">${safeEventDate}</strong>${quick ? '' : ` from <strong style="color:#fff;">${safeEventStartTime} to ${safeEventEndTime}</strong>`} has been received.
             </p>
+            ${hold?.status === 'held' && hold.expiresAt ? `<div style="margin: 0 0 24px; padding: 16px 18px; border: 1px solid #C9A84C; border-radius: 8px; background: rgba(201,168,76,0.08);">
+              <p style="color: #C9A84C; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 6px;">Your date is on hold</p>
+              <p style="color: #fff; font-size: 16px; line-height: 1.6; margin: 0;">${escapeHtml(fmtDate(String(eventDate)))} is held for you, free, until <strong>${escapeHtml(fmtExpiry(hold.expiresAt))}</strong>. Nobody else can book it in that time. A signed contract and a 50% deposit lock it in.</p>
+            </div>` : hold?.status === 'taken' ? `<p style="color: rgba(255,255,255,0.75); font-size: 15px; line-height: 1.7; margin: 0 0 24px;">Heads up: this date is on hold for another client right now. If their hold ends, you will be the first to know.</p>` : ''}
             <p style="color: rgba(255,255,255,0.75); font-size: 16px; line-height: 1.7; margin: 0 0 32px;">
-              DJ DX will review your request and get back to you within <strong style="color:#C9A84C;">24 hours</strong> to discuss availability and pricing.
+              DJ DX will review your request and get back to you within <strong style="color:#C9A84C;">24 hours</strong> with ${hold?.status === 'held' ? 'your quote and contract' : 'availability and pricing'}.
             </p>
             <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; color: rgba(255,255,255,0.4); font-size: 13px;">
               DJ DX · djdxmusic.com · New York / New Jersey
@@ -323,7 +441,7 @@ ${[guests ? `              <tr style="border-top: 1px solid #eee;">
       sendTikTokLeadEvent({ email, phone, eventSourceUrl, eventId, clientIp, userAgent }),
     ]);
 
-    return res.status(200).json({ success: true });
+    return res.status(200).json({ success: true, ...(hold && hold.status !== 'unavailable' ? { hold: { status: hold.status, expiresAt: hold.expiresAt } } : {}) });
   } catch (err) {
     console.error('Booking email error:', err);
     return res.status(500).json({ error: 'Failed to send inquiry' });

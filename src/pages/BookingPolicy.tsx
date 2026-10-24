@@ -15,12 +15,13 @@ import SiteFooter from '../components/SiteFooter';
 // a plain answer is both a trust signal and a citable page.
 
 const SUMMARY = [
-  { k: '50% deposit', v: 'holds your date' },
+  { k: 'Free 72-hour hold', v: 'when you request a date' },
+  { k: '50% deposit', v: 'confirms your date' },
   { k: 'Balance due', v: '14 days before the event' },
   { k: 'One free date change', v: 'within 12 months' },
   { k: 'Vetted backup DJ', v: 'if an emergency ever strikes' },
   { k: 'Written contract', v: 'on every booking' },
-  { k: 'COI and W-9', v: 'available on request' },
+  { k: 'COI and W-9', v: 'COI free for your venue' },
 ];
 
 const SECTIONS: { h: string; body: React.ReactNode }[] = [
@@ -28,7 +29,7 @@ const SECTIONS: { h: string; body: React.ReactNode }[] = [
     h: 'Holding your date',
     body: (
       <>
-        <p>Your date is reserved once two things are in: the signed contract and a <strong>50% deposit</strong>. Until then, dates are available to anyone, so if you have a date in mind, it's worth locking it in early. December Saturdays and peak wedding weekends go first.</p>
+        <p>When you request a date online, it is <strong>held for you free for 72 hours</strong>. Nobody else can book it while DJ DX sends your quote and contract. Your date is confirmed once two things are in: the signed contract and a <strong>50% deposit</strong>. If the hold runs out first, the date opens up again. December Saturdays and peak wedding weekends go first. See <a href="/open-dates">open dates</a>.</p>
       </>
     ),
   },
@@ -83,7 +84,7 @@ export default function BookingPolicy() {
     <>
       <Helmet>
         <title>Booking Policy: Deposits, Date Changes &amp; Backup DJ | DJ DX</title>
-        <meta name="description" content="How booking DJ DX works: a 50% deposit holds your date, balance due 14 days before, one free date change, a vetted backup DJ, and a written contract." />
+        <meta name="description" content="How booking DJ DX works: a free 72-hour date hold, a 50% deposit to confirm, balance due 14 days before, one free date change, a backup DJ and a contract." />
         <link rel="canonical" href="https://djdxmusic.com/booking-policy" />
         <meta property="og:title" content="Booking Policy — DJ DX" />
         <meta property="og:description" content="50% deposit, balance 14 days out, one free date change, vetted backup DJ, written contract on every booking. COI and W-9 available." />
@@ -96,7 +97,7 @@ export default function BookingPolicy() {
             "@type": "WebPage",
             "name": "DJ DX Booking Policy",
             "url": "https://djdxmusic.com/booking-policy",
-            "description": "Booking terms for DJ DX event DJ services: 50% deposit to hold the date, balance due 14 days before the event, one free date change within 12 months, a vetted backup DJ in case of emergency, and a written contract on every booking. Certificate of insurance and W-9 available on request.",
+            "description": "Booking terms for DJ DX event DJ services: a free 72-hour hold when a date is requested, a 50% deposit to confirm it, balance due 14 days before the event, one free date change within 12 months, a vetted backup DJ in case of emergency, and a written contract on every booking. Certificate of insurance free for the venue; W-9 available.",
             "isPartOf": { "@type": "WebSite", "name": "DJ DX", "url": "https://djdxmusic.com/" },
             "breadcrumb": {
               "@type": "BreadcrumbList",

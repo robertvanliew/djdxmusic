@@ -1,0 +1,68 @@
+/* /live-run-of-show: scroll-driven 3D scenes */
+.ls-main { background: var(--black); color: var(--white); }
+.ls-hero { max-width: 980px; margin: 0 auto; padding: 150px 20px 40px; text-align: center; }
+.ls-over { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin: 0 0 14px; }
+.ls-h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2.2rem, 6vw, 4.4rem); line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 20px; }
+.ls-h1 span, .ls-h2 span { color: var(--gold); }
+.ls-lead { max-width: 640px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.75; color: rgba(242,242,242,0.78); }
+.ls-ctas { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.ls-h2 { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.7rem, 3.6vw, 2.8rem); line-height: 1.08; margin: 0 0 18px; }
+.ls-p { font-size: 1rem; line-height: 1.8; color: rgba(242,242,242,0.75); margin: 0 0 14px; }
+.ls-fine { font-size: 0.82rem; color: rgba(242,242,242,0.5); margin: 14px 0 0; }
+.ls-p a { color: var(--gold); }
+
+/* Sticky scroll scenes: 240vh tall, the stage pins while you scroll */
+.ls-scene { position: relative; height: 240vh; }
+.ls-sticky { position: sticky; top: 0; min-height: 100dvh; max-width: 1180px; margin: 0 auto; padding: 90px 24px 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.ls-sticky-rev .ls-copy { order: 2; }
+.ls-steps { list-style: none; margin: 18px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.ls-steps li { padding-left: 18px; border-left: 2px solid var(--edge); opacity: 0.4; transition: opacity 0.35s ease, border-color 0.35s ease; }
+.ls-steps li.is-on { opacity: 1; border-color: var(--gold); }
+.ls-steps strong { display: block; font-size: 1.08rem; margin-bottom: 4px; }
+.ls-steps span { color: rgba(242,242,242,0.72); line-height: 1.6; }
+.ls-stage { position: relative; display: flex; justify-content: center; align-items: center; perspective: 1100px; min-height: 520px; }
+
+.ls-phone { width: 270px; padding: 46px 16px 22px; border-radius: 40px; background: linear-gradient(160deg, #1c1c1c, #0f0f0f); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 40px 80px rgba(0,0,0,0.6), inset 0 0 0 6px #050505; transform-style: preserve-3d; will-change: transform; }
+.ls-phone-notch { position: absolute; top: 14px; left: 50%; width: 86px; height: 22px; margin-left: -43px; border-radius: 999px; background: #050505; }
+.ls-phone-title { font-weight: 700; margin: 0 0 12px; font-size: 0.95rem; }
+.ls-phone ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.ls-phone li { display: flex; gap: 10px; align-items: baseline; padding: 10px; border-radius: 10px; background: rgba(255,255,255,0.04); font-size: 0.88rem; transition: background-color 0.3s ease, box-shadow 0.3s ease; }
+.ls-phone li span { width: 64px; flex: none; color: var(--gold); font-weight: 700; font-variant-numeric: tabular-nums; }
+.ls-phone li.is-moved { background: var(--gold-dim); box-shadow: inset 0 0 0 1px var(--gold); }
+.ls-phone-saved { margin: 12px 0 0; font-size: 0.74rem; color: rgba(242,242,242,0.55); text-align: center; }
+.ls-booth { position: absolute; right: -24px; bottom: -6px; width: 250px; padding: 14px 16px; border-radius: 14px; background: #121212; border: 1px solid var(--gold); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+.ls-booth-tag { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+.ls-booth p { margin: 6px 0 0; font-size: 0.95rem; }
+.ls-booth b { color: var(--gold); margin-right: 6px; }
+.ls-booth em { display: inline-block; margin-top: 6px; font-style: normal; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--gold); color: #0c0c0c; padding: 3px 8px; border-radius: 999px; }
+
+.ls-receipt { position: relative; width: 340px; padding: 24px 22px 30px; background: #f6f2e8; color: #111; border-radius: 6px 6px 0 0; font-family: 'Courier New', monospace; box-shadow: 0 50px 90px rgba(0,0,0,0.55); transform-origin: 50% 100%; will-change: transform; }
+.ls-r-head { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 0.18em; margin: 0 0 14px; display: flex; justify-content: space-between; }
+.ls-r-head span { font-size: 0.7rem; letter-spacing: 0.1em; background: #111; color: #f6f2e8; padding: 3px 8px; border-radius: 3px; }
+.ls-r-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 14px; text-align: center; }
+.ls-r-stats div { padding: 10px 4px; border: 1px dashed #b9b1a0; }
+.ls-r-stats b { display: block; font-size: 1.4rem; font-variant-numeric: tabular-nums; }
+.ls-r-stats span { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.06em; color: #555; }
+.ls-receipt ol { list-style: none; margin: 0; padding: 0; }
+.ls-receipt li { display: flex; gap: 8px; align-items: baseline; padding: 6px 0; border-bottom: 1px dotted #c9c1af; font-size: 0.78rem; }
+.ls-receipt time { flex: none; color: #777; }
+.ls-receipt li span { flex: 1; }
+.ls-receipt em { font-style: normal; font-size: 0.62rem; font-weight: 700; color: #1f6b3a; white-space: nowrap; }
+.ls-r-tear { position: absolute; left: 0; right: 0; bottom: -10px; height: 12px; background: linear-gradient(135deg, #f6f2e8 33%, transparent 33%) -6px 0 / 12px 12px, linear-gradient(225deg, #f6f2e8 33%, transparent 33%) -6px 0 / 12px 12px; }
+
+.ls-sec { padding: 90px 20px; border-top: 1px solid var(--edge); }
+.ls-inner { max-width: 1100px; margin: 0 auto; }
+.ls-narrow { max-width: 720px; }
+.ls-form { margin-top: 20px; }
+
+@media (max-width: 900px) {
+  .ls-scene { height: auto; }
+  .ls-sticky { position: relative; grid-template-columns: 1fr; gap: 28px; padding: 60px 20px; min-height: 0; }
+  .ls-sticky-rev .ls-copy { order: 0; }
+  .ls-stage { min-height: 460px; }
+  .ls-booth { right: 50%; margin-right: -125px; bottom: -10px; }
+  .ls-receipt { width: min(340px, 100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ls-steps li { opacity: 1; transition: none; }
+}
