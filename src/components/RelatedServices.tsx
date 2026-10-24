@@ -25,7 +25,7 @@ const ALL: Record<string, Item> = {
   'private-party-dj-nyc-nj':       { slug: 'private-party-dj-nyc-nj',       title: 'Private Party DJ',             desc: 'Birthdays, anniversaries, milestones.' },
   'hip-hop-dj-nyc-nj':             { slug: 'hip-hop-dj-nyc-nj',             title: 'Hip-Hop DJ NYC & NJ',          desc: 'Golden era to current — for clubs and events.' },
   'sweet-16-dj-nyc-nj':            { slug: 'sweet-16-dj-nyc-nj',            title: 'Sweet 16 DJ',                  desc: 'Hip-hop, pop, and Afrobeats for milestone teen events.' },
-  'sweet-16-dj-hudson-valley-ny':  { slug: 'sweet-16-dj-hudson-valley-ny',  title: 'Hudson Valley Sweet 16 DJ',    desc: 'Kingston, New Paltz, Saugerties, Red Hook, and beyond.' },
+  'sweet-16-dj-hudson-valley-ny':  { slug: 'sweet-16-dj-hudson-valley-ny',  title: 'Hudson Valley Sweet 16 DJ',    desc: 'Kingston, New Paltz, Saugerties and Red Hook, NY.' },
   'rooftop-party-dj-nyc':          { slug: 'rooftop-party-dj-nyc',          title: 'Rooftop Party DJ',             desc: 'Outdoor summer events — Manhattan, Brooklyn, Hamptons.' },
   'rb-dj-nyc-nj':                  { slug: 'rb-dj-nyc-nj',                  title: 'R&B DJ',                       desc: 'Classic soul, 90s R&B, neo-soul.' },
   'corporate-event-dj-jersey-city-nj': { slug: 'corporate-event-dj-jersey-city-nj', title: 'Corporate Event DJ Jersey City', desc: 'Office parties and client events in Jersey City and Hudson County.' },
