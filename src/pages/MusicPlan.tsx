@@ -12,7 +12,7 @@ import SongPicker from '../components/SongPicker';
 // emails them; nothing is stored server-side. Labels are duplicated in
 // api/music-plan.ts: keep the two in sync.
 
-const PHONE = '(551) 362-5131';
+const PHONE = '(646) 470-3469';
 
 const EVENT_TYPES = [
   ['wedding', 'Wedding'],

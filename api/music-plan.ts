@@ -12,7 +12,7 @@ import { createHash, randomUUID } from 'crypto';
 const resend = new Resend(process.env.RESEND_API_KEY);
 const FROM = process.env.FROM_EMAIL || 'DJ DX <noreply@djdxmusic.com>';
 const TO = 'bookings@djdxmusic.com';
-const PHONE = '(551) 362-5131';
+const PHONE = '(646) 470-3469';
 const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL || '';
 const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN || '';
 const LIMIT_PER_HOUR = 10;
