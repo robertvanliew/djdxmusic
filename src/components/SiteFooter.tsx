@@ -14,6 +14,7 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
             <p className="footer-brand-bio">Based in New York / New Jersey. Available across the US and Puerto Rico for weddings, corporate events, private parties &amp; concerts.</p>
             <a href={`mailto:${email}`} className="footer-email">{email}</a>
             <a href={textHref()} onClick={() => trackTextClick('footer')} className="footer-email">Text {TEXT_NUMBER_DISPLAY}</a>
+            <a href="tel:+16464703469" className="footer-email">Call {TEXT_NUMBER_DISPLAY}</a>
           </div>
 
           <div className="footer-nav-col">
