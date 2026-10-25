@@ -111,7 +111,21 @@ function ScrollManager() {
   return null
 }
 
-createRoot(document.getElementById('root')!).render(
+// First load: every page except the homepage is a lazy chunk, and React's
+// Suspense fallback used to be null, so the prerendered page was wiped and the
+// screen went blank until the chunk arrived (~0.4 s on a mid-range phone, and
+// it pushed LCP late). Instead, the fallback re-shows the prerendered HTML
+// that is already on screen. It is only that page's HTML, so it is used only
+// on that page; other routes keep the empty fallback.
+const rootEl = document.getElementById('root')!
+const prerendered = rootEl.innerHTML.trim()
+const initialPath = window.location.pathname
+function FirstLoadFallback() {
+  const { pathname } = useLocation()
+  return prerendered && pathname === initialPath ? <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: prerendered }} /> : null
+}
+
+createRoot(rootEl).render(
   <StrictMode>
     <HelmetProvider>
     <BrowserRouter>
@@ -119,7 +133,7 @@ createRoot(document.getElementById('root')!).render(
         <ToastProvider>
         <PlayerProvider>
         <ScrollManager />
-        <Suspense fallback={null}>
+        <Suspense fallback={<FirstLoadFallback />}>
           <Routes>
             <Route path="/"           element={<App />} />
             <Route path="/epk"        element={<EPK />} />

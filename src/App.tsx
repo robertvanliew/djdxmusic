@@ -1084,7 +1084,7 @@ function App() {
                     className={`video-slide ${i === videoSlide ? 'video-slide--active' : ''}`}
                     aria-hidden={i !== videoSlide}
                   >
-                    {(activeVideo === v.id || i === videoSlide) && (
+                    {activeVideo === v.id && (
                       <iframe
                         src={`https://www.youtube-nocookie.com/embed/${v.id}?rel=0&modestbranding=1&iv_load_policy=3&disablekb=0&color=white${activeVideo === v.id ? '&autoplay=1' : ''}`}
                         title={`DJ DX — ${v.title} ${i + 1}`}
@@ -1100,8 +1100,12 @@ function App() {
                         aria-label={`Play video ${i + 1}`}
                       >
                         <img
-                          src={`https://i.ytimg.com/vi/${v.id}/maxresdefault.jpg`}
+                          src={`https://i.ytimg.com/vi/${v.id}/sddefault.jpg`}
                           alt={`DJ DX music video ${i + 1} thumbnail`}
+                          loading="lazy"
+                          decoding="async"
+                          width={640}
+                          height={480}
                           className="video-thumb"
                           onError={(e) => { (e.currentTarget as HTMLImageElement).src = `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`; }}
                         />

@@ -49,10 +49,10 @@ export default function LiveRunOfShow() {
       <main className="ls-main">
         <section className="ls-hero">
           <motion.p className="ls-over" initial={reduce ? false : { opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }}>For planners and clients</motion.p>
-          <motion.h1 className="ls-h1" initial={reduce ? false : { opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: EASE, delay: 0.05 }}>
+          <motion.h1 className="ls-h1" initial={reduce ? false : { y: 14 }} animate={{ y: 0 }} transition={{ duration: 0.6, ease: EASE, delay: 0.05 }}>
             Change the night from your phone. <span>Get proof of every song.</span>
           </motion.h1>
-          <motion.p className="ls-lead" initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.15 }}>
+          <motion.p className="ls-lead" initial={reduce ? false : { y: 10 }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}>
             Two tools DJ DX built for the people running the event. A live run of show that reaches the DJ booth in seconds,
             and a Set Receipt that lists every song played against your must-play and do-not-play lists.
           </motion.p>
@@ -99,11 +99,14 @@ function PhoneScene({ reduce }: { reduce: boolean }) {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
   const rotY = useTransform(scrollYProgress, [0, 0.35], [-28, 0]);
   const rotX = useTransform(scrollYProgress, [0, 0.35], [14, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.35], [0.86, 1]);
   const boothY = useTransform(scrollYProgress, [0.45, 0.7], [60, 0]);
   const boothO = useTransform(scrollYProgress, [0.45, 0.62], [0, 1]);
   const [scrollStep, setStep] = useState(0);
-  useMotionValueEvent(scrollYProgress, 'change', v => setStep(v < 0.3 ? 0 : v < 0.6 ? 1 : 2));
+  const stepRef = useRef(0);
+  useMotionValueEvent(scrollYProgress, 'change', v => {
+    const s = v < 0.3 ? 0 : v < 0.6 ? 1 : 2;
+    if (s !== stepRef.current) { stepRef.current = s; setStep(s); }
+  });
   // Without the pinned scroll scene (phones, reduced motion) show the finished story
   const step = reduce ? 2 : scrollStep;
   const STEPS = [
@@ -124,7 +127,7 @@ function PhoneScene({ reduce }: { reduce: boolean }) {
           </ol>
         </div>
         <div className="ls-stage">
-          <motion.div className="ls-phone" style={reduce ? undefined : { rotateY: rotY, rotateX: rotX, scale }}
+          <motion.div className="ls-phone" style={reduce ? undefined : { rotateY: rotY, rotateX: rotX }}
             initial={reduce ? { opacity: 0, rotateX: 18, y: 30 } : false} whileInView={reduce ? { opacity: 1, rotateX: 0, y: 0 } : undefined} viewport={{ once: true, amount: 0.4 }} transition={{ duration: 0.6, ease: EASE }}>
             <div className="ls-phone-notch" />
             <p className="ls-phone-title">Acme Holiday Party</p>
@@ -162,16 +165,18 @@ const SAMPLE = [
 ];
 function Counter({ to, progress, at }: { to: number; progress: MotionValue<number>; at: [number, number] }) {
   const v = useTransform(progress, at, [0, to]);
-  const [n, setN] = useState(0);
-  useMotionValueEvent(v, 'change', x => setN(Math.round(x)));
-  return <>{n}</>;
+  const el = useRef<HTMLSpanElement>(null);
+  // Straight to the DOM: no React render on every scroll frame
+  useMotionValueEvent(v, 'change', x => { if (el.current) el.current.textContent = String(Math.round(x)); });
+  return <span ref={el}>0</span>;
 }
 function ReceiptScene({ reduce }: { reduce: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] });
   const rotX = useTransform(scrollYProgress, [0, 0.4], [58, 0]);
   const y = useTransform(scrollYProgress, [0, 0.4], [120, 0]);
-  const clip = useTransform(scrollYProgress, [0.1, 0.7], ['inset(0 0 100% 0)', 'inset(0 0 0% 0)']);
+  // Paper 'prints' as a cover slides away: transform only, no repaint
+  const cover = useTransform(scrollYProgress, [0.1, 0.7], [1, 0]);
   return (
     <section ref={ref} className="ls-scene" id="receipt" aria-label="How the Set Receipt works">
       <div className="ls-sticky ls-sticky-rev">
@@ -194,9 +199,10 @@ function ReceiptScene({ reduce }: { reduce: boolean }) {
               <div><b>{reduce ? 12 : <Counter to={12} progress={scrollYProgress} at={[0.3, 0.75]} />}/12</b><span>must-plays</span></div>
               <div><b>0</b><span>do-not-plays</span></div>
             </div>
-            <motion.ol style={reduce ? undefined : { clipPath: clip }}>
-              {SAMPLE.map(([t, s, tag]) => <li key={t}><time>{t}</time><span>{s}</span>{tag && <em>{tag}</em>}</li>)}
-            </motion.ol>
+            <div className="ls-r-list">
+              <ol>{SAMPLE.map(([t, s, tag]) => <li key={t}><time>{t}</time><span>{s}</span>{tag && <em>{tag}</em>}</li>)}</ol>
+              {!reduce && <motion.div className="ls-r-cover" style={{ scaleY: cover }} aria-hidden="true" />}
+            </div>
             <div className="ls-r-tear" aria-hidden="true" />
           </motion.div>
         </div>

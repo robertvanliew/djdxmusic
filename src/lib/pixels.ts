@@ -99,14 +99,15 @@ function injectGoogleAdsTag(conversionId: string) {
 // and it was firing synchronously from main.tsx, so it competed with the page
 // for bandwidth and CPU before anything rendered. 93% of sessions are mobile.
 //
-// Whichever comes first wins: the browser going idle, the first real user
-// interaction, or a hard timeout. Attribution is unaffected - a pixel that
+// Whichever comes first wins: the page finishing loading (plus 4 s), the first real user
+// interaction (tap or key). Attribution is unaffected - a pixel that
 // fires a second or two later still records the visit, and a visitor who
 // leaves before either event was never going to convert anyway.
 export function initTrackingPixelsDeferred() {
   if (typeof window === 'undefined') return;
   let fired = false;
-  const EVENTS = ['pointerdown', 'keydown', 'touchstart', 'scroll'] as const;
+  // Real intent only: a scroll also fires on load-time scroll restoration
+  const EVENTS = ['pointerdown', 'keydown', 'touchstart'] as const;
 
   const run = () => {
     if (fired) return;
@@ -117,9 +118,11 @@ export function initTrackingPixelsDeferred() {
 
   EVENTS.forEach(e => window.addEventListener(e, run, { once: true, passive: true }));
 
-  const ric = (window as unknown as { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => void }).requestIdleCallback;
-  if (ric) ric(run, { timeout: 5000 });
-  else setTimeout(run, 3000);
+  // Otherwise wait until the page has fully loaded, then 4 s more, so the
+  // pixels never compete with first paint or the first interactions.
+  const later = () => setTimeout(run, 4000);
+  if (document.readyState === 'complete') later();
+  else window.addEventListener('load', later, { once: true });
 }
 
 export function initTrackingPixels() {

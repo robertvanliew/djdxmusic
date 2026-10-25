@@ -48,6 +48,7 @@ export default function ViralMomentsSection({ subtitle = 'Moments that moved the
                   src={`https://www.tiktok.com/player/v1/${s.id}?music_info=0&description=0&loop=0&autoplay=0&controls=1&progress_bar=1&native_context_menu=0&rel=0`}
                   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
                   allowFullScreen
+                  loading="lazy"
                   title={s.label}
                   onLoad={(e) => {
                     const loader = (e.currentTarget as HTMLIFrameElement).previousElementSibling as HTMLElement;
@@ -87,6 +88,7 @@ export default function ViralMomentsSection({ subtitle = 'Moments that moved the
                       src={`https://www.tiktok.com/player/v1/${s.id}?music_info=0&description=0&loop=0&autoplay=0&controls=1&progress_bar=1&native_context_menu=0&rel=0`}
                       allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
                       allowFullScreen
+                      loading="lazy"
                       title={s.label}
                       onLoad={(e) => {
                         const loader = (e.currentTarget as HTMLIFrameElement).previousElementSibling as HTMLElement;
