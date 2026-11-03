@@ -225,3 +225,54 @@
 #od-form { scroll-margin-top: 90px; }
 .od-month + .od-month { margin-top: 28px; }
 .vn-inner section.vn-sec { padding: 0; }
+
+/* Planners vendor sheet: toolbar on screen, clean black-on-white when printed */
+.vs-tools { padding: 28px 24px 0; }
+.vs-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; padding: 18px 22px; border: 1px solid var(--gold-line, rgba(201,168,76,0.3)); border-radius: 12px; background: rgba(255,255,255,0.03); }
+.vs-inner p { margin: 0; color: rgba(242,242,242,0.72); font-size: 0.95rem; line-height: 1.6; flex: 1 1 320px; }
+.vs-inner p strong { color: var(--white); }
+.vs-inner div { display: flex; gap: 10px; flex-wrap: wrap; }
+.vs-inner button { cursor: pointer; font: inherit; }
+.vs-print-head { display: none; }
+@media print {
+  body.is-planners { background: #fff !important; color: #111 !important; }
+  body.is-planners nav, body.is-planners header, body.is-planners footer,
+  body.is-planners .epk-hero, body.is-planners .vs-tools, body.is-planners .vs-noprint,
+  body.is-planners #booking, body.is-planners aside.ab, body.is-planners .sticky-cta-bar { display: none !important; }
+  body.is-planners .vs-print-head { display: flex; justify-content: space-between; gap: 12px; border-bottom: 2px solid #111; padding: 0 0 8px; margin: 0 0 12px; font-size: 11pt; }
+  body.is-planners section { padding: 8px 0 !important; background: none !important; border: 0 !important; break-inside: avoid; }
+  body.is-planners h2, body.is-planners h2 span, body.is-planners h3, body.is-planners td, body.is-planners th, body.is-planners p, body.is-planners a { color: #111 !important; }
+  body.is-planners h2 { font-size: 15pt !important; margin: 0 0 4px !important; text-align: left !important; }
+  body.is-planners table { border-collapse: collapse; width: 100%; font-size: 9.5pt; }
+  body.is-planners td, body.is-planners th { border-bottom: 1px solid #ccc !important; padding: 4px 6px !important; background: none !important; }
+}
+
+/* Wedding song finders (/wedding-entrance-songs, /last-dance-songs-wedding) */
+.sf-filters { margin: 22px 0 6px; display: flex; flex-direction: column; gap: 10px; }
+.sf-row { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; }
+.sf-lab { width: 64px; flex: none; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(242,242,242,0.5); }
+.sf-chip { font: inherit; font-size: 0.85rem; font-weight: 600; padding: 7px 13px; min-height: 36px; border-radius: 999px; border: 1px solid var(--edge, rgba(255,255,255,0.14)); background: transparent; color: rgba(242,242,242,0.78); cursor: pointer; transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+.sf-chip.is-on { background: var(--gold); border-color: var(--gold); color: #0a0805; }
+.sf-clean { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; color: rgba(242,242,242,0.7); cursor: pointer; }
+.sf-clean input { width: 18px; height: 18px; accent-color: var(--gold); }
+.sf-count { margin: 16px 0 0; font-size: 0.8rem; color: rgba(242,242,242,0.5); font-variant-numeric: tabular-nums; }
+.sf-list { list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid var(--dim3, rgba(255,255,255,0.08)); }
+.sf-list li { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--dim3, rgba(255,255,255,0.08)); }
+.sf-list li.is-on .sf-song strong { color: var(--gold); }
+.sf-song { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.sf-song strong { color: var(--white); font-weight: 600; }
+.sf-song span { color: rgba(242,242,242,0.62); font-size: 0.9rem; }
+.sf-song small { color: rgba(242,242,242,0.4); font-size: 0.76rem; }
+.sf-song em { font-style: normal; color: var(--gold); }
+.sf-add { flex: none; font: inherit; font-size: 0.82rem; font-weight: 700; min-width: 84px; min-height: 40px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--gold); background: transparent; color: var(--gold); cursor: pointer; transition: background-color .15s ease, color .15s ease, transform .1s ease; }
+.sf-add[aria-pressed="true"] { background: var(--gold); color: #0a0805; }
+.sf-add:active { transform: scale(0.97); }
+.sf-empty { color: rgba(242,242,242,0.55); justify-content: flex-start !important; }
+.sf-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+.sf-actions button { font: inherit; cursor: pointer; }
+.sf-fine { font-size: 0.85rem !important; color: rgba(242,242,242,0.5) !important; }
+@media (hover: hover) and (pointer: fine) {
+  .sf-chip:hover { border-color: var(--gold); }
+  .sf-add:hover { background: rgba(201,168,76,0.12); }
+}
+@media (max-width: 560px) { .sf-lab { width: 100%; } }

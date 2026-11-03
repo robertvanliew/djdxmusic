@@ -41,6 +41,8 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
             <Link to="/event-dj-cost-nyc-nj-ct#quote-calculator" className="footer-nav-link">Instant Price Estimate</Link>
             <Link to="/event-dj-cost-nyc-nj-ct" className="footer-nav-link">Event DJ Pricing Report</Link>
             <Link to="/wedding-dj-cost-nyc" className="footer-nav-link">Wedding DJ Cost Guide</Link>
+            <Link to="/wedding-entrance-songs" className="footer-nav-link">Wedding Entrance Songs</Link>
+            <Link to="/last-dance-songs-wedding" className="footer-nav-link">Last Dance Songs</Link>
             <Link to="/corporate-event-dj-nyc-nj-ct" className="footer-nav-link">Corporate DJ NYC</Link>
             <Link to="/corporate-event-dj-jersey-city-nj" className="footer-nav-link">Corporate DJ Jersey City</Link>
             <Link to="/corporate-event-dj-brooklyn-ny" className="footer-nav-link">Corporate DJ Brooklyn</Link>

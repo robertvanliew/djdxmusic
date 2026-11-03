@@ -657,7 +657,10 @@ namespace Show {
     items: Item[]; log: { at: number; text: string }[];
     plan: { mustPlay: Song[]; doNotPlay: string[] };
     seratoUrl: string; receipt: Receipt | null; createdAt: number; updatedAt: number;
+    // 'other': a planner using the free tool with another DJ. Never fall back to DJ DX's Serato.
+    dj?: 'djdx' | 'other'; djName?: string;
   }
+  const djLabel = (rec: ShowRecord) => rec.dj === 'other' ? (rec.djName || 'your DJ') : 'DJ DX';
 
   async function redis(cmds: (string | number)[][]): Promise<unknown[]> {
     if (!REDIS_URL || !REDIS_TOKEN) return [];
@@ -729,7 +732,7 @@ namespace Show {
   }
   async function seratoUrl(rec: ShowRecord): Promise<string> {
     if (/^https:\/\/serato\.com\/playlists\/[\w.-]+\/[\w.-]+$/.test(rec.seratoUrl)) return rec.seratoUrl;
-    if (!SERATO_USER) return '';
+    if (!SERATO_USER || rec.dj === 'other') return '';
     // Newest playlist on the profile (the live one while a set is running)
     try {
       const html = await (await fetch(`https://serato.com/playlists/${encodeURIComponent(SERATO_USER)}`, { headers: { 'User-Agent': 'Mozilla/5.0 (DJ DX set receipt)' } })).text();
@@ -771,7 +774,7 @@ namespace Show {
     const hit = r.mustPlay.filter(m => m.playedAt).length;
     const row = (a: string, b: string, c = '') => `<tr><td style="padding:7px 10px 7px 0;color:#888;font-size:12px;font-family:monospace;vertical-align:top;white-space:nowrap">${esc(a)}</td><td style="padding:7px 0;color:#111;font-size:14px">${esc(b)}</td><td style="padding:7px 0 7px 10px;font-size:13px;color:#2e7d4f;font-weight:700;text-align:right;white-space:nowrap">${c}</td></tr>`;
     return `<div style="font-family:Arial,sans-serif;max-width:640px;margin:0 auto;border:1px solid #e5e5e5;border-radius:8px;overflow:hidden">
-  <div style="background:#111;padding:24px 28px;border-bottom:3px solid #C9A84C"><h1 style="color:#C9A84C;font-size:20px;margin:0;letter-spacing:.06em">SET RECEIPT</h1><p style="color:rgba(255,255,255,.6);margin:6px 0 0;font-size:13px">${esc(rec.title)} · ${esc(rec.date)} · DJ DX</p></div>
+  <div style="background:#111;padding:24px 28px;border-bottom:3px solid #C9A84C"><h1 style="color:#C9A84C;font-size:20px;margin:0;letter-spacing:.06em">SET RECEIPT</h1><p style="color:rgba(255,255,255,.6);margin:6px 0 0;font-size:13px">${esc(rec.title)} · ${esc(rec.date)} · ${esc(djLabel(rec))}</p></div>
   <div style="padding:22px 28px">
     <table style="width:100%;border-collapse:collapse;margin-bottom:18px"><tr>
       <td style="padding:12px;background:#f7f4ea;border-radius:6px;text-align:center"><div style="font-size:26px;font-weight:800;color:#111">${r.tracks.length}</div><div style="font-size:11px;color:#666;letter-spacing:.08em">SONGS PLAYED</div></td><td style="width:10px"></td>
@@ -782,7 +785,7 @@ namespace Show {
     ${r.doNotPlayHits.length ? `<h2 style="font-size:13px;letter-spacing:.08em;color:#b3261e;margin:18px 0 6px">DO-NOT-PLAY MATCHES</h2><table style="width:100%;border-collapse:collapse">${r.doNotPlayHits.map(h => row(h.track.at, `${h.track.raw} (matched “${h.entry}”)`)).join('')}</table>` : ''}
     <h2 style="font-size:13px;letter-spacing:.08em;color:#C9A84C;margin:18px 0 6px">EVERY SONG, IN ORDER</h2>
     <table style="width:100%;border-collapse:collapse">${r.tracks.map(t => row(t.at, t.raw)).join('')}</table>
-    <p style="font-size:12px;color:#888;margin-top:18px">Times are minutes into the set, recorded live by DJ DX's Serato software. Matching is automatic; if something looks off, reply to this email.</p>
+    <p style="font-size:12px;color:#888;margin-top:18px">Times are minutes into the set, recorded live by ${esc(djLabel(rec))}'s Serato software. Matching is automatic; if something looks off, reply to this email.</p>
   </div></div>`;
   }
 
@@ -823,6 +826,8 @@ namespace Show {
       const ip = String(req.headers['x-real-ip'] || String(req.headers['x-forwarded-for'] || '').split(',')[0] || 'unknown');
       if (await overLimit(ip)) return res.status(429).json({ error: 'Too many links created. Try again in an hour.' });
       const items = cleanItems(b.items);
+      const dj: 'djdx' | 'other' = b.dj === 'other' ? 'other' : 'djdx';
+      const djName = dj === 'other' ? s(b.djName, 80) : '';
       const rec: ShowRecord = {
         id: tok(10).toLowerCase(), editToken: tok(24), boothToken: tok(24), title, date, clientName: s(b.name, 120), clientEmail: email,
         items: items.length ? items : [
@@ -833,7 +838,7 @@ namespace Show {
           { id: tok(8), time: '', label: 'Last song', note: '' },
         ],
         log: [{ at: Date.now(), text: 'Run of show created' }], plan: { mustPlay: [], doNotPlay: [] },
-        seratoUrl: '', receipt: null, createdAt: Date.now(), updatedAt: Date.now(),
+        seratoUrl: '', receipt: null, createdAt: Date.now(), updatedAt: Date.now(), dj, djName,
       };
       await save(rec);
       const editUrl = `${SITE}/show/${rec.id}?t=${rec.editToken}`;
@@ -841,8 +846,8 @@ namespace Show {
       try {
         const resend = new Resend(process.env.RESEND_API_KEY);
         await resend.emails.send({ from: FROM, to: [email], replyTo: TO, subject: `Your live run of show: ${title}`,
-          html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#0c0c0c;color:#fff;padding:36px;border-radius:12px"><h1 style="color:#C9A84C;font-size:22px;margin:0 0 14px">Your run of show is live</h1><p style="color:rgba(255,255,255,.8);line-height:1.7">Edit it from any phone, any time, including the night of. Every change is timestamped.</p><p><a href="${editUrl}" style="display:inline-block;background:#C9A84C;color:#111;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:700">Open my run of show</a></p><p style="color:rgba(255,255,255,.7);line-height:1.7">Send this booth link to your DJ so they see every change live:<br><a href="${boothUrl}" style="color:#C9A84C">${boothUrl}</a></p><p style="color:rgba(255,255,255,.45);font-size:12px">Free from DJ DX · djdxmusic.com</p></div>` });
-        await resend.emails.send({ from: FROM, to: [TO], replyTo: email, subject: `[Run of show] ${title} | ${date}`, html: `<p>${esc(email)} created a live run of show for <strong>${esc(title)}</strong> on ${esc(date)}.</p><p>Booth link: <a href="${boothUrl}">${boothUrl}</a></p>` });
+          html: `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;background:#0c0c0c;color:#fff;padding:36px;border-radius:12px"><h1 style="color:#C9A84C;font-size:22px;margin:0 0 14px">Your run of show is live</h1><p style="color:rgba(255,255,255,.8);line-height:1.7">Edit it from any phone, any time, including the night of. Every change is timestamped.</p><p><a href="${editUrl}" style="display:inline-block;background:#C9A84C;color:#111;padding:12px 24px;border-radius:6px;text-decoration:none;font-weight:700">Open my run of show</a></p><p style="color:rgba(255,255,255,.7);line-height:1.7">Send this booth link to ${dj === 'other' ? esc(djName || 'your DJ') : 'your DJ'} so they see every change live:<br><a href="${boothUrl}" style="color:#C9A84C">${boothUrl}</a></p><p style="color:rgba(255,255,255,.45);font-size:12px">Free from DJ DX · djdxmusic.com</p></div>` });
+        await resend.emails.send({ from: FROM, to: [TO], replyTo: email, subject: `[Run of show${dj === 'other' ? ' · planner, other DJ' : ''}] ${title} | ${date}`, html: `<p>${esc(email)} created a live run of show for <strong>${esc(title)}</strong> on ${esc(date)}.</p>${dj === 'other' ? `<p>They are using the free tool with another DJ${djName ? ` (${esc(djName)})` : ''}. Not a DJ DX booking; a planner contact who plans events.</p>` : ''}<p>Booth link: <a href="${boothUrl}">${boothUrl}</a></p>` });
       } catch (e) { console.error('show: email failed', e); }
       return res.status(200).json({ id: rec.id, editUrl });
     }

@@ -16,7 +16,9 @@ interface Show {
   id: string; role: 'edit' | 'booth'; title: string; date: string; clientName: string;
   items: Item[]; log: { at: number; text: string }[]; plan: { mustPlay: { artist: string; title: string }[]; doNotPlay: string[] };
   seratoUrl: string; receipt: Receipt | null; updatedAt: number; boothUrl?: string;
+  dj?: 'djdx' | 'other'; djName?: string;
 }
+const djOf = (s: Show) => s.dj === 'other' ? (s.djName || 'Your DJ') : 'DJ DX';
 
 const ago = (ms: number) => {
   const s = Math.max(0, Math.round((Date.now() - ms) / 1000));
@@ -110,7 +112,7 @@ export default function ShowPage() {
           {[...show.log].reverse().slice(0, 15).map((l, i) => <li key={l.at + '-' + i}><time>{ago(l.at)}</time><span>{l.text}</span></li>)}
         </ul>
       </section>
-      <p className="sh-foot">Run of show by <a href="/">DJ DX</a> · <a href="/live-run-of-show">How this works</a></p>
+      <p className="sh-foot">Free live run of show by <a href="/">DJ DX</a> · <a href="/live-run-of-show#create">Make one for your next event</a></p>
     </div>
   );
 }
@@ -125,7 +127,7 @@ function Editor({ show, update, saving }: { show: Show; update: (i: Item[]) => v
   return (
     <>
       <div className="sh-status" aria-live="polite">
-        {saving === 'saving' ? 'Saving…' : saving === 'saved' ? `Saved · DJ DX sees this at the booth` : saving === 'error' ? 'Not saved. Check your connection.' : 'Changes save automatically'}
+        {saving === 'saving' ? 'Saving…' : saving === 'saved' ? `Saved · ${djOf(show)} sees this at the booth` : saving === 'error' ? 'Not saved. Check your connection.' : 'Changes save automatically'}
       </div>
       <ol className="sh-items">
         {show.items.map((it, idx) => (
@@ -147,7 +149,9 @@ function Editor({ show, update, saving }: { show: Show; update: (i: Item[]) => v
       {show.boothUrl && (
         <section className="sh-card">
           <h2>Your DJ's booth link</h2>
-          <p className="sh-muted">DJ DX already has it. If another vendor needs to follow the timeline, send them this read-only link.</p>
+          <p className="sh-muted">{show.dj === 'other'
+            ? `Send this to ${show.djName || 'your DJ'}. It opens a read-only booth screen that refreshes every 5 seconds and highlights every change. Other vendors can use it too.`
+            : 'DJ DX already has it. If another vendor needs to follow the timeline, send them this read-only link.'}</p>
           <button type="button" className="sh-copy" onClick={async () => { try { await navigator.clipboard.writeText(show.boothUrl!); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch { /* clipboard blocked */ } }}>
             {copied ? 'Copied' : 'Copy booth link'}
           </button>
@@ -204,7 +208,7 @@ function Booth({ show, changed, reduce, id, t, onUpdate }: { show: Show; changed
           ? <ul className="sh-np">{np.recent.map((tr, i) => <li key={tr.at + i} className={i === 0 ? 'sh-np-now' : ''}><time>{tr.at}</time>{tr.raw}</li>)}</ul>
           : <p className="sh-muted">Waiting for Serato. Start a Live Playlist in Serato DJ Pro (History panel) with internet on.</p>}
         <form className="sh-serato" onSubmit={e => { e.preventDefault(); post({ action: 'serato', url }, 'serato'); }}>
-          <label htmlFor="sh-serato">Serato playlist link (optional, newest playlist is used otherwise)</label>
+          <label htmlFor="sh-serato">{show.dj === 'other' ? 'Your public Serato Live Playlist link (needed for now playing and the Set Receipt)' : 'Serato playlist link (optional, newest playlist is used otherwise)'}</label>
           <div><input id="sh-serato" value={url} onChange={e => setUrl(e.target.value)} placeholder="https://serato.com/playlists/you/…" /><button type="submit" disabled={!!busy}>Save</button></div>
         </form>
       </section>

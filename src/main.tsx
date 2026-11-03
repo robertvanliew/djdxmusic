@@ -36,6 +36,7 @@ const Terms      = lazy(() => import('./pages/Terms.tsx'))
 const Privacy    = lazy(() => import('./pages/Privacy.tsx'))
 const Planners   = lazy(() => import('./pages/Planners.tsx'))
 const HolidayPlaylist = lazy(() => import('./pages/HolidayPlaylist.tsx'))
+const SongFinder = lazy(() => import('./pages/SongFinder.tsx'))
 const Refunds    = lazy(() => import('./pages/Refunds.tsx'))
 const BookingPolicy = lazy(() => import('./pages/BookingPolicy.tsx'))
 const OfficePartyPoll = lazy(() => import('./pages/OfficePartyPoll.tsx'))
@@ -146,6 +147,8 @@ createRoot(rootEl).render(
             <Route path="/plan" element={<MusicPlan />} />
             <Route path="/venues" element={<Venues />} />
             <Route path="/office-holiday-party-playlist" element={<HolidayPlaylist />} />
+            <Route path="/wedding-entrance-songs" element={<SongFinder kind="entrance" />} />
+            <Route path="/last-dance-songs-wedding" element={<SongFinder kind="last" />} />
             <Route path="/verified" element={<Verified />} />
             <Route path="/confirm" element={<Confirm />} />
             <Route path="/venues/:slug" element={<Venue />} />

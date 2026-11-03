@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import SiteNav from '../components/SiteNav';
@@ -20,7 +20,7 @@ const RATES = [
   ['Sweet 16, quinceañera, mitzvah', 'From $1,500', 'Often shorter runtimes'],
   ['Soul Shades: DJ + live violin', 'From $3,500', 'Live violin or piano over the DJ set'],
   ['Live violin add-on', 'From $150/hour', 'Added to any DJ package'],
-  ['Hamptons, destination, international', 'From $3,000', 'Travel and riders coordinated by DJ DX'],
+  ['Hamptons and destination (US and Puerto Rico)', 'From $3,000', 'Travel and riders coordinated by DJ DX'],
 ];
 
 const PLOT = [
@@ -98,8 +98,33 @@ function Table({ rows, head }: { rows: string[][]; head: string[] }) {
   );
 }
 
+// Vendor sheet toolbar: coordinators print it, save it as a PDF, or forward
+// the link to every client. Print styles are in src/service.css (body.is-planners).
+function SheetTools() {
+  const [copied, setCopied] = useState(false);
+  const share = async () => {
+    const url = 'https://djdxmusic.com/planners';
+    try {
+      if (navigator.share) await navigator.share({ title: 'DJ DX vendor sheet', text: 'Stage plot, input list, rates, COI and W-9 for DJ DX', url });
+      else { await navigator.clipboard.writeText(url); setCopied(true); setTimeout(() => setCopied(false), 2000); }
+    } catch { /* cancelled or blocked */ }
+  };
+  return (
+    <section className="vs-tools" aria-label="Vendor sheet">
+      <div className="vs-inner">
+        <p><strong>Vendor sheet.</strong> Print it, save it as a PDF for your vendor binder, or send the link to a client or venue.</p>
+        <div>
+          <button type="button" className="btn-gold" onClick={() => window.print()}>Print or save PDF</button>
+          <button type="button" className="btn-ghost" onClick={share}>{copied ? 'Link copied' : 'Send the link'}</button>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Planners() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
+  useEffect(() => { document.body.classList.add('is-planners'); return () => document.body.classList.remove('is-planners'); }, []);
   return (
     <>
       <Helmet>
@@ -139,6 +164,12 @@ export default function Planners() {
         </div>
       </section>
 
+      <SheetTools />
+      <div className="vs-print-head" aria-hidden="true">
+        <strong>DJ DX: vendor sheet</strong>
+        <span>bookings@djdxmusic.com · (646) 470-3469 · djdxmusic.com/planners</span>
+      </div>
+
       <section style={{ padding: '72px 24px' }}>
         <div className="section-inner" style={{ maxWidth: '900px' }}>
           <h2 className="sec-title" style={h2}>Starting <span>Rates</span></h2>
@@ -175,7 +206,7 @@ export default function Planners() {
         </div>
       </section>
 
-      <section style={{ padding: '72px 24px' }}>
+      <section className="vs-noprint" style={{ padding: '72px 24px' }}>
         <div className="section-inner" style={{ maxWidth: '780px' }}>
           <h2 className="sec-title" style={{ textAlign: 'center' }}>Planner <span>Questions</span></h2>
           <div style={{ marginTop: '36px', display: 'flex', flexDirection: 'column', gap: '22px' }}>

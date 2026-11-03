@@ -8,6 +8,7 @@ import BookingForm from '../../components/BookingForm';
 import ProofBlock from '../../components/ProofBlock';
 import { Link } from 'react-router-dom';
 import AuthorBio from '../../components/AuthorBio';
+import SongFinderPromo from '../../components/SongFinderPromo';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 export default function WeddingDJNorthernNJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
@@ -206,6 +207,7 @@ export default function WeddingDJNorthernNJ() {
         Planning the budget? See <Link to="/wedding-dj-cost-nyc">how much a wedding DJ costs in NYC and NJ</Link>, with published starting rates and what's included.
       </p>
       <ProofBlock />
+      <SongFinderPromo />
       <AuthorBio />
 
       <section id="booking" className="booking" style={{ padding: '80px 40px' }}>

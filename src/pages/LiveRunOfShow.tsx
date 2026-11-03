@@ -17,6 +17,7 @@ const EASE = [0.23, 1, 0.32, 1] as const;
 const FAQ = [
   { q: 'What is a live run of show?', a: 'A run of show is the timeline of an event: doors, welcome, dinner, toasts, awards, dancing, last song. A live one is a link instead of a PDF. The planner edits it from a phone, and the DJ sees every change at the booth within seconds, with the time it was made.' },
   { q: 'Is the live run of show free?', a: 'Yes. Anyone planning an event can create one here, even without booking DJ DX. Clients who book DJ DX get one automatically when they send their music plan.' },
+  { q: 'Can I use it if DJ DX is not my DJ?', a: 'Yes. Pick "Another DJ or band" when you create it, and send them the booth link. They see every change you make within seconds. If they use Serato DJ Pro, they can paste their public Live Playlist link to show what is playing and send you a Set Receipt.' },
   { q: 'What is a Set Receipt?', a: 'After the last song, DJ DX sends the client a list of every song played, in order, with time stamps from his DJ software, checked against their must-play and do-not-play lists. It shows which must-plays were hit and confirms that no do-not-play song was played.' },
   { q: 'How does DJ DX know what he played?', a: 'His DJ software, Serato DJ Pro, records each track as it plays and publishes it to a live playlist. The Set Receipt is built from that record, so it reflects what actually played, not what was planned.' },
   { q: 'Does the Set Receipt work at every venue?', a: 'It needs an internet connection at the DJ booth, usually a phone hotspot. If a venue has no signal, the set is still recorded and the receipt is sent after the event.' },
@@ -212,7 +213,7 @@ function ReceiptScene({ reduce }: { reduce: boolean }) {
 }
 
 function CreateForm() {
-  const [f, setF] = useState({ title: '', date: '', email: '', name: '', website: '' });
+  const [f, setF] = useState({ title: '', date: '', email: '', name: '', website: '', dj: 'djdx', djName: '' });
   const [st, setSt] = useState<'idle' | 'sending' | 'error'>('idle');
   const [err, setErr] = useState('');
   const submit = async (e: FormEvent) => {
@@ -231,6 +232,15 @@ function CreateForm() {
       <div className="form-row">
         <div className="form-field"><label htmlFor="ls-date">Event date</label><input id="ls-date" type="date" required value={f.date} onChange={e => setF({ ...f, date: e.target.value })} /></div>
         <div className="form-field"><label htmlFor="ls-email">Your email</label><input id="ls-email" type="email" required autoComplete="email" placeholder="you@company.com" value={f.email} onChange={e => setF({ ...f, email: e.target.value })} /></div>
+      </div>
+      <div className="form-row">
+        <div className="form-field"><label htmlFor="ls-dj">Who is DJing?</label>
+          <select id="ls-dj" value={f.dj} onChange={e => setF({ ...f, dj: e.target.value })}>
+            <option value="djdx">DJ DX</option>
+            <option value="other">Another DJ or band</option>
+          </select>
+        </div>
+        {f.dj === 'other' && <div className="form-field"><label htmlFor="ls-djname">Their name (optional)</label><input id="ls-djname" maxLength={80} placeholder="DJ or band name" value={f.djName} onChange={e => setF({ ...f, djName: e.target.value })} /></div>}
       </div>
       {err && <p className="form-error" role="alert">{err}</p>}
       <button type="submit" className="form-submit" disabled={st === 'sending'}>{st === 'sending' ? 'Creating…' : 'Create my run of show'}</button>

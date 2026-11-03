@@ -62,6 +62,8 @@ const STATIC_ROUTES = [
   '/confirm',
   '/venues',
   '/office-holiday-party-playlist',
+  '/wedding-entrance-songs',
+  '/last-dance-songs-wedding',
   '/80s-90s-throwback-party-dj-nyc-nj',
   '/bilingual-dj-emcee-nyc-nj',
   '/open-dates',
