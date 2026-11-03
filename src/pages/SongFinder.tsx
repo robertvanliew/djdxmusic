@@ -237,7 +237,7 @@ export default function SongFinder({ kind }: { kind: Kind }) {
               <Link to="/wedding-dj-nyc-nj">Wedding DJ in NYC and NJ</Link>
             </p>
             <p className="vn-p">
-              Still choosing your first dance? Violinist Julie Schatz has a <a href="https://julieschatzmusic.com/">first dance song finder</a> built the same way.
+              Still choosing your first dance? Violinist Julie Schatz has a <a href="https://julieschatzmusic.com/first-dance-song-finder/">first dance song finder</a>, plus finders for the <a href="https://julieschatzmusic.com/walking-down-the-aisle-song-finder/">walk down the aisle</a> and <a href="https://julieschatzmusic.com/parent-dance-song-finder/">parent dances</a>.
               She and DJ DX perform together as <Link to="/soul-shades">Soul Shades</Link>.
             </p>
           </section>
