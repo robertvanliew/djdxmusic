@@ -381,6 +381,24 @@ function App() {
   const prev = useCallback(() => setSlide(s => (s - 1 + total) % total), [total]);
   const next = useCallback(() => setSlide(s => (s + 1) % total), [total]);
 
+  // Slideshow photos: the current and next slide load right away; the rest
+  // wait until the page has loaded and the phone is idle. All 19 used to be
+  // fetched at top priority with the page's code (~500 KB on a phone), which
+  // delayed the moment the page responds to taps. Nothing changes on screen:
+  // the next slide is always loaded before it fades in.
+  const [loadAll, setLoadAll] = useState(false);
+  useEffect(() => {
+    if ((window as Window & { __PRERENDER?: boolean }).__PRERENDER) return;
+    const go = () => {
+      const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
+      if (w.requestIdleCallback) w.requestIdleCallback(() => setLoadAll(true), { timeout: 4000 });
+      else setTimeout(() => setLoadAll(true), 1500);
+    };
+    if (document.readyState === 'complete') go();
+    else { window.addEventListener('load', go, { once: true }); return () => window.removeEventListener('load', go); }
+  }, []);
+  const slideLoaded = (i: number) => loadAll || i === slide || i === (slide + 1) % total;
+
   // Auto-advance every 6 seconds unless paused
   useEffect(() => {
     if (paused) return;
@@ -815,7 +833,7 @@ function App() {
                   the browser fetches them all. 93% of sessions are mobile, and
                   the raw JPEGs were shipping up to 2.4MB each to a 390px
                   screen. The 900px webp keeps phones under ~30KB a slide. */}
-              <picture>
+              {slideLoaded(i) && <picture>
                 <source
                   type="image/webp"
                   sizes="100vw"
@@ -828,7 +846,7 @@ function App() {
                   loading={i === 0 ? "eager" : "lazy"}
                   fetchPriority={i === 0 ? "high" : "auto"}
                 />
-              </picture>
+              </picture>}
             </div>
           ))}
         </div>
@@ -1032,7 +1050,7 @@ function App() {
                     onClick={() => setLiveVideoPlaying(true)}
                     aria-label="Play video: DJ DX djing live in the Metaverse, in collaboration with Hourglass Sessions"
                   >
-                    <img src="/dj-dx-metaverse-hourglass-sessions-poster.jpg" alt="DJ DX djing live in the Metaverse, in collaboration with Hourglass Sessions" className="video-thumb" />
+                    <img src="/dj-dx-metaverse-hourglass-sessions-poster.jpg" srcSet="/dj-dx-metaverse-hourglass-sessions-poster-640.jpg 640w, /dj-dx-metaverse-hourglass-sessions-poster.jpg 1920w" sizes="(max-width: 700px) 100vw, 1100px" loading="lazy" decoding="async" alt="DJ DX djing live in the Metaverse, in collaboration with Hourglass Sessions" className="video-thumb" />
                     <div className="video-play-btn" aria-hidden="true">
                       <svg viewBox="0 0 24 24" fill="currentColor">
                         <polygon points="5,3 19,12 5,21" />

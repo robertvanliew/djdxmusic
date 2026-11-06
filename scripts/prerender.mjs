@@ -200,6 +200,9 @@ async function prerender() {
     // Reduced motion keeps the scroll-reveal hook from hiding content
     // (opacity:0) in the captured HTML.
     await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
+    // Lets the app skip work that must not end up in the snapshot (e.g. the
+    // homepage loads hero slides 3-19 only after load; see App.tsx).
+    await page.evaluateOnNewDocument(() => { window.__PRERENDER = true; });
     // Keep prerender hits out of GA4 and skip heavy third-party embeds.
     await page.setRequestInterception(true);
     page.on('request', r => {

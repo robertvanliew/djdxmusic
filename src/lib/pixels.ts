@@ -109,18 +109,26 @@ export function initTrackingPixelsDeferred() {
   // Real intent only: a scroll also fires on load-time scroll restoration
   const EVENTS = ['pointerdown', 'keydown', 'touchstart'] as const;
 
+  // Load the pixels in an idle moment, never inside the tap that triggered
+  // them: the Meta script alone is ~110 KB and blocks a phone for ~250 ms,
+  // which made that first tap (often Check My Date) feel dead.
+  const idle = (fn: () => void) => {
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
+    if (w.requestIdleCallback) w.requestIdleCallback(fn, { timeout: 3000 }); else setTimeout(fn, 200);
+  };
   const run = () => {
     if (fired) return;
     fired = true;
-    EVENTS.forEach(e => window.removeEventListener(e, run));
-    initTrackingPixels();
+    EVENTS.forEach(e => window.removeEventListener(e, onIntent));
+    idle(initTrackingPixels);
   };
+  // A real interaction still loads them (so quick visitors are counted), 2.5 s later
+  const onIntent = () => setTimeout(run, 2500);
 
-  EVENTS.forEach(e => window.addEventListener(e, run, { once: true, passive: true }));
+  EVENTS.forEach(e => window.addEventListener(e, onIntent, { once: true, passive: true }));
 
-  // Otherwise wait until the page has fully loaded, then 4 s more, so the
-  // pixels never compete with first paint or the first interactions.
-  const later = () => setTimeout(run, 4000);
+  // Otherwise wait until the page has fully loaded, then 6 s more.
+  const later = () => setTimeout(run, 6000);
   if (document.readyState === 'complete') later();
   else window.addEventListener('load', later, { once: true });
 }

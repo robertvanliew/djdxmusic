@@ -7960,3 +7960,38 @@ body { padding-bottom: env(safe-area-inset-bottom); }
 .bf-hold { display: flex; gap: 12px; align-items: flex-start; margin: 4px 0 18px; padding: 14px 16px; border: 1px solid var(--gold-line); border-radius: 10px; background: var(--gold-dim); cursor: pointer; font-size: 0.92rem; line-height: 1.55; color: rgba(242,242,242,0.8); }
 .bf-hold input { margin-top: 3px; width: 18px; height: 18px; accent-color: #C9A84C; flex: none; }
 .bf-hold strong { color: var(--white); }
+
+/* ─── HOMEPAGE: skip off-screen layout on first load ─────────────────────
+   Measured on a throttled phone: laying out all 2,250 elements took ~716 ms
+   before the first paint (half of them in the music store). content-visibility
+   lets the browser skip sections until they near the viewport; nothing looks
+   different. Heights are each section's measured size (phone / desktop) so the
+   scrollbar and #anchor jumps stay accurate; `auto` then remembers the real
+   size. Homepage only (siblings of .hero). Left out on purpose: .qc (sticky
+   result box on desktop) and anything above the fold. */
+.hero ~ section.services,
+.hero ~ section.catalog,
+.hero ~ section.videos,
+.hero ~ section.viral,
+.hero ~ section.press,
+.hero ~ section.booking,
+.hero ~ section.faq-section,
+.hero ~ footer.footer { content-visibility: auto; }
+.hero ~ section.services { contain-intrinsic-size: auto 1766px; }
+.hero ~ section.catalog { contain-intrinsic-size: auto 4709px; }
+.hero ~ section.videos { contain-intrinsic-size: auto 1150px; }
+.hero ~ section.viral { contain-intrinsic-size: auto 1020px; }
+.hero ~ section.press { contain-intrinsic-size: auto 644px; }
+.hero ~ section.booking { contain-intrinsic-size: auto 1374px; }
+.hero ~ section.faq-section { contain-intrinsic-size: auto 757px; }
+.hero ~ footer.footer { contain-intrinsic-size: auto 1440px; }
+@media (max-width: 900px) {
+  .hero ~ section.services { contain-intrinsic-size: auto 4164px; }
+  .hero ~ section.catalog { contain-intrinsic-size: auto 4833px; }
+  .hero ~ section.videos { contain-intrinsic-size: auto 650px; }
+  .hero ~ section.viral { contain-intrinsic-size: auto 1161px; }
+  .hero ~ section.press { contain-intrinsic-size: auto 615px; }
+  .hero ~ section.booking { contain-intrinsic-size: auto 2211px; }
+  .hero ~ section.faq-section { contain-intrinsic-size: auto 850px; }
+  .hero ~ footer.footer { contain-intrinsic-size: auto 2938px; }
+}

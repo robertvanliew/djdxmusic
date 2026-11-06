@@ -1,11 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Check } from 'lucide-react';
-import { Badge } from './ui/badge';
-import { Separator } from './ui/separator';
 import type { Track } from '../catalog';
 import { useCart, CartPanel, CartFab } from './CartContext';
 import { usePlayer } from './PlayerContext';
-import ShareModal from './ShareModal';
+
+// The share dialog (Radix) only downloads when someone taps Share.
+const ShareModal = lazy(() => import('./ShareModal'));
+
+// Badge and separator: the exact markup the shadcn/base-ui versions rendered
+// (copied from the built page, after tailwind-merge resolved the classes), so
+// the homepage no longer ships base-ui, cva and tailwind-merge (~130 KB source)
+// for two static elements.
+const BADGE = 'group/badge inline-flex h-5 w-fit shrink-0 items-center justify-center gap-1 overflow-hidden rounded-4xl border px-2 py-0.5 text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3! [a]:hover:bg-muted [a]:hover:text-muted-foreground';
+const Badge = ({ className, children }: { className: string; children: React.ReactNode }) => (
+  <span data-slot="badge" data-variant="outline" className={`${BADGE} ${className}`}>{children}</span>
+);
+const Separator = ({ className }: { className: string }) => (
+  <div data-orientation="horizontal" role="separator" aria-orientation="horizontal" data-slot="separator"
+    className={`shrink-0 bg-border data-horizontal:h-px data-horizontal:w-full data-vertical:w-px data-vertical:self-stretch ${className}`} />
+);
 
 const ShareIcon = () => (
   <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -107,7 +120,7 @@ export default function MusicStore({ catalog, title = "Music Store", subTitle = 
                   </div>
 
                   <div className="bb-col-tag">
-                    <Badge variant="outline" className={`bb-badge ${tagColor[track.tag] ?? tagColor['Blend']}`}>
+                    <Badge className={`bb-badge ${tagColor[track.tag] ?? tagColor['Blend']}`}>
                       {track.tag}
                     </Badge>
                   </div>
@@ -147,11 +160,13 @@ export default function MusicStore({ catalog, title = "Music Store", subTitle = 
       <CartFab />
       <CartPanel />
       {shareTrack && (
-        <ShareModal
-          track={shareTrack}
-          shareType={shareType}
-          onClose={() => setShareTrack(null)}
-        />
+        <Suspense fallback={null}>
+          <ShareModal
+            track={shareTrack}
+            shareType={shareType}
+            onClose={() => setShareTrack(null)}
+          />
+        </Suspense>
       )}
     </>
   );

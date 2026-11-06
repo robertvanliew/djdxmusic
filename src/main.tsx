@@ -96,15 +96,25 @@ function ScrollManager() {
   useEffect(() => {
     trackPageView(pathname)
     if (hash) {
-      setTimeout(() => {
+      // The homepage skips layout for off-screen sections (content-visibility
+      // in index.css), so sections passed during the glide take their real
+      // height mid-scroll and the target moves. Re-measure when the glide ends
+      // and correct, up to 4 times.
+      let tries = 0
+      const go = () => {
         const el = document.querySelector(hash) as HTMLElement | null
-        if (el) {
-          const nav = document.querySelector('.nav') as HTMLElement | null
-          const offset = (nav?.offsetHeight ?? 70) + 16
-          const top = el.getBoundingClientRect().top + window.scrollY - offset
-          window.scrollTo({ top, behavior: 'smooth' })
-        }
-      }, 120)
+        if (!el) return
+        const nav = document.querySelector('.nav') as HTMLElement | null
+        const offset = (nav?.offsetHeight ?? 70) + 16
+        const delta = el.getBoundingClientRect().top - offset
+        if (Math.abs(delta) <= 4 || tries++ >= 4) return
+        window.scrollTo({ top: window.scrollY + delta, behavior: 'smooth' })
+        let done = false
+        const next = () => { if (done) return; done = true; window.removeEventListener('scrollend', next); setTimeout(go, 50) }
+        window.addEventListener('scrollend', next, { once: true })
+        setTimeout(next, 900) // browsers without scrollend
+      }
+      setTimeout(go, 120)
     } else {
       setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior }), 0)
     }
