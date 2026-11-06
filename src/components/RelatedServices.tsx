@@ -32,6 +32,8 @@ const ALL: Record<string, Item> = {
   'corporate-event-dj-brooklyn-ny': { slug: 'corporate-event-dj-brooklyn-ny', title: 'Corporate Event DJ Brooklyn', desc: 'DUMBO, Williamsburg, Navy Yard, and beyond.' },
   'birthday-party-dj-nyc-nj':      { slug: 'birthday-party-dj-nyc-nj',      title: 'Birthday Party DJ',            desc: '30th, 40th, 50th and milestone birthdays in NYC and NJ.' },
   'house-jersey-club-dj-nyc-nj':   { slug: 'house-jersey-club-dj-nyc-nj',   title: 'House & Jersey Club DJ',       desc: 'Club edits and Jersey Club for venues and events.' },
+  'office-holiday-party-budget-calculator': { slug: 'office-holiday-party-budget-calculator', title: 'Holiday Party Budget Calculator', desc: 'Free NYC budget: food, open bar, service, tax, DJ, per guest.' },
+  'song-request-qr-code':          { slug: 'song-request-qr-code',          title: 'Song Request QR Code',         desc: 'Free QR card: guests see what is playing and request songs.' },
 };
 
 const RELATED: Record<string, string[]> = {
@@ -44,10 +46,10 @@ const RELATED: Record<string, string[]> = {
   'wedding-entertainment-package-nyc-nj': ['wedding-dj-nyc-nj', 'violin-dj-duo-nyc-nj', 'piano-dj-duo-nyc-nj', 'wedding-dj-cost-nyc'],
   'hamptons-luxury-dj':            ['wedding-dj-long-island-ny', 'rooftop-party-dj-nyc', 'destination-wedding-dj', 'piano-dj-duo-nyc-nj'],
   'destination-wedding-dj':        ['wedding-dj-manhattan-nyc', 'hamptons-luxury-dj', 'violin-dj-duo-nyc-nj', 'wedding-dj-nyc-nj'],
-  'wedding-dj-nyc-nj':             ['wedding-dj-cost-nyc', 'wedding-entertainment-package-nyc-nj', 'rb-hip-hop-dj-nyc-nj', 'afrobeats-amapiano-dj-nyc-nj'],
+  'wedding-dj-nyc-nj':             ['wedding-dj-cost-nyc', 'wedding-entertainment-package-nyc-nj', 'song-request-qr-code', 'afrobeats-amapiano-dj-nyc-nj'],
   'wedding-dj-cost-nyc':           ['event-dj-cost-nyc-nj-ct', 'wedding-dj-nyc-nj', 'wedding-entertainment-package-nyc-nj', 'violin-dj-duo-nyc-nj'],
   'event-dj-cost-nyc-nj-ct':       ['wedding-dj-cost-nyc', 'corporate-event-dj-nyc-nj-ct', 'holiday-party-dj-nyc-nj-ct', 'dj-for-hire-nyc'],
-  'holiday-party-dj-nyc-nj-ct':    ['corporate-event-dj-nyc-nj-ct', 'new-years-eve-dj-nyc', 'event-dj-cost-nyc-nj-ct', 'private-party-dj-nyc-nj'],
+  'holiday-party-dj-nyc-nj-ct':    ['office-holiday-party-budget-calculator', 'corporate-event-dj-nyc-nj-ct', 'new-years-eve-dj-nyc', 'event-dj-cost-nyc-nj-ct'],
   'wedding-dj-manhattan-nyc':      ['wedding-dj-nyc-nj', 'wedding-dj-cost-nyc', 'hamptons-luxury-dj', 'piano-dj-duo-nyc-nj'],
   'wedding-dj-long-island-ny':     ['wedding-dj-cost-nyc', 'wedding-dj-manhattan-nyc', 'hamptons-luxury-dj', 'wedding-dj-nyc-nj'],
   'wedding-dj-stamford-ct':        ['wedding-dj-cost-nyc', 'wedding-dj-westchester-ny', 'wedding-dj-manhattan-nyc', 'wedding-dj-northern-nj'],
@@ -55,8 +57,8 @@ const RELATED: Record<string, string[]> = {
   'wedding-dj-westchester-ny':     ['wedding-dj-cost-nyc', 'sweet-16-dj-hudson-valley-ny', 'wedding-dj-stamford-ct', 'wedding-dj-nyc-nj'],
   'afrobeats-amapiano-dj-nyc-nj':  ['rb-hip-hop-dj-nyc-nj', 'hip-hop-dj-nyc-nj', 'house-jersey-club-dj-nyc-nj', 'dj-for-hire-nyc'],
   'rb-hip-hop-dj-nyc-nj':          ['hip-hop-dj-nyc-nj', 'rb-dj-nyc-nj', 'afrobeats-amapiano-dj-nyc-nj', 'wedding-dj-nyc-nj'],
-  'dj-for-hire-nyc':               ['birthday-party-dj-nyc-nj', 'holiday-party-dj-nyc-nj-ct', 'event-dj-cost-nyc-nj-ct', 'private-party-dj-nyc-nj'],
-  'new-years-eve-dj-nyc':          ['holiday-party-dj-nyc-nj-ct', 'corporate-event-dj-nyc-nj-ct', 'event-dj-cost-nyc-nj-ct', 'private-party-dj-nyc-nj'],
+  'dj-for-hire-nyc':               ['birthday-party-dj-nyc-nj', 'holiday-party-dj-nyc-nj-ct', 'song-request-qr-code', 'private-party-dj-nyc-nj'],
+  'new-years-eve-dj-nyc':          ['holiday-party-dj-nyc-nj-ct', 'corporate-event-dj-nyc-nj-ct', 'office-holiday-party-budget-calculator', 'private-party-dj-nyc-nj'],
   'private-party-dj-nyc-nj':       ['birthday-party-dj-nyc-nj', 'holiday-party-dj-nyc-nj-ct', 'dj-for-hire-nyc', 'event-dj-cost-nyc-nj-ct'],
   'hip-hop-dj-nyc-nj':             ['rb-hip-hop-dj-nyc-nj', 'rb-dj-nyc-nj', 'afrobeats-amapiano-dj-nyc-nj', 'sweet-16-dj-nyc-nj'],
   'sweet-16-dj-nyc-nj':            ['sweet-16-dj-hudson-valley-ny', 'private-party-dj-nyc-nj', 'hip-hop-dj-nyc-nj', 'afrobeats-amapiano-dj-nyc-nj'],
