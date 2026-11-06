@@ -444,7 +444,8 @@ export default function HolidayPartyDJ() {
 
       {/* ── BOOKING ── */}
       <p className="pb-clients">
-        <span>Free:</span> the <Link to="/office-holiday-party-playlist">clean office holiday party playlist</Link>, in the order the night runs.
+        <span>Free:</span> the <Link to="/office-holiday-party-playlist">clean office holiday party playlist</Link>, in the order the night runs,
+        and an <Link to="/office-holiday-party-budget-calculator">NYC holiday party budget calculator</Link>.
       </p>
       <PollPromo />
       <ProcurementNote />

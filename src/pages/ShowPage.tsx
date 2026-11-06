@@ -17,6 +17,8 @@ interface Show {
   items: Item[]; log: { at: number; text: string }[]; plan: { mustPlay: { artist: string; title: string }[]; doNotPlay: string[] };
   seratoUrl: string; receipt: Receipt | null; updatedAt: number; boothUrl?: string;
   dj?: 'djdx' | 'other'; djName?: string;
+  guestUrl?: string; guestTitle?: string; requestsOn?: boolean; guestEmailCount?: number;
+  requests?: { id: string; at: number; song: string; name: string }[];
 }
 const djOf = (s: Show) => s.dj === 'other' ? (s.djName || 'Your DJ') : 'DJ DX';
 
@@ -103,6 +105,8 @@ export default function ShowPage() {
       {show.role === 'edit'
         ? <Editor show={show} update={update} saving={saving} />
         : <Booth show={show} changed={changed} reduce={!!reduce} id={id} t={t} onUpdate={s => { prevItems.current = s.items; setShow(s); }} />}
+
+      {show.guestUrl && <GuestPanel show={show} id={id} t={t} onUpdate={s => { prevItems.current = s.items; setShow(s); }} />}
 
       {show.receipt && <ReceiptView r={show.receipt} />}
 
@@ -205,7 +209,7 @@ function Booth({ show, changed, reduce, id, t, onUpdate }: { show: Show; changed
       <section className="sh-card">
         <h2>Now playing</h2>
         {np?.live
-          ? <ul className="sh-np">{np.recent.map((tr, i) => <li key={tr.at + i} className={i === 0 ? 'sh-np-now' : ''}><time>{tr.at}</time>{tr.raw}</li>)}</ul>
+          ? <ul className="sh-np">{np.recent.slice(0, 3).map((tr, i) => <li key={tr.at + i} className={i === 0 ? 'sh-np-now' : ''}><time>{tr.at}</time>{tr.raw}</li>)}</ul>
           : <p className="sh-muted">Waiting for Serato. Start a Live Playlist in Serato DJ Pro (History panel) with internet on.</p>}
         <form className="sh-serato" onSubmit={e => { e.preventDefault(); post({ action: 'serato', url }, 'serato'); }}>
           <label htmlFor="sh-serato">{show.dj === 'other' ? 'Your public Serato Live Playlist link (needed for now playing and the Set Receipt)' : 'Serato playlist link (optional, newest playlist is used otherwise)'}</label>
@@ -237,6 +241,69 @@ function ReceiptView({ r }: { r: Receipt }) {
       </div>
       {r.mustPlay.length > 0 && <ul className="sh-mp">{r.mustPlay.map((m, i) => <li key={i} className={m.playedAt ? 'sh-ok' : 'sh-miss'}><span>{m.playedAt ? `Played at ${m.playedAt}` : 'Not played'}</span>{m.song.title}{m.song.artist ? `, ${m.song.artist}` : ''}</li>)}</ul>}
       <details><summary>Every song, in order ({r.tracks.length})</summary><ol className="sh-np">{r.tracks.map((tr, i) => <li key={i}><time>{tr.at}</time>{tr.raw}</li>)}</ol></details>
+    </section>
+  );
+}
+
+// Guest QR card: guests scan it for now playing, requests and the set list
+function GuestPanel({ show, id, t, onUpdate }: { show: Show; id: string; t: string; onUpdate: (s: Show) => void }) {
+  const [qr, setQr] = useState('');
+  const [title, setTitle] = useState(show.guestTitle || '');
+  const [msg, setMsg] = useState('');
+  const url = show.guestUrl!;
+  useEffect(() => {
+    let alive = true;
+    import('qrcode').then(QR => QR.toDataURL(url, { width: 640, margin: 2, color: { dark: '#0a0805', light: '#ffffff' } })).then(d => { if (alive) setQr(d); }).catch(() => {});
+    return () => { alive = false; };
+  }, [url]);
+  const post = async (body: object, ok: string) => {
+    setMsg('');
+    try {
+      const r = await fetch('/api/show', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, t, ...body }) });
+      const d = await r.json();
+      if (!r.ok) setMsg(d.error || 'Something went wrong'); else { onUpdate({ ...d, items: show.items }); setMsg(ok); }
+    } catch { setMsg('No connection.'); }
+  };
+  const printCard = () => {
+    document.body.classList.add('is-printing-card');
+    const done = () => { document.body.classList.remove('is-printing-card'); window.removeEventListener('afterprint', done); };
+    window.addEventListener('afterprint', done);
+    window.print();
+  };
+  const reqs = [...(show.requests || [])].reverse();
+  return (
+    <section className="sh-card">
+      <h2>Guest QR card</h2>
+      <p className="sh-muted">Put this on the booth or the bar. Guests scan it to see what song is playing, save it to Spotify or Apple Music, and get the full set list after the last song.{show.dj === 'other' ? '' : ' Their page has a "Check your date" button for DJ DX.'}</p>
+      <div className="sh-qr">
+        {qr ? <img src={qr} alt="QR code for the guest page" width={150} height={150} /> : <div style={{ width: 150, height: 150 }} />}
+        <div className="sh-qr-actions">
+          <button type="button" className="sh-copy" onClick={printCard} disabled={!qr}>Print the table card</button>
+          <a href={url} target="_blank" rel="noopener noreferrer">Open the guest page</a>
+        </div>
+      </div>
+      <label className="sh-toggle"><input type="checkbox" checked={!!show.requestsOn} onChange={e => post({ action: 'requests', on: e.target.checked }, e.target.checked ? 'Requests are on.' : 'Requests are off.')} /> Let guests send song requests</label>
+      {show.role === 'edit' && (
+        <form className="sh-gtitle" onSubmit={e => { e.preventDefault(); post({ action: 'guestTitle', guestTitle: title }, 'Saved.'); }}>
+          <label htmlFor="sh-gt" className="gl-sr">Name guests see</label>
+          <input id="sh-gt" maxLength={80} placeholder="Name guests see (default: Live set)" value={title} onChange={e => setTitle(e.target.value)} />
+          <button type="submit" className="sh-ghost">Save</button>
+        </form>
+      )}
+      {!!show.guestEmailCount && <p className="sh-muted" style={{ marginTop: 12 }}>{show.guestEmailCount} guest{show.guestEmailCount === 1 ? '' : 's'} asked for the set list. They get it when the Set Receipt is sent.</p>}
+      {msg && <p className="sh-msg" role="status">{msg}</p>}
+      {show.requestsOn && (
+        <>
+          <h3 className="gl-h3">Requests ({reqs.length})</h3>
+          {reqs.length ? <ul className="sh-req">{reqs.map(r => <li key={r.id}><time>{new Date(r.at).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' })}</time><span>{r.song}{r.name && <em> · {r.name}</em>}</span></li>)}</ul> : <p className="sh-muted">None yet.</p>}
+        </>
+      )}
+      <div className="sh-print-card" aria-hidden="true">
+        <h2>What song is this?</h2>
+        <p>Scan to see what's playing{show.requestsOn ? ', request a song' : ''} and get tonight's set list.</p>
+        {qr && <img src={qr} alt="" />}
+        <small>{show.dj === 'other' ? (show.djName || '') : 'DJ DX · djdxmusic.com'}</small>
+      </div>
     </section>
   );
 }

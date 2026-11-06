@@ -35,6 +35,10 @@
       "destination": "/show-shell.html"
     },
     {
+      "source": "/live/(.*)",
+      "destination": "/live-shell.html"
+    },
+    {
       "source": "/api/mcp",
       "destination": "/api/agent?p=mcp"
     },
@@ -175,6 +179,19 @@
         {
           "key": "X-Robots-Tag",
           "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/live/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
         }
       ]
     },

@@ -281,7 +281,7 @@ export default function Corporate() {
           </div>
           <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.55)', margin: '28px auto 0', fontSize: '0.92rem', lineHeight: 1.7, maxWidth: '680px' }}>
             Not sure which fits? <a href="#quote-calculator" style={{ color: 'var(--gold)' }}>Get an instant starting price</a> or
-            send your date and headcount and you will have a quote within 24 hours. Planners and agencies: see the <Link to="/planners" style={{ color: 'var(--gold)' }}>planner page</Link> for the stage plot, input list and paperwork.
+            send your date and headcount and you will have a quote within 24 hours. Planners and agencies: see the <Link to="/planners" style={{ color: 'var(--gold)' }}>planner page</Link> for the stage plot, input list and paperwork, or build a <Link to="/dj-proposal-for-planners" style={{ color: 'var(--gold)' }}>one-page proposal</Link> for your client. Still setting the budget? Try the <Link to="/office-holiday-party-budget-calculator" style={{ color: 'var(--gold)' }}>holiday party budget calculator</Link>.
           </p>
         </div>
       </section>

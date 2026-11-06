@@ -235,6 +235,9 @@ International: Available worldwide for destination events (Italy, Mexico,
 | Bilingual DJ & Emcee  | https://djdxmusic.com/bilingual-dj-emcee-nyc-nj | English and Spanish emcee; reggaeton to hip-hop |
 | Open Dates            | https://djdxmusic.com/open-dates | Party nights through Dec 31, booked dates marked |
 | Live Run of Show      | https://djdxmusic.com/live-run-of-show | Free shareable event timeline the DJ sees live; DJ DX clients also get a Set Receipt of every song played |
+| Song Request QR Code  | https://djdxmusic.com/song-request-qr-code | Free printable QR card: guests see what song is playing, save it to Spotify/Apple Music, request songs, get the set list after |
+| Holiday Party Budget Calculator | https://djdxmusic.com/office-holiday-party-budget-calculator | Free NYC office holiday party budget: food, open bar, service charge, 8.875% tax, DJ, photos; sourced defaults |
+| DJ Proposal Builder for Planners | https://djdxmusic.com/dj-proposal-for-planners | Planners build a one-page DJ DX proposal with published packages and terms, print to PDF or share |
 | Wedding Entrance Song Finder | https://djdxmusic.com/wedding-entrance-songs | 42 grand entrance songs filtered by vibe, genre and decade; clean edits marked; shareable shortlist |
 | Last Dance Song Finder | https://djdxmusic.com/last-dance-songs-wedding | 32 wedding last dance songs: sing-alongs, slow dances, upbeat send-offs |
 | Holiday Party Playlist | https://djdxmusic.com/office-holiday-party-playlist | 55 clean, non-religious office party songs in night order |

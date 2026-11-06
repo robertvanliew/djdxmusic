@@ -68,6 +68,9 @@ const STATIC_ROUTES = [
   '/bilingual-dj-emcee-nyc-nj',
   '/open-dates',
   '/live-run-of-show',
+  '/song-request-qr-code',
+  '/office-holiday-party-budget-calculator',
+  '/dj-proposal-for-planners',
   '/venues/the-glasshouse-hells-kitchen',
   '/venues/the-argyle-chelsea',
   '/venues/620-loft-garden-rockefeller-center',
@@ -176,6 +179,9 @@ async function writePollShell() {
   const showHead = ['<title>Run of Show | DJ DX</title>', '<meta name="robots" content="noindex, nofollow" />', '<meta name="referrer" content="no-referrer" />'].join('\n    ');
   await writeFile(join(DIST, 'show-shell.html'), raw.replace('</head>', `    ${showHead}\n  </head>`));
   console.log('prerender: wrote dist/show-shell.html');
+  const liveHead = ["<title>What's playing | DJ DX</title>", '<meta name="robots" content="noindex, nofollow" />', '<meta name="referrer" content="no-referrer" />', '<meta property="og:title" content="What song is this? See what the DJ is playing" />', '<meta property="og:image" content="https://djdxmusic.com/og-image.jpg" />'].join('\n    ');
+  await writeFile(join(DIST, 'live-shell.html'), raw.replace('</head>', `    ${liveHead}\n  </head>`));
+  console.log('prerender: wrote dist/live-shell.html');
 }
 
 async function prerender() {

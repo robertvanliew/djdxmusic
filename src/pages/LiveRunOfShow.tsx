@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion, useReducedMotion, useScroll, useTransform, useMotionValueEvent, type MotionValue } from 'motion/react';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
+import CreateForm from '../components/ShowCreateForm';
 import '../show.css';
 import '../liveshow.css';
 
@@ -79,6 +80,7 @@ export default function LiveRunOfShow() {
           <div className="ls-inner ls-narrow">
             <h2 className="ls-h2">Questions</h2>
             {FAQ.map(f => <div key={f.q} className="pl-faq"><h3>{f.q}</h3><p className="ls-p">{f.a}</p></div>)}
+            <p className="ls-p">Every run of show also comes with a <Link to="/song-request-qr-code">song request QR card</Link> for your guests.</p>
             <p className="ls-p">Booking DJ DX? Both tools are included. <Link to="/corporate-event-dj-nyc-nj-ct">Corporate events</Link> · <Link to="/wedding-dj-nyc-nj">Weddings</Link> · <Link to="/open-dates">Open dates</Link></p>
           </div>
         </section>
@@ -209,41 +211,5 @@ function ReceiptScene({ reduce }: { reduce: boolean }) {
         </div>
       </div>
     </section>
-  );
-}
-
-function CreateForm() {
-  const [f, setF] = useState({ title: '', date: '', email: '', name: '', website: '', dj: 'djdx', djName: '' });
-  const [st, setSt] = useState<'idle' | 'sending' | 'error'>('idle');
-  const [err, setErr] = useState('');
-  const submit = async (e: FormEvent) => {
-    e.preventDefault(); setSt('sending'); setErr('');
-    try {
-      const r = await fetch('/api/show', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'create', ...f }) });
-      const d = await r.json();
-      if (!r.ok) { setErr(d.error || 'Something went wrong.'); setSt('error'); return; }
-      window.location.href = d.editUrl.replace('https://djdxmusic.com', '');
-    } catch { setErr('No connection. Try again.'); setSt('error'); }
-  };
-  return (
-    <form className="booking-form ls-form" onSubmit={submit}>
-      <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}><label htmlFor="ls-w">Leave blank</label><input id="ls-w" tabIndex={-1} autoComplete="off" value={f.website} onChange={e => setF({ ...f, website: e.target.value })} /></div>
-      <div className="form-field"><label htmlFor="ls-title">Event name</label><input id="ls-title" required maxLength={120} placeholder="Acme Holiday Party" value={f.title} onChange={e => setF({ ...f, title: e.target.value })} /></div>
-      <div className="form-row">
-        <div className="form-field"><label htmlFor="ls-date">Event date</label><input id="ls-date" type="date" required value={f.date} onChange={e => setF({ ...f, date: e.target.value })} /></div>
-        <div className="form-field"><label htmlFor="ls-email">Your email</label><input id="ls-email" type="email" required autoComplete="email" placeholder="you@company.com" value={f.email} onChange={e => setF({ ...f, email: e.target.value })} /></div>
-      </div>
-      <div className="form-row">
-        <div className="form-field"><label htmlFor="ls-dj">Who is DJing?</label>
-          <select id="ls-dj" value={f.dj} onChange={e => setF({ ...f, dj: e.target.value })}>
-            <option value="djdx">DJ DX</option>
-            <option value="other">Another DJ or band</option>
-          </select>
-        </div>
-        {f.dj === 'other' && <div className="form-field"><label htmlFor="ls-djname">Their name (optional)</label><input id="ls-djname" maxLength={80} placeholder="DJ or band name" value={f.djName} onChange={e => setF({ ...f, djName: e.target.value })} /></div>}
-      </div>
-      {err && <p className="form-error" role="alert">{err}</p>}
-      <button type="submit" className="form-submit" disabled={st === 'sending'}>{st === 'sending' ? 'Creating…' : 'Create my run of show'}</button>
-    </form>
   );
 }

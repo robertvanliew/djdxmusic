@@ -178,6 +178,7 @@ export default function Planners() {
           <p style={{ ...lead, marginTop: '18px', fontSize: '0.92rem' }}>
             Corporate package details are on the <Link to="/corporate-event-dj-nyc-nj-ct#packages" style={{ color: 'var(--gold)' }}>corporate page</Link>.
             For a number in 30 seconds use the <Link to="/event-dj-cost-nyc-nj-ct#quote-calculator" style={{ color: 'var(--gold)' }}>instant price estimate</Link>.
+            Need something to send your client? Build a <Link to="/dj-proposal-for-planners" style={{ color: 'var(--gold)' }}>one-page DJ proposal</Link> with your name on it.
           </p>
         </div>
       </section>

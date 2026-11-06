@@ -62,3 +62,58 @@
   .sh-pill { grid-column: 1 / -1; justify-self: start; }
 }
 @media (hover: hover) and (pointer: fine) { .sh-tools button:not(:disabled):hover { border-color: var(--gold-line); color: var(--white); } }
+
+/* /live/:id: guest page from the QR card (GuestLive.tsx) */
+.gl-wrap { padding-bottom: 40px; }
+.gl-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.gl-now-title { font-family: 'Archivo Black', sans-serif; font-size: clamp(1.4rem, 6vw, 2rem); line-height: 1.15; margin: 6px 0 2px; color: var(--white); }
+.gl-now-artist { font-size: 1.05rem; color: rgba(242,242,242,0.75); margin: 0 0 12px; }
+.gl-h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(242,242,242,0.6); margin: 20px 0 6px; }
+.gl-list { list-style: none; margin: 0; padding: 0; }
+.gl-list li { display: flex; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--dim3); font-size: 0.95rem; color: rgba(242,242,242,0.85); }
+.gl-list time { flex: none; width: 64px; font-family: monospace; color: rgba(242,242,242,0.5); padding-top: 2px; }
+.gl-song { display: flex; flex-direction: column; gap: 4px; min-width: 0; overflow-wrap: anywhere; }
+.gl-links { display: inline-flex; gap: 14px; font-size: 0.85rem; }
+.gl-links a { color: var(--gold); text-decoration: none; padding: 6px 0; }
+.gl-links a:hover { text-decoration: underline; }
+.gl-form { display: flex; flex-direction: column; gap: 8px; }
+.gl-form label { font-size: 0.85rem; color: rgba(242,242,242,0.7); }
+.gl-form input { min-height: 46px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--edge); background: rgba(255,255,255,0.04); color: var(--white); font: inherit; font-size: 16px; }
+.gl-form input:focus { outline: none; border-color: var(--gold); }
+.gl-form button { margin-top: 6px; }
+.gl-inline { flex-direction: row; flex-wrap: wrap; }
+.gl-inline input { flex: 1 1 200px; }
+.gl-inline button { margin-top: 0; }
+.gl-inline .form-error { flex-basis: 100%; }
+.gl-cta { border-color: var(--gold-line); }
+.gl-btn { display: inline-flex; align-items: center; text-decoration: none; }
+.gl-text { margin-left: 16px; color: rgba(242,242,242,0.75); font-size: 0.9rem; }
+
+/* Guest QR card + requests in the edit and booth views (ShowPage.tsx) */
+.sh-qr { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.sh-qr img { width: 150px; height: 150px; border-radius: 10px; background: #fff; padding: 6px; }
+.sh-qr-actions { display: flex; flex-direction: column; gap: 10px; flex: 1 1 220px; }
+.sh-qr-actions a { color: var(--gold); font-size: 0.9rem; overflow-wrap: anywhere; }
+.sh-ghost { min-height: 44px; padding: 0 16px; border-radius: 8px; border: 1px solid var(--gold-line); background: transparent; color: var(--gold); font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+.sh-toggle { display: flex; align-items: center; gap: 10px; margin: 12px 0 0; font-size: 0.95rem; }
+.sh-toggle input { width: 22px; height: 22px; accent-color: var(--gold); }
+.sh-gtitle { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.sh-gtitle input { flex: 1 1 200px; min-height: 44px; padding: 0 12px; border-radius: 8px; border: 1px solid var(--edge); background: transparent; color: var(--white); font: inherit; font-size: 16px; }
+.sh-req { list-style: none; margin: 8px 0 0; padding: 0; max-height: 320px; overflow: auto; }
+.sh-req li { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--dim3); font-size: 0.95rem; }
+.sh-req time { flex: none; width: 72px; color: rgba(242,242,242,0.5); font-size: 0.85rem; }
+.sh-req em { color: rgba(242,242,242,0.55); font-style: normal; font-size: 0.85rem; }
+
+/* Printable table card: only the card prints */
+.sh-print-card { display: none; }
+@media print {
+  body.is-printing-card * { visibility: hidden !important; }
+  body.is-printing-card .sh-print-card, body.is-printing-card .sh-print-card * { visibility: visible !important; }
+  body.is-printing-card .sh-print-card { display: block; position: fixed; inset: 0; background: #fff; color: #111; text-align: center; padding: 0.6in 0.4in; font-family: Arial, sans-serif; }
+  .sh-print-card h2 { font-size: 34pt; margin: 0 0 6pt; color: #111; }
+  .sh-print-card p { font-size: 15pt; margin: 0 0 18pt; color: #333; }
+  .sh-print-card img { display: block; margin: 0 auto; width: 3.6in; height: 3.6in; }
+  .sh-print-card small { display: block; margin-top: 14pt; font-size: 10pt; color: #666; }
+}
+.gl-wrap section.sh-card { padding: 18px !important; } /* beats index.css phone section padding */
+.gl-cta .gl-text { display: inline-block; padding: 12px 0; white-space: nowrap; }

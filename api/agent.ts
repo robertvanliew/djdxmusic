@@ -659,8 +659,19 @@ namespace Show {
     seratoUrl: string; receipt: Receipt | null; createdAt: number; updatedAt: number;
     // 'other': a planner using the free tool with another DJ. Never fall back to DJ DX's Serato.
     dj?: 'djdx' | 'other'; djName?: string;
+    // Guest link (/live/<id>?g=<guestToken>), printed as a QR card at the booth.
+    // Guests see now playing, the set list after the event, and (only when
+    // requestsOn) can send song requests. guestTitle is what guests see: it
+    // defaults to a generic name so a private client is never shown.
+    guestToken?: string; guestTitle?: string; requestsOn?: boolean;
+    requests?: GuestRequest[];
+    // Guests who asked for the set list by email. Used once, for that email only.
+    guestEmails?: string[]; guestEmailsSent?: boolean;
   }
+  export interface GuestRequest { id: string; at: number; song: string; name: string }
   const djLabel = (rec: ShowRecord) => rec.dj === 'other' ? (rec.djName || 'your DJ') : 'DJ DX';
+  const guestUrl = (rec: ShowRecord) => `${SITE}/live/${rec.id}?g=${rec.guestToken}`;
+  const guestTitleOf = (rec: ShowRecord) => rec.guestTitle || 'Live set';
 
   async function redis(cmds: (string | number)[][]): Promise<unknown[]> {
     if (!REDIS_URL || !REDIS_TOKEN) return [];
@@ -682,16 +693,36 @@ namespace Show {
     rec.updatedAt = Date.now();
     await redis([['SET', `show:${rec.id}`, JSON.stringify(rec), 'EX', ttl(rec.date)]]);
   }
-  function role(rec: ShowRecord, t: unknown): 'edit' | 'booth' | null {
-    if (typeof t !== 'string') return null;
+  type Role = 'edit' | 'booth' | 'guest';
+  function role(rec: ShowRecord, t: unknown): Role | null {
+    if (typeof t !== 'string' || !t) return null;
     if (t === rec.editToken) return 'edit';
     if (t === rec.boothToken) return 'booth';
+    if (rec.guestToken && t === rec.guestToken) return 'guest';
     return null;
   }
-  // What each link may see: never the other link's token or the client's email
+  // Older records were made before guest links existed: give them one on first view
+  async function ensureGuest(rec: ShowRecord) {
+    if (rec.guestToken) return;
+    rec.guestToken = tok(8).toLowerCase();
+    await save(rec);
+  }
+  // What each link may see: never another link's token, the client's email or guest emails
   function view(rec: ShowRecord, r: 'edit' | 'booth') {
-    const { editToken: _e, boothToken: _b, clientEmail: _c, ...rest } = rec;
-    return { ...rest, role: r, ...(r === 'edit' ? { boothUrl: `${SITE}/show/${rec.id}?t=${rec.boothToken}` } : {}) };
+    const { editToken: _e, boothToken: _b, clientEmail: _c, guestToken: _g, guestEmails, ...rest } = rec;
+    return {
+      ...rest, role: r, requests: rec.requests || [], requestsOn: !!rec.requestsOn,
+      guestUrl: guestUrl(rec), guestTitle: guestTitleOf(rec), guestEmailCount: (guestEmails || []).length,
+      ...(r === 'edit' ? { boothUrl: `${SITE}/show/${rec.id}?t=${rec.boothToken}` } : {}),
+    };
+  }
+  // Guests get only what is safe to show a room full of strangers
+  function guestView(rec: ShowRecord, tracks: Track[]) {
+    return {
+      role: 'guest' as const, id: rec.id, title: guestTitleOf(rec), date: rec.date,
+      dj: rec.dj === 'other' ? 'other' : 'djdx', djName: rec.dj === 'other' ? (rec.djName || '') : 'DJ DX',
+      requestsOn: !!rec.requestsOn, ended: !!rec.receipt, tracks,
+    };
   }
   function cleanItems(v: unknown): Item[] {
     return (Array.isArray(v) ? v : []).slice(0, 40).map(x => {
@@ -789,6 +820,41 @@ namespace Show {
   </div></div>`;
   }
 
+  // The set list a guest asked for at the event. Sent once; no list, no follow-ups.
+  function guestSetlistHtml(rec: ShowRecord, tracks: Track[]): string {
+    const dx = rec.dj !== 'other';
+    const camp = `utm_source=live&utm_medium=email&utm_campaign=setlist-${rec.id}`;
+    const songs = tracks.map(t => `<tr><td style="padding:6px 10px 6px 0;color:#888;font-size:12px;font-family:monospace;white-space:nowrap;vertical-align:top">${esc(t.at)}</td><td style="padding:6px 0;font-size:14px;color:#111">${esc(t.raw)} <a href="https://open.spotify.com/search/${encodeURIComponent(t.raw)}" style="color:#1a7f45;font-size:12px;text-decoration:none">Spotify</a></td></tr>`).join('');
+    return `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;border:1px solid #e5e5e5;border-radius:8px;overflow:hidden">
+  <div style="background:#111;padding:24px 28px;border-bottom:3px solid #C9A84C"><h1 style="color:#C9A84C;font-size:20px;margin:0">Last night's set list</h1><p style="color:rgba(255,255,255,.65);margin:6px 0 0;font-size:13px">${esc(guestTitleOf(rec))} · ${esc(rec.date)} · ${esc(djLabel(rec))}</p></div>
+  <div style="padding:22px 28px">
+    <p style="font-size:14px;color:#333;line-height:1.6">You asked for this at the event. Every song, in the order it played (times are minutes into the set):</p>
+    <table style="width:100%;border-collapse:collapse">${songs}</table>
+    ${dx
+      ? `<div style="margin-top:22px;padding:18px;background:#f7f4ea;border-radius:8px"><p style="margin:0 0 10px;font-size:15px;color:#111"><strong>Planning your own event?</strong> DJ DX plays corporate events, weddings and private parties in NYC, NJ and CT.</p><a href="${SITE}/open-dates?${camp}" style="display:inline-block;background:#C9A84C;color:#111;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:700">Check your date</a></div>`
+      : `<p style="margin-top:22px;font-size:13px;color:#666">Set list page made with the free <a href="${SITE}/song-request-qr-code?${camp}" style="color:#9a7b2c">live song page by DJ DX</a>.</p>`}
+    <p style="font-size:12px;color:#888;margin-top:18px">This is the only email you'll get from this. Your address isn't added to any list.</p>
+  </div></div>`;
+  }
+  async function sendGuestSetlists(rec: ShowRecord, tracks: Track[], emails: string[]) {
+    if (!emails.length || !tracks.length) return;
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const html = guestSetlistHtml(rec, tracks);
+    const subject = `Set list: ${guestTitleOf(rec)} (${rec.date})`;
+    // One email per guest (never a shared To/CC), 100 per batch call
+    for (let i = 0; i < emails.length; i += 100) {
+      await resend.batch.send(emails.slice(i, i + 100).map(to => ({ from: FROM, to: [to], replyTo: TO, subject, html })));
+    }
+  }
+
+  // Per show + IP, per 10 minutes: stops one phone flooding the booth
+  async function guestLimited(id: string, ip: string, kind: string, max: number): Promise<boolean> {
+    const slot = Math.floor(Date.now() / 600_000);
+    const key = `show:g:${kind}:${id}:${createHash('sha256').update(ip).digest('hex').slice(0, 16)}:${slot}`;
+    const [n] = await redis([['INCR', key], ['EXPIRE', key, 600]]);
+    return Number(n) > max;
+  }
+
   async function overLimit(ip: string): Promise<boolean> {
     const hour = Math.floor(Date.now() / 3_600_000);
     const key = `show:rl:${createHash('sha256').update(ip).digest('hex').slice(0, 24)}:${hour}`;
@@ -805,14 +871,27 @@ namespace Show {
       const r = rec && role(rec, q.t);
       if (!rec || !r) return res.status(404).json({ error: 'Not found' });
       if (q.now) {
+        // After the receipt the set is over: never fall back to the newest
+        // profile playlist, which by then may be a different event
+        if (rec.receipt) {
+          const out = { live: false, ended: true, recent: [] };
+          return res.status(200).json(r === 'guest' ? out : { ...out, url: rec.receipt.source });
+        }
         const [cached] = await redis([['GET', `show:np:${rec.id}`]]);
-        if (cached) return res.status(200).json(JSON.parse(String(cached)));
-        const url = await seratoUrl(rec);
-        const tracks = await fetchTracks(url).catch(() => []);
-        const out = { url, live: tracks.length > 0, recent: tracks.slice(-3).reverse() };
-        await redis([['SET', `show:np:${rec.id}`, JSON.stringify(out), 'EX', 20]]);
+        let out: { url: string; live: boolean; recent: Track[] };
+        if (cached) out = JSON.parse(String(cached));
+        else {
+          const url = await seratoUrl(rec);
+          const tracks = await fetchTracks(url).catch(() => []);
+          out = { url, live: tracks.length > 0, recent: tracks.slice(-10).reverse() };
+          await redis([['SET', `show:np:${rec.id}`, JSON.stringify(out), 'EX', 20]]);
+        }
+        // Guests never learn which Serato account or playlist this is
+        if (r === 'guest') return res.status(200).json({ live: out.live, ended: false, recent: out.recent });
         return res.status(200).json(out);
       }
+      if (r === 'guest') return res.status(200).json(guestView(rec, rec.receipt ? rec.receipt.tracks : []));
+      await ensureGuest(rec);
       return res.status(200).json(view(rec, r));
     }
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
@@ -839,6 +918,7 @@ namespace Show {
         ],
         log: [{ at: Date.now(), text: 'Run of show created' }], plan: { mustPlay: [], doNotPlay: [] },
         seratoUrl: '', receipt: null, createdAt: Date.now(), updatedAt: Date.now(), dj, djName,
+        guestToken: tok(8).toLowerCase(), requestsOn: false,
       };
       await save(rec);
       const editUrl = `${SITE}/show/${rec.id}?t=${rec.editToken}`;
@@ -855,6 +935,50 @@ namespace Show {
     const rec = await load(s(b.id, 12));
     const r = rec && role(rec, b.t);
     if (!rec || !r) return res.status(404).json({ error: 'Not found' });
+    const ip = String(req.headers['x-real-ip'] || String(req.headers['x-forwarded-for'] || '').split(',')[0] || 'unknown');
+
+    // ── Guest actions ──
+    if (action === 'request') {
+      if (r !== 'guest') return res.status(403).json({ error: 'Guests only' });
+      if (s(b.website, 100)) return res.status(200).json({ ok: true }); // honeypot
+      if (!rec.requestsOn) return res.status(409).json({ error: 'Requests are off for this event.' });
+      if (rec.receipt) return res.status(409).json({ error: 'The set has ended.' });
+      const song = s(b.song, 120), name = s(b.name, 40);
+      if (song.length < 2) return res.status(400).json({ error: 'Type a song or artist' });
+      if (await guestLimited(rec.id, ip, 'rq', 3)) return res.status(429).json({ error: 'Thanks! You can send more in a few minutes.' });
+      rec.requests = [...(rec.requests || []), { id: tok(8), at: Date.now(), song, name }].slice(-300);
+      await save(rec);
+      return res.status(200).json({ ok: true });
+    }
+    if (action === 'notify') {
+      if (r !== 'guest') return res.status(403).json({ error: 'Guests only' });
+      if (s(b.website, 100)) return res.status(200).json({ ok: true }); // honeypot
+      const email = s(b.email, 200).toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Enter a valid email' });
+      if (await guestLimited(rec.id, ip, 'em', 3)) return res.status(429).json({ error: 'Try again in a few minutes.' });
+      // Set already over: send it right away instead of storing the address
+      if (rec.receipt) {
+        try { await sendGuestSetlists(rec, rec.receipt.tracks, [email]); } catch (e) { console.error('show: guest setlist failed', e); return res.status(502).json({ error: 'Could not send. Try again.' }); }
+        return res.status(200).json({ ok: true, sent: true });
+      }
+      const list = rec.guestEmails || [];
+      if (!list.includes(email) && list.length < 1000) { rec.guestEmails = [...list, email]; await save(rec); }
+      return res.status(200).json({ ok: true, sent: false });
+    }
+    if (r === 'guest') return res.status(403).json({ error: 'Read only' });
+
+    if (action === 'requests') {
+      rec.requestsOn = b.on === true;
+      rec.log = [...rec.log, { at: Date.now(), text: `Guest song requests turned ${rec.requestsOn ? 'on' : 'off'}` }].slice(-60);
+      await save(rec);
+      return res.status(200).json(view(rec, r));
+    }
+    if (action === 'guestTitle') {
+      if (r !== 'edit') return res.status(403).json({ error: 'Read only' });
+      rec.guestTitle = s(b.guestTitle, 80);
+      await save(rec);
+      return res.status(200).json(view(rec, r));
+    }
 
     if (action === 'update') {
       if (r !== 'edit') return res.status(403).json({ error: 'Read only' });
@@ -886,8 +1010,17 @@ namespace Show {
         const resend = new Resend(process.env.RESEND_API_KEY);
         const html = receiptHtml(rec, rec.receipt);
         if (rec.clientEmail) await resend.emails.send({ from: FROM, to: [rec.clientEmail], replyTo: TO, subject: `Your Set Receipt: ${rec.title}`, html });
-        await resend.emails.send({ from: FROM, to: [TO], subject: `[Set Receipt sent] ${rec.title} | ${rec.date}`, html });
+        const guests = rec.guestEmails || [], reqs = (rec.requests || []).length;
+        await resend.emails.send({ from: FROM, to: [TO], subject: `[Set Receipt sent] ${rec.title} | ${rec.date}`, html: `<p style="font-family:Arial;font-size:14px">Guest page: ${guests.length} guest${guests.length === 1 ? '' : 's'} asked for the set list${reqs ? `, ${reqs} song request${reqs === 1 ? '' : 's'}` : ''}.</p>${html}` });
       } catch (e) { console.error('show: receipt email failed', e); }
+      // Guests who asked for the set list get it once; addresses are then dropped
+      if (rec.guestEmails?.length && !rec.guestEmailsSent) {
+        try {
+          await sendGuestSetlists(rec, rec.receipt.tracks, rec.guestEmails);
+          rec.guestEmailsSent = true; rec.guestEmails = [];
+          await save(rec);
+        } catch (e) { console.error('show: guest setlists failed', e); }
+      }
       return res.status(200).json(view(rec, r));
     }
     return res.status(400).json({ error: 'Unknown action' });
