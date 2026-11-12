@@ -1,9 +1,11 @@
 # robots.txt — djdxmusic.com
-# Updated: 2026-10-05
+# Updated: 2026-11-12
 
 # ── Allow all crawlers ───────────────────────────────────────────────────────
 User-agent: *
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -20,7 +22,9 @@ Disallow: /api/booking
 
 # ── Google ───────────────────────────────────────────────────────────────────
 User-agent: Googlebot
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -29,7 +33,9 @@ Disallow: /admin
 Disallow: /api/
 
 User-agent: Googlebot-Image
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -37,7 +43,9 @@ Allow: /
 Disallow: /api/
 
 User-agent: Googlebot-Video
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -46,7 +54,9 @@ Disallow: /api/
 
 # ── Bing ─────────────────────────────────────────────────────────────────────
 User-agent: Bingbot
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -55,7 +65,9 @@ Disallow: /api/
 
 # ── AI / Answer Engine crawlers ──────────────────────────────────────────────
 User-agent: GPTBot
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -63,14 +75,18 @@ Allow: /
 Disallow: /api/
 
 User-agent: ChatGPT-User
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
 Allow: /
 
 User-agent: PerplexityBot
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -78,21 +94,27 @@ Allow: /
 
 # Anthropic AI crawlers (all three user agents Anthropic uses)
 User-agent: Claude-Web
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
 Allow: /
 
 User-agent: ClaudeBot
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
 Allow: /
 
 User-agent: anthropic-ai
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -100,7 +122,9 @@ Allow: /
 
 # Google Gemini + AI Overviews
 User-agent: Google-Extended
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -109,7 +133,9 @@ Disallow: /api/
 
 # Apple Intelligence
 User-agent: Applebot
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -118,7 +144,9 @@ Disallow: /api/
 
 # Meta AI
 User-agent: meta-externalagent
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/
@@ -126,7 +154,9 @@ Allow: /
 
 # Yandex (international traffic — Russia/Eastern Europe)
 User-agent: Yandex
-Disallow: /plan
+Disallow: /plan$
+Disallow: /plan/
+Disallow: /plan?
 Disallow: /confirm
 Disallow: /show/
 Disallow: /live/

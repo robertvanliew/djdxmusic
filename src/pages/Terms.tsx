@@ -9,7 +9,6 @@ export default function Terms() {
         <title>Terms & Conditions — DJ DX Music Store | FRANKPELLA LLC</title>
         <meta name="description" content="Terms and conditions for the DJ DX music store. Read our purchase, download, and usage policies before buying exclusive tracks and productions." />
         <link rel="canonical" href="https://djdxmusic.com/terms" />
-        <meta name="robots" content="noindex, follow" />
       </Helmet>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '80px 24px 120px' }}>
 
