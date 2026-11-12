@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import LocalLanding, { type FaqItem } from '../../components/LocalLanding';
+import OpenDatesStrip from '../../components/OpenDatesStrip';
 
 const FAQ: FaqItem[] = [
   { q: 'How much does a corporate event DJ cost in Brooklyn?', a: 'DJ DX corporate events start at $2,800, and travel inside the five boroughs is included in the quoted total. That price covers professional sound, a wireless microphone for speeches, MC announcements, and a planning call.' },
@@ -24,6 +25,7 @@ export default function CorporateBrooklyn() {
         Corporate events start at $2,800, with sound, a wireless mic, and MC announcements included and travel inside NYC
         already in the price. You get a quote within 24 hours.
       </>}
+      afterHero={<OpenDatesStrip mode="december" source="brooklyn" />}
       localHeading={<>Based in <span>Brooklyn</span></>}
       local={<>
         <p style={{ marginBottom: '16px' }}>

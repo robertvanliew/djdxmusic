@@ -646,6 +646,12 @@ namespace Show {
   const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN || '';
   const SERATO_USER = process.env.SERATO_USERNAME || '';
   const DAY = 86400;
+  // DJ DX's Google review link. Keep in sync with src/data/reviews.ts. Empty = no
+  // review ask in any email. Same ask for everyone: no incentive, no filtering.
+  const REVIEW_URL = process.env.GOOGLE_REVIEW_URL || '';
+  const reviewAsk = (rec: ShowRecord, who: 'client' | 'guest') => (REVIEW_URL && rec.dj !== 'other')
+    ? `<p style="font-size:14px;color:#333;line-height:1.6;margin-top:18px">${who === 'client' ? 'If the night went the way you hoped' : 'If you enjoyed the music'}, a Google review helps the next planner find DJ DX: <a href="${REVIEW_URL}" style="color:#9a7b2c;font-weight:700">leave a review</a>. It takes about a minute.</p>`
+    : '';
 
   export interface Item { id: string; time: string; label: string; note: string }
   export interface Song { artist: string; title: string }
@@ -833,6 +839,7 @@ namespace Show {
     ${dx
       ? `<div style="margin-top:22px;padding:18px;background:#f7f4ea;border-radius:8px"><p style="margin:0 0 10px;font-size:15px;color:#111"><strong>Planning your own event?</strong> DJ DX plays corporate events, weddings and private parties in NYC, NJ and CT.</p><a href="${SITE}/open-dates?${camp}" style="display:inline-block;background:#C9A84C;color:#111;padding:10px 20px;border-radius:6px;text-decoration:none;font-weight:700">Check your date</a></div>`
       : `<p style="margin-top:22px;font-size:13px;color:#666">Set list page made with the free <a href="${SITE}/song-request-qr-code?${camp}" style="color:#9a7b2c">live song page by DJ DX</a>.</p>`}
+    ${reviewAsk(rec, 'guest')}
     <p style="font-size:12px;color:#888;margin-top:18px">This is the only email you'll get from this. Your address isn't added to any list.</p>
   </div></div>`;
   }
@@ -1009,7 +1016,7 @@ namespace Show {
       try {
         const resend = new Resend(process.env.RESEND_API_KEY);
         const html = receiptHtml(rec, rec.receipt);
-        if (rec.clientEmail) await resend.emails.send({ from: FROM, to: [rec.clientEmail], replyTo: TO, subject: `Your Set Receipt: ${rec.title}`, html });
+        if (rec.clientEmail) await resend.emails.send({ from: FROM, to: [rec.clientEmail], replyTo: TO, subject: `Your Set Receipt: ${rec.title}`, html: html + reviewAsk(rec, 'client') });
         const guests = rec.guestEmails || [], reqs = (rec.requests || []).length;
         await resend.emails.send({ from: FROM, to: [TO], subject: `[Set Receipt sent] ${rec.title} | ${rec.date}`, html: `<p style="font-family:Arial;font-size:14px">Guest page: ${guests.length} guest${guests.length === 1 ? '' : 's'} asked for the set list${reqs ? `, ${reqs} song request${reqs === 1 ? '' : 's'}` : ''}.</p>${html}` });
       } catch (e) { console.error('show: receipt email failed', e); }

@@ -1,20 +1,24 @@
 import { useState, type FormEvent } from 'react';
 import { trackEvent } from '../lib/analytics';
 
-// The free "create a live run of show" form, used on /live-run-of-show and
-// /song-request-qr-code. Creates the record and opens its edit link.
+// The free "create a live run of show" form, used on /live-run-of-show,
+// /song-request-qr-code and /office-holiday-party-run-of-show. Creates the
+// record and opens its edit link. `items` starts the timeline from a template
+// (the API trims and caps them); without it the API uses its own five defaults.
 
-export default function ShowCreateForm({ idp = 'ls', cta = 'Create my run of show', source = 'live-run-of-show' }: { idp?: string; cta?: string; source?: string }) {
+export interface ShowItem { time: string; label: string; note: string }
+
+export default function ShowCreateForm({ idp = 'ls', cta = 'Create my run of show', source = 'live-run-of-show', items }: { idp?: string; cta?: string; source?: string; items?: ShowItem[] }) {
   const [f, setF] = useState({ title: '', date: '', email: '', name: '', website: '', dj: 'djdx', djName: '' });
   const [st, setSt] = useState<'idle' | 'sending' | 'error'>('idle');
   const [err, setErr] = useState('');
   const submit = async (e: FormEvent) => {
     e.preventDefault(); setSt('sending'); setErr('');
     try {
-      const r = await fetch('/api/show', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'create', ...f }) });
+      const r = await fetch('/api/show', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'create', ...f, ...(items?.length ? { items } : {}) }) });
       const d = await r.json();
       if (!r.ok) { setErr(d.error || 'Something went wrong.'); setSt('error'); return; }
-      trackEvent('show_created', { source, dj: f.dj });
+      trackEvent('show_created', { source, dj: f.dj, template: items?.length ? 'yes' : 'no' });
       window.location.href = d.editUrl.replace('https://djdxmusic.com', '');
     } catch { setErr('No connection. Try again.'); setSt('error'); }
   };

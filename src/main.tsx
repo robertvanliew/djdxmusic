@@ -73,6 +73,11 @@ const ShowPage = lazy(() => import('./pages/ShowPage.tsx'))
 const GuestLive = lazy(() => import('./pages/GuestLive.tsx'))
 const SongRequestQR = lazy(() => import('./pages/SongRequestQR.tsx'))
 const HolidayBudget = lazy(() => import('./pages/HolidayBudget.tsx'))
+const HolidayRunOfShow = lazy(() => import('./pages/HolidayRunOfShow.tsx'))
+const LastMinuteDJ = lazy(() => import('./pages/seo/LastMinuteDJ.tsx'))
+const LawFirmFinanceDJ = lazy(() => import('./pages/seo/LawFirmFinanceDJ.tsx'))
+const RetailEventDJ = lazy(() => import('./pages/seo/RetailEventDJ.tsx'))
+const WeddingWeekendDJ = lazy(() => import('./pages/seo/WeddingWeekendDJ.tsx'))
 const PlannerProposal = lazy(() => import('./pages/PlannerProposal.tsx'))
 const PrivatePartyDJ = lazy(() => import('./pages/seo/PrivatePartyDJ.tsx'))
 const HipHopDJ    = lazy(() => import('./pages/seo/HipHopDJ.tsx'))
@@ -200,6 +205,11 @@ createRoot(rootEl).render(
             <Route path="/live/:id" element={<GuestLive />} />
             <Route path="/song-request-qr-code" element={<SongRequestQR />} />
             <Route path="/office-holiday-party-budget-calculator" element={<HolidayBudget />} />
+            <Route path="/office-holiday-party-run-of-show" element={<HolidayRunOfShow />} />
+            <Route path="/last-minute-dj-nyc" element={<LastMinuteDJ />} />
+            <Route path="/law-firm-finance-event-dj-nyc" element={<LawFirmFinanceDJ />} />
+            <Route path="/store-opening-retail-event-dj-nyc" element={<RetailEventDJ />} />
+            <Route path="/wedding-welcome-party-after-party-dj-nyc-nj" element={<WeddingWeekendDJ />} />
             <Route path="/dj-proposal-for-planners" element={<PlannerProposal />} />
             <Route path="/private-party-dj-nyc-nj" element={<PrivatePartyDJ />} />
             <Route path="/hip-hop-dj-nyc-nj" element={<HipHopDJ />} />

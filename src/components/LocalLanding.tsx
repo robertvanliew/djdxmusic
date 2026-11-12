@@ -33,6 +33,7 @@ type Props = {
   local: ReactNode;            // unique local copy
   planning: { heading: ReactNode; items: [string, string][] };
   proof: { overline: string; title: ReactNode; body: ReactNode; image?: { src: string; alt: string }; note?: ReactNode };
+  afterHero?: ReactNode;       // optional block right under the hero (e.g. a live date strip)
   children?: ReactNode;        // extra unique sections
   included: [string, string][];
   faq: FaqItem[];
@@ -113,6 +114,8 @@ export default function LocalLanding(p: Props) {
           </div>
         </div>
       </section>
+
+      {p.afterHero}
 
       {/* ── LOCAL ── */}
       <section style={{ padding: '80px 24px' }}>

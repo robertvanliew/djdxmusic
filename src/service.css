@@ -355,3 +355,41 @@
   body.is-printing-budget .hb-lines i { background: #C9A84C !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
 }
 .pp-doc section { padding: 0 !important; margin: 0; } /* beats index.css phone rule: section { padding: 60px 20px !important } */
+
+/* ── Live date strips on service pages (OpenDatesStrip.tsx) ── */
+.ods { padding: 56px 24px; border-top: 1px solid rgba(201,168,76,0.12); border-bottom: 1px solid rgba(201,168,76,0.12); background: rgba(255,255,255,0.02); }
+.ods-inner { max-width: 860px; }
+.ods-title { margin-bottom: 10px; }
+.ods-lead { color: rgba(242,242,242,0.75); font-size: 1rem; line-height: 1.7; margin: 0 0 6px; }
+.ods-lead strong { color: var(--white); }
+.ods-lead a, .ods-fine a, .ods-nye a { color: var(--gold); }
+.ods-fine { margin: 14px 0 0; font-size: 0.85rem; color: rgba(242,242,242,0.5); }
+a.od-day { text-decoration: none; }
+@media (hover: hover) and (pointer: fine) { a.od-day:hover { border-color: var(--gold-line); } }
+.ods-nye { max-width: 640px; margin: 0 auto 1.4rem; padding: 12px 16px; border: 1px solid var(--gold-line, rgba(201,168,76,0.4)); border-radius: 10px; background: rgba(12,12,12,0.55); color: rgba(242,242,242,0.85); font-size: 0.98rem; line-height: 1.6; }
+.ods-nye strong { color: var(--white); }
+.nye-proof { max-width: 980px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; align-items: center; }
+.nye-proof video { width: 100%; max-width: 320px; height: auto; aspect-ratio: 720 / 1280; border-radius: 12px; background: #000; justify-self: center; }
+@media (min-width: 820px) { .nye-proof { grid-template-columns: minmax(0, 1.3fr) 320px; } }
+.hb-bench { margin: 14px 0 22px; }
+.hb-bench td:nth-child(2) { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--white); }
+.hb-bench td:nth-child(3) { color: rgba(242,242,242,0.55); font-size: 0.85rem; }
+
+/* ── Holiday party run of show templates (/office-holiday-party-run-of-show) ── */
+.ros-table td:first-child { white-space: nowrap; color: var(--white); font-variant-numeric: tabular-nums; font-weight: 600; }
+.ros-table td:nth-child(3) { color: rgba(242,242,242,0.6); }
+.ros-print-foot { display: none; }
+@media (max-width: 560px) {
+  .ros-table thead { display: none; }
+  .ros-table tr { display: grid; grid-template-columns: 84px minmax(0, 1fr); border-bottom: 1px solid var(--dim3); padding: 8px 0; }
+  .ros-table td { border-bottom: 0; padding: 2px 8px 2px 0; }
+  .ros-table td:nth-child(3) { grid-column: 2; font-size: 0.85rem; }
+  .ros-table td:nth-child(3):empty { display: none; }
+}
+@media print {
+  body.is-printing-timeline * { visibility: hidden !important; }
+  body.is-printing-timeline .ros-print, body.is-printing-timeline .ros-print * { visibility: visible !important; color: #111 !important; }
+  body.is-printing-timeline .ros-print { position: absolute; left: 0; top: 0; width: 100%; background: #fff; }
+  body.is-printing-timeline .ros-print th { color: #8a6d1f !important; }
+  body.is-printing-timeline .ros-print-foot { display: block; margin-top: 14pt; font-size: 9pt; color: #666 !important; }
+}

@@ -10,14 +10,15 @@ import { Link } from 'react-router-dom';
 import AuthorBio from '../../components/AuthorBio';
 import SongFinderPromo from '../../components/SongFinderPromo';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
+import QuoteCalculator from '../../components/QuoteCalculator';
 export default function WeddingDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>Wedding DJ NYC & NJ | R&B, Hip-Hop, Afrobeats | DJ DX</title>
-        <meta name="description" content="Wedding DJ in New York and New Jersey. DJ DX plays R&B, Hip-Hop, Afrobeats and Old School for weddings across NYC, NJ and the tri-state. 500+ events." />
+        <title>Wedding DJ NYC & NJ | R&B, Hip-Hop, Afrobeats, From $2,800</title>
+        <meta name="description" content="R&B and hip-hop wedding DJ for NYC and NJ. Afrobeats and old school too, ceremony to last dance, live violin option. From $2,800. Check your date." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-nyc-nj" />
         <meta property="og:title" content="Wedding DJ NYC & NJ — DJ DX" />
         <meta property="og:description" content="Professional wedding DJ in New York and New Jersey specializing in R&B, Hip-Hop, Afrobeats, and Old School. Book DJ DX for your wedding reception, cocktail hour, and after-party." />
@@ -122,7 +123,7 @@ export default function WeddingDJ() {
                   "name": "How far in advance should I book a wedding DJ in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "For NYC and NJ weddings, booking 6–12 months in advance is strongly recommended — especially for peak season dates from May through October, when top DJs fill calendars quickly. DJ DX books 50+ weddings annually across New York, New Jersey, and Connecticut. Reach out as early as possible to confirm availability for your date."
+                    "text": "For NYC and NJ weddings, booking 6–12 months in advance is strongly recommended — especially for peak season dates from May through October, when top DJs fill calendars quickly. Reach out as early as possible to confirm availability for your date."
                   }
                 }
               ]
@@ -155,13 +156,16 @@ export default function WeddingDJ() {
             <span className="sec-label">Wedding DJ — New York & New Jersey</span>
           </div>
           <h1 className="sec-title" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', marginBottom: '1.2rem' }}>
-            Your Wedding Deserves <span>the Best DJ</span>
+            Wedding DJ in NYC &amp; NJ: <span>R&amp;B, Hip-Hop, Afrobeats</span>
           </h1>
           <p style={{ maxWidth: '600px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
             R&amp;B, Hip-Hop, Afrobeats, and soulful blends — custom-curated for your day.
-            25+ years of experience. 500+ events. TED-featured artist.
+            25+ years of experience. 500+ events. TED-featured artist. Weddings from $2,800.
           </p>
           <a href="#booking" className="btn-gold">Check Availability</a>
+          <p style={{ margin: '14px auto 0', fontSize: '0.92rem' }}>
+            <a href="#quote-calculator" style={{ color: 'var(--gold)' }}>Or get an instant starting price</a>
+          </p>
         </div>
       </section>
 
@@ -182,7 +186,7 @@ export default function WeddingDJ() {
             </div>
             <div className="about-aside">
               {[
-                { num: '20+', label: 'Years Experience', sub: 'Wedding DJ in NY & NJ' },
+                { num: '25+', label: 'Years Experience', sub: 'Wedding DJ in NY & NJ' },
                 { num: '500+', label: 'Events Performed', sub: 'Weddings, galas, receptions' },
                 { num: '100+', label: 'Original Blends', sub: 'Music you won\'t hear anywhere else' },
               ].map(s => (
@@ -237,7 +241,7 @@ export default function WeddingDJ() {
               { q: 'How much does a wedding DJ cost in NYC?', a: 'Wedding DJ pricing in New York City typically ranges from $2,800 to $6,000+ depending on event duration, venue size, and experience level. DJ DX — a TED-featured DJ and producer with 25+ years of experience and 500+ events performed across NYC and NJ — offers custom quotes based on your specific date, venue, and package. Contact bookings@djdxmusic.com for transparent pricing within 24 hours.' },
               { q: 'What genres does DJ DX play at weddings?', a: 'DJ DX specializes in R&B, Hip-Hop, Afrobeats, Amapiano, Old School, House, Reggaeton, and custom genre blends — the music that actually fills dance floors at multicultural New York and New Jersey weddings. Every wedding set is custom-built around the couple\'s preferences and guest demographics, with 100+ original blends and transitions not available from cookie-cutter DJ services.' },
               { q: 'Does DJ DX cover both the ceremony and reception?', a: 'Yes. DJ DX is available for the complete wedding day — ceremony processional and recessional, cocktail hour, reception, and late-night after-party. For couples seeking an elevated experience, the Soul Shades live violin and DJ package layers live strings over DJ sets, creating a one-of-a-kind atmosphere that guests consistently describe as the highlight of the evening.' },
-              { q: 'How far in advance should I book a wedding DJ in NYC?', a: 'For NYC and NJ weddings, booking 6–12 months in advance is strongly recommended — especially for peak season dates from May through October, when top DJs fill calendars quickly. DJ DX books 50+ weddings annually across New York, New Jersey, and Connecticut. Reach out as early as possible to confirm availability for your date.' },
+              { q: 'How far in advance should I book a wedding DJ in NYC?', a: 'For NYC and NJ weddings, booking 6–12 months in advance is strongly recommended — especially for peak season dates from May through October, when top DJs fill calendars quickly. Reach out as early as possible to confirm availability for your date.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>
@@ -273,6 +277,7 @@ export default function WeddingDJ() {
         </div>
       </section>
 
+      <QuoteCalculator formName="wedding_dj" defaultEvent="wedding" />
       <RelatedServices />
       <StickyMobileCTA formName="wedding_d_j_sticky" label="Check My Date" />
       <SiteFooter />

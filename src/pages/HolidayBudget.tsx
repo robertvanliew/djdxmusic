@@ -17,8 +17,8 @@ import { CORP_PACKAGES } from '../data/packages';
 // or 404s, update the number and its note together.
 
 const URL = 'https://djdxmusic.com/office-holiday-party-budget-calculator';
-const TITLE = 'Office Holiday Party Budget Calculator (NYC, 2026) | DJ DX';
-const DESC = 'Plan an NYC office holiday party budget: food, open bar, service charge, 8.875% tax, DJ and photos, per guest and in total. Free, editable, printable.';
+const TITLE = 'Office Holiday Party Budget Calculator: Cost Per Person NYC';
+const DESC = 'What an NYC office holiday party costs per person in 2026, and a free calculator: food, open bar, service charge, 8.875% tax, DJ and photos. Printable.';
 
 const SOURCES = {
   tagvenue: { name: 'Tagvenue, How Much Does a Holiday Party Cost in NYC? (Oct 2026)', url: 'https://www.tagvenue.com/blog/how-much-does-a-holiday-party-cost-in-nyc/' },
@@ -250,7 +250,21 @@ export default function HolidayBudget() {
           </div>
 
           <section className="vn-sec">
-            <h2 className="vn-h2">What an NYC office holiday party costs</h2>
+            <h2 className="vn-h2">NYC office holiday party cost per person</h2>
+            <table className="lp-table hb-bench">
+              <thead><tr><th scope="col">What</th><th scope="col">Per person</th><th scope="col">Source</th></tr></thead>
+              <tbody>
+                <tr><td>Holiday party, all in (NYC)</td><td>$65 to $200</td><td>Tagvenue, 2026</td></tr>
+                <tr><td>At a bar</td><td>$30 to $70</td><td>Tagvenue, 2026</td></tr>
+                <tr><td>At a restaurant</td><td>$50 to $100</td><td>Tagvenue, 2026</td></tr>
+                <tr><td>Cocktail party</td><td>$55 to $105</td><td>Tagvenue, 2026</td></tr>
+                <tr><td>Catering only, client-facing event</td><td>$65 to $130</td><td>ZeroCater, 2026</td></tr>
+                <tr><td>Catering only, large company holiday party</td><td>$85 to $225+</td><td>ZeroCater, 2026</td></tr>
+                <tr><td>Open bar, per hour</td><td>$20 to $50</td><td>The Last Word price list</td></tr>
+                <tr><td>US average, food and drink per employee</td><td>$59</td><td>ezCater, 2025</td></tr>
+                <tr><td>Rule of thumb per employee, all in (US)</td><td>$75 to $200</td><td>Nav, 2025</td></tr>
+              </tbody>
+            </table>
             <p className="vn-p">
               Tagvenue's 2026 NYC numbers put a holiday party at <strong>$65 to $200 per person</strong>. Where you hold it moves that most:
               bars run about $30 to $70 per person, restaurants $50 to $100 (private dining averages about $65), and cocktail parties

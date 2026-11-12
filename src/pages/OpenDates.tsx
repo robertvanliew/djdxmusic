@@ -1,10 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import SiteNav from '../components/SiteNav';
 import SiteFooter from '../components/SiteFooter';
 import BookingForm from '../components/BookingForm';
-import { BOOKED_DATES } from '../data/availability';
+import { nightsBetween, useHolds } from '../lib/nights';
 
 // /open-dates: Thursdays, Fridays and Saturdays through the end of the year,
 // marked from src/data/availability.ts. A date that is not booked is shown as
@@ -12,39 +12,21 @@ import { BOOKED_DATES } from '../data/availability';
 // the same rule the passport and the AI agent follow.
 
 const URL = 'https://djdxmusic.com/open-dates';
-const DAY = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-const iso = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-
-// Party nights (Thu-Sat) from today through December 31 of this year.
-function partyNights(from: Date) {
-  const out: { iso: string; label: string; month: string; booked: boolean }[] = [];
-  const end = new Date(from.getFullYear(), 11, 31);
-  // Start tomorrow: a same-day booking is not realistic.
-  for (const d = new Date(from.getFullYear(), from.getMonth(), from.getDate() + 1); d <= end; d.setDate(d.getDate() + 1)) {
-    if (![4, 5, 6].includes(d.getDay())) continue;
-    const id = iso(d);
-    out.push({
-      iso: id,
-      label: `${DAY[d.getDay()]} ${d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`,
-      month: d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
-      booked: BOOKED_DATES.includes(id),
-    });
-  }
-  return out;
-}
-
 export default function OpenDates() {
-  useEffect(() => { window.scrollTo(0, 0); }, []);
-  const nights = useMemo(() => partyNights(new Date()), []);
+  const [sp] = useSearchParams();
+  // Party nights (Thu-Sat) from tomorrow through December 31 of this year
+  const nights = useMemo(() => { const now = new Date(); return nightsBetween(now, new Date(now.getFullYear(), 11, 31)); }, []);
   const months = useMemo(() => [...new Set(nights.map(n => n.month))], [nights]);
-  const [picked, setPicked] = useState('');
-  // Live 72-hour holds (no personal data), so a held date never looks open
-  const [held, setHeld] = useState<Record<string, number>>({});
+  // A date strip on a service page links here as /open-dates?date=YYYY-MM-DD
+  const fromLink = /^\d{4}-\d{2}-\d{2}$/.test(sp.get('date') || '') ? sp.get('date')! : '';
+  const [picked, setPicked] = useState(fromLink);
   useEffect(() => {
-    fetch('/api/booking?holds=1').then(r => r.ok ? r.json() : { holds: [] })
-      .then((d: { holds?: { date: string; expiresAt: number }[] }) => setHeld(Object.fromEntries((d.holds || []).map(h => [h.date, h.expiresAt]))))
-      .catch(() => {});
-  }, []);
+    if (!fromLink) { window.scrollTo(0, 0); return; }
+    const t = window.setTimeout(() => document.getElementById('od-form')?.scrollIntoView({ block: 'start' }), 60);
+    return () => window.clearTimeout(t);
+  }, [fromLink]);
+  // Live 72-hour holds (no personal data), so a held date never looks open
+  const held = useHolds();
   const pick = (d: string) => {
     setPicked(d);
     requestAnimationFrame(() => document.getElementById('od-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));

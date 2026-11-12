@@ -80,7 +80,7 @@ export default function LiveRunOfShow() {
           <div className="ls-inner ls-narrow">
             <h2 className="ls-h2">Questions</h2>
             {FAQ.map(f => <div key={f.q} className="pl-faq"><h3>{f.q}</h3><p className="ls-p">{f.a}</p></div>)}
-            <p className="ls-p">Every run of show also comes with a <Link to="/song-request-qr-code">song request QR card</Link> for your guests.</p>
+            <p className="ls-p">Every run of show also comes with a <Link to="/song-request-qr-code">song request QR card</Link> for your guests. Planning an office party? Start from a <Link to="/office-holiday-party-run-of-show">sample holiday party timeline</Link>.</p>
             <p className="ls-p">Booking DJ DX? Both tools are included. <Link to="/corporate-event-dj-nyc-nj-ct">Corporate events</Link> · <Link to="/wedding-dj-nyc-nj">Weddings</Link> · <Link to="/open-dates">Open dates</Link></p>
           </div>
         </section>

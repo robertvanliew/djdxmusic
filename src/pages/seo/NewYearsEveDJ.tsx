@@ -9,16 +9,18 @@ import ProcurementNote from '../../components/ProcurementNote';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
+import { Link } from 'react-router-dom';
+import { NyeStatus } from '../../components/OpenDatesStrip';
 export default function NewYearsEveDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>New Year's Eve DJ NYC 2026 | Private &amp; Corporate NYE | DJ DX</title>
-        <meta name="description" content="New Year's Eve DJ in NYC for private parties, corporate galas and rooftop events in Manhattan, Brooklyn and NJ. A planned midnight countdown. Limited dates." />
+        <title>New Year's Eve DJ NYC 2026 | Hire for a Private Party</title>
+        <meta name="description" content="Hire a New Year's Eve DJ for a private party, corporate gala or rooftop in NYC and NJ. One NYE booking a year. See if December 31, 2026 is still open." />
         <link rel="canonical" href="https://djdxmusic.com/new-years-eve-dj-nyc" />
-        <meta property="og:title" content="New Year's Eve DJ NYC — DJ DX" />
+        <meta property="og:title" content="Hire a New Year's Eve DJ in NYC | DJ DX" />
         <meta property="og:description" content="NYC's premier NYE DJ for private parties, corporate galas, and rooftop countdowns. DJ DX engineers the midnight moment. One slot per year — book early." />
         <meta property="og:url" content="https://djdxmusic.com/new-years-eve-dj-nyc" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
@@ -94,7 +96,7 @@ export default function NewYearsEveDJ() {
                   "name": "How do I book DJ DX for New Year's Eve in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Email bookings@djdxmusic.com or use the booking form on this page. NYE is DJ DX's single most in-demand date — only one slot is available per year. Inquiries received by November 1st receive priority. Include your event type, venue, expected guest count, and budget range. Do not wait until December — this date books months in advance."
+                    "text": "Email bookings@djdxmusic.com or use the booking form on this page. NYE is DJ DX's single most in-demand date — only one slot is available per year. Include your event type, venue, expected guest count, and budget range. Do not wait until December — this date books months in advance."
                   }
                 },
                 {
@@ -118,7 +120,7 @@ export default function NewYearsEveDJ() {
                   "name": "How far in advance should I book a New Year's Eve DJ in NYC?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "As early as possible — ideally by September or October. NYE is the most competitive booking date in the DJ calendar. Premium DJs in NYC are often fully booked by October 31st. Contact bookings@djdxmusic.com now to check availability for the upcoming New Year's Eve."
+                    "text": "As early as possible — ideally by September or October. NYE is the most competitive booking date in the DJ calendar. If it is later than that, check anyway: this page shows whether December 31 is still open. Contact bookings@djdxmusic.com now to check availability for the upcoming New Year's Eve."
                   }
                 }
               ]
@@ -148,15 +150,16 @@ export default function NewYearsEveDJ() {
             <span className="sec-label">New Year's Eve DJ — New York City</span>
           </div>
           <h1 className="sec-title" style={{ fontSize: 'clamp(2.2rem, 6vw, 4.2rem)', marginBottom: '1.2rem' }}>
-            NYC's NYE DJ — <span>One Night. One Set. Unforgettable.</span>
+            New Year's Eve DJ for Hire in NYC: <span>One Night. One Set.</span>
           </h1>
           <p style={{ maxWidth: '600px', margin: '0 auto 1rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
-            The countdown demands the best. DJ DX engineers NYE sets for private parties,
-            corporate galas, and rooftop countdowns across New York.
+            Hire a New Year's Eve DJ for a private party, corporate gala or rooftop countdown in NYC and NJ.
+            DJ DX takes one NYE booking a year and plans the midnight moment in advance.
           </p>
           <p style={{ maxWidth: '500px', margin: '0 auto 2rem', fontSize: '0.9rem', color: 'var(--gold)', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
             One slot available per year — inquire early
           </p>
+          <NyeStatus source="nye" />
           <a href="#booking" className="btn-gold">Check NYE Availability</a>
         </div>
       </section>
@@ -191,6 +194,26 @@ export default function NewYearsEveDJ() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── PROOF: last New Year's Eve ── */}
+      <section style={{ padding: '72px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
+        <div className="section-inner nye-proof">
+          <div>
+            <div className="sec-overline"><span className="sec-label">Last New Year's Eve</span></div>
+            <h2 className="sec-title" style={{ marginBottom: '18px' }}>The Argyle, <span>Chelsea</span></h2>
+            <p style={{ color: 'rgba(242,242,242,0.72)', fontSize: '1rem', lineHeight: 1.8, marginBottom: '14px' }}>
+              On December 31, 2025, DJ DX played the New Year's Eve party at The Argyle, the cocktail lounge in Chelsea,
+              with Julie Schatz on live violin. The clip is from that night: the countdown, and a full dance floor past midnight.
+            </p>
+            <p style={{ color: 'rgba(242,242,242,0.72)', fontSize: '1rem', lineHeight: 1.8 }}>
+              Photos and details are on the <Link to="/venues/the-argyle-chelsea" style={{ color: 'var(--gold)' }}>Argyle venue page</Link>.
+              Want live violin over the countdown? That is <Link to="/violin-dj-duo-nyc-nj" style={{ color: 'var(--gold)' }}>Soul Shades</Link>.
+            </p>
+          </div>
+          <video controls playsInline preload="none" poster="/videos/argyle-new-years-eve-2025-dj-dx-soul-shades-poster.jpg" src="/videos/argyle-new-years-eve-2025-dj-dx-soul-shades.mp4"
+            aria-label="New Year's Eve 2025 at The Argyle, Chelsea NYC: DJ DX and Soul Shades" width={720} height={1280} />
         </div>
       </section>
 
@@ -230,10 +253,10 @@ export default function NewYearsEveDJ() {
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
               { q: 'How much does a New Year\'s Eve DJ cost in NYC?', a: 'DJ DX New Year\'s Eve bookings are quoted individually, because he takes one New Year\'s Eve event a year and the price depends on hours, venue and guest count. For reference, his published rates start at $2,800 for corporate and private events. Send your venue, guest count and hours to bookings@djdxmusic.com for a quote within 24 hours; inquiries by November 1 get priority.' },
-              { q: 'How do I book DJ DX for New Year\'s Eve in NYC?', a: 'Email bookings@djdxmusic.com or use the form below. NYE is DJ DX\'s single most in-demand date — only one slot is available per year. Inquiries received by November 1st receive priority. Include your event type, venue, expected guest count, and budget range.' },
+              { q: 'How do I book DJ DX for New Year\'s Eve in NYC?', a: 'Email bookings@djdxmusic.com or use the form below. NYE is DJ DX\'s single most in-demand date — only one slot is available per year. Include your event type, venue, expected guest count, and budget range.' },
               { q: 'What type of NYE events does DJ DX perform at?', a: 'DJ DX performs at private NYE parties, corporate New Year\'s Eve galas, rooftop countdown parties, nightclub NYE residencies, and restaurant and lounge NYE celebrations across NYC and NJ. Every NYE set is engineered specifically for the midnight moment.' },
               { q: 'What does a DJ DX NYE set look like musically?', a: 'A DJ DX NYE set is built in phases: elegant early-evening R&B and neo-soul, a building mid-night ramp-up with hip-hop and Afrobeats, a scripted countdown sequence, and a post-midnight floor peak that keeps the party going until 2–3am. The midnight moment is engineered to make the entire room erupt.' },
-              { q: 'How far in advance should I book a NYE DJ in NYC?', a: 'As early as possible — ideally by September or October. NYE is the most competitive booking date in the DJ calendar. Premium DJs in NYC are often fully booked by October 31st. Contact bookings@djdxmusic.com now to check availability.' },
+              { q: 'How far in advance should I book a NYE DJ in NYC?', a: 'As early as possible — ideally by September or October. NYE is the most competitive booking date in the DJ calendar. If it is later than that, check anyway: this page shows whether December 31 is still open. Contact bookings@djdxmusic.com now to check availability.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>

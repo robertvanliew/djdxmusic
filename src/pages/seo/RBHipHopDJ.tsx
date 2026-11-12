@@ -8,23 +8,24 @@ import BookingForm from '../../components/BookingForm';
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
+import { Link } from 'react-router-dom';
 export default function RBHipHopDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
     <>
       <Helmet>
-        <title>R&B & Hip-Hop DJ NYC & NJ | Weddings & Parties | DJ DX</title>
-        <meta name="description" content="R&B and Hip-Hop DJ in New York and New Jersey. Classic and modern R&B, Hip-Hop and Old School for weddings, corporate events and parties. 500+ events." />
+        <title>R&B & Hip-Hop Wedding DJ NYC & NJ | From $2,800 | DJ DX</title>
+        <meta name="description" content="R&B and hip-hop wedding DJ for NYC and NJ: soul for cocktail hour, 90s R&B at dinner, an old school set and a clean-edit dance floor. From $2,800." />
         <link rel="canonical" href="https://djdxmusic.com/rb-hip-hop-dj-nyc-nj" />
-        <meta property="og:title" content="R&B & Hip-Hop DJ NYC & NJ — DJ DX" />
+        <meta property="og:title" content="R&B & Hip-Hop Wedding DJ NYC & NJ | DJ DX" />
         <meta property="og:description" content="Professional R&B and Hip-Hop DJ in New York and New Jersey. DJ DX blends classic and modern R&B, Hip-Hop, and Old School for weddings, parties, and corporate events across the tri-state area." />
         <meta property="og:url" content="https://djdxmusic.com/rb-hip-hop-dj-nyc-nj" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="R&B & Hip-Hop DJ NYC & NJ — DJ DX" />
+        <meta name="twitter:title" content="R&B & Hip-Hop Wedding DJ NYC & NJ | DJ DX" />
         <meta name="twitter:description" content="Professional R&B and Hip-Hop DJ in New York and New Jersey. 25+ years, 500+ events. TED-featured artist." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
@@ -32,8 +33,8 @@ export default function RBHipHopDJ() {
             {
               "@context": "https://schema.org",
               "@type": "Service",
-              "name": "R&B & Hip-Hop DJ NYC & NJ — Events, Weddings & Parties",
-              "serviceType": "R&B and Hip-Hop DJ",
+              "name": "R&B & Hip-Hop Wedding DJ NYC & NJ",
+              "serviceType": "R&B and Hip-Hop wedding DJ",
               "url": "https://djdxmusic.com/rb-hip-hop-dj-nyc-nj",
               "description": "DJ DX is a professional R&B and Hip-Hop DJ in New York and New Jersey with 25+ years of experience and 500+ events performed. Specializing in classic and modern R&B, Hip-Hop, Old School, blends, and mashups for weddings, corporate events, and private parties across NYC, NJ, and CT. TED-featured recording artist.",
               "provider": {
@@ -119,7 +120,7 @@ export default function RBHipHopDJ() {
                   "name": "How much does an R&B DJ cost in New York City?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "R&B DJ pricing in New York City ranges from $1,000 to $3,500+ depending on event type, duration, and experience level. DJ DX offers transparent, event-specific pricing — fill out the booking form for a custom quote."
+                    "text": "DJ DX weddings and private events start at $2,800 in New York City, with professional sound, wireless microphones and MC announcements included. Travel outside the city is quoted up front as its own line. DJ DX offers transparent, event-specific pricing — fill out the booking form for a custom quote."
                   }
                 }
               ]
@@ -149,14 +150,14 @@ export default function RBHipHopDJ() {
         }} />
         <div className="section-inner" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <div className="sec-overline" style={{ justifyContent: 'center' }}>
-            <span className="sec-label">R&B & Hip-Hop DJ — New York & New Jersey</span>
+            <span className="sec-label">R&B & Hip-Hop Wedding DJ: New York & New Jersey</span>
           </div>
           <h1 className="sec-title" style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', marginBottom: '1.2rem' }}>
-            The Sound of <span>New York</span>
+            R&amp;B &amp; Hip-Hop Wedding DJ <span>in NYC &amp; NJ</span>
           </h1>
           <p style={{ maxWidth: '600px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
-            Classic R&amp;B, modern Hip-Hop, Old School, and custom blends — curated for the culture.
-            25+ years behind the decks. 500+ events. TED-featured artist.
+            Soul for cocktail hour, 90s R&amp;B at dinner, an old school set for the family and a clean-edit dance floor.
+            Weddings and parties from $2,800. 25+ years behind the decks. TED-featured artist.
           </p>
           <a href="#booking" className="btn-gold">Check Availability</a>
         </div>
@@ -179,7 +180,7 @@ export default function RBHipHopDJ() {
             </div>
             <div className="about-aside">
               {[
-                { num: '20+', label: 'Years Experience', sub: 'R&B & Hip-Hop DJ in NY & NJ' },
+                { num: '25+', label: 'Years Experience', sub: 'R&B & Hip-Hop DJ in NY & NJ' },
                 { num: '500+', label: 'Events Performed', sub: 'Weddings, parties, corporate events' },
                 { num: '100+', label: 'Original Blends', sub: 'Custom R&B/Hip-Hop mashups' },
               ].map(s => (
@@ -193,6 +194,27 @@ export default function RBHipHopDJ() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── HOW AN R&B AND HIP-HOP WEDDING RUNS ── */}
+      <section style={{ padding: '72px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
+        <div className="section-inner" style={{ maxWidth: '860px' }}>
+          <div className="sec-overline"><span className="sec-label">The wedding day</span></div>
+          <h2 className="sec-title" style={{ marginBottom: '20px' }}>How an R&amp;B and Hip-Hop <span>Wedding Runs</span></h2>
+          <ul className="lp-list">
+            <li><strong>Ceremony and cocktail hour.</strong> Soul and neo-soul at conversation level, or live violin over the DJ set with <Link to="/violin-dj-duo-nyc-nj" style={{ color: 'var(--gold)' }}>Soul Shades</Link>.</li>
+            <li><strong>Grand entrance.</strong> One song that sounds like the two of you. The <Link to="/wedding-entrance-songs" style={{ color: 'var(--gold)' }}>entrance song finder</Link> has 42 to choose from, with clean edits marked.</li>
+            <li><strong>Dinner.</strong> 90s and 2000s R&amp;B at a volume people can talk over, so grandparents and college friends are both comfortable.</li>
+            <li><strong>The old school set.</strong> Motown, 80s R&amp;B and the line dances your family expects. This is the part parents and aunties remember.</li>
+            <li><strong>Peak hour.</strong> Hip-hop, R&amp;B and Afrobeats, mixed live to the room. Clean edits are the default; explicit versions only if you ask for them.</li>
+            <li><strong>Last dance.</strong> A sing-along or a slow dance to close. See the <Link to="/last-dance-songs-wedding" style={{ color: 'var(--gold)' }}>last dance song finder</Link>.</li>
+          </ul>
+          <p style={{ color: 'rgba(242,242,242,0.68)', fontSize: '1rem', lineHeight: 1.8, marginTop: '18px' }}>
+            Your must-play and do-not-play lists are set on the planning call. After the wedding you get a Set Receipt: every song that was played, checked against both lists.
+            More on <Link to="/wedding-dj-nyc-nj" style={{ color: 'var(--gold)' }}>weddings in NYC and NJ</Link>, <Link to="/wedding-dj-cost-nyc" style={{ color: 'var(--gold)' }}>what a wedding DJ costs</Link>,
+            and the <Link to="/wedding-welcome-party-after-party-dj-nyc-nj" style={{ color: 'var(--gold)' }}>welcome party and after-party</Link>.
+          </p>
         </div>
       </section>
 
@@ -211,7 +233,7 @@ export default function RBHipHopDJ() {
               { title: '90s & 2000s R&B', desc: 'The defining sound of a generation — Mary J. Blige, D\'Angelo, Usher, Alicia Keys, Destiny\'s Child, Ne-Yo.' },
               { title: 'Modern R&B', desc: 'SZA, Beyoncé, Frank Ocean, H.E.R., Jhené Aiko, Chris Brown — current sounds that dominate the dance floor.' },
               { title: 'Classic Hip-Hop', desc: 'Boom bap, East Coast essentials — Nas, Jay-Z, Biggie, Rakim, Big L, Wu-Tang Clan, and the golden era canon.' },
-              { title: 'Modern Hip-Hop', desc: 'Drake, Kendrick Lamar, J. Cole, Travis Scott, Cardi B, Lil Baby — the artists that move crowds in 2025.' },
+              { title: 'Modern Hip-Hop', desc: 'Drake, Kendrick Lamar, J. Cole, Travis Scott, Cardi B, Lil Baby — the artists that move crowds right now.' },
               { title: 'Old School & Blends', desc: 'Custom mashups and blends that bridge generations — taking a crowd from the 70s soul to today in a single mix.' },
             ].map(s => (
               <div key={s.title} className="service-cell sr">
@@ -256,10 +278,12 @@ export default function RBHipHopDJ() {
           </div>
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
+              { q: 'Do you play clean edits at an R&B and hip-hop wedding?', a: 'Yes. Clean edits are the default at every wedding, so grandparents and kids are comfortable on the same dance floor. If you want the explicit versions late in the night, say so on the planning call and they are saved for after the older guests have left.' },
+              { q: 'Can you play an old school set for our parents and family?', a: 'Yes. Most R&B and hip-hop weddings in New York and New Jersey have three generations in the room. A set of Motown, 80s R&B and the line dances your family knows is planned into the night, usually right after dinner, before the dance floor moves to current music.' },
               { q: 'What R&B and Hip-Hop artists does DJ DX play?', a: 'DJ DX plays a wide spectrum — from classic Old School R&B (Marvin Gaye, Teddy Pendergrass, Mary J. Blige, D\'Angelo) to modern artists (Drake, Beyoncé, SZA, Kendrick Lamar, J. Cole, Chris Brown). Every set is custom-built around your crowd\'s preferences and generational mix.' },
               { q: 'Can DJ DX mix R&B and Hip-Hop with Afrobeats or other genres?', a: 'Yes — DJ DX specializes in multi-genre blending. R&B and Hip-Hop are seamlessly woven with Afrobeats, Amapiano, dancehall, and house depending on your crowd\'s vibe. This cross-genre approach is especially popular at New York and New Jersey weddings with diverse guest lists.' },
               { q: 'Is DJ DX available for R&B birthday parties and private events in NYC?', a: 'Yes. DJ DX is available for birthday parties, private events, corporate events, rooftop parties, and more across NYC and NJ. Contact bookings@djdxmusic.com for availability and pricing for your specific event.' },
-              { q: 'How much does an R&B DJ cost in New York City?', a: 'R&B DJ pricing in New York City ranges from $1,000 to $3,500+ depending on event type, duration, and experience level. DJ DX offers transparent, event-specific pricing — fill out the booking form for a custom quote.' },
+              { q: 'How much does an R&B DJ cost in New York City?', a: 'DJ DX weddings and private events start at $2,800 in New York City, with professional sound, wireless microphones and MC announcements included. Travel outside the city is quoted up front as its own line. DJ DX offers transparent, event-specific pricing — fill out the booking form for a custom quote.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>

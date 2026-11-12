@@ -34,7 +34,7 @@ type RegionKey = 'nyc' | 'tristate' | 'hamptons';
 const REGIONS: { key: RegionKey; label: string; note: string }[] = [
   { key: 'nyc',      label: 'New York City (5 boroughs)', note: 'Travel included in the quoted total' },
   { key: 'tristate', label: 'NJ, Long Island, Westchester or CT', note: 'Travel quoted upfront as a line item' },
-  { key: 'hamptons', label: 'Hamptons, destination or international', note: 'Starts at $3,000; travel and riders coordinated separately' },
+  { key: 'hamptons', label: 'Hamptons or destination (US and Puerto Rico)', note: 'Starts at $3,000; travel and riders coordinated separately' },
 ];
 
 const HAMPTONS_FLOOR = HAMPTONS_MIN;

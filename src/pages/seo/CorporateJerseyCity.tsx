@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import LocalLanding, { type FaqItem } from '../../components/LocalLanding';
+import OpenDatesStrip from '../../components/OpenDatesStrip';
 
 const FAQ: FaqItem[] = [
   { q: 'How much does a corporate event DJ cost in Jersey City?', a: 'DJ DX corporate events start at $2,800. That covers professional sound sized to the room, a wireless microphone for speeches, MC announcements, and a planning call. New Jersey travel is quoted up front as its own line, so the full total is clear before you sign.' },
   { q: 'Do you know Jersey City venues and office buildings?', a: 'Yes. DJ DX was born and raised in Jersey City and has been DJing in the city since 1998. Downtown, Newport, Exchange Place, Journal Square, and the Liberty State Park side of town are all home turf, as is nearby Hoboken.' },
+  { q: 'Do you DJ holiday parties in Jersey City and Hoboken?', a: 'Yes. Office holiday parties in Jersey City and Hoboken start at $2,800 for up to five hours, with sound, wireless microphones and MC announcements included. New Jersey travel is quoted up front as its own line. The dates on this page show which December nights are still open to requests.' },
   { q: 'Can you set up inside our office for a holiday party?', a: 'Yes. Plenty of Jersey City companies hold the party on their own floor. Send the building\'s rules for load-in, freight elevators, and noise, and the setup is planned around them. A certificate of insurance is available if building management asks for one.' },
   { q: 'Is the music clean for a work crowd?', a: 'Yes. Corporate sets use radio edits only, and the volume stays at talking level during the reception. You can send a do-not-play list, and the dance floor part of the night is built around your crowd.' },
   { q: 'How far ahead should we book for December?', a: 'Aim for 90 to 120 days out. December Thursdays, Fridays, and Saturdays go first. A written contract and a 50% deposit hold your date, and you hear back within 24 hours of asking.' },
@@ -13,8 +15,8 @@ export default function CorporateJerseyCity() {
   return (
     <LocalLanding
       path="/corporate-event-dj-jersey-city-nj"
-      title="Corporate Event DJ Jersey City, NJ | DJ DX"
-      description="Corporate event and office party DJ in Jersey City and Hudson County, born and raised here. Downtown, Newport, Exchange Place. Clear rates. Quote in 24 hours."
+      title="Corporate Event & Holiday Party DJ Jersey City, NJ | DJ DX"
+      description="Corporate event and holiday party DJ in Jersey City and Hoboken, born and raised here. Downtown, Newport, Exchange Place. From $2,800. Quote in 24 hours."
       heroImage="/corporate-dj-manhattan-office-party-nyc.jpg"
       heroAlt="Corporate event DJ DX behind the decks at an office party with city views"
       overline="Jersey City and Hudson County"
@@ -24,6 +26,7 @@ export default function CorporateJerseyCity() {
         Corporate events start at $2,800 with sound, a wireless mic for speeches, and MC announcements included.
         Send your date and you will have a quote within 24 hours.
       </>}
+      afterHero={<OpenDatesStrip mode="december" source="jersey_city" />}
       localHeading={<>Born and Raised in <span>Jersey City</span></>}
       local={<>
         <p style={{ marginBottom: '16px' }}>

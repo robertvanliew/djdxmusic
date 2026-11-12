@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import ProofBlock, { ClientNames } from '../../components/ProofBlock';
 import { CORP_PACKAGES } from '../../data/packages';
 import AuthorBio from '../../components/AuthorBio';
+import OpenDatesStrip from '../../components/OpenDatesStrip';
 
 // Client name for the most recent booking. Kept as a single constant so the
 // showcase can be anonymised ("a national energy company") in one edit if the
@@ -31,6 +32,10 @@ const CORPORATE_HERO_PHOTOS = [
 const CORP_FAQ = [
   { q: 'What makes DJ DX different from other corporate event DJs in NYC?', a: 'DJ DX brings 25+ years of professional experience, a TEDx performance credit, and 500+ events across New York, New Jersey, and Connecticut to every corporate booking. That means clean playlist curation, a professional MC voice, and the ability to read a room, moving from background music during networking to a full dance floor at the end of the night.' },
   { q: 'How much does a corporate event DJ cost in New York City?', a: 'Corporate event DJ pricing in NYC typically runs $2,800 to $8,000+ depending on hours, guest count, and add-ons like the Soul Shades violin duo. DJ DX corporate events start at $2,800, and you get an itemized quote within 24 hours. Send your date, venue, and guest count to bookings@djdxmusic.com.' },
+  // The next three answer searches planners actually make ("how to select a DJ for corporate events", "what DJ packages are available")
+  { q: 'How do you choose a DJ for a corporate event?', a: 'Ask five things. Who actually plays: a named DJ, or whoever an agency has free that night? Are the price and what it includes in writing? Can they show recent corporate events with dates and venues? How do they handle speeches, awards and a run of show? Do they carry insurance and issue a COI? DJ DX answers all five on this page: one named DJ, published packages from $2,800, dated events at The Glasshouse and 620 Loft & Garden, wireless mics and a live run of show included, and a COI on request.' },
+  { q: 'What DJ packages are available for corporate events?', a: 'Three. ' + CORP_PACKAGES.map(p => p.name + ' is from $' + p.price.toLocaleString('en-US') + ' for ' + p.hours.toLowerCase() + ': ' + p.blurb.charAt(0).toLowerCase() + p.blurb.slice(1).replace(/\.$/, '')).join('. ') + '. Each one lists exactly what is included further up this page, and travel outside New York City is quoted as its own line.' },
+  { q: 'Is DJ DX based in New York?', a: 'Yes. DJ DX is based in Brooklyn and was born and raised in Jersey City. He does not fly in for New York events: load-in, building rules and the planning call are all handled locally, and the DJ you book is the DJ who plays.' },
   { q: 'How far ahead should we book a DJ for an office holiday party?', a: 'Book 90 to 120 days out if you can. December Thursdays, Fridays, and Saturdays in Manhattan are the first dates to go, and most of them are claimed in September and October. If your party is in December, check your date now.' },
   { q: 'Do you provide sound and microphones for speeches?', a: 'Yes. Every corporate booking includes professional sound sized to the room and a wireless microphone for speeches, toasts, and award announcements. DJ DX can also MC: introducing the CEO, calling award winners, and keeping the run of show on time.' },
   { q: 'Does DJ DX provide clean, work-appropriate playlists for corporate events?', a: 'Yes. Corporate sets use radio edits only, at a volume people can talk over during the reception, then build to a dance floor for the social part of the night. You can also send a do-not-play list, and it will be followed.' },
@@ -134,17 +139,17 @@ export default function Corporate() {
   return (
     <>
       <Helmet>
-        <title>Corporate Event DJ NYC | Office Parties &amp; Company Events</title>
-        <meta name="description" content="Corporate event and office party DJ for NYC, Brooklyn, Jersey City and the Tri-State. Law firm and luxury retail clients. COI and W-9 ready. Quote in 24 hours." />
+        <title>Corporate Event DJ NYC | Office Parties From $2,800 | DJ DX</title>
+        <meta name="description" content="Corporate DJ for NYC office parties, galas and client events. Clients include Contentsquare, Saks Fifth Avenue and LS Power. From $2,800. COI and W-9 ready." />
         <link rel="canonical" href="https://djdxmusic.com/corporate-event-dj-nyc-nj-ct" />
-        <meta property="og:title" content="Corporate Event DJ NYC | Office Parties &amp; Company Events" />
-        <meta property="og:description" content="Corporate event and office party DJ for NYC, Brooklyn, Jersey City and the Tri-State. Law firm and luxury retail clients. COI and W-9 ready. Quote in 24 hours." />
+        <meta property="og:title" content="Corporate Event DJ NYC | Office Parties From $2,800 | DJ DX" />
+        <meta property="og:description" content="Corporate DJ for NYC office parties, galas and client events. Clients include Contentsquare, Saks Fifth Avenue and LS Power. From $2,800. COI and W-9 ready." />
         <meta property="og:url" content="https://djdxmusic.com/corporate-event-dj-nyc-nj-ct" />
         <meta property="og:image" content="https://djdxmusic.com/latest-corporate-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Corporate Event DJ NYC | Office Parties &amp; Company Events" />
+        <meta name="twitter:title" content="Corporate Event DJ NYC | Office Parties From $2,800 | DJ DX" />
         <meta name="twitter:description" content="Corporate event and office party DJ for NYC, Brooklyn, Jersey City and the Tri-State. COI and W-9 ready. Quote in 24 hours." />
         <meta name="twitter:image" content="https://djdxmusic.com/latest-corporate-hero.jpg" />
         <script type="application/ld+json">{JSON.stringify(CORP_SCHEMA)}</script>
@@ -179,6 +184,8 @@ export default function Corporate() {
           </div>
         </div>
       </section>
+
+      <OpenDatesStrip mode="december" source="corporate" />
 
       {/* ── THE DIFFERENCE ── */}
       <section className="about">
@@ -443,6 +450,7 @@ export default function Corporate() {
           </h2>
           <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '720px', margin: '0 auto 56px', fontSize: '1rem', lineHeight: 1.7 }}>
             Two decades of corporate work across the tri-state means familiarity with the venues, AV teams, and production cadences planners already know.
+            The venue lists below are rooms planners ask about most. For venues DJ DX has played, with dates, photos and video, see <Link to="/venues" style={{ color: 'var(--gold)' }}>venues played</Link>.
           </p>
 
           <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.15rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '14px', textAlign: 'center' }}>
@@ -464,7 +472,7 @@ export default function Corporate() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '32px', marginBottom: '48px' }}>
             <div>
               <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.15rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '14px' }}>
-                Manhattan Venues
+                Popular Manhattan Venues
               </h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'rgba(242,242,242,0.72)', fontSize: '0.95rem', lineHeight: 2 }}>
                 <li>Pier Sixty &amp; Pier 61 (Chelsea Piers)</li>
@@ -478,7 +486,7 @@ export default function Corporate() {
             </div>
             <div>
               <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: '1.15rem', fontWeight: 700, color: 'var(--gold)', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '14px' }}>
-                NJ &amp; CT Venues
+                Popular NJ &amp; CT Venues
               </h3>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, color: 'rgba(242,242,242,0.72)', fontSize: '0.95rem', lineHeight: 2 }}>
                 <li>Maritime Parc — Jersey City</li>

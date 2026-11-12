@@ -220,7 +220,7 @@ export default function WeddingDJCost() {
                   ['Ceremony + reception', 'Quoted', 'Separate ceremony sound, processional cues, officiant mic'],
                   ['DJ + Live Violin Duo (Soul Shades)', '$3,500', 'Live violin over DJ sets — ceremony through reception'],
                   ['Live violin add-on', '$150/hr', 'Added to any DJ package for cocktail hour or ceremony'],
-                  ['Destination wedding', '$3,000', 'The Hamptons, Catskills, international — travel coordinated'],
+                  ['Destination wedding', '$3,000', 'The Hamptons, Catskills, anywhere in the US and Puerto Rico; travel coordinated'],
                 ].map(([pkg, price, desc]) => (
                   <tr key={pkg as string} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
                     <td style={{ padding: '16px 12px', color: 'var(--white)', fontWeight: 600 }}>{pkg}</td>

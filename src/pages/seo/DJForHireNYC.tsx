@@ -111,7 +111,7 @@ export default function DJForHireNYC() {
                   "name": "What events does DJ DX perform at in NYC and NJ?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "DJ DX performs at private birthday parties, weddings, sweet sixteens, anniversary celebrations, rooftop parties, nightclub residencies, New Year's Eve events, brand activations, destination weddings, and Hamptons luxury events across NYC, NJ, CT, and internationally."
+                    "text": "DJ DX performs at private birthday parties, weddings, sweet sixteens, anniversary celebrations, rooftop parties, nightclub residencies, New Year's Eve events, brand activations, destination weddings, and Hamptons luxury events across NYC, NJ, CT, and the rest of the United States."
                   }
                 },
                 {
@@ -217,7 +217,7 @@ export default function DJForHireNYC() {
               { title: 'Afrobeats & Amapiano DJ', href: '/afrobeats-amapiano-dj-nyc-nj', desc: 'Full African and Caribbean diaspora sound — Burna Boy, Wizkid, South African Amapiano, Dancehall, and Soca.' },
               { title: 'Violin & DJ Duo', href: '/violin-dj-duo-nyc-nj', desc: 'Soul Shades — live violin over DJ sets for luxury weddings and corporate galas. An experience guests never forget.' },
               { title: 'Hamptons Luxury DJ', href: '/hamptons-luxury-dj', desc: 'Premium entertainment for private estates, summer galas, and luxury outdoor events from Southampton to Montauk.' },
-              { title: 'Destination Wedding DJ', href: '/destination-wedding-dj', desc: 'International destination wedding DJ with global travel — Italy, Mexico, the Caribbean, and beyond.' },
+              { title: 'Destination Wedding DJ', href: '/destination-wedding-dj', desc: 'Destination weddings across the United States and Puerto Rico, with travel coordinated in advance.' },
             ].map(s => (
               <a key={s.title} href={s.href} className="service-cell sr" style={{ textDecoration: 'none' }}>
                 <div className="service-name">{s.title}</div>
@@ -256,7 +256,7 @@ export default function DJForHireNYC() {
           <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
             {[
               { q: 'How do I hire a DJ in New York City?', a: 'Use the booking form on this page or email bookings@djdxmusic.com. Provide your event date, venue, event type, estimated guest count, and any music preferences. DJ DX responds within 24 hours with availability and a custom quote.' },
-              { q: 'What events does DJ DX perform at in NYC and NJ?', a: 'DJ DX performs at private birthday parties, weddings, sweet sixteens, rooftop parties, nightclub residencies, New Year\'s Eve events, brand activations, destination weddings, and Hamptons luxury events across NYC, NJ, CT, and internationally.' },
+              { q: 'What events does DJ DX perform at in NYC and NJ?', a: 'DJ DX performs at private birthday parties, weddings, sweet sixteens, rooftop parties, nightclub residencies, New Year\'s Eve events, brand activations, destination weddings, and Hamptons luxury events across NYC, NJ, CT, and the rest of the United States.' },
               { q: 'What makes DJ DX different from other DJs for hire in NYC?', a: 'DJ DX is a TED-featured artist, a music producer with 100+ originals on Spotify, and a DJ with 25+ years and 500+ events performed. DJ DX plays R&B, Hip-Hop, Afrobeats, Amapiano, House, Jersey Club, Old School, Dancehall, and Soca — one of the broadest authentic genre ranges of any DJ in the NYC market.' },
               { q: 'How much does it cost to hire a DJ in New York City?', a: 'DJ DX rates typically range from $2,800 for private parties up to $5,000+ for full-day weddings. Custom quotes are provided for every inquiry. Email bookings@djdxmusic.com with your event details for transparent pricing.' },
             ].map(({ q, a }) => (

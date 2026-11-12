@@ -51,7 +51,7 @@ const faqs = [
   },
   {
     q: 'Does DJ DX travel for destination weddings?',
-    a: 'Yes. DJ DX is available for destination weddings worldwide, including the Hamptons, Caribbean, Mexico, Italy, France, Spain, Greece, and beyond. Travel arrangements and venue coordination are handled in advance. Contact bookings@djdxmusic.com for a custom destination quote.',
+    a: 'Yes. DJ DX travels for destination weddings across the United States and Puerto Rico, including the Hamptons. Travel arrangements and venue coordination are handled in advance. For a wedding outside the United States, send the destination and date and he will confirm within 24 hours whether he can take it. Contact bookings@djdxmusic.com for a custom destination quote.',
   },
   {
     q: 'What awards or features has DJ DX received?',

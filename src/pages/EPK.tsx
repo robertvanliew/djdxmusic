@@ -116,7 +116,7 @@ export default function EPK() {
         <meta property="og:type" content="profile" />
         <meta property="og:url" content="https://djdxmusic.com/epk" />
         <meta property="og:title" content="DJ DX — Electronic Press Kit" />
-        <meta property="og:description" content="Official EPK for DJ DX — TED-featured DJ, producer, and recording artist. 25+ years, 500+ events, 100+ originals. Available for bookings in NY/NJ and worldwide." />
+        <meta property="og:description" content="Official EPK for DJ DX — TED-featured DJ, producer, and recording artist. 25+ years, 500+ events, 100+ originals. Available for bookings in NY/NJ and across the United States." />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="DJ DX — Electronic Press Kit" />

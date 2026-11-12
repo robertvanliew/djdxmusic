@@ -10,6 +10,8 @@ import QuoteCalculator from '../../components/QuoteCalculator';
 import BookingForm from '../../components/BookingForm';
 import { Link } from 'react-router-dom';
 import { CORP_PACKAGES } from '../../data/packages';
+import OpenDatesStrip from '../../components/OpenDatesStrip';
+import { textHref, trackTextClick, TEXT_NUMBER_DISPLAY } from '../../lib/textLink';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
@@ -76,22 +78,24 @@ export default function HolidayPartyDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   const year = new Date().getFullYear();
+  // October to December the question is "what is still open", not "book early"
+  const inSeason = new Date().getMonth() >= 9;
 
   return (
     <>
       <Helmet>
-        <title>Office Holiday Party DJ NYC &amp; NJ | Book December 2026</title>
-        <meta name="description" content="Office holiday party and corporate Christmas party DJ across NYC, NJ and CT. December 2026 dates filling now. Published starting rates. Check your date." />
+        <title>Office Holiday Party DJ NYC &amp; NJ | From $2,800, 5 Hours</title>
+        <meta name="description" content="Office and corporate holiday party DJ in NYC, NJ and CT. From $2,800 for up to 5 hours with sound, mics and a free COI. See open December 2026 dates." />
         <link rel="canonical" href="https://djdxmusic.com/holiday-party-dj-nyc-nj-ct" />
-        <meta property="og:title" content="Office Holiday Party DJ NYC &amp; NJ | Book December 2026" />
-        <meta property="og:description" content="Office holiday party and corporate Christmas party DJ across NYC, NJ and CT. December 2026 dates filling now. Published starting rates. Check your date." />
+        <meta property="og:title" content="Office Holiday Party DJ NYC &amp; NJ | From $2,800, 5 Hours" />
+        <meta property="og:description" content="Office and corporate holiday party DJ in NYC, NJ and CT. From $2,800 for up to 5 hours with sound, mics and a free COI. See open December 2026 dates." />
         <meta property="og:url" content="https://djdxmusic.com/holiday-party-dj-nyc-nj-ct" />
         <meta property="og:image" content="https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Office Holiday Party DJ NYC &amp; NJ | Book December 2026" />
-        <meta name="twitter:description" content="Office holiday party DJ across NYC, NJ and CT. December 2026 dates filling now. Published starting rates." />
+        <meta name="twitter:title" content="Office Holiday Party DJ NYC &amp; NJ | From $2,800, 5 Hours" />
+        <meta name="twitter:description" content="Office holiday party DJ in NYC, NJ and CT. From $2,800 for up to 5 hours. See open December 2026 dates." />
         <meta name="twitter:image" content="https://djdxmusic.com/corporate-dj-manhattan-office-party-nyc.jpg" />
         <script type="application/ld+json">
           {`[
@@ -211,11 +215,16 @@ export default function HolidayPartyDJ() {
             private holiday gatherings. One DJ, 25+ years, full sound, microphones and a free venue insurance certificate (COI) included.
           </p>
           <p style={{ maxWidth: '540px', margin: '0 auto 2rem', fontSize: '0.9rem', color: 'var(--gold)', fontWeight: 700, letterSpacing: '0.07em', textTransform: 'uppercase' }}>
-            From $2,800 · December {year} dates booking now
+            From $2,800 for up to 5 hours · December {year} dates booking now
           </p>
           <a href="#booking" className="btn-gold">Check December Availability</a>
+          <p style={{ margin: '14px auto 0', fontSize: '0.92rem', color: 'rgba(242,242,242,0.7)' }}>
+            Or text <a href={textHref("Hi DJ DX, I'd like to check a December date for a holiday party: ")} onClick={() => trackTextClick('holiday_hero')} style={{ color: 'var(--gold)' }}>{TEXT_NUMBER_DISPLAY}</a> with your date and guest count
+          </p>
         </div>
       </section>
+
+      <OpenDatesStrip mode="december" source="holiday" />
 
       {/* ── WHY HOLIDAY PARTIES ARE DIFFERENT ── */}
       <section className="about">
@@ -236,7 +245,9 @@ export default function HolidayPartyDJ() {
               {[
                 { label: 'From $2,800', sub: 'Corporate holiday parties include full sound sized to the room, wireless mics for speeches and awards, MC announcements, and a planning call before the event.' },
                 { label: 'One DJ, Not an Agency', sub: 'The DJ you book is the DJ who plays. No subcontracting, no "whoever is available that night" — which is how most multi-op companies staff December.' },
-                { label: 'December Books by October', sub: 'Corporate planners lock in entertainment 90 to 120 days out. The first two Saturdays of December go first, then the Fridays around them.' },
+                inSeason
+                  ? { label: 'December Dates Still Open', sub: 'Thursdays, Fridays and Saturdays go first. The dates above show which nights are still open to requests, and any of them can be held free for 72 hours.' }
+                  : { label: 'December Books by October', sub: 'Corporate planners lock in entertainment 90 to 120 days out. The first two Saturdays of December go first, then the Fridays around them.' },
               ].map(s => (
                 <div className="stat-row sr" key={s.label}>
                   <div className="stat-meta">
@@ -445,7 +456,7 @@ export default function HolidayPartyDJ() {
       {/* ── BOOKING ── */}
       <p className="pb-clients">
         <span>Free:</span> the <Link to="/office-holiday-party-playlist">clean office holiday party playlist</Link>, in the order the night runs,
-        and an <Link to="/office-holiday-party-budget-calculator">NYC holiday party budget calculator</Link>.
+        an <Link to="/office-holiday-party-budget-calculator">NYC holiday party budget calculator</Link>, and <Link to="/office-holiday-party-run-of-show">sample run of show timelines</Link>.
       </p>
       <PollPromo />
       <ProcurementNote />

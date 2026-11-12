@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState, type FormEvent } from 'react'
 import { Helmet } from 'react-helmet-async';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { trackEvent } from '../lib/analytics';
+import { GOOGLE_REVIEW_URL } from '../data/reviews';
 import '../show.css';
 
 // /live/:id?g=<guestToken>: the page guests open from the QR card at the booth
@@ -113,6 +114,15 @@ export default function GuestLive() {
 
       {show.requestsOn && !show.ended && <RequestForm id={id} g={g} by={by} />}
       <NotifyForm id={id} g={g} ended={show.ended} />
+
+      {/* Shown to every guest once the set is over; hidden until the review link is set */}
+      {dx && show.ended && GOOGLE_REVIEW_URL && (
+        <section className="sh-card">
+          <h2>Enjoyed the music?</h2>
+          <p className="sh-muted">A Google review helps the next planner find DJ DX. It takes about a minute.</p>
+          <a className="sh-copy gl-btn" href={GOOGLE_REVIEW_URL} target="_blank" rel="noopener noreferrer" onClick={() => trackEvent('live_review_click', { show: show.id })}>Leave a Google review</a>
+        </section>
+      )}
 
       {dx ? (
         <section className="sh-card gl-cta">

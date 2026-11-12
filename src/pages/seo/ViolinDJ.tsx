@@ -19,17 +19,17 @@ export default function ViolinDJ() {
   return (
     <>
       <Helmet>
-        <title>Violin and DJ Duo NYC & NJ | Soul Shades Entertainment</title>
-        <meta name="description" content="Live violin and DJ duo for weddings, corporate events and parties in NYC, NJ and CT. Soul Shades pairs live strings with a DJ set. From $3,500." />
+        <title>Violin & DJ Duo for Weddings NYC & NJ | From $3,500</title>
+        <meta name="description" content="Live violin and DJ duo for weddings and corporate events in NYC, NJ and CT: Julie Schatz on violin over a DJ DX set, ceremony to last dance. From $3,500." />
         <link rel="canonical" href="https://djdxmusic.com/violin-dj-duo-nyc-nj" />
-        <meta property="og:title" content="Violin and DJ Duo NYC & NJ — Soul Shades" />
+        <meta property="og:title" content="Violin & DJ Duo for Weddings NYC & NJ | Soul Shades" />
         <meta property="og:description" content="Live violin over DJ sets — Soul Shades is NYC's premier violin and DJ duo for luxury weddings and corporate events. Featuring DJ DX and Julie Schatz." />
         <meta property="og:url" content="https://djdxmusic.com/violin-dj-duo-nyc-nj" />
         <meta property="og:image" content="https://djdxmusic.com/violin-dj-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Violin and DJ Duo NYC & NJ — Soul Shades" />
+        <meta name="twitter:title" content="Violin & DJ Duo for Weddings NYC & NJ | Soul Shades" />
         <meta name="twitter:description" content="Live violin over DJ sets — Soul Shades is NYC's premier violin and DJ duo for luxury weddings and corporate events." />
         <meta name="twitter:image" content="https://djdxmusic.com/violin-dj-hero.jpg" />
         <script type="application/ld+json">
@@ -106,7 +106,7 @@ export default function ViolinDJ() {
                   "name": "Who are Soul Shades?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Soul Shades is a New York-based live violin and DJ duo consisting of violinist Julie Schatz and TED-featured DJ, producer, and recording artist DJ DX. Together they perform a seamless blend of live strings and DJ sets for luxury events across NYC, NJ, CT, and the Hamptons. Soul Shades has performed at 100+ luxury events and is available for destination bookings internationally."
+                    "text": "Soul Shades is a New York-based live violin and DJ duo consisting of violinist Julie Schatz and TED-featured DJ, producer, and recording artist DJ DX. Together they perform a seamless blend of live strings and DJ sets for luxury events across NYC, NJ, CT, and the Hamptons. Available for destination bookings across the United States and Puerto Rico."
                   }
                 }
               ]
@@ -140,10 +140,10 @@ export default function ViolinDJ() {
             <span className="sec-label">Live entertainment</span>
           </div>
           <h1 className="epk-title" style={{ fontSize: 'var(--text-6xl)', marginBottom: '1rem' }}>
-            The Ultimate Live Strings & DJ Experience
+            Violin and DJ Duo for Weddings and Events in NYC &amp; NJ
           </h1>
           <p className="epk-lead" style={{ maxWidth: '600px', margin: '0 auto', fontSize: 'var(--text-lg)' }}>
-            Elevate your wedding or corporate event with Soul Shades: a high-energy Violin & DJ duo serving New York, New Jersey, and Connecticut.
+            Soul Shades is violinist Julie Schatz playing live over a DJ DX set, for weddings and corporate events in New York, New Jersey and Connecticut. From $3,500.
           </p>
           <div style={{ marginTop: '2rem' }}>
             <a href="#booking" className="btn-gold">Request Quote</a>
@@ -199,6 +199,30 @@ export default function ViolinDJ() {
         </div>
       </section>
 
+      {/* ── HOW DJ + LIVE VIOLIN WORKS ── */}
+      <section style={{ padding: '72px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>
+        <div className="section-inner nye-proof">
+          <div>
+            <div className="sec-overline"><span className="sec-label">How it works</span></div>
+            <h2 className="sec-title" style={{ marginBottom: '20px' }}>A Wedding with a DJ <span>and Live Violin</span></h2>
+            <ul className="lp-list">
+              <li><strong>Ceremony.</strong> Solo violin for the processional and recessional. Julie's <a href="https://julieschatzmusic.com/walking-down-the-aisle-song-finder/" style={{ color: 'var(--gold)' }}>aisle song finder</a> helps you choose.</li>
+              <li><strong>Cocktail hour.</strong> Violin over a light DJ bed: soul, R&amp;B and pop covers at conversation level.</li>
+              <li><strong>Dinner.</strong> The DJ carries the room and handles the toasts and announcements.</li>
+              <li><strong>Dance floor.</strong> The violin comes back for featured moments over house, hip-hop and R&amp;B, played live on top of the mix.</li>
+              <li><strong>One booking.</strong> One contract, one planning call and one sound system for both performers.</li>
+            </ul>
+            <p style={{ color: 'rgba(242,242,242,0.68)', fontSize: '1rem', lineHeight: 1.8, marginTop: '18px' }}>
+              The duo starts at $3,500. Already booking DJ DX on his own? Live violin can be added to any DJ package from $150 an hour.
+              The clip is from October 13, 2026: Soul Shades at Contentsquare's CX Circle NYC at <Link to="/venues/the-glasshouse-hells-kitchen" style={{ color: 'var(--gold)' }}>The Glasshouse</Link>, for more than 1,000 guests.
+              Julie's ceremony and cocktail-hour work is on her own site, <a href="https://julieschatzmusic.com/" style={{ color: 'var(--gold)' }}>julieschatzmusic.com</a>.
+            </p>
+          </div>
+          <video controls playsInline preload="none" poster="/videos/glasshouse-contentsquare-cx-circle-2026-dj-dx-poster.jpg" src="/videos/glasshouse-contentsquare-cx-circle-2026-dj-dx.mp4"
+            aria-label="DJ DX at Contentsquare's CX Circle NYC 2026, The Glasshouse" width={720} height={1280} />
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section style={{ padding: '80px 40px' }}>
         <div className="section-inner" style={{ maxWidth: '760px' }}>
@@ -210,7 +234,7 @@ export default function ViolinDJ() {
               { q: 'What is a violin and DJ duo?', a: 'A violin and DJ duo combines live acoustic or electric violin performance with a professional DJ set. Soul Shades — featuring violinist Julie Schatz and DJ DX — layers live violin over DJ beats in real time, creating an experience that blends the sophistication of live music with the energy of a club DJ set. Guests at luxury weddings and corporate events consistently describe it as the highlight of the evening.' },
               { q: 'How much does a live violin and DJ duo cost in NYC?', a: 'Live violin and DJ duo pricing in New York City typically ranges from $3,500 to $10,000+ depending on event duration, venue, and performance scope. Soul Shades provides custom quotes for every inquiry — contact bookings@djdxmusic.com with your event date, venue, and guest count for transparent pricing within 24 hours.' },
               { q: 'What events are violin and DJ duos best suited for?', a: 'Violin and DJ duos are ideal for luxury weddings, corporate galas, brand activations, rooftop events, and upscale private parties. Soul Shades is particularly popular for wedding cocktail hours (live violin ambiance) transitioning into a high-energy reception DJ set — all delivered by the same duo without any changeover.' },
-              { q: 'Who are Soul Shades?', a: 'Soul Shades is a New York-based live violin and DJ duo consisting of violinist Julie Schatz and TED-featured DJ, producer, and recording artist DJ DX. They perform a seamless blend of live strings and DJ sets for luxury events across NYC, NJ, CT, and the Hamptons. Available for destination bookings internationally.' },
+              { q: 'Who are Soul Shades?', a: 'Soul Shades is a New York-based live violin and DJ duo consisting of violinist Julie Schatz and TED-featured DJ, producer, and recording artist DJ DX. They perform a seamless blend of live strings and DJ sets for luxury events across NYC, NJ, CT, and the Hamptons. Available for destination bookings across the United States and Puerto Rico.' },
             ].map(({ q, a }) => (
               <div key={q} style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', paddingBottom: '20px' }}>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--white)', marginBottom: '8px' }}>{q}</h3>
