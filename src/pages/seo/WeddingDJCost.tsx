@@ -90,6 +90,19 @@ export default function WeddingDJCost() {
           {`[
             {
               "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": "Wedding DJ Cost NYC & NJ (2026): Real Prices From $2,800",
+              "url": "https://djdxmusic.com/wedding-dj-cost-nyc",
+              "mainEntityOfPage": "https://djdxmusic.com/wedding-dj-cost-nyc",
+              "image": "https://djdxmusic.com/epk-hero.jpg",
+              "datePublished": "2026-07-01",
+              "dateModified": "2026-11-12",
+              "inLanguage": "en-US",
+              "author": { "@type": "Person", "@id": "https://djdxmusic.com/#djdx", "name": "DJ DX", "url": "https://djdxmusic.com/" },
+              "publisher": { "@id": "https://djdxmusic.com/#service" }
+            },
+            {
+              "@context": "https://schema.org",
               "@type": "Service",
               "name": "Wedding DJ — NYC & New Jersey",
               "serviceType": "Wedding DJ",

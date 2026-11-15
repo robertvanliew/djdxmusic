@@ -127,6 +127,7 @@ const money = (n: number) => `$${n.toLocaleString('en-US')}`;
 export default function HolidayPlaylist() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const schema = [
+    { '@context': 'https://schema.org', '@type': 'Article', headline: 'Office Holiday Party Playlist 2026: Clean Work Party Songs', url: URL, mainEntityOfPage: URL, image: 'https://djdxmusic.com/corporate-holiday-party-dj-manhattan-nyc.jpg', datePublished: '2026-10-24', dateModified: '2026-11-12', inLanguage: 'en-US', author: { '@type': 'Person', '@id': 'https://djdxmusic.com/#djdx', name: 'DJ DX', url: 'https://djdxmusic.com/' }, publisher: { '@id': 'https://djdxmusic.com/#service' } },
     {
       '@context': 'https://schema.org', '@type': 'MusicPlaylist', '@id': `${URL}#playlist`,
       name: 'Clean Office Holiday Party Playlist (2026)', url: URL, numTracks: COUNT,

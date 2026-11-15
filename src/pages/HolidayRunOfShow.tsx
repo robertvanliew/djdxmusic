@@ -104,6 +104,7 @@ export default function HolidayRunOfShow() {
   };
 
   const schema = [
+    { '@context': 'https://schema.org', '@type': 'Article', headline: TITLE, url: URL, mainEntityOfPage: URL, image: 'https://djdxmusic.com/corporate-holiday-party-dj-manhattan-nyc.jpg', datePublished: '2026-11-12', dateModified: '2026-11-12', inLanguage: 'en-US', author: { '@type': 'Person', '@id': 'https://djdxmusic.com/#djdx', name: 'DJ DX', url: 'https://djdxmusic.com/' }, publisher: { '@id': 'https://djdxmusic.com/#service' } },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://djdxmusic.com/' },

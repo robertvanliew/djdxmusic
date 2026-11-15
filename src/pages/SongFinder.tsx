@@ -131,6 +131,7 @@ export default function SongFinder({ kind }: { kind: Kind }) {
   };
 
   const schema = [
+    { '@context': 'https://schema.org', '@type': 'Article', headline: c.title, url: URL, mainEntityOfPage: URL, image: 'https://djdxmusic.com/epk-hero.jpg', datePublished: '2026-11-03', dateModified: '2026-11-12', inLanguage: 'en-US', author: { '@type': 'Person', '@id': 'https://djdxmusic.com/#djdx', name: 'DJ DX', url: 'https://djdxmusic.com/' }, publisher: { '@id': 'https://djdxmusic.com/#service' } },
     {
       '@context': 'https://schema.org', '@type': 'ItemList', '@id': `${URL}#songs`, name: `${c.h1.join(' ')}`, numberOfItems: c.songs.length,
       itemListElement: c.songs.map((s, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'MusicRecording', name: s.title, byArtist: { '@type': 'MusicGroup', name: s.artist }, genre: s.genre, datePublished: String(s.year) } })),
