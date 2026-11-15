@@ -99,7 +99,7 @@ export default function PlannerProposal() {
   const message = `Planner proposal${f.planner ? ` from ${f.planner}` : ''}: ${q.name}, ${prettyDate}${f.venue ? `, ${f.venue}` : ''}, ${q.region.label}${f.guests ? `, ${f.guests} guests` : ''}${q.violin ? `, live violin ${f.vh} hr` : ''}. Proposal total from ${money(q.total)}. Please confirm availability. ${link()}`;
 
   const schema = [
-    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'DJ Proposal Builder for Event Planners', url: URL, applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, provider: { '@id': 'https://djdxmusic.com/#djdx' }, description: 'Event planners build a one-page DJ DX proposal for their client, with published packages, inclusions and booking terms, then print it or share a link.' },
+    { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Free online planning tool', name: 'DJ Proposal Builder for Event Planners', url: URL, offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, provider: { '@id': 'https://djdxmusic.com/#djdx' }, description: 'Event planners build a one-page DJ DX proposal for their client, with published packages, inclusions and booking terms, then print it or share a link.' },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://djdxmusic.com/' },
       { '@type': 'ListItem', position: 2, name: 'For Planners', item: 'https://djdxmusic.com/planners' },

@@ -30,7 +30,7 @@ const FAQ = [
 export default function SongRequestQR() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
   const schema = [
-    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Song Request QR Code', url: URL, applicationCategory: 'EntertainmentApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, provider: { '@id': 'https://djdxmusic.com/#djdx' }, description: 'A free printable QR card for events. Guests see the song the DJ is playing, save it to Spotify or Apple Music, send song requests and get the full set list after the event.' },
+    { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Free online planning tool', name: 'Song Request QR Code', url: URL, offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, provider: { '@id': 'https://djdxmusic.com/#djdx' }, description: 'A free printable QR card for events. Guests see the song the DJ is playing, save it to Spotify or Apple Music, send song requests and get the full set list after the event.' },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://djdxmusic.com/' },

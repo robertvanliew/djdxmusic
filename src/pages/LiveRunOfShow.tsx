@@ -32,7 +32,7 @@ export default function LiveRunOfShow() {
   // Scroll-linked 3D only where the scenes pin (desktop) and motion is allowed
   const reduce = reduceMotion || small;
   const schema = [
-    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Live Run of Show', url: URL, applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, provider: { '@id': 'https://djdxmusic.com/#djdx' }, description: 'A free, shareable event timeline the planner edits from a phone and the DJ sees live at the booth, with timestamped changes.' },
+    { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Free online planning tool', name: 'Live Run of Show', url: URL, offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, provider: { '@id': 'https://djdxmusic.com/#djdx' }, description: 'A free, shareable event timeline the planner edits from a phone and the DJ sees live at the booth, with timestamped changes.' },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://djdxmusic.com/' }, { '@type': 'ListItem', position: 2, name: 'Live Run of Show', item: URL }] },
   ];

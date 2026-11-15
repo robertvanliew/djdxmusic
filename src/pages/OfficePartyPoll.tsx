@@ -67,11 +67,9 @@ export default function OfficePartyPoll() {
           {JSON.stringify([
             {
               '@context': 'https://schema.org',
-              '@type': 'WebApplication',
+              '@type': 'Service', serviceType: 'Free online planning tool',
               name: 'Office Party Music Poll',
               url: 'https://djdxmusic.com/office-party-music-poll',
-              applicationCategory: 'EntertainmentApplication',
-              operatingSystem: 'Any (web browser)',
               description: 'A free tool for office party planners: create a music poll, share one link with coworkers, and get a crowd report of favorite genres, eras, dance-floor energy and song requests.',
               offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
               provider: { '@type': 'EntertainmentBusiness', name: 'DJ DX', url: 'https://djdxmusic.com/' },

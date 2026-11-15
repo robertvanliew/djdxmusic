@@ -156,7 +156,7 @@ export default function HolidayBudget() {
   };
 
   const schema = [
-    { '@context': 'https://schema.org', '@type': 'WebApplication', name: 'Office Holiday Party Budget Calculator (NYC)', url: URL, applicationCategory: 'BusinessApplication', operatingSystem: 'Any (web browser)', offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, provider: { '@id': 'https://djdxmusic.com/#djdx' }, description: 'Free, editable NYC office holiday party budget: food, open bar, service charge, sales tax, DJ and photographer, per guest and in total, with sourced defaults.' },
+    { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Free online planning tool', name: 'Office Holiday Party Budget Calculator (NYC)', url: URL, offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' }, provider: { '@id': 'https://djdxmusic.com/#djdx' }, description: 'Free, editable NYC office holiday party budget: food, open bar, service charge, sales tax, DJ and photographer, per guest and in total, with sourced defaults.' },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQ.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://djdxmusic.com/' },
