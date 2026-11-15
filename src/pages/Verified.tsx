@@ -46,7 +46,7 @@ export default function Verified() {
   const schema = [
     {
       '@context': 'https://schema.org', '@type': 'ProfilePage', name: 'DJ DX at a glance', url: 'https://djdxmusic.com/verified',
-      mainEntity: { '@id': 'https://djdxmusic.com/#djdx' }, about: { '@id': 'https://djdxmusic.com/#service' },
+      mainEntity: { '@type': 'Person', '@id': 'https://djdxmusic.com/#djdx', name: 'DJ DX', alternateName: 'Robert Van Liew', url: 'https://djdxmusic.com/', image: 'https://djdxmusic.com/show-1.jpg' }, about: { '@id': 'https://djdxmusic.com/#service' },
       significantLink: ['https://djdxmusic.com/.well-known/business.json', 'https://djdxmusic.com/.well-known/did.json', 'https://djdxmusic.com/.well-known/agent-card.json'],
     },
   ];

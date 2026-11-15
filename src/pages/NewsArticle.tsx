@@ -99,7 +99,7 @@ export default function NewsArticle() {
     "datePublished": post.datePublished,
     "dateModified": post.dateModified,
     "url": canonicalUrl,
-    "image": { "@type": "ImageObject", "url": fullImageUrl, "alt": post.imageAlt },
+    "image": { "@type": "ImageObject", "url": fullImageUrl, "caption": post.imageAlt },
     "author": { "@type": "Person", "name": "DJ DX", "url": "https://djdxmusic.com/" },
     "publisher": {
       "@type": "Organization",
