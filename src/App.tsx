@@ -799,7 +799,7 @@ function App() {
               "description": "Primary site navigation links for djdxmusic.com",
               "itemListElement": [
                 {"@type": "SiteNavigationElement", "position": 1, "name": "Music",       "url": "https://djdxmusic.com/music"},
-                {"@type": "SiteNavigationElement", "position": 2, "name": "Soul Shades", "url": "https://djdxmusic.com/soul-shades"},
+                {"@type": "SiteNavigationElement", "position": 2, "name": "Soul Shades", "url": "https://soulshadesmusic.com/"},
                 {"@type": "SiteNavigationElement", "position": 3, "name": "News",        "url": "https://djdxmusic.com/news"},
                 {"@type": "SiteNavigationElement", "position": 4, "name": "EPK",         "url": "https://djdxmusic.com/epk"},
                 {"@type": "SiteNavigationElement", "position": 5, "name": "Pricing",     "url": "https://djdxmusic.com/event-dj-cost-nyc-nj-ct"},

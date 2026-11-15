@@ -48,7 +48,6 @@ const STATIC_ROUTES = [
   '/',
   '/music',
   '/epk',
-  '/soul-shades',
   '/pricing',
   '/terms',
   '/privacy',

@@ -241,7 +241,7 @@ export default function SongFinder({ kind }: { kind: Kind }) {
             </p>
             <p className="vn-p">
               Still choosing your first dance? Violinist Julie Schatz has a <a href="https://julieschatzmusic.com/first-dance-song-finder/">first dance song finder</a>, plus finders for the <a href="https://julieschatzmusic.com/walking-down-the-aisle-song-finder/">walk down the aisle</a> and <a href="https://julieschatzmusic.com/parent-dance-song-finder/">parent dances</a>.
-              She and DJ DX perform together as <Link to="/soul-shades">Soul Shades</Link>.
+              She and DJ DX perform together as <a href="https://soulshadesmusic.com/">Soul Shades</a>.
             </p>
           </section>
         </div>

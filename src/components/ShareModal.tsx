@@ -108,7 +108,7 @@ export default function ShareModal({ track, shareType, onClose }: ShareModalProp
   }
   const origin = window.location.origin;
   const deepLink = shareType === 'soul-shades'
-    ? `${origin}/soul-shades#track-${track.id}`
+    ? `https://soulshadesmusic.com/#track-${track.id}`
     : `${origin}/#track-${track.id}`;
   const storyUrl = `${origin}/api/og?type=${shareType}&track=${encodeURIComponent(track.title)}&trackId=${track.id}&format=story`;
   const pageUrl = deepLink;

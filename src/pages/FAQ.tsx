@@ -158,7 +158,7 @@ export default function FAQ() {
               {idx === faqs.length - 1 && (
                 <div style={{ marginTop: '40px', display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
                   <Link to="/#booking" className="btn-gold">Book DJ DX</Link>
-                  <Link to="/soul-shades" className="btn-gold" style={{ background: 'transparent', border: '1px solid var(--gold)', color: 'var(--gold)' }}>Soul Shades</Link>
+                  <a href="https://soulshadesmusic.com/" className="btn-gold" style={{ background: 'transparent', border: '1px solid var(--gold)', color: 'var(--gold)' }}>Soul Shades</a>
                   <Link to="/epk" className="btn-gold" style={{ background: 'transparent', border: '1px solid var(--gold)', color: 'var(--gold)' }}>EPK</Link>
                 </div>
               )}

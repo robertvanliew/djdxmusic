@@ -40,7 +40,7 @@ export default function Venue() {
     ...(v.address ? { address: { '@type': 'PostalAddress', streetAddress: v.address.street, addressLocality: v.address.locality, addressRegion: v.address.region, postalCode: v.address.postalCode, addressCountry: 'US' } } : {}),
   };
   const schema: object[] = [
-    { '@context': 'https://schema.org', '@type': 'WebPage', name: v.h1, url, description: v.description, about: place, mentions: v.soulShades ? [{ '@id': 'https://djdxmusic.com/#djdx' }, { '@id': 'https://djdxmusic.com/soul-shades#group' }] : { '@id': 'https://djdxmusic.com/#djdx' } },
+    { '@context': 'https://schema.org', '@type': 'WebPage', name: v.h1, url, description: v.description, about: place, mentions: v.soulShades ? [{ '@id': 'https://djdxmusic.com/#djdx' }, { '@id': 'https://soulshadesmusic.com/#soulshades' }] : { '@id': 'https://djdxmusic.com/#djdx' } },
     {
       '@context': 'https://schema.org', '@type': 'BreadcrumbList',
       itemListElement: [
@@ -69,7 +69,7 @@ export default function Venue() {
       '@context': 'https://schema.org', '@type': 'MusicEvent', name: v.event.name, startDate: v.event.startDate,
       eventStatus: 'https://schema.org/EventScheduled', eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       location: place, performer: v.soulShades
-        ? [{ '@id': 'https://djdxmusic.com/#djdx' }, { '@type': 'MusicGroup', '@id': 'https://djdxmusic.com/soul-shades#group', name: 'Soul Shades', url: 'https://djdxmusic.com/soul-shades' }]
+        ? [{ '@id': 'https://djdxmusic.com/#djdx' }, { '@type': 'MusicGroup', '@id': 'https://soulshadesmusic.com/#soulshades', name: 'Soul Shades', url: 'https://soulshadesmusic.com/' }]
         : { '@id': 'https://djdxmusic.com/#djdx' },
     });
   }

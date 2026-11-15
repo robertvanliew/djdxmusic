@@ -31,7 +31,7 @@ const EVENTS: Item[] = [
 const MUSIC: Item[] = [
   { label: 'Music Store', hash: '#catalog' },
   { label: 'Albums', to: '/music' },
-  { label: 'Soul Shades', to: '/soul-shades' },
+  { label: 'Soul Shades', external: 'https://soulshadesmusic.com/' },
   { label: 'Videos', hash: '#videos' },
   { label: 'News & Press', to: '/news' },
   { label: 'EPK', to: '/epk' },

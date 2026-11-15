@@ -184,7 +184,7 @@ export const newsPosts: NewsPost[] = [
 <p>The track is available now on all streaming platforms. Stream it, share it, and if you feel that buzz — you know exactly where it came from.</p>
 
 <div class="news-cta-block">
-  <a href="/soul-shades" class="news-cta-btn">Explore Soul Shades</a>
+  <a href="https://soulshadesmusic.com/" class="news-cta-btn">Explore Soul Shades</a>
   <a href="https://open.spotify.com/artist/2GES5fSFNcx25lv9RFcQjP" target="_blank" rel="noopener noreferrer" class="news-cta-btn news-cta-btn--outline">Stream on Spotify</a>
 </div>
 `,

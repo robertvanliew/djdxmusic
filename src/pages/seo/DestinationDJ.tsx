@@ -150,7 +150,7 @@ export default function DestinationDJ() {
                   A destination wedding is the one time most couples hire a DJ they have never met: whoever the resort or venue works with. That DJ has not heard your playlist, does not know your families, and is meeting your crowd for the first time on the night.
                 </p>
                 <p>
-                  <strong>Bring your own DJ instead.</strong> DJ DX has played more than 500 events since 1998, from New York lounges to a Saks Fifth Avenue estate event in Water Mill. He plans the night with you before you fly, and can bring <a href="/soul-shades" style={{ color: 'var(--gold)' }}>Soul Shades</a>, his duo with violinist Julie Schatz, for the ceremony and cocktail hour.
+                  <strong>Bring your own DJ instead.</strong> DJ DX has played more than 500 events since 1998, from New York lounges to a Saks Fifth Avenue estate event in Water Mill. He plans the night with you before you fly, and can bring <a href="https://soulshadesmusic.com/" style={{ color: 'var(--gold)' }}>Soul Shades</a>, his duo with violinist Julie Schatz, for the ceremony and cocktail hour.
                 </p>
                 <p>
                   The music is open format: R&amp;B, hip-hop, house, Afrobeats, reggaeton and the classics your parents will dance to, built from your must-play and do-not-play lists. Available now anywhere in the US and in Puerto Rico; for a wedding outside the US, send the date and you will get a straight answer within 24 hours.

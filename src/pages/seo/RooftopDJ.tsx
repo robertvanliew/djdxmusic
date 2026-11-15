@@ -237,7 +237,7 @@ export default function RooftopDJ() {
 
           <p className="duo-pointer">
             This booking was Soul Shades, the DJ and live violin duo.{' '}
-            <a href="/soul-shades">See what NautaDutilh said about the duo</a>.
+            <a href="https://soulshadesmusic.com/corporate-event-entertainment-nyc">See what NautaDutilh said about the duo</a>.
           </p>
         </div>
       </section>

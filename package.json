@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "indexnow": "node scripts/indexnow.mjs",
-    "attest": "node scripts/attest-link.mjs"
+    "attest": "node scripts/attest-link.mjs",
+    "prebuild": "node scripts/gen-store-files.mjs"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.76",

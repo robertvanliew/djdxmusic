@@ -44,12 +44,12 @@ export default function ViolinDJ() {
               "provider": {
                 "@type": ["MusicGroup", "EntertainmentBusiness"],
                 "name": "Soul Shades",
-                "url": "https://djdxmusic.com/soul-shades",
+                "@id": "https://soulshadesmusic.com/#soulshades",
+                "url": "https://soulshadesmusic.com/",
                 "image": "https://djdxmusic.com/ss-hero.jpg",
                 "email": "bookings@djdxmusic.com",
                 "priceRange": "$$$-$$$$",
                 "sameAs": [
-                  "https://djdxmusic.com/soul-shades",
                   "https://www.instagram.com/soulshadesmusic/",
                   "https://open.spotify.com/artist/2GES5fSFNcx25lv9RFcQjP"
                 ]

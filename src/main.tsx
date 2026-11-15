@@ -42,7 +42,6 @@ const BookingPolicy = lazy(() => import('./pages/BookingPolicy.tsx'))
 const OfficePartyPoll = lazy(() => import('./pages/OfficePartyPoll.tsx'))
 const PollVote = lazy(() => import('./pages/PollVote.tsx'))
 const PollResults = lazy(() => import('./pages/PollResults.tsx'))
-const SoulShades = lazy(() => import('./pages/SoulShades.tsx'))
 const Music      = lazy(() => import('./pages/Music.tsx'))
 const Pricing    = lazy(() => import('./pages/Pricing.tsx'))
 const Corporate  = lazy(() => import('./pages/seo/Corporate.tsx'))
@@ -145,6 +144,12 @@ function FirstLoadFallback() {
   return prerendered && pathname === initialPath ? <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: prerendered }} /> : null
 }
 
+/** Leaves the app for another site (used for pages that moved off djdxmusic.com). */
+function ExternalRedirect({ to }: { to: string }) {
+  useEffect(() => { window.location.replace(to) }, [to])
+  return null
+}
+
 createRoot(rootEl).render(
   <StrictMode>
     <HelmetProvider>
@@ -174,7 +179,8 @@ createRoot(rootEl).render(
             <Route path="/office-party-music-poll" element={<OfficePartyPoll />} />
             <Route path="/poll/:pollId" element={<PollVote />} />
             <Route path="/poll/:pollId/results" element={<PollResults />} />
-            <Route path="/soul-shades" element={<SoulShades />} />
+            {/* Moved to its own site; vercel.json also redirects /soul-shades with a 308. */}
+            <Route path="/soul-shades" element={<ExternalRedirect to="https://soulshadesmusic.com/" />} />
             <Route path="/music"      element={<Music />} />
             <Route path="/pricing"    element={<Pricing />} />
             <Route path="/corporate-event-dj-nyc-nj-ct" element={<Corporate />} />

@@ -9,6 +9,16 @@
   },
   "redirects": [
     {
+      "source": "/soul-shades",
+      "destination": "https://soulshadesmusic.com/",
+      "permanent": true
+    },
+    {
+      "source": "/soul-shades/:path*",
+      "destination": "https://soulshadesmusic.com/",
+      "permanent": true
+    },
+    {
       "source": "/previews/:name.wav",
       "destination": "/previews/:name.mp3",
       "permanent": true

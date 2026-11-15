@@ -81,7 +81,7 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
             <span className="footer-nav-heading">Press</span>
             <Link to="/news" className="footer-nav-link">News</Link>
             <Link to="/epk" className="footer-nav-link">Electronic Press Kit</Link>
-            <Link to="/soul-shades" className="footer-nav-link">Soul Shades</Link>
+            <a href="https://soulshadesmusic.com/" className="footer-nav-link">Soul Shades</a>
             <a href="https://disruptmagazine.com/dj-dx-leads-the-music-industry-into-the-metaverse/" target="_blank" rel="noopener noreferrer" className="footer-nav-link">Disrupt Magazine</a>
             <a href="https://www.ted.com/talks/dj_dx_finally_moving" target="_blank" rel="noopener noreferrer" className="footer-nav-link">TED Talk</a>
             <a href="https://rvamag.com/music/keeping-it-real-in-the-south-an-interview-with-dj-dx.html" target="_blank" rel="noopener noreferrer" className="footer-nav-link">RVA Magazine</a>
