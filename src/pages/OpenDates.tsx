@@ -39,9 +39,12 @@ export default function OpenDates() {
         <title>{`DJ Dates for Holiday Parties ${year}: NYC & NJ | DJ DX`}</title>
         <meta name="description" content={`Thursday to Saturday party nights DJ DX still has for ${year} holiday and company parties in NYC and NJ. Booked dates marked; replies within 24 hours.`} />
         <link rel="canonical" href={URL} />
+        <meta property="og:description" content={`Thursday to Saturday party nights DJ DX still has for ${year} holiday and company parties in NYC and NJ. Booked dates marked; replies within 24 hours.`} />
         <meta property="og:title" content={`DJ Dates for Holiday Parties ${year}: NYC & NJ | DJ DX`} />
         <meta property="og:url" content={URL} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://djdxmusic.com/corporate-holiday-party-dj-manhattan-nyc.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <SiteNav />
       <main className="vn-main">

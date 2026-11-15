@@ -122,6 +122,8 @@ export default function HolidayRunOfShow() {
         <meta property="og:description" content={DESC} />
         <meta property="og:url" content={URL} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://djdxmusic.com/corporate-holiday-party-dj-manhattan-nyc.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
       <SiteNav />

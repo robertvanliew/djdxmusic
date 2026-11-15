@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Pricing() {
   const navigate = useNavigate()
@@ -10,6 +10,12 @@ export default function Pricing() {
         <title>Pricing — DJ DX Music Store</title>
         <meta name="description" content="Buy exclusive DJ DX blends, remixes, and originals. Name your price — starting at $3.00 per track. Instant digital download delivered to your email." />
         <link rel="canonical" href="https://djdxmusic.com/pricing" />
+        <meta property="og:title" content="Pricing — DJ DX Music Store" />
+        <meta property="og:description" content="Buy exclusive DJ DX blends, remixes, and originals. Name your price — starting at $3.00 per track. Instant digital download delivered to your email." />
+        <meta property="og:url" content="https://djdxmusic.com/pricing" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://djdxmusic.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '80px 24px 120px' }}>
@@ -111,12 +117,18 @@ export default function Pricing() {
 
         {/* CTA */}
         <div style={{ marginTop: '56px', textAlign: 'center' }}>
-          <button
-            onClick={() => navigate('/#catalog')}
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '14px 36px', background: 'linear-gradient(90deg, #C9A84C, #E2C97E)', color: '#0c0c0c', border: 'none', borderRadius: '10px', fontFamily: 'var(--font-condensed)', fontSize: '14px', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', cursor: 'pointer' }}
+          <Link
+            to="/#catalog"
+            style={{ display: 'inline-flex', textDecoration: 'none', alignItems: 'center', gap: '10px', padding: '14px 36px', background: 'linear-gradient(90deg, #C9A84C, #E2C97E)', color: '#0c0c0c', border: 'none', borderRadius: '10px', fontFamily: 'var(--font-condensed)', fontSize: '14px', fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase', cursor: 'pointer' }}
           >
             Browse the Catalog
-          </button>
+          </Link>
+          <p style={{ color: 'rgba(242,242,242,0.45)', fontSize: '13px', marginTop: '24px' }}>
+            <Link to="/music" style={{ color: 'var(--gold)' }}>Music</Link>
+            {' · '}<Link to="/refunds" style={{ color: 'var(--gold)' }}>Refund policy</Link>
+            {' · '}<Link to="/terms" style={{ color: 'var(--gold)' }}>Terms</Link>
+            {' · '}<Link to="/contact" style={{ color: 'var(--gold)' }}>Book DJ DX for an event</Link>
+          </p>
         </div>
 
       </div>

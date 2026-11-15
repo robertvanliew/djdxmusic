@@ -91,6 +91,7 @@ export default function BookingPolicy() {
         <meta property="og:url" content="https://djdxmusic.com/booking-policy" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">
           {`{
             "@context": "https://schema.org",

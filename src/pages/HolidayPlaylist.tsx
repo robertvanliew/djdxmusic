@@ -148,9 +148,12 @@ export default function HolidayPlaylist() {
         <title>Office Holiday Party Playlist 2026: Clean Work Party Songs</title>
         <meta name="description" content={`${COUNT} clean, non-religious songs for a work Christmas party, in the order the night runs, including R&B and hip-hop Christmas songs. From an NYC event DJ.`} />
         <link rel="canonical" href={URL} />
+        <meta property="og:description" content={`${COUNT} clean, non-religious songs for a work Christmas party, in the order the night runs, including R&B and hip-hop Christmas songs. From an NYC event DJ.`} />
         <meta property="og:title" content="Office Holiday Party Playlist 2026: Clean Work Party Songs" />
         <meta property="og:url" content={URL} />
         <meta property="og:type" content="article" />
+        <meta property="og:image" content="https://djdxmusic.com/corporate-holiday-party-dj-manhattan-nyc.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
       <SiteNav />

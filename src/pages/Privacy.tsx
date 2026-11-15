@@ -9,6 +9,12 @@ export default function Privacy() {
         <title>Privacy Policy — DJ DX | FRANKPELLA LLC</title>
         <meta name="description" content="Privacy policy for djdxmusic.com. Learn how FRANKPELLA LLC collects, uses, and protects your information on the DJ DX website and music store." />
         <link rel="canonical" href="https://djdxmusic.com/privacy" />
+        <meta property="og:title" content="Privacy Policy — DJ DX | FRANKPELLA LLC" />
+        <meta property="og:description" content="Privacy policy for djdxmusic.com. Learn how FRANKPELLA LLC collects, uses, and protects your information on the DJ DX website and music store." />
+        <meta property="og:url" content="https://djdxmusic.com/privacy" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://djdxmusic.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
       <div style={{ maxWidth: '800px', margin: '0 auto', padding: '80px 24px 120px' }}>
 

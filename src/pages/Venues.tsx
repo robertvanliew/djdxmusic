@@ -61,9 +61,12 @@ export default function Venues() {
         <title>Venues DJ DX Has Played | NYC, Long Island &amp; NJ</title>
         <meta name="description" content="Lounges, ballrooms, festivals and landmark spaces across NYC, Long Island and New Jersey where DJ DX has played. See the room, then check your date." />
         <link rel="canonical" href="https://djdxmusic.com/venues" />
+        <meta property="og:description" content="Lounges, ballrooms, festivals and landmark spaces across NYC, Long Island and New Jersey where DJ DX has played. See the room, then check your date." />
         <meta property="og:title" content="Venues DJ DX Has Played | NYC, Long Island &amp; NJ" />
         <meta property="og:url" content="https://djdxmusic.com/venues" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://djdxmusic.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
       <SiteNav />

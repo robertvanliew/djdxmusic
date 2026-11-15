@@ -57,10 +57,13 @@ export default function Verified() {
         <title>DJ DX at a Glance | Verified Business Facts</title>
         <meta name="description" content="Verified facts about DJ DX: where he works, published starting prices, booking terms, venues played and official profiles, signed with his did:web identity." />
         <link rel="canonical" href="https://djdxmusic.com/verified" />
+        <meta property="og:description" content="Verified facts about DJ DX: where he works, published starting prices, booking terms, venues played and official profiles, signed with his did:web identity." />
         <link rel="alternate" type="application/json" href="/.well-known/business.json" title="DJ DX Business Passport (JSON)" />
         <meta property="og:title" content="DJ DX at a Glance | Verified Business Facts" />
         <meta property="og:url" content="https://djdxmusic.com/verified" />
         <meta property="og:type" content="profile" />
+        <meta property="og:image" content="https://djdxmusic.com/og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
       <SiteNav />

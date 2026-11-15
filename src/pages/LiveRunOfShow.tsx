@@ -42,9 +42,12 @@ export default function LiveRunOfShow() {
         <title>Live Run of Show for Event Planners + DJ Set Receipt | DJ DX</title>
         <meta name="description" content="A free live run of show: edit the event timeline from your phone and the DJ sees each change at the booth. Plus a Set Receipt of every song played." />
         <link rel="canonical" href={URL} />
+        <meta property="og:description" content="A free live run of show: edit the event timeline from your phone and the DJ sees each change at the booth. Plus a Set Receipt of every song played." />
         <meta property="og:title" content="Live Run of Show + Set Receipt | DJ DX" />
         <meta property="og:url" content={URL} />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://djdxmusic.com/corporate-holiday-party-dj-manhattan-nyc.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
         <script type="application/ld+json">{JSON.stringify(schema)}</script>
       </Helmet>
       <SiteNav />
