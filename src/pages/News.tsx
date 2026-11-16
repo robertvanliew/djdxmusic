@@ -42,12 +42,8 @@ export default function News() {
           "url": "https://djdxmusic.com/news",
           "description": "The DX Report — official news publication of DJ DX and Soul Shades. Covers new music releases, events, and behind-the-scenes stories from New York/New Jersey.",
           "inLanguage": "en-US",
-          "isPartOf": {
-            "@type": ["MusicGroup", "Person"],
-            "@id": "https://djdxmusic.com/#djdx",
-            "name": "DJ DX",
-            "url": "https://djdxmusic.com/"
-          },
+          "isPartOf": { "@id": "https://djdxmusic.com/#website" },
+          "author": { "@id": "https://djdxmusic.com/#djdx" },
           "publisher": { "@id": "https://djdxmusic.com/#service" },
           "about": [
             { "@type": "Thing", "name": "Music" },

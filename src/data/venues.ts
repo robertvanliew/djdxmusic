@@ -121,7 +121,7 @@ export const VENUES: Venue[] = [
       },
       {
         h2: 'Soul Shades at The Argyle',
-        paras: ['DJ DX has also brought [Soul Shades](/soul-shades), his duo with Julie Schatz, to The Argyle.'],
+        paras: ['DJ DX has also brought [Soul Shades](https://soulshadesmusic.com/), his duo with Julie Schatz, to The Argyle.'],
       },
       {
         h2: 'Planning notes for The Argyle',
@@ -163,7 +163,7 @@ export const VENUES: Venue[] = [
     address: { street: '620 5th Ave', locality: 'New York', region: 'NY', postalCode: '10020' },
     image: { src: '/nautadutilh-dj-dx-620-loft-garden-nyc.jpg', alt: "DJ DX performing on the 620 Loft & Garden rooftop at Rockefeller Center, with St. Patrick's Cathedral behind" },
     intro: [
-      "620 Loft & Garden is the rooftop garden above Fifth Avenue at Rockefeller Center, facing St. Patrick's Cathedral. On June 2, 2026, DJ DX brought [Soul Shades](/soul-shades) to the rooftop for a 175-guest reception for the international law firm NautaDutilh: DJ mixing with live violin from Julie Schatz layered on top, from cocktail hour through the after-party.",
+      "620 Loft & Garden is the rooftop garden above Fifth Avenue at Rockefeller Center, facing St. Patrick's Cathedral. On June 2, 2026, DJ DX brought [Soul Shades](https://soulshadesmusic.com/) to the rooftop for a 175-guest reception for the international law firm NautaDutilh: DJ mixing with live violin from Julie Schatz layered on top, from cocktail hour through the after-party.",
     ],
     sections: [
       {
