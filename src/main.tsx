@@ -97,6 +97,8 @@ const Venues            = lazy(() => import('./pages/Venues.tsx'))
 const Venue             = lazy(() => import('./pages/Venue.tsx'))
 const Work              = lazy(() => import('./pages/Work.tsx'))
 const CaseStudy         = lazy(() => import('./pages/CaseStudy.tsx'))
+const HireCorporateDJGuide = lazy(() => import('./pages/seo/HireCorporateDJGuide.tsx'))
+const PromDJ            = lazy(() => import('./pages/seo/PromDJ.tsx'))
 const NotFound          = lazy(() => import('./pages/NotFound.tsx'))
 const Verified          = lazy(() => import('./pages/Verified.tsx'))
 const Confirm           = lazy(() => import('./pages/Confirm.tsx'))
@@ -180,6 +182,8 @@ createRoot(rootEl).render(
             <Route path="/venues/:slug" element={<Venue />} />
             <Route path="/work" element={<Work />} />
             <Route path="/work/:slug" element={<CaseStudy />} />
+            <Route path="/how-to-hire-corporate-event-dj-nyc" element={<HireCorporateDJGuide />} />
+            <Route path="/prom-dj-nyc-nj" element={<PromDJ />} />
             <Route path="/office-party-music-poll" element={<OfficePartyPoll />} />
             <Route path="/poll/:pollId" element={<PollVote />} />
             <Route path="/poll/:pollId/results" element={<PollResults />} />

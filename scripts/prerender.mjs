@@ -63,6 +63,8 @@ const STATIC_ROUTES = [
   '/work',
   '/work/nautadutilh-620-loft-garden',
   '/work/saks-fifth-avenue-water-mill',
+  '/how-to-hire-corporate-event-dj-nyc',
+  '/prom-dj-nyc-nj',
   '/office-holiday-party-playlist',
   '/wedding-entrance-songs',
   '/last-dance-songs-wedding',

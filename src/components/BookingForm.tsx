@@ -161,6 +161,7 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
             <option>Corporate Event / Holiday Party</option>
             <option>Private Party / Birthday</option>
             <option>Sweet 16 / Quinceañera / Mitzvah</option>
+            <option>Prom / School Dance</option>
             <option>DJ + Live Violin (Soul Shades)</option>
             <option>Club / Venue Night</option>
             <option>Other</option>

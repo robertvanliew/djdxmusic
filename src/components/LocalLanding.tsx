@@ -39,7 +39,7 @@ type Props = {
   faq: FaqItem[];
   links: ReactNode;            // parent, holiday page, sibling
   bookingEventType: string;
-  calcEvent: 'corporate' | 'private';
+  calcEvent: 'corporate' | 'private' | 'sweet16';
   formName: string;
   serviceType: string;
   areaServed: { '@type': string; name: string }[];

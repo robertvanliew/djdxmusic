@@ -73,17 +73,17 @@ export default function WeddingDJCost() {
   return (
     <>
       <Helmet>
-        <title>How Much Does a Wedding DJ Cost in NYC &amp; NJ? Real Prices</title>
+        <title>How Much Does a Wedding DJ Cost in NYC &amp; NJ? (2027 Prices)</title>
         <meta name="description" content="Most NYC and NJ wedding DJs quote $2,000 to $4,000. DJ DX starts at $2,800 for up to 5 hours, with sound, mics and MC included. See what moves the price." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-cost-nyc" />
-        <meta property="og:title" content="How Much Does a Wedding DJ Cost in NYC &amp; NJ? Real Prices" />
+        <meta property="og:title" content="How Much Does a Wedding DJ Cost in NYC &amp; NJ? (2027 Prices)" />
         <meta property="og:description" content="Most NYC and NJ wedding DJs quote $2,000 to $4,000. DJ DX starts at $2,800 for up to 5 hours, with sound, mics and MC included. See what moves the price." />
         <meta property="og:url" content="https://djdxmusic.com/wedding-dj-cost-nyc" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="How Much Does a Wedding DJ Cost in NYC &amp; NJ? Real Prices" />
+        <meta name="twitter:title" content="How Much Does a Wedding DJ Cost in NYC &amp; NJ? (2027 Prices)" />
         <meta name="twitter:description" content="Most NYC and NJ wedding DJs quote $2,000 to $4,000. DJ DX starts at $2,800 for up to 5 hours, with sound, mics and MC included. See what moves the price." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
@@ -91,12 +91,12 @@ export default function WeddingDJCost() {
             {
               "@context": "https://schema.org",
               "@type": "Article",
-              "headline": "Wedding DJ Cost NYC & NJ (2026): Real Prices From $2,800",
+              "headline": "How Much Does a Wedding DJ Cost in NYC & NJ? (2027 Prices)",
               "url": "https://djdxmusic.com/wedding-dj-cost-nyc",
               "mainEntityOfPage": "https://djdxmusic.com/wedding-dj-cost-nyc",
               "image": "https://djdxmusic.com/epk-hero.jpg",
               "datePublished": "2026-07-01",
-              "dateModified": "2026-11-12",
+              "dateModified": "2026-11-23",
               "inLanguage": "en-US",
               "author": { "@type": "Person", "@id": "https://djdxmusic.com/#djdx", "name": "DJ DX", "url": "https://djdxmusic.com/" },
               "publisher": { "@id": "https://djdxmusic.com/#service" }
@@ -188,7 +188,7 @@ export default function WeddingDJCost() {
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(12,12,12,0.55) 0%, rgba(12,12,12,0.97) 100%)' }} />
         <div className="section-inner" style={{ position: 'relative', zIndex: 10, textAlign: 'center' }}>
           <div className="sec-overline" style={{ justifyContent: 'center' }}>
-            <span className="sec-label">2026 Pricing Guide</span>
+            <span className="sec-label">2027 Wedding Pricing</span>
           </div>
           <h1 className="sec-title" style={{ fontSize: 'clamp(1.9rem, 4.6vw, 3.2rem)', marginBottom: '1rem', maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto' }}>
             How Much Does a Wedding DJ <span>Cost in NYC and NJ?</span>
@@ -203,7 +203,7 @@ export default function WeddingDJCost() {
             <Link to="/event-dj-cost-nyc-nj-ct#quote-calculator" className="btn-gold">Get your exact starting price</Link>
           </p>
           <p style={{ marginTop: '14px', fontSize: '12px', color: 'rgba(242,242,242,0.55)', letterSpacing: '0.08em' }}>
-            Last updated: September 30, 2026 · Written by DJ DX · 25+ years, 500+ events, TED-featured
+            Last updated: November 23, 2026 · Rates good for 2027 weddings · Written by DJ DX · 25+ years, 500+ events, TED-featured
           </p>
         </div>
       </section>
@@ -259,7 +259,7 @@ export default function WeddingDJCost() {
               ['Hours', 'Reception-only is the baseline. Adding ceremony and cocktail hour extends the day to 7–9 hours of coverage and adds equipment for a second space.'],
               ['The date', 'Peak Saturdays from May through October carry the highest demand. Fridays, Sundays, and winter dates leave real room in the budget.'],
               ['Room and guest count', 'A 250-guest ballroom needs more sound than a 75-guest loft. Quotes size the system to the room so the dance floor hits without drowning dinner conversation.'],
-              ['Travel', 'NYC is included. New Jersey, Long Island, Westchester, and Connecticut are quoted with travel built into one number up front.'],
+              ['Travel', 'NYC is included. For New Jersey, Long Island, Westchester, and Connecticut, travel is quoted up front as its own line, so you see the full total before signing.'],
               ['Add-ons', 'Uplighting, a second ceremony sound system, extended after-party hours, or live violin. Each is itemized — you approve every line before signing.'],
               ['Who shows up', 'Agencies quote one price and send whichever roster DJ is free. With DJ DX the quote and the performer are the same person. That is what the rate buys.'],
             ].map(([h, body]) => (

@@ -19,5 +19,6 @@ export const FORM_TYPE_TO_PRICE: Record<string, PriceKey | undefined> = {
   'Corporate Event / Holiday Party': 'corporate',
   'Private Party / Birthday': 'private',
   'Sweet 16 / Quinceañera / Mitzvah': 'sweet16',
+  'Prom / School Dance': 'sweet16',
   'DJ + Live Violin (Soul Shades)': 'duo',
 };
