@@ -13,7 +13,7 @@ import AuthorBio from '../../components/AuthorBio';
 const FAQ_ITEMS = [
   {
     q: 'How much does a wedding DJ cost in NYC?',
-    a: 'Most NYC couples pay between $1,500 and $5,000 for a professional wedding DJ. Budget DJs advertise under $1,000 but usually cut corners on equipment, backup gear, or experience. Established solo DJs and boutique companies land in the $2,000–$3,500 range for a full reception. DJ DX weddings start at $2,800 with sound, wireless mics, and MC announcements included.',
+    a: 'Established NYC wedding DJs typically quote $2,000 to $4,000 for a full reception. The Knot\'s national average is $1,800, and NYC runs higher because of venue access rules, insurance minimums, and travel. Budget DJs advertise under $1,000 but usually cut corners on equipment, backup gear, or experience. DJ DX weddings start at $2,800 for up to five hours, with sound, wireless mics, and MC announcements included.',
   },
   {
     q: 'What affects the price of a wedding DJ?',
@@ -33,7 +33,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Do you charge for travel?',
-    a: 'Travel within New York City is included in the quoted total. Weddings in New Jersey, Long Island, Westchester, and Connecticut are quoted with travel included up front — one number, no surprise fees on the invoice.',
+    a: 'Travel within New York City is included in the quoted total. For weddings in New Jersey, Long Island, Westchester, and Connecticut, travel is quoted up front as its own line, so the full total is on the quote before you sign.',
   },
   {
     q: 'How much should a DJ charge for 4 hours?',
@@ -73,18 +73,18 @@ export default function WeddingDJCost() {
   return (
     <>
       <Helmet>
-        <title>Wedding DJ Cost NYC &amp; NJ (2026): Real Prices From $2,800</title>
-        <meta name="description" content="What a wedding DJ really costs in NYC, NJ and Long Island in 2026. Published starting rates, what's included, and a free instant price estimate." />
+        <title>How Much Does a Wedding DJ Cost in NYC &amp; NJ? Real Prices</title>
+        <meta name="description" content="Most NYC and NJ wedding DJs quote $2,000 to $4,000. DJ DX starts at $2,800 for up to 5 hours, with sound, mics and MC included. See what moves the price." />
         <link rel="canonical" href="https://djdxmusic.com/wedding-dj-cost-nyc" />
-        <meta property="og:title" content="Wedding DJ Cost NYC &amp; NJ (2026): Real Prices From $2,800" />
-        <meta property="og:description" content="What a wedding DJ really costs in NYC, NJ and Long Island in 2026. Published starting rates, what's included, and a free instant price estimate." />
+        <meta property="og:title" content="How Much Does a Wedding DJ Cost in NYC &amp; NJ? Real Prices" />
+        <meta property="og:description" content="Most NYC and NJ wedding DJs quote $2,000 to $4,000. DJ DX starts at $2,800 for up to 5 hours, with sound, mics and MC included. See what moves the price." />
         <meta property="og:url" content="https://djdxmusic.com/wedding-dj-cost-nyc" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Wedding DJ Cost NYC &amp; NJ (2026): Real Prices From $2,800" />
-        <meta name="twitter:description" content="What a wedding DJ really costs in NYC, NJ and Long Island in 2026. Published starting rates, what's included, and a free instant price estimate." />
+        <meta name="twitter:title" content="How Much Does a Wedding DJ Cost in NYC &amp; NJ? Real Prices" />
+        <meta name="twitter:description" content="Most NYC and NJ wedding DJs quote $2,000 to $4,000. DJ DX starts at $2,800 for up to 5 hours, with sound, mics and MC included. See what moves the price." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
           {`[
@@ -194,10 +194,10 @@ export default function WeddingDJCost() {
             How Much Does a Wedding DJ <span>Cost in NYC and NJ?</span>
           </h1>
           <p style={{ maxWidth: '680px', margin: '0 auto', fontSize: '1.08rem', color: 'rgba(242,242,242,0.75)', lineHeight: 1.75 }}>
-            A professional wedding DJ in New York City and New Jersey costs <strong style={{ color: 'var(--gold)' }}>$2,800 to $6,000</strong> for
-            a full reception. The price moves with the number of hours, the date, and add-ons like live violin or ceremony sound.
-            DJ DX weddings start at <strong style={{ color: 'var(--gold)' }}>$2,800</strong> and include sound, wireless mics, MC
-            announcements, and a planning call, with travel outside NYC quoted up front as its own line.
+            Established wedding DJs in New York City and New Jersey typically quote <strong style={{ color: 'var(--gold)' }}>$2,000 to $4,000</strong> for
+            a full reception, against a national average of $1,800 in The Knot&apos;s Real Weddings Study. The price moves with the number of hours,
+            the date, and add-ons like live violin or ceremony sound. DJ DX weddings start at <strong style={{ color: 'var(--gold)' }}>$2,800</strong> for
+            up to five hours and include sound, wireless mics, MC announcements, and a planning call, with travel outside NYC quoted up front as its own line.
           </p>
           <p style={{ marginTop: '18px' }}>
             <Link to="/event-dj-cost-nyc-nj-ct#quote-calculator" className="btn-gold">Get your exact starting price</Link>

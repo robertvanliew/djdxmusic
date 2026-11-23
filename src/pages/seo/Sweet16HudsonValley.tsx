@@ -14,17 +14,17 @@ export default function Sweet16HudsonValley() {
   return (
     <>
       <Helmet>
-        <title>Sweet 16 DJ Hudson Valley NY: Kingston, Red Hook &amp; New Paltz</title>
-        <meta name="description" content="Sweet 16 DJ for Kingston, Red Hook, New Paltz, Saugerties and Millbrook, NY in Ulster and Dutchess County. Clean, high-energy sets. Booking 2027." />
+        <title>Sweet 16 DJ Kingston, Saugerties &amp; Millbrook NY | From $1,500</title>
+        <meta name="description" content="Sweet 16 DJ for Saugerties, Kingston, Millbrook, New Paltz, Red Hook and Putnam County. From $1,500, travel quoted up front. Clean sets, booking 2027." />
         <link rel="canonical" href="https://djdxmusic.com/sweet-16-dj-hudson-valley-ny" />
-        <meta property="og:title" content="Sweet 16 DJ Hudson Valley NY: Kingston, Red Hook &amp; New Paltz" />
+        <meta property="og:title" content="Sweet 16 DJ Kingston, Saugerties &amp; Millbrook NY | From $1,500" />
         <meta property="og:description" content="Sweet 16 DJ serving Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and the greater Hudson Valley. Hip-hop, pop, Afrobeats, and custom sets for her night." />
         <meta property="og:url" content="https://djdxmusic.com/sweet-16-dj-hudson-valley-ny" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Sweet 16 DJ Hudson Valley NY: Kingston, Red Hook &amp; New Paltz" />
+        <meta name="twitter:title" content="Sweet 16 DJ Kingston, Saugerties &amp; Millbrook NY | From $1,500" />
         <meta name="twitter:description" content="Sweet 16 DJ serving Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and the greater Hudson Valley." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
@@ -158,8 +158,9 @@ export default function Sweet16HudsonValley() {
             Sweet 16 DJ Serving the <span>Hudson Valley</span>
           </h1>
           <p style={{ maxWidth: '640px', margin: '0 auto 2rem', fontSize: '1.1rem', color: 'rgba(242,242,242,0.72)', lineHeight: 1.7 }}>
-            Sweet 16 DJ for Kingston, New Paltz, Saugerties, Red Hook, Wappingers Falls, Millbrook, and Catskill.
+            Sweet 16 DJ for Kingston, Saugerties, Millbrook, New Paltz, Red Hook, Wappingers Falls, Catskill, and Putnam County.
             Clean, high-energy sets with hip-hop, pop, Afrobeats, and all the songs she's actually listening to right now.
+            Sweet 16s start at $1,500, with travel from NYC quoted up front.
           </p>
           <a href="#booking" className="btn-gold">Request a Quote</a>
         </div>

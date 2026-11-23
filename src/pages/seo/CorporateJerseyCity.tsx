@@ -15,8 +15,8 @@ export default function CorporateJerseyCity() {
   return (
     <LocalLanding
       path="/corporate-event-dj-jersey-city-nj"
-      title="Corporate Event & Holiday Party DJ Jersey City, NJ | DJ DX"
-      description="Corporate event and holiday party DJ in Jersey City and Hoboken, born and raised here. Downtown, Newport, Exchange Place. From $2,800. Quote in 24 hours."
+      title="Jersey City Corporate & Holiday Party DJ, From $2,800 | DJ DX"
+      description="Jersey City native, DJing here since 1998. Office parties, holiday parties and client events in Downtown, Newport and Exchange Place. Quote in 24 hours."
       heroImage="/corporate-dj-manhattan-office-party-nyc.jpg"
       heroAlt="Corporate event DJ DX behind the decks at an office party with city views"
       overline="Jersey City and Hudson County"
