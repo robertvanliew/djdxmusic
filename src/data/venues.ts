@@ -177,7 +177,7 @@ export const VENUES: Venue[] = [
       {
         h2: 'DJ solo, or with live violin',
         paras: [
-          'Book DJ DX on his own, or add live violin and keys with Soul Shades. See the [violin and DJ duo](/violin-dj-duo-nyc-nj), [office holiday party DJ](/holiday-party-dj-nyc-nj-ct) and [corporate event DJ in NYC](/corporate-event-dj-nyc-nj-ct).',
+          'Read the [NautaDutilh case study](/work/nautadutilh-620-loft-garden) from this rooftop. Book DJ DX on his own, or add live violin and keys with Soul Shades. See the [violin and DJ duo](/violin-dj-duo-nyc-nj), [office holiday party DJ](/holiday-party-dj-nyc-nj-ct) and [corporate event DJ in NYC](/corporate-event-dj-nyc-nj-ct).',
         ],
       },
     ],

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import SiteNav from '../../components/SiteNav';
 import SiteFooter from '../../components/SiteFooter';
 import RelatedServices from '../../components/RelatedServices';
@@ -413,6 +414,7 @@ export default function Hamptons() {
           </h2>
           <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', maxWidth: '680px', margin: '0 auto 32px', fontSize: '1rem', lineHeight: 1.7 }}>
             Most recently, I brought a golden-hour open-air set to a private estate in Water Mill for Saks Fifth Avenue — an intimate jewelry showcase featuring Jared Lehr, with a portion of the evening's sales supporting St. Jude Children's Research Hospital. Under a sailcloth tent with string lights overhead, the night moved from cocktail-hour house and disco into a full late-set groove as the sky shifted from gold to navy.
+            {' '}<Link to="/work/saks-fifth-avenue-water-mill" style={{ color: 'var(--gold)' }}>Read the case study</Link>.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '32px', marginBottom: '48px', opacity: 0.85 }}>

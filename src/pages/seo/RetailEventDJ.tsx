@@ -74,7 +74,7 @@ export default function RetailEventDJ() {
           <p>
             It was a brand event rather than a store opening, but the brief was the same one a store gives: music that fits
             the label, stays out of the way of conversation, and builds when the room is ready.
-            See the photos and video on the <Link to="/hamptons-luxury-dj" style={{ color: 'var(--gold)' }}>Hamptons page</Link>.
+            Read the <Link to="/work/saks-fifth-avenue-water-mill" style={{ color: 'var(--gold)' }}>Saks Fifth Avenue case study</Link>, or see more photos and video on the <Link to="/hamptons-luxury-dj" style={{ color: 'var(--gold)' }}>Hamptons page</Link>.
           </p>
         </>,
         note: <>Photo: Linsey Kromer.</>,

@@ -81,7 +81,7 @@ export default function LawFirmFinanceDJ() {
             <cite style={{ fontStyle: 'normal', fontSize: '0.88rem', color: 'rgba(242,242,242,0.6)' }}>Sue Krebs, NautaDutilh New York P.C.</cite>
           </blockquote>
         </>,
-        note: <>Both quotes are about the Soul Shades DJ and live violin booking. More on the room: <Link to="/venues/620-loft-garden-rockefeller-center" style={{ color: 'var(--gold)' }}>620 Loft &amp; Garden</Link>.</>,
+        note: <>Both quotes are about the Soul Shades DJ and live violin booking. More on the room: <Link to="/venues/620-loft-garden-rockefeller-center" style={{ color: 'var(--gold)' }}>620 Loft &amp; Garden</Link>. The full write-up: <Link to="/work/nautadutilh-620-loft-garden" style={{ color: 'var(--gold)' }}>NautaDutilh case study</Link>.</>,
       }}
       included={[
         ['Sound system', 'Professional speakers sized to your room and headcount'],

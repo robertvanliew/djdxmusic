@@ -138,6 +138,25 @@
 .vn-video--wide { max-width: none; }
 .vn-video figcaption { font-size: 0.85rem; color: rgba(242,242,242,0.6); margin-top: 6px; text-align: center; }
 
+/* Case studies (/work, /work/:slug) */
+.cs-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 24px; margin: 22px 0; padding: 4px 0; border-top: 1px solid var(--dim3); }
+.cs-facts div { padding: 12px 0; border-bottom: 1px solid var(--dim3); }
+.cs-facts dt { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.cs-facts dd { margin: 0; color: rgba(242,242,242,0.85); line-height: 1.5; }
+.cs-facts dd a { color: var(--gold); }
+.cs-quote { border-left: 2px solid var(--gold); padding-left: 16px; margin: 0 0 20px; }
+.cs-quote p { font-style: italic; line-height: 1.7; color: rgba(242,242,242,0.85); margin: 0 0 6px; }
+.cs-quote cite { font-style: normal; font-size: 0.88rem; color: rgba(242,242,242,0.6); }
+.cs-credit { font-size: 0.85rem; color: rgba(242,242,242,0.55); }
+.cs-list { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.cs-card { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--dim3); border-radius: 12px; overflow: hidden; color: inherit; text-decoration: none; transition: border-color 0.2s ease; }
+.cs-card:hover, .cs-card:focus-visible { border-color: var(--gold); }
+.cs-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.cs-card-body { display: flex; flex-direction: column; gap: 6px; padding: 16px 18px 20px; line-height: 1.6; color: rgba(242,242,242,0.7); }
+.cs-card-body strong { color: #fff; font-size: 1.15rem; }
+.cs-card-meta { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+@media (max-width: 640px) { .cs-list { grid-template-columns: 1fr; } }
+
 /* 404 page */
 .nf-main { padding: 140px 20px 80px; text-align: center; background: var(--black); min-height: 60vh; }
 .nf-main .sec-title { line-height: 1.08; margin-bottom: 22px; }

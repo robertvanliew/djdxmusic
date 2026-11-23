@@ -212,6 +212,7 @@ export default function Corporate() {
                 </p>
                 <p>
                   Recent booking: the <strong>NautaDutilh</strong> reception at <strong>620 Loft &amp; Garden</strong>, a rooftop garden space overlooking St. Patrick's Cathedral and the Rockefeller Center skyline. 175 guests, full evening coverage from cocktail hour through the after-party — DJ DX on the decks with Soul Shades violinist Julie Schatz layering live strings over the set.
+                  {' '}<Link to="/work/nautadutilh-620-loft-garden" style={{ color: 'var(--gold)' }}>Read the NautaDutilh case study</Link>, or the one for <Link to="/work/saks-fifth-avenue-water-mill" style={{ color: 'var(--gold)' }}>Saks Fifth Avenue in Water Mill</Link>.
                 </p>
               </div>
             </div>
