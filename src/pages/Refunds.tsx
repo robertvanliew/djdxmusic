@@ -1,5 +1,6 @@
 
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 
 export default function Refunds() {
 
@@ -42,7 +43,7 @@ export default function Refunds() {
         </div>
 
         <LegalSection title="1. All Sales Are Final">
-          <p>FRANKPELLA LLC sells high-quality digital audio files ("Digital Goods") through the DJ DX music store. Due to the nature of digital products — which are delivered electronically and cannot be "returned" — all sales are final once the purchase is complete and the download link has been delivered to your email address.</p>
+          <p>FRANKPELLA LLC sells high-quality digital audio files ("Digital Goods") through the <Link to="/music" style={{ color: 'var(--gold)' }}>DJ DX music store</Link>. Due to the nature of digital products — which are delivered electronically and cannot be "returned" — all sales are final once the purchase is complete and the download link has been delivered to your email address.</p>
           <p style={{ marginTop: '16px' }}>By completing a purchase, you acknowledge that you understand and agree to this policy.</p>
         </LegalSection>
 
@@ -90,6 +91,7 @@ export default function Refunds() {
             <a href="mailto:support@djdxmusic.com" style={{ color: 'var(--gold)' }}>support@djdxmusic.com</a>
           </p>
           <p style={{ marginTop: '16px' }}>We aim to respond to all support requests within 2 business days.</p>
+          <p style={{ marginTop: '16px' }}>See also our <Link to="/terms" style={{ color: 'var(--gold)' }}>Terms of Service</Link> and <Link to="/privacy" style={{ color: 'var(--gold)' }}>Privacy Policy</Link>.</p>
         </LegalSection>
 
       </div>

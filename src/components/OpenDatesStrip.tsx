@@ -7,7 +7,9 @@ import { trackEvent } from '../lib/analytics';
 
 // Date strips for service pages, fed by the same data as /open-dates
 // (src/data/availability.ts + live holds). Tapping a date opens /open-dates
-// with that date picked, where it can be held free for 72 hours.
+// with that date picked, where it can be held free for 72 hours. The ?date=
+// links are nofollow: /open-dates is the canonical page, and crawlers should
+// not treat each date as its own page.
 //   december: Thursday to Saturday nights left in December (shown Sep to Dec only)
 //   soon:     every night in the next three weeks, for last-minute bookings
 // A date that is not booked or held reads "Ask" and is described as "open to
@@ -43,7 +45,7 @@ export default function OpenDatesStrip({ mode, source, heading }: { mode: Mode; 
             <li key={n.iso}>
               {n.booked || held[n.iso]
                 ? <span className="od-day od-booked" aria-label={`${n.label}: ${n.booked ? 'booked' : 'on hold'}`}><strong>{n.label}</strong><em>{n.booked ? 'Booked' : 'On hold'}</em></span>
-                : <Link className="od-day" to={`/open-dates?date=${n.iso}`} onClick={() => trackEvent('open_date_click', { source, date: n.iso })} aria-label={`${n.label}: open to requests, ask about this date`}>
+                : <Link className="od-day" to={`/open-dates?date=${n.iso}`} rel="nofollow" onClick={() => trackEvent('open_date_click', { source, date: n.iso })} aria-label={`${n.label}: open to requests, ask about this date`}>
                     <strong>{n.label}</strong><em>Ask</em>
                   </Link>}
             </li>
@@ -73,7 +75,7 @@ export function NyeStatus({ source }: { source: string }) {
       <strong>{label}:</strong>{' '}
       {state === 'booked' ? 'booked. DJ DX takes one New Year\'s Eve event a year.'
         : state === 'held' ? 'on hold for another client. Ask to be next in line.'
-        : <>open to requests. <Link to={`/open-dates?date=${iso}`} onClick={() => trackEvent('open_date_click', { source, date: iso })}>Hold it free for 72 hours</Link></>}
+        : <>open to requests. <Link to={`/open-dates?date=${iso}`} rel="nofollow" onClick={() => trackEvent('open_date_click', { source, date: iso })}>Hold it free for 72 hours</Link></>}
     </p>
   );
 }
