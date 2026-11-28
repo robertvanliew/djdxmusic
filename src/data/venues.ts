@@ -11,6 +11,7 @@
 //   scripts/prerender.mjs and to public/sitemap.xml.
 
 export interface VenueSection { h2: string; paras?: string[]; bullets?: string[] }
+export interface VenueVideo { src: string; poster: string; name: string; description: string; uploadDate: string; duration: string; w: number; h: number; cap?: string }
 export interface Venue {
   slug: string;
   name: string;
@@ -23,9 +24,12 @@ export interface Venue {
   address?: { street: string; locality: string; region: string; postalCode: string };
   image?: { src: string; alt: string };
   // Gallery photos live in public/venues/<name>.jpg and .webp; give the base path without extension.
-  photos?: { src: string; alt: string; w: number; h: number }[];
+  // `cap` is the short label printed on the gallery tile (falls back to the alt text's first clause).
+  photos?: { src: string; alt: string; w: number; h: number; cap?: string }[];
   // Self-hosted highlight reel (public/videos). Emitted as VideoObject schema and listed in the video sitemap.
-  video?: { src: string; poster: string; name: string; description: string; uploadDate: string; duration: string; w: number; h: number };
+  video?: VenueVideo;
+  // More clips for the gallery (muted loops that play on screen, full screen with sound on click). VideoObject schema each.
+  videos?: VenueVideo[];
   intro: string[];
   sections: VenueSection[];
   cta: string;
@@ -43,8 +47,11 @@ export const VENUES: Venue[] = [
   // Hutong, November 21, 2026. Confirmed by DJ DX: venue, date, private event,
   // Bloomberg Tower (731 Lexington Avenue). Address, "Midtown" and room capacities are quoted from
   // Hutong's own site (hutong-nyc.com, read 2026-11-28). Event type, guest
-  // count, room used, timeline, music and load-in were not provided, so they
-  // are left off. Client not named (no permission given).
+  // count, room used, music and load-in were not provided, so they are left
+  // off; "How the night ran" says only what the footage shows (speeches, then
+  // a full dance floor). Client not named (no permission given). All event
+  // photos and clips published at the owner's request (2026-11-28), dancing
+  // and guest footage included; the violinist is not named (unconfirmed).
   {
     slug: 'hutong-nyc',
     name: 'Hutong',
@@ -59,6 +66,12 @@ export const VENUES: Venue[] = [
       'Hutong is the Chinese restaurant at 731 Lexington Avenue in Midtown Manhattan, inside Bloomberg Tower. On November 21, 2026, DJ DX was the DJ for a private event there, playing from a lit booth set up by the tall windows.',
     ],
     sections: [
+      {
+        h2: 'How the night ran',
+        paras: [
+          'Guests gathered for speeches on the mic first. Then the music took over, and the floor in front of the bar filled up and stayed full late into the night. Tap any photo or clip above to see it full screen.',
+        ],
+      },
       {
         h2: 'The spaces at Hutong',
         paras: [
@@ -79,11 +92,12 @@ export const VENUES: Venue[] = [
     cta: 'Planning a private dinner, holiday party or company event at Hutong? Send your date and guest count, and you will hear back within 24 hours.',
     bookingEventType: 'Private Party / Birthday',
     photos: [
-      { src: '/venues/hutong-nyc-dj-dx-booth-private-event', alt: 'DJ DX setup at Hutong NYC private event, lit DJ booth with speakers and keyboard by the windows', w: 1200, h: 1600 },
-      { src: '/venues/hutong-nyc-dj-equipment-load-in', alt: 'DJ DX equipment cases staged in the Hutong NYC dining room before setup', w: 1200, h: 1600 },
-      { src: '/venues/hutong-nyc-bar-dining-room', alt: 'The bar and dining room at Hutong NYC before a private event', w: 1200, h: 1600 },
-      { src: '/venues/hutong-nyc-street-entrance-midtown', alt: 'Hutong NYC street entrance at night, Midtown Manhattan', w: 1200, h: 1600 },
-      { src: '/venues/hutong-nyc-731-lexington-avenue-night', alt: 'Bloomberg Tower at 731 Lexington Avenue lit up at night, home of Hutong NYC', w: 1200, h: 1600 },
+      { src: '/venues/hutong-nyc-dj-dx-booth-private-event', alt: 'DJ DX setup at Hutong NYC private event, lit DJ booth with speakers and keyboard by the windows', w: 1200, h: 1600, cap: 'The booth by the windows' },
+      { src: '/venues/hutong-nyc-speeches-before-the-dance-floor', alt: 'Speeches on the mic with guests gathered on the dance floor at Hutong NYC', w: 1200, h: 1600, cap: 'Speeches before the dancing' },
+      { src: '/venues/hutong-nyc-dj-equipment-load-in', alt: 'DJ DX equipment cases staged in the Hutong NYC dining room before setup', w: 1200, h: 1600, cap: 'Load-in' },
+      { src: '/venues/hutong-nyc-bar-dining-room', alt: 'The bar and dining room at Hutong NYC before a private event', w: 1200, h: 1600, cap: 'The bar before doors' },
+      { src: '/venues/hutong-nyc-street-entrance-midtown', alt: 'Hutong NYC street entrance at night, Midtown Manhattan', w: 1200, h: 1600, cap: 'The entrance' },
+      { src: '/venues/hutong-nyc-731-lexington-avenue-night', alt: 'Bloomberg Tower at 731 Lexington Avenue lit up at night, home of Hutong NYC', w: 1200, h: 1600, cap: 'Bloomberg Tower' },
     ],
     video: {
       src: '/videos/hutong-nyc-private-event-dj-dx.mp4',
@@ -93,7 +107,29 @@ export const VENUES: Venue[] = [
       uploadDate: '2026-11-28T12:00:00-05:00',
       duration: 'PT16S',
       w: 576, h: 1024,
+      cap: 'DJ DX on the decks',
     },
+    videos: [
+      ['hutong-nyc-dance-floor-opens', 'The dance floor filling up at a private event at Hutong NYC', 'The dance floor opens', 'PT23S'],
+      ['hutong-nyc-dance-floor-by-the-bar', 'Guests dancing in front of the bar at Hutong NYC', 'In front of the bar', 'PT19S'],
+      ['hutong-nyc-violin-over-the-dj-set', 'Violin over the DJ set beside the booth at Hutong NYC', 'Violin over the set', 'PT29S'],
+      ['hutong-nyc-dance-floor-from-the-booth', 'The dance floor seen from the DJ booth at Hutong NYC', 'From the booth', 'PT18S'],
+      ['hutong-nyc-dance-floor-full', 'A full dance floor at a private event at Hutong NYC', 'A full floor', 'PT10S'],
+      ['hutong-nyc-dance-floor-late-night', 'Guests dancing late in the night at Hutong NYC', 'Late night', 'PT14S'],
+      ['hutong-nyc-guest-dancing-at-the-bar', 'A guest dancing by the bar at Hutong NYC', 'Dancing by the bar', 'PT13S'],
+      ['hutong-nyc-view-from-the-booth', 'The view from the DJ booth over the crowd at Hutong NYC', 'View from the booth', 'PT12S'],
+      ['hutong-nyc-guests-gather-by-the-booth', 'Guests gathered near the DJ booth at Hutong NYC', 'Guests gather', 'PT12S'],
+      ['hutong-nyc-live-moment-by-the-windows', 'Guests filming a live moment by the windows at Hutong NYC', 'A moment by the windows', 'PT12S'],
+    ].map(([slug, name, cap, duration]) => ({
+      src: `/videos/${slug}.mp4`,
+      poster: `/videos/${slug}-poster.jpg`,
+      name,
+      description: `${name}, November 21, 2026.`,
+      uploadDate: '2026-11-28T12:00:00-05:00',
+      duration,
+      w: 540, h: 960,
+      cap,
+    })),
     event: { name: 'Private event at Hutong NYC', startDate: '2026-11-21' },
     pages: [CORPORATE],
   },

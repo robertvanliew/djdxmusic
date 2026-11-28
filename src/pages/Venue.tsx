@@ -7,6 +7,7 @@ import BookingForm from '../components/BookingForm';
 import AuthorBio from '../components/AuthorBio';
 import StickyMobileCTA from '../components/StickyMobileCTA';
 import RichText from '../components/RichText';
+import EventMedia, { type Media } from '../components/EventMedia';
 import { venueBySlug, VENUES } from '../data/venues';
 
 // One template for every /venues/<slug> page. Content lives in
@@ -56,13 +57,26 @@ export default function Venue() {
       caption: ph.alt, creator: { '@id': 'https://djdxmusic.com/#djdx' }, copyrightHolder: { '@id': 'https://djdxmusic.com/#djdx' },
     })));
   }
-  if (v.video) {
+  const allVideos = [...(v.video ? [v.video] : []), ...(v.videos ?? [])];
+  for (const vid of allVideos) {
     schema.push({
-      '@context': 'https://schema.org', '@type': 'VideoObject', name: v.video.name, description: v.video.description,
-      thumbnailUrl: `https://djdxmusic.com${v.video.poster}`, contentUrl: `https://djdxmusic.com${v.video.src}`,
-      uploadDate: v.video.uploadDate, duration: v.video.duration, creator: { '@id': 'https://djdxmusic.com/#djdx' },
+      '@context': 'https://schema.org', '@type': 'VideoObject', name: vid.name, description: vid.description,
+      thumbnailUrl: `https://djdxmusic.com${vid.poster}`, contentUrl: `https://djdxmusic.com${vid.src}`,
+      uploadDate: vid.uploadDate, duration: vid.duration, creator: { '@id': 'https://djdxmusic.com/#djdx' },
       contentLocation: place,
     });
+  }
+  // Gallery order: the lead clip, the first photo, then clips and photos alternating.
+  const firstClause = (s: string) => s.split(/,| with /)[0];
+  const photoTiles: Media[] = (v.photos ?? []).map(ph => ({ kind: 'img', src: `${ph.src}.jpg`, webp: `${ph.src}.webp`, alt: ph.alt, cap: ph.cap || firstClause(ph.alt), w: ph.w, h: ph.h }));
+  const videoTiles: Media[] = allVideos.map(vid => ({ kind: 'video', src: vid.src, poster: vid.poster, alt: vid.name, cap: vid.cap || firstClause(vid.name) }));
+  const gallery: Media[] = [];
+  if (videoTiles[0]) gallery.push(videoTiles[0]);
+  const restV = videoTiles.slice(1), restP = [...photoTiles];
+  if (restP[0]) gallery.push(restP.shift()!);
+  while (restV.length || restP.length) {
+    if (restV.length) gallery.push(restV.shift()!);
+    if (restP.length) gallery.push(restP.shift()!);
   }
   if (v.event) {
     schema.push({
@@ -98,20 +112,10 @@ export default function Venue() {
           <h1 className="sec-title vn-h1">{v.h1}</h1>
           {v.intro.map((p, i) => <p className="vn-p vn-lead" key={i}><RichText text={p} /></p>)}
           {v.image && <img className="vn-img" src={v.image.src} alt={v.image.alt} width="1200" height="800" loading="eager" decoding="async" />}
-          {v.video && (
-            <figure className={`vn-video${v.video.w > v.video.h ? ' vn-video--wide' : ''}`}>
-              <video controls playsInline preload="none" poster={v.video.poster} src={v.video.src} aria-label={v.video.name} width={v.video.w} height={v.video.h} style={{ aspectRatio: `${v.video.w} / ${v.video.h}` }} />
-              <figcaption>{v.video.name}</figcaption>
-            </figure>
-          )}
-          {v.photos && v.photos.length > 0 && (
-            <div className="vn-gallery">
-              {v.photos.map((ph, i) => (
-                <picture key={ph.src}>
-                  <source type="image/webp" srcSet={`${ph.src}.webp`} />
-                  <img src={`${ph.src}.jpg`} alt={ph.alt} width={ph.w} height={ph.h} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
-                </picture>
-              ))}
+          {gallery.length > 0 && (
+            <div className="vn-media">
+              <EventMedia items={gallery} label={`${v.name}: photos and video`} />
+              <p className="vn-media-hint">Tap any photo or clip to see it full screen{allVideos.length ? ', with sound' : ''}.</p>
             </div>
           )}
 

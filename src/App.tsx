@@ -15,6 +15,9 @@ import BookingForm from './components/BookingForm';
 import { useToast } from './components/Toast';
 import ViralMomentsSection from './components/ViralMomentsSection';
 import { PlayedForStrip } from './components/ProofBlock';
+// Recent events with photo/video galleries; its own chunk so motion and the
+// gallery code stay off the critical path of the first paint.
+const WherePlayed = React.lazy(() => import('./components/WherePlayed'));
 
 // Catalog is managed via /admin — loaded from catalog.ts + localStorage
 
@@ -998,6 +1001,11 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* ── WHERE I'VE PLAYED: recent events; any photo or clip opens full screen ── */}
+      <React.Suspense fallback={<div style={{ minHeight: '900px' }} aria-hidden="true" />}>
+        <WherePlayed />
+      </React.Suspense>
 
       {/* ── SERVICES ── */}
       <section className="services">

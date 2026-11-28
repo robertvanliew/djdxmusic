@@ -667,6 +667,89 @@
       <video:duration>16</video:duration>
       <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
     </video:video>
+      <image:image>
+      <image:loc>https://djdxmusic.com/venues/hutong-nyc-speeches-before-the-dance-floor.jpg</image:loc>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-dance-floor-opens-poster.jpg</video:thumbnail_loc>
+      <video:title>The dance floor filling up at a private event at Hutong NYC</video:title>
+      <video:description>The dance floor filling up at a private event at Hutong NYC, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-dance-floor-opens.mp4</video:content_loc>
+      <video:duration>23</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-dance-floor-by-the-bar-poster.jpg</video:thumbnail_loc>
+      <video:title>Guests dancing in front of the bar at Hutong NYC</video:title>
+      <video:description>Guests dancing in front of the bar at Hutong NYC, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-dance-floor-by-the-bar.mp4</video:content_loc>
+      <video:duration>19</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-violin-over-the-dj-set-poster.jpg</video:thumbnail_loc>
+      <video:title>Violin over the DJ set beside the booth at Hutong NYC</video:title>
+      <video:description>Violin over the DJ set beside the booth at Hutong NYC, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-violin-over-the-dj-set.mp4</video:content_loc>
+      <video:duration>29</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-dance-floor-from-the-booth-poster.jpg</video:thumbnail_loc>
+      <video:title>The dance floor seen from the DJ booth at Hutong NYC</video:title>
+      <video:description>The dance floor seen from the DJ booth at Hutong NYC, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-dance-floor-from-the-booth.mp4</video:content_loc>
+      <video:duration>18</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-dance-floor-full-poster.jpg</video:thumbnail_loc>
+      <video:title>A full dance floor at a private event at Hutong NYC</video:title>
+      <video:description>A full dance floor at a private event at Hutong NYC, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-dance-floor-full.mp4</video:content_loc>
+      <video:duration>10</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-dance-floor-late-night-poster.jpg</video:thumbnail_loc>
+      <video:title>Guests dancing late in the night at Hutong NYC</video:title>
+      <video:description>Guests dancing late in the night at Hutong NYC, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-dance-floor-late-night.mp4</video:content_loc>
+      <video:duration>14</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-guest-dancing-at-the-bar-poster.jpg</video:thumbnail_loc>
+      <video:title>A guest dancing by the bar at Hutong NYC</video:title>
+      <video:description>A guest dancing by the bar at Hutong NYC, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-guest-dancing-at-the-bar.mp4</video:content_loc>
+      <video:duration>13</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-view-from-the-booth-poster.jpg</video:thumbnail_loc>
+      <video:title>The view from the DJ booth over the crowd at Hutong NYC</video:title>
+      <video:description>The view from the DJ booth over the crowd at Hutong NYC, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-view-from-the-booth.mp4</video:content_loc>
+      <video:duration>12</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-guests-gather-by-the-booth-poster.jpg</video:thumbnail_loc>
+      <video:title>Guests gathered near the DJ booth at Hutong NYC</video:title>
+      <video:description>Guests gathered near the DJ booth at Hutong NYC, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-guests-gather-by-the-booth.mp4</video:content_loc>
+      <video:duration>12</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-live-moment-by-the-windows-poster.jpg</video:thumbnail_loc>
+      <video:title>Guests filming a live moment by the windows at Hutong NYC</video:title>
+      <video:description>Guests filming a live moment by the windows at Hutong NYC, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-live-moment-by-the-windows.mp4</video:content_loc>
+      <video:duration>12</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
   </url>
 
   <url>
