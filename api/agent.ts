@@ -72,7 +72,7 @@ namespace Mcp {
       const p = await passport();
       const s = p.subject;
       return text([
-        `${s.name} (${s.realName}): ${s.description}`,
+        `${s.name}: ${s.description}`,
         `Active since ${s.activeSince}, ${s.eventsPerformed} events. From ${s.hometown}, based in ${s.baseLocation}.`,
         `Service area: ${s.serviceArea.join(', ')}.`,
         `Booking: ${p.bookingTerms.deposit}; balance ${p.bookingTerms.balance.toLowerCase()}. ${p.bookingTerms.insurance}. ${p.bookingTerms.taxForm}.`,

@@ -121,7 +121,7 @@ export default function NewsArticle() {
         ...(post.source.author ? { "author": { "@type": "Person", "name": post.source.author } } : {}),
         "datePublished": post.source.datePublished,
         "publisher": { "@type": "Organization", "name": post.source.publisher, "url": post.source.publisherUrl },
-        "about": { "@type": "Person", "name": "Robert Van Liew", "alternateName": "DJ DX", "url": "https://djdxmusic.com/" }
+        "about": { "@type": "Person", "name": "DJ DX", "url": "https://djdxmusic.com/" }
       }
     } : {}),
     ...(post.video ? {

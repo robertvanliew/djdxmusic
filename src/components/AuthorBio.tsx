@@ -10,13 +10,13 @@ export default function AuthorBio() {
     <aside className="ab" aria-label="About DJ DX">
       <div className="ab-inner">
         <picture>
-          <source type="image/webp" srcSet="/dj-dx-robert-van-liew-portrait.webp" />
-          <img className="ab-photo" src="/dj-dx-robert-van-liew-portrait.jpg" width="96" height="96" alt="DJ DX (Robert Van Liew)" loading="lazy" decoding="async" />
+          <source type="image/webp" srcSet="/dj-dx-portrait.webp" />
+          <img className="ab-photo" src="/dj-dx-portrait.jpg" width="96" height="96" alt="DJ DX" loading="lazy" decoding="async" />
         </picture>
         <div className="ab-copy">
-          <p className="ab-name">DJ DX <span>(Robert Van Liew)</span></p>
+          <p className="ab-name">DJ DX</p>
           <p className="ab-text">
-            Robert Van Liew has been DJing since 1998. Born in Jersey City and based in Brooklyn, he has played more than 500 events
+            DJ DX has been DJing since 1998. Born in Jersey City and based in Brooklyn, he has played more than 500 events
             over 25+ years, from weddings and office parties to galas across New York, New Jersey and Connecticut. He performed at
             TEDxYouth@RVA and has been featured in Disrupt Magazine and NJ.com.
           </p>

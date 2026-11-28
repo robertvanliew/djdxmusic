@@ -379,7 +379,7 @@ export default function MusicPlan() {
             <div className="mp-done" role="status">
               <h1 className="mp-title">Got it, thank you.</h1>
               <p>Your music plan is on its way to me, and a copy is in your inbox. I'll go through everything before our planning call. If anything changes, come back to this page anytime and send an update.</p>
-              <p className="mp-sign">Robert</p>
+              <p className="mp-sign">DJ DX</p>
             </div>
           ) : (
             <>

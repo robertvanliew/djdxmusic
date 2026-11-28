@@ -27,7 +27,6 @@ export function buildPassport() {
     subject: {
       did: DID,
       name: 'DJ DX',
-      realName: 'Robert Van Liew',
       alternateNames: ['DJDX', 'DJ DX Music', 'El Negro'],
       description: 'Event DJ, producer and recording artist from Jersey City, based in Brooklyn. Weddings, corporate events, holiday parties and private events across New York, New Jersey and Connecticut. DJing since 1998.',
       website: SITE,
@@ -94,7 +93,7 @@ export function buildPassport() {
     ] as Source[],
     press: [
       { label: 'TEDxYouth@RVA performance (TED.com)', url: 'https://www.ted.com/talks/dj_dx_finally_moving', date: '2022' },
-      { label: 'Voyage ATL: Life & Work with Robert Van Liew', url: 'https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/', date: '2026-09-10' },
+      { label: 'Voyage ATL: Life & Work interview (Sept 2026)', url: 'https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/', date: '2026-09-10' },
       { label: 'Disrupt Magazine', url: 'https://disruptmagazine.com/dj-dx-leads-the-music-industry-into-the-metaverse/', date: '' },
       { label: 'The Jersey Journal: "DJ DX headlines at Groove on Grove this week" (Weekend Urge cover)', url: `${SITE}/news/groove-on-grove-jersey-journal`, date: '2014-08-01' },
     ],

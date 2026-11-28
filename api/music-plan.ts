@@ -304,7 +304,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   // Client copy. Best-effort: the plan already reached DJ DX.
   const first = name.split(/\s+/)[0];
-  const greeting = `Hi ${first},\n\nThank you for sending your music plan. Here's a copy of everything you shared. I'll go through it before our planning call, and if anything changes you can send an update anytime from the same link.${show ? `\n\nYour live run of show: ${show.edit}\nYou or your planner can change the timeline from a phone, even on the night, and I see every change at the booth. After the event you'll get a Set Receipt: every song played, checked against your must-play and do-not-play lists.` : ''}\n\nRobert Van Liew\nDJ DX\n${PHONE}\n${TO}`;
+  const greeting = `Hi ${first},\n\nThank you for sending your music plan. Here's a copy of everything you shared. I'll go through it before our planning call, and if anything changes you can send an update anytime from the same link.${show ? `\n\nYour live run of show: ${show.edit}\nYou or your planner can change the timeline from a phone, even on the night, and I see every change at the booth. After the event you'll get a Set Receipt: every song played, checked against your must-play and do-not-play lists.` : ''}\n\nDJ DX\n${PHONE}\n${TO}`;
   try {
     const { error } = await resend.emails.send({
       from: FROM,

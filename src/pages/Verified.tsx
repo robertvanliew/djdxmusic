@@ -46,7 +46,7 @@ export default function Verified() {
   const schema = [
     {
       '@context': 'https://schema.org', '@type': 'ProfilePage', name: 'DJ DX at a glance', url: 'https://djdxmusic.com/verified',
-      mainEntity: { '@type': 'Person', '@id': 'https://djdxmusic.com/#djdx', name: 'DJ DX', alternateName: 'Robert Van Liew', url: 'https://djdxmusic.com/', image: 'https://djdxmusic.com/show-1.jpg' }, about: { '@id': 'https://djdxmusic.com/#service' },
+      mainEntity: { '@type': 'Person', '@id': 'https://djdxmusic.com/#djdx', name: 'DJ DX', url: 'https://djdxmusic.com/', image: 'https://djdxmusic.com/show-1.jpg' }, about: { '@id': 'https://djdxmusic.com/#service' },
       significantLink: ['https://djdxmusic.com/.well-known/business.json', 'https://djdxmusic.com/.well-known/did.json', 'https://djdxmusic.com/.well-known/agent-card.json'],
     },
   ];
@@ -83,7 +83,7 @@ export default function Verified() {
           <div className="vn-sec">
             <h2 className="vn-h2">The basics</h2>
             <table className="lp-table vf-table"><tbody>
-              <tr><td>Name</td><td>DJ DX ({p.subject.realName})</td></tr>
+              <tr><td>Name</td><td>DJ DX</td></tr>
               <tr><td>What</td><td>Event DJ, producer and recording artist</td></tr>
               <tr><td>Active since</td><td>{p.subject.activeSince}, {p.subject.eventsPerformed} events</td></tr>
               <tr><td>From / based in</td><td>{p.subject.hometown} / {p.subject.baseLocation}</td></tr>

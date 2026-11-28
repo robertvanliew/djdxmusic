@@ -57,7 +57,7 @@ const tickerItems = [
 ];
 
 const pressItems = [
-  { href: 'https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/',                                                          name: 'Voyage ATL',       quote: '"Life & Work with Robert Van Liew" — September 2026' },
+  { href: 'https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/',                                                          name: 'Voyage ATL',       quote: '"Life & Work" interview, September 2026' },
   { href: 'https://www.ted.com/talks/dj_dx_finally_moving',                                                                                        name: 'TED',              quote: '"Finally Moving" — Live performance on the TED stage.' },
   { href: 'https://www.tedxyouthrva.com/videos-1/v/8g5km9nl25yreezarrgk255j88alld',                                                                name: 'TEDx',             quote: 'Featured performer at TEDxYouth@RVA, Richmond VA — 2022' },
   { href: 'https://disruptmagazine.com/dj-dx-leads-the-music-industry-into-the-metaverse/',                                                         name: 'Disrupt Magazine', quote: '"DJ DX Leads the Music Industry into the Metaverse"' },

@@ -99,7 +99,7 @@ export default function EventDJCost() {
               "image": "https://djdxmusic.com/epk-hero.jpg",
               "author": {
                 "@type": "Person",
-                "name": "Robert Van Liew",
+                "name": "DJ DX",
                 "alternateName": "DJ DX",
                 "jobTitle": "DJ, Producer and Recording Artist",
                 "description": "Professional DJ since 1998 with 500+ events performed across New York, New Jersey, and Connecticut. Featured performer at TEDxYouth@RVA 2022.",
@@ -170,7 +170,7 @@ export default function EventDJCost() {
             Professional event DJs in the New York tri-state area generally cost <strong style={{ color: 'var(--white)' }}>$1,500 to $5,000</strong>, depending on event type, total hours, and how many sound zones the venue needs. That is above the national average because New York carries higher labour, insurance, and venue-access costs.
           </p>
           <p style={{ fontSize: '0.92rem', color: 'rgba(242,242,242,0.5)', lineHeight: 1.7 }}>
-            Published by DJ DX (Robert Van Liew), professional DJ since 1998.<br />
+            Published by DJ DX, professional DJ since 1998.<br />
             Last updated {LAST_UPDATED}.
           </p>
         </div>

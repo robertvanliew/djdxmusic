@@ -112,7 +112,7 @@ export default function SiteFooter({ email = 'bookings@djdxmusic.com', bookLabel
             rel="noopener noreferrer"
             className="footer-designer-link"
           >
-            Designed by Robert Van Liew
+            Site design
           </a>
         </div>
 

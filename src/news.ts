@@ -76,25 +76,25 @@ export const newsPosts: NewsPost[] = [
     slug: 'voyage-atl-feature',
     headline: 'DJ DX Featured in Voyage ATL: From Jersey City Mixtapes to the TED Stage',
     seoTitle: 'DJ DX in Voyage ATL: Jersey City Mixtapes to the TED Stage',
-    metaDescription: 'Voyage ATL interviews DJ DX (Robert Van Liew) on Jersey City mixtapes in 1998, producing, the TED stage, and building a career independently.',
-    subheadline: "Voyage ATL's Life & Work series sat down with Robert Van Liew, better known as DJ DX, to talk about 25+ years behind the decks, going independent, and why he publishes his prices.",
+    metaDescription: 'Voyage ATL interviews DJ DX on Jersey City mixtapes in 1998, producing, the TED stage, and building a career independently.',
+    subheadline: "Voyage ATL's Life & Work series sat down with DJ DX to talk about 25+ years behind the decks, going independent, and why he publishes his prices.",
     datePublished: '2026-09-30T12:00:00-04:00',
     dateModified: '2026-09-30T12:00:00-04:00',
     displayDate: 'September 30, 2026',
     category: 'Press',
-    excerpt: "In a September 2026 interview with Voyage ATL, DJ DX (Robert Van Liew) talks about starting with Jersey City mixtapes in 1998, becoming a producer, performing on the TED stage, and building his career independently.",
+    excerpt: "In a September 2026 interview with Voyage ATL, DJ DX talks about starting with Jersey City mixtapes in 1998, becoming a producer, performing on the TED stage, and building his career independently.",
     image: '/epk-hero.jpg',
-    imageAlt: 'DJ DX (Robert Van Liew), New York and New Jersey DJ and producer, featured in Voyage ATL',
-    tags: ['Press', 'Voyage ATL', 'Interview', 'Robert Van Liew', 'DJ DX', 'TEDxYouth@RVA'],
+    imageAlt: 'DJ DX, New York and New Jersey DJ and producer, featured in Voyage ATL',
+    tags: ['Press', 'Voyage ATL', 'Interview', 'DJ DX', 'TEDxYouth@RVA'],
     source: {
       publisher: 'Voyage ATL',
       publisherUrl: 'https://voyageatl.com/',
-      headline: 'Life & Work with Robert Van Liew',
+      headline: 'Voyage ATL Life & Work interview',
       url: 'https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/',
       datePublished: '2026-09-10',
     },
     body: `
-<p class="news-lede">On September 10, 2026, <strong>Voyage ATL</strong> featured Robert Van Liew, better known as <strong>DJ DX</strong>, in its <em>Life &amp; Work</em> interview series. The conversation covers where it all started, the turn from DJ to producer, the TED stage, and what it has taken to build a career independently.</p>
+<p class="news-lede">On September 10, 2026, <strong>Voyage ATL</strong> featured <strong>DJ DX</strong> in its <em>Life &amp; Work</em> interview series. The conversation covers where it all started, the turn from DJ to producer, the TED stage, and what it has taken to build a career independently.</p>
 
 <h2>Where it started: Jersey City, 1998</h2>
 
@@ -132,7 +132,7 @@ export const newsPosts: NewsPost[] = [
 
 <p>He also points to published pricing, starting rates for weddings, corporate events, private parties, and the Soul Shades duo, so clients can see what fits their budget before the first conversation.</p>
 
-<p class="news-source">Read the full interview: <a href="https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/" target="_blank" rel="noopener">Life &amp; Work with Robert Van Liew</a>, Voyage ATL, September 10, 2026.</p>
+<p class="news-source">Read the full interview: <a href="https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/" target="_blank" rel="noopener">Life &amp; Work interview</a>, Voyage ATL, September 10, 2026.</p>
 
 <div class="news-cta-block">
   <a href="https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/" target="_blank" rel="noopener" class="news-cta-btn">Read on Voyage ATL</a>

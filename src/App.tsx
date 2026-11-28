@@ -230,10 +230,10 @@ const videos = [
 const pressItems = [
   {
     href: 'https://voyageatl.com/interview/life-work-with-robert-van-liew-of-national/',
-    label: 'Life & Work with Robert Van Liew — Voyage ATL Magazine (Sept 2026)',
+    label: 'Voyage ATL Magazine interview (Sept 2026)',
     wordmarkClass: 'press-wordmark--voyage',
     wordmark: <>Voyage<span className="press-wordmark-sub">ATL Magazine</span></>,
-    quote: '"Life & Work with Robert Van Liew"',
+    quote: '"Life & Work" interview, September 2026',
   },
   {
     href: 'https://www.ted.com/talks/dj_dx_finally_moving',
@@ -929,7 +929,7 @@ function App() {
               </div>
               <div className="about-body sr" data-sr-delay="0.12s">
                 <p>
-                  DJ DX (Robert Van Liew) was born and raised in Jersey City, NJ, and has been
+                  DJ DX was born and raised in Jersey City, NJ, and has been
                   DJing since 1998. He built his name blending Hip-Hop and R&amp;B mixtapes on
                   the streets of Jersey City and online, then Reggaeton — that's where the name
                   "El Negro" came from. In 2011 he started writing and recording his own music,
