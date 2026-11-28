@@ -51,7 +51,7 @@ export const VENUES: Venue[] = [
   // off; "How the night ran" says only what the footage shows (speeches, then
   // a full dance floor). Client not named (no permission given). All event
   // photos and clips published at the owner's request (2026-11-28), dancing
-  // and guest footage included; the violinist is not named (unconfirmed).
+  // and guest footage included; violinist confirmed as Julie Schatz by the owner (2026-11-28).
   {
     slug: 'hutong-nyc',
     name: 'Hutong',
@@ -112,7 +112,7 @@ export const VENUES: Venue[] = [
     videos: [
       ['hutong-nyc-dance-floor-opens', 'The dance floor filling up at a private event at Hutong NYC', 'The dance floor opens', 'PT23S'],
       ['hutong-nyc-dance-floor-by-the-bar', 'Guests dancing in front of the bar at Hutong NYC', 'In front of the bar', 'PT19S'],
-      ['hutong-nyc-violin-over-the-dj-set', 'Violin over the DJ set beside the booth at Hutong NYC', 'Violin over the set', 'PT29S'],
+      ['hutong-nyc-violin-over-the-dj-set', 'Julie Schatz on live violin over the DJ set beside the booth at Hutong NYC', 'Julie Schatz over the set', 'PT29S'],
       ['hutong-nyc-dance-floor-from-the-booth', 'The dance floor seen from the DJ booth at Hutong NYC', 'From the booth', 'PT18S'],
       ['hutong-nyc-dance-floor-full', 'A full dance floor at a private event at Hutong NYC', 'A full floor', 'PT10S'],
       ['hutong-nyc-dance-floor-late-night', 'Guests dancing late in the night at Hutong NYC', 'Late night', 'PT14S'],

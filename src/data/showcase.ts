@@ -42,7 +42,7 @@ export const SHOWCASE: Showcase[] = [
       { kind: 'video', src: V('hutong-nyc-dance-floor-opens'), poster: P('hutong-nyc-dance-floor-opens'), alt: 'The dance floor filling up at a private event at Hutong NYC', cap: 'The dance floor opens' },
       { kind: 'img', src: '/venues/hutong-nyc-dj-dx-booth-private-event.jpg', webp: '/venues/hutong-nyc-dj-dx-booth-private-event.webp', alt: 'DJ DX setup at Hutong NYC private event, lit DJ booth with speakers and keyboard by the windows', cap: 'The booth by the windows', w: 1200, h: 1600 },
       { kind: 'video', src: V('hutong-nyc-dance-floor-by-the-bar'), poster: P('hutong-nyc-dance-floor-by-the-bar'), alt: 'Guests dancing in front of the bar at Hutong NYC', cap: 'In front of the bar' },
-      { kind: 'video', src: V('hutong-nyc-violin-over-the-dj-set'), poster: P('hutong-nyc-violin-over-the-dj-set'), alt: 'Violin over the DJ set beside the booth at Hutong NYC', cap: 'Violin over the set' },
+      { kind: 'video', src: V('hutong-nyc-violin-over-the-dj-set'), poster: P('hutong-nyc-violin-over-the-dj-set'), alt: 'Julie Schatz on live violin over the DJ set beside the booth at Hutong NYC', cap: 'Julie Schatz over the set' },
       { kind: 'video', src: V('hutong-nyc-view-from-the-booth'), poster: P('hutong-nyc-view-from-the-booth'), alt: 'The view from the DJ booth over the dance floor at Hutong NYC', cap: 'View from the booth' },
     ],
   },
