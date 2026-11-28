@@ -41,7 +41,7 @@ const NYE = '/new-years-eve-dj-nyc';
 
 export const VENUES: Venue[] = [
   // Hutong, November 21, 2026. Confirmed by DJ DX: venue, date, private event,
-  // Bloomberg building. Address, "Midtown" and room capacities are quoted from
+  // Bloomberg Tower (731 Lexington Avenue). Address, "Midtown" and room capacities are quoted from
   // Hutong's own site (hutong-nyc.com, read 2026-11-28). Event type, guest
   // count, room used, timeline, music and load-in were not provided, so they
   // are left off. Client not named (no permission given).
@@ -56,7 +56,7 @@ export const VENUES: Venue[] = [
     overline: 'Venue: Hutong, 731 Lexington Avenue',
     address: { street: '731 Lexington Avenue', locality: 'New York', region: 'NY', postalCode: '10022' },
     intro: [
-      'Hutong is the Chinese restaurant at 731 Lexington Avenue in Midtown Manhattan, in the Bloomberg building. On November 21, 2026, DJ DX was the DJ for a private event there, playing from a lit booth set up by the tall windows.',
+      'Hutong is the Chinese restaurant at 731 Lexington Avenue in Midtown Manhattan, inside Bloomberg Tower. On November 21, 2026, DJ DX was the DJ for a private event there, playing from a lit booth set up by the tall windows.',
     ],
     sections: [
       {
@@ -83,7 +83,7 @@ export const VENUES: Venue[] = [
       { src: '/venues/hutong-nyc-dj-equipment-load-in', alt: 'DJ DX equipment cases staged in the Hutong NYC dining room before setup', w: 1200, h: 1600 },
       { src: '/venues/hutong-nyc-bar-dining-room', alt: 'The bar and dining room at Hutong NYC before a private event', w: 1200, h: 1600 },
       { src: '/venues/hutong-nyc-street-entrance-midtown', alt: 'Hutong NYC street entrance at night, Midtown Manhattan', w: 1200, h: 1600 },
-      { src: '/venues/hutong-nyc-731-lexington-avenue-night', alt: '731 Lexington Avenue lit up at night, home of Hutong NYC', w: 1200, h: 1600 },
+      { src: '/venues/hutong-nyc-731-lexington-avenue-night', alt: 'Bloomberg Tower at 731 Lexington Avenue lit up at night, home of Hutong NYC', w: 1200, h: 1600 },
     ],
     video: {
       src: '/videos/hutong-nyc-private-event-dj-dx.mp4',
