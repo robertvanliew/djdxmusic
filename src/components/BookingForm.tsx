@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { trackEvent, trackLead, trackFormSubmit, trackFormError } from '../lib/analytics';
 import AddressAutocomplete from './AddressAutocomplete';
 import { getAiReferral } from '../lib/aiReferral';
@@ -63,7 +63,6 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
   // Commitments card: staggered reveal once it scrolls into view.
   const trustRef = useRef<HTMLDivElement>(null);
   const [trustIn, setTrustIn] = useState(false);
-  const sealId = useId().replace(/:/g, '');
   useEffect(() => {
     const el = trustRef.current;
     if (!el || typeof IntersectionObserver === 'undefined') { setTrustIn(true); return; }
@@ -248,14 +247,8 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
       {/* div, not <section>: the site's mobile rules pad every <section> 60px */}
       <div className={`bf-trust${trustIn ? ' is-in' : ''}`} role="group" aria-label="Booking commitments" ref={trustRef}>
         <div className="bf-seal" aria-hidden="true">
-          <svg viewBox="0 0 120 120" width="112" height="112">
-            <defs><path id={`seal-${sealId}`} d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0" /></defs>
-            <g className="bf-seal-ring">
-              <text><textPath href={`#seal-${sealId}`} startOffset="0" textLength="292" lengthAdjust="spacing">THE DJ DX STANDARD · SINCE 1998 ·</textPath></text>
-            </g>
-            <circle cx="60" cy="60" r="33" className="bf-seal-core" />
-            <text x="60" y="67" textAnchor="middle" className="bf-seal-dx">DX</text>
-          </svg>
+          <img src="/favicon-192x192.png" alt="" width="88" height="88" loading="lazy" decoding="async" />
+          <span className="bf-seal-cap">Since 1998</span>
         </div>
         <div className="bf-trust-body">
           <div className="bf-trust-head">
@@ -284,16 +277,22 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
       </ul>
       <div className="bf-alts">
         <span className="bf-alts-label">Or reach DJ DX directly</span>
-        <div className="bf-alts-row">
+        <div className={`bf-alts-row${pollId ? ' bf-alts-row--two' : ''}`}>
           <a className="bf-alt" href={textHref()} onClick={() => trackTextClick('booking_form')}>
-            {alt(<><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></>)}Text {TEXT_NUMBER_DISPLAY}
+            {alt(<><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></>)}
+            <span className="bf-alt-label">Text</span>
+            <span className="bf-alt-detail">{TEXT_NUMBER_DISPLAY}</span>
           </a>
           <a className="bf-alt" href="mailto:bookings@djdxmusic.com">
-            {alt(<><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>)}bookings@djdxmusic.com
+            {alt(<><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>)}
+            <span className="bf-alt-label">Email</span>
+            <span className="bf-alt-detail">bookings@djdxmusic.com</span>
           </a>
           {!pollId && (
             <a className="bf-alt" href="/office-party-music-poll">
-              {alt(<><path d="M3 3v18h18" /><path d="M7 15v-4M12 15V8M17 15v-6" /></>)}Poll your crowd first, free
+              {alt(<><path d="M3 3v18h18" /><path d="M7 15v-4M12 15V8M17 15v-6" /></>)}
+              <span className="bf-alt-label">Poll your crowd</span>
+              <span className="bf-alt-detail">Free, before you book</span>
             </a>
           )}
         </div>

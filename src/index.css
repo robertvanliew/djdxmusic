@@ -9111,3 +9111,32 @@ body.bk-open .sticky-cta-bar { display: none; }
   .bf-trust-grid li { transform: none !important; transition: opacity 200ms ease !important; }
   .fs-sheen, .fs-arrow { transition: none; }
 }
+
+/* Booking form: DX logo in place of the spinning seal; contact options as equal tiles */
+.bf-seal { display: flex; flex-direction: column; align-items: center; gap: 10px; align-self: start; padding-top: 2px; }
+.bf-seal img { display: block; width: 88px; height: 88px; border-radius: 22px; box-shadow: 0 12px 32px rgba(201,168,76,0.28), 0 0 0 1px rgba(201,168,76,0.35); }
+.bf-seal-cap { font-family: 'Geist Variable', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(226,201,126,0.75); }
+
+.bf-alts-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.bf-alts-row--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.bf-alt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-height: 96px;
+  padding: 14px 12px;
+  border-radius: 16px;
+  text-align: center;
+}
+.bf-alt svg { width: 20px; height: 20px; margin-bottom: 4px; }
+.bf-alt-label { font-size: 0.92rem; font-weight: 600; color: var(--white); }
+.bf-alt-detail { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.76rem; color: rgba(242,242,242,0.55); }
+@media (max-width: 640px) {
+  .bf-alts-row, .bf-alts-row--two { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .bf-alt { display: grid; grid-template-columns: 24px minmax(0, 1fr); grid-template-rows: auto auto; column-gap: 14px; row-gap: 0; align-items: center; justify-items: start; min-height: 64px; padding: 12px 18px; text-align: left; flex: none; }
+  .bf-alt svg { grid-row: 1 / span 2; margin: 0; }
+  .bf-seal { flex-direction: row; gap: 12px; }
+  .bf-seal img { width: 56px; height: 56px; border-radius: 14px; }
+}
