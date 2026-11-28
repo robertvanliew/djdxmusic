@@ -18,6 +18,7 @@ export type Showcase = {
   specs: [string, string][];
   href: string;
   hrefLabel: string;
+  quote?: { text: string; by: string };
   media: Media[];
 };
 
@@ -68,6 +69,28 @@ export const SHOWCASE: Showcase[] = [
     ],
   },
   {
+    id: 'ls-power',
+    date: 'September 2026',
+    title: 'LS Power',
+    venue: 'Their Midtown Office',
+    sub: "An in-office reception in LS Power's own Midtown event space, floor-to-ceiling windows over the city. Full DJ setup and sound brought onto a working office floor, opening with house and soul at talking volume and building into an open dance floor.",
+    specs: [
+      ['Client', 'LS Power'],
+      ['Venue', 'Their own event space, Midtown Manhattan'],
+      ['Event', 'In-office corporate reception'],
+      ['Set', 'House and soul into an open dance floor'],
+    ],
+    href: '/corporate-event-dj-nyc-nj-ct',
+    hrefLabel: 'See corporate event DJ in NYC',
+    quote: { text: 'The music selection was well suited for the event, you read the crowd perfectly, and everyone had a great time.', by: 'Senior Office Manager, LS Power' },
+    media: [
+      { kind: 'img', src: '/corporate-dj-manhattan-office-party-nyc.jpg', alt: 'DJ DX on the decks at the LS Power in-office reception in Midtown Manhattan, skyline windows behind the booth', cap: 'Skyline behind the booth' },
+      { kind: 'video', src: V('corporate-dj-manhattan-office-party-nyc'), poster: '/corporate-dj-manhattan-office-party-nyc-poster.jpg', alt: 'Highlights from the LS Power office party in Midtown Manhattan', cap: 'Office party highlights' },
+      { kind: 'img', src: '/corporate-event-dj-booth-manhattan-nyc.jpg', alt: 'The DJ DX booth set up in the LS Power event space, Midtown Manhattan', cap: 'The booth' },
+      { kind: 'img', src: '/corporate-event-venue-manhattan-skyline-nyc.jpg', alt: 'The LS Power event space with skyline views, set up with DJ sound and lighting, Midtown Manhattan', cap: 'The room before doors' },
+    ],
+  },
+  {
     id: 'saks',
     date: 'August 2026',
     title: 'Saks Fifth Avenue',
@@ -103,6 +126,7 @@ export const SHOWCASE: Showcase[] = [
     ],
     href: '/work/nautadutilh-620-loft-garden',
     hrefLabel: 'Read the NautaDutilh case study',
+    quote: { text: "Your performance set the tone for our event, and the addition of the violin amplified our guests' experience and made the evening memorable.", by: 'Anna Naraine, NautaDutilh New York P.C.' },
     media: [
       { kind: 'img', src: '/nautadutilh-violin-skyline-nyc.jpg', alt: "Live violin over the DJ set with the Manhattan skyline and St. Patrick's Cathedral, 620 Loft & Garden rooftop", cap: 'Live violin, skyline behind', w: 1600, h: 2133 },
       { kind: 'video', src: V('nautadutilh-rooftop-night-nyc'), poster: '/nautadutilh-rooftop-night-poster.jpg', alt: 'The rooftop setup at night, Manhattan skyline, NautaDutilh reception at 620 Loft & Garden', cap: 'After dark on the rooftop' },

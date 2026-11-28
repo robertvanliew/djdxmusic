@@ -8482,3 +8482,6 @@ body { padding-bottom: env(safe-area-inset-bottom); }
   .gb-card, .gb-card::after, .gb-icon { transition: none; }
 }
 .services { overflow-x: clip; }
+.wp-quote { margin: 0 0 18px; padding-left: 16px; border-left: 2px solid var(--gold); max-width: 56ch; }
+.wp-quote p { margin: 0 0 6px; font-style: italic; line-height: 1.65; color: rgba(242,242,242,0.85); }
+.wp-quote cite { font-style: normal; font-size: 0.85rem; color: rgba(242,242,242,0.5); }

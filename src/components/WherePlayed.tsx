@@ -77,6 +77,12 @@ export default function WherePlayed() {
                     <p className="wp-meta">{g.date}</p>
                     <h3 className="wp-title">{g.title} <span>at {g.venue}</span></h3>
                     <p className="wp-sub">{g.sub}</p>
+                    {g.quote && (
+                      <blockquote className="wp-quote">
+                        <p>&ldquo;{g.quote.text}&rdquo;</p>
+                        <cite>{g.quote.by}</cite>
+                      </blockquote>
+                    )}
                     <Link to={g.href} className="wp-more">{g.hrefLabel} <span aria-hidden="true">→</span></Link>
                   </div>
                   <dl className="wp-specs">
