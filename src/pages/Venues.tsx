@@ -130,6 +130,7 @@ export default function Venues() {
 
           <div className="vn-sec">
             <p className="vn-p">Don't see your venue? DJ DX has played more than 500 events across the tri-state area. <a href="/#booking">Check your date</a>.</p>
+            <p className="vn-p">Planning a company event across the river? See <Link to="/corporate-event-dj-jersey-city-nj">corporate event DJ in Jersey City, NJ</Link>.</p>
           </div>
         </div>
       </main>

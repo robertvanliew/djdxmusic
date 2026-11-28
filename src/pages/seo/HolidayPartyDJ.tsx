@@ -375,7 +375,8 @@ export default function HolidayPartyDJ() {
           </ul>
           <p style={{ textAlign: 'center', color: 'rgba(242,242,242,0.62)', margin: '28px auto 0', fontSize: '0.98rem', lineHeight: 1.75 }}>
             Planning something outside the holidays too? See <Link to="/corporate-event-dj-nyc-nj-ct" style={{ color: 'var(--gold)' }}>corporate event DJ in NYC</Link> for
-            client events, galas, launches, and summer parties.
+            client events, galas, launches, and summer parties. Office in Hudson County? See{' '}
+            <Link to="/corporate-event-dj-jersey-city-nj" style={{ color: 'var(--gold)' }}>holiday party and corporate event DJ in Jersey City, NJ</Link>.
           </p>
           <div className="lp-cta">
             <a href="#booking" className="btn-gold">Check My December Date</a>

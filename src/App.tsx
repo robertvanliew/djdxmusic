@@ -5,7 +5,8 @@ import SiteNav from './components/SiteNav';
 import StickyMobileCTA from './components/StickyMobileCTA';
 import QuoteCalculator from './components/QuoteCalculator';
 import PricingNudge from './components/PricingNudge';
-import SeasonalBooking from './components/SeasonalBooking';
+import BookByEvent from './components/BookByEvent';
+import BookingPrompt from './components/BookingPrompt';
 import { Link } from 'react-router-dom';
 import SiteFooter from './components/SiteFooter';
 import './index.css';
@@ -298,14 +299,6 @@ const genreLinks: Record<string, string> = {
   "Private Events": "/private-party-dj-nyc-nj",
 };
 
-// Four cards, so the row stays even on desktop (4) and tablet (2).
-const eventLinks = [
-  { label: 'Weddings', kicker: 'From $2,800', desc: 'Ceremony through after-party, NYC and NJ.', to: '/wedding-dj-nyc-nj' },
-  { label: 'Corporate Events', kicker: 'From $2,800', desc: 'Office parties, galas and client events. COI and W-9 ready.', to: '/corporate-event-dj-nyc-nj-ct' },
-  { label: 'Birthdays & Private Parties', kicker: 'From $2,800', desc: 'Milestone birthdays, home parties, rooftops and lounges.', to: '/birthday-party-dj-nyc-nj' },
-  { label: 'Instant Price Estimate', kicker: 'Free, 30 seconds', desc: 'Pick your event and hours, get a starting price.', to: '/event-dj-cost-nyc-nj-ct#quote-calculator' },
-];
-
 function SkillsGrid() {
   return (
     <>
@@ -328,31 +321,6 @@ function SkillsGrid() {
           );
         })}
       </div>
-      <nav className="home-events" aria-label="DJ services by event">
-        <div className="sec-overline" style={{ justifyContent: 'center' }}>
-          <span className="sec-overline-line" /><span className="sec-label">Book by Event</span><span className="sec-overline-line" />
-        </div>
-        <div className="home-events-grid">
-          {eventLinks.map(e => (
-            <Link key={e.to} to={e.to} className="season-card">
-              <span className="season-kicker">{e.kicker}</span>
-              <strong>{e.label}</strong>
-              <span className="season-desc">{e.desc}</span>
-              <span className="season-go">See details <span aria-hidden="true">→</span></span>
-            </Link>
-          ))}
-        </div>
-        {/* Plain-text links worded the way people search, so Google sends
-            those searches to the dedicated page instead of the homepage. */}
-        <p className="home-local">
-          Also: <Link to="/corporate-event-dj-jersey-city-nj">corporate event DJ in Jersey City</Link>
-          {' · '}<Link to="/corporate-event-dj-brooklyn-ny">corporate event DJ in Brooklyn</Link>
-          {' · '}<Link to="/holiday-party-dj-nyc-nj-ct">office holiday party DJ</Link>
-          {' · '}<Link to="/wedding-dj-cost-nyc">how much a wedding DJ costs</Link>
-          {' · '}<Link to="/wedding-dj-manhattan-nyc">Manhattan wedding DJ</Link>
-          {' · '}<Link to="/sweet-16-dj-hudson-valley-ny">Sweet 16 DJ in the Hudson Valley</Link>
-        </p>
-      </nav>
     </>
   );
 }
@@ -945,6 +913,7 @@ function App() {
 
       </section>
 
+      <BookingPrompt />
       <PlayedForStrip />
 
       {/* ── ABOUT ── */}
@@ -1020,7 +989,7 @@ function App() {
           </div>
 
           <SkillsGrid />
-          <SeasonalBooking />
+          <BookByEvent />
         </div>
       </section>
 

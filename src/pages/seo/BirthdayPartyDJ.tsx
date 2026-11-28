@@ -82,6 +82,7 @@ export default function BirthdayPartyDJ() {
       links={<>
         More: <Link to="/private-party-dj-nyc-nj" style={{ color: 'var(--gold)' }}>private party DJ in NYC and NJ</Link>
         {' · '}<Link to="/sweet-16-dj-nyc-nj" style={{ color: 'var(--gold)' }}>sweet 16 DJ</Link>
+        {' · '}<Link to="/sweet-16-dj-hudson-valley-ny" style={{ color: 'var(--gold)' }}>sweet 16 DJ in the Hudson Valley</Link>
         {' · '}<Link to="/rb-hip-hop-dj-nyc-nj" style={{ color: 'var(--gold)' }}>R&amp;B and hip-hop DJ</Link>
         {' · '}<Link to="/holiday-party-dj-nyc-nj-ct" style={{ color: 'var(--gold)' }}>holiday party DJ</Link>
       </>}

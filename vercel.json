@@ -37,7 +37,7 @@
         }
       ],
       "destination": "https://djdxmusic.com/:path*",
-      "permanent": true
+      "statusCode": 301
     }
   ],
   "rewrites": [

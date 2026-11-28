@@ -7,7 +7,9 @@ import StickyMobileCTA from '../../components/StickyMobileCTA';
 import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
-import AuthorBio from '../../components/AuthorBio';
+import AuthorBio from '../../components/AuthorBio';
+import BookingPrompt from '../../components/BookingPrompt';
+import { Link } from 'react-router-dom';
 export default function Sweet16DJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -159,6 +161,8 @@ export default function Sweet16DJ() {
         </div>
       </section>
 
+      <BookingPrompt />
+
       {/* ── ABOUT ── */}
       <section className="about">
         <div className="section-inner">
@@ -172,6 +176,7 @@ export default function Sweet16DJ() {
                 <p>A sweet 16 is one of the most memorable nights of a teenager's life — and the DJ sets the entire tone. For every sweet 16, the process starts with a direct conversation about her specific music taste: what's in rotation on her Spotify right now, what artists she actually loves. Those are the starting points DJ DX builds the whole night around.</p>
                 <p>The sweet 16 crowd presents a unique challenge: teenagers with current tastes, parents who want appropriate content, and a birthday girl who needs to feel like the night was built specifically for her. DJ DX brings 25+ years and 500+ events across weddings, corporate galas, and private parties to that balance. The setlist is engineered in zones — an opening sequence that builds energy, a mid-point peak for the dance floor, a dedicated moment for the birthday highlight, and a closing hour that keeps the party going.</p>
                 <p>Today's teen crowd moves between hip-hop, pop, Afrobeats, Amapiano, Latin reggaeton, and TikTok-viral sounds without hesitation — and DJ DX moves with them. Parents in the room get moments too: a crowd-pleasing throwback sequence that signals the DJ understands the full room, not just the birthday girl.</p>
+                <p>Planning upstate? See <Link to="/sweet-16-dj-hudson-valley-ny" style={{ color: 'var(--gold)' }}>Sweet 16 DJ in the Hudson Valley</Link> for Kingston, Saugerties, Millbrook, New Paltz and Putnam County.</p>
               </div>
             </div>
             <div className="about-aside">

@@ -11,6 +11,7 @@ import AuthorBio from '../../components/AuthorBio';
 import SongFinderPromo from '../../components/SongFinderPromo';
 import StickyMobileCTA from '../../components/StickyMobileCTA';
 import QuoteCalculator from '../../components/QuoteCalculator';
+import BookingPrompt from '../../components/BookingPrompt';
 export default function WeddingDJ() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
@@ -168,6 +169,8 @@ export default function WeddingDJ() {
           </p>
         </div>
       </section>
+
+      <BookingPrompt />
 
       {/* ── WHY DJ DX FOR WEDDINGS ── */}
       <section className="about">

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import LocalLanding, { type FaqItem } from '../../components/LocalLanding';
 import OpenDatesStrip from '../../components/OpenDatesStrip';
+import BookingPrompt from '../../components/BookingPrompt';
 
 const FAQ: FaqItem[] = [
   { q: 'How much does a corporate event DJ cost in Jersey City?', a: 'DJ DX corporate events start at $2,800. That covers professional sound sized to the room, a wireless microphone for speeches, MC announcements, and a planning call. New Jersey travel is quoted up front as its own line, so the full total is clear before you sign.' },
@@ -15,7 +16,7 @@ export default function CorporateJerseyCity() {
   return (
     <LocalLanding
       path="/corporate-event-dj-jersey-city-nj"
-      title="Jersey City Corporate & Holiday Party DJ, From $2,800 | DJ DX"
+      title="Corporate Event DJ Jersey City, NJ | From $2,800 | DJ DX"
       description="Jersey City native, DJing here since 1998. Office parties, holiday parties and client events in Downtown, Newport and Exchange Place. Quote in 24 hours."
       heroImage="/corporate-dj-manhattan-office-party-nyc.jpg"
       heroAlt="Corporate event DJ DX behind the decks at an office party with city views"
@@ -23,10 +24,11 @@ export default function CorporateJerseyCity() {
       h1={<>Corporate Event DJ in <span>Jersey City, NJ</span></>}
       answer={<>
         DJ DX is a corporate event DJ in Jersey City, NJ, born and raised here and DJing in the city since 1998.
-        Corporate events start at $2,800 with sound, a wireless mic for speeches, and MC announcements included.
-        Send your date and you will have a quote within 24 hours.
+        Office parties, holiday parties and client events across Jersey City, Hoboken and Hudson County start at $2,800,
+        with sound, a wireless mic for speeches, and MC announcements included. Send your date through the form on this page
+        and you will have a quote within 24 hours.
       </>}
-      afterHero={<OpenDatesStrip mode="december" source="jersey_city" />}
+      afterHero={<><BookingPrompt /><OpenDatesStrip mode="december" source="jersey_city" /></>}
       localHeading={<>Born and Raised in <span>Jersey City</span></>}
       local={<>
         <p style={{ marginBottom: '16px' }}>

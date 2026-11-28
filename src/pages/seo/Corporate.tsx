@@ -14,6 +14,7 @@ import ProofBlock, { ClientNames } from '../../components/ProofBlock';
 import { CORP_PACKAGES } from '../../data/packages';
 import AuthorBio from '../../components/AuthorBio';
 import OpenDatesStrip from '../../components/OpenDatesStrip';
+import BookingPrompt from '../../components/BookingPrompt';
 
 // Client name for the most recent booking. Kept as a single constant so the
 // showcase can be anonymised ("a national energy company") in one edit if the
@@ -185,6 +186,8 @@ export default function Corporate() {
         </div>
       </section>
 
+      <BookingPrompt />
+
       <OpenDatesStrip mode="december" source="corporate" />
 
       {/* ── THE DIFFERENCE ── */}
@@ -209,6 +212,7 @@ export default function Corporate() {
                 </p>
                 <p>
                   DJ DX has been DJing since 1998, with 500+ events across the NYC, NJ, and CT tri-state area, a TEDxYouth@RVA performance, and features in Disrupt Magazine and NJ.com.
+                  {' '}Planning in New Jersey? See <Link to="/corporate-event-dj-jersey-city-nj" style={{ color: 'var(--gold)' }}>corporate event DJ in Jersey City, NJ</Link>, where he was born and raised.
                 </p>
                 <p>
                   Recent booking: the <strong>NautaDutilh</strong> reception at <strong>620 Loft &amp; Garden</strong>, a rooftop garden space overlooking St. Patrick's Cathedral and the Rockefeller Center skyline. 175 guests, full evening coverage from cocktail hour through the after-party — DJ DX on the decks with Soul Shades violinist Julie Schatz layering live strings over the set.

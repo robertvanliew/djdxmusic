@@ -10,6 +10,7 @@ import BookingForm from '../../components/BookingForm';
 
 import ProofBlock from '../../components/ProofBlock';
 import AuthorBio from '../../components/AuthorBio';
+import BookingPrompt from '../../components/BookingPrompt';
 /*
  * Event DJ pricing report for the NYC tri-state market.
  *
@@ -72,25 +73,25 @@ export default function EventDJCost() {
   return (
     <>
       <Helmet>
-        <title>Event DJ Cost in NYC, NJ &amp; CT: Real 2026 Prices | DJ DX</title>
-        <meta name="description" content="What event DJs cost in NYC, NJ and CT in 2026. Published rates by event type and what drives the price. Corporate and private parties from $2,800." />
+        <title>How Much Is an Event DJ in NYC, NJ and CT? (2027 Guide)</title>
+        <meta name="description" content="Corporate and private events start at $2,800 for up to 5 hours. Hours, guest count and add-ons like live violin change the price. Instant quote here." />
         <link rel="canonical" href="https://djdxmusic.com/event-dj-cost-nyc-nj-ct" />
-        <meta property="og:title" content="Event DJ Cost in NYC, NJ & CT: Real 2026 Prices" />
-        <meta property="og:description" content="Published rates by event type, the factors that actually move a DJ quote, and how New York City pricing compares to the national average." />
+        <meta property="og:title" content="How Much Is an Event DJ in NYC, NJ and CT? (2027 Guide)" />
+        <meta property="og:description" content="Corporate and private events start at $2,800 for up to 5 hours. Hours, guest count and add-ons like live violin change the price. Instant quote here." />
         <meta property="og:url" content="https://djdxmusic.com/event-dj-cost-nyc-nj-ct" />
         <meta property="og:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <meta property="og:type" content="article" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@djdxmusic" />
-        <meta name="twitter:title" content="Event DJ Cost in NYC, NJ & CT: Real 2026 Prices" />
-        <meta name="twitter:description" content="Published event DJ rates for the New York tri-state market, plus what actually drives a quote." />
+        <meta name="twitter:title" content="How Much Is an Event DJ in NYC, NJ and CT? (2027 Guide)" />
+        <meta name="twitter:description" content="Corporate and private events start at $2,800 for up to 5 hours. Hours, guest count and add-ons like live violin change the price. Instant quote here." />
         <meta name="twitter:image" content="https://djdxmusic.com/epk-hero.jpg" />
         <script type="application/ld+json">
           {`[
             {
               "@context": "https://schema.org",
               "@type": "Article",
-              "headline": "Event DJ Cost in NYC, NJ & CT: Real 2026 Prices",
+              "headline": "How Much Is an Event DJ in NYC, NJ and CT? (2027 Guide)",
               "description": "A pricing reference for event DJ services across New York City, New Jersey, and Connecticut — published starting rates by event type, the factors that move a quote, and how the New York market compares to the national average.",
               "datePublished": "2026-09-15",
               "dateModified": "2026-09-15",
@@ -174,6 +175,8 @@ export default function EventDJCost() {
           </p>
         </div>
       </section>
+
+      <BookingPrompt />
 
       {/* ── RATE TABLE ── */}
       <section style={{ padding: '72px 24px', background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(201,168,76,0.12)', borderBottom: '1px solid rgba(201,168,76,0.12)' }}>

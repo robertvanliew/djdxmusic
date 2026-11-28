@@ -8234,3 +8234,159 @@ body { padding-bottom: env(safe-area-inset-bottom); }
   .lb-caption { padding: 0 4px 60px; font-size: 13px; }
 }
 @media (max-width: 700px) { .wp-rail { margin: 0 -20px; padding: 2px 20px 8px; scroll-padding-inline: 20px; } }
+
+/* ── Homepage: Book by Event index (src/components/BookByEvent.tsx) ─────────
+   One editorial list: big row links with a gold sweep, sibling rows dim on
+   hover, a real event photo trails the cursor on desktop, thumbnails on
+   touch. Replaces the old card grids. */
+.bx { margin-top: 104px; text-align: left; }
+.bx-head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px; }
+.bx-title { margin: 0; font-family: 'Archivo Black', sans-serif; font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1.02; letter-spacing: -0.015em; color: var(--white); }
+.bx-title span { color: var(--gold); }
+.bx-stage { position: relative; }
+.bx-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid rgba(255,255,255,0.1); }
+.bx-row { position: relative; border-bottom: 1px solid rgba(255,255,255,0.1); transition: opacity 300ms ease; }
+.bx-row::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), rgba(201,168,76,0.15));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 600ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.bx-link {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto 52px;
+  grid-template-areas: "num text price arrow";
+  align-items: center;
+  gap: 28px;
+  padding: 34px 0 30px;
+  color: inherit;
+  text-decoration: none;
+}
+.bx-row:has(.bx-tags) .bx-link { padding-bottom: 14px; }
+.bx-num { grid-area: num; font-family: 'Barlow Condensed', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.14em; color: rgba(201,168,76,0.7); }
+.bx-thumb { display: none; }
+.bx-text { grid-area: text; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.bx-name {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(1.55rem, 3vw, 2.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  transition: color 300ms ease, transform 500ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.bx-line { max-width: 60ch; font-size: 1rem; line-height: 1.6; color: rgba(242,242,242,0.58); }
+.bx-price { grid-area: price; font-family: 'Barlow Condensed', sans-serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+.bx-arrow {
+  grid-area: arrow;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 50%;
+  color: var(--gold);
+  transition: background-color 300ms ease, color 300ms ease, border-color 300ms ease;
+}
+.bx-arrow svg { transform: rotate(-45deg); transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1); }
+.bx-tags { position: relative; z-index: 2; display: flex; flex-wrap: wrap; gap: 8px; padding: 0 0 28px 92px; }
+.bx-tag {
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  font-size: 12.5px;
+  color: rgba(242,242,242,0.6);
+  text-decoration: none;
+  transition: color 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+.bx-tag:hover, .bx-tag:focus-visible { color: var(--white); border-color: rgba(201,168,76,0.5); background: rgba(201,168,76,0.08); }
+.bx-season { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+.bx-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(201,168,76,0.6); animation: bx-pulse 2.2s ease-out infinite; }
+@keyframes bx-pulse { 0% { box-shadow: 0 0 0 0 rgba(201,168,76,0.55); } 70% { box-shadow: 0 0 0 9px rgba(201,168,76,0); } 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0); } }
+
+.bx-row.is-active::after,
+.bx-row:focus-within::after { transform: scaleX(1); }
+.bx-row.is-active .bx-name { transform: translateX(10px); }
+.bx-row.is-active .bx-arrow,
+.bx-link:focus-visible .bx-arrow { background: var(--gold); border-color: var(--gold); color: #0a0805; }
+.bx-row.is-active .bx-arrow svg,
+.bx-link:focus-visible .bx-arrow svg { transform: rotate(0deg); }
+.bx-stage.is-hovering .bx-row:not(.is-active) { opacity: 0.38; }
+.bx-link:focus-visible { outline: none; }
+.bx-link:focus-visible .bx-name { color: var(--gold); }
+
+.bx-preview {
+  position: absolute;
+  left: 75%;
+  top: 0;
+  z-index: 3;
+  width: 196px;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.55), 0 0 0 1px rgba(201,168,76,0.25);
+  transform: translate3d(0, var(--py, 0px), 0) translate(-50%, -50%) rotate(-3deg) scale(0.9);
+  transition: opacity 250ms ease, transform 500ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.bx-stage.is-hovering .bx-preview { opacity: 1; transform: translate3d(0, var(--py, 0px), 0) translate(-50%, -50%) rotate(-3deg) scale(1); }
+.bx-preview img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.08); transition: opacity 300ms ease, transform 600ms cubic-bezier(0.23, 1, 0.32, 1); }
+.bx-preview img.is-on { opacity: 1; transform: scale(1); }
+
+.bx-foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 30px; flex-wrap: wrap; }
+.bx-foot p { margin: 0; max-width: 56ch; color: rgba(242,242,242,0.55); line-height: 1.6; }
+.bx-estimate {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border: 1px solid rgba(201,168,76,0.5);
+  border-radius: 999px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+  transition: background-color 250ms ease, color 250ms ease;
+}
+.bx-estimate:hover, .bx-estimate:focus-visible { background: var(--gold); color: #0a0805; }
+
+@media (hover: none), (max-width: 900px) { .bx-preview { display: none; } }
+@media (max-width: 700px) {
+  .bx { margin-top: 72px; }
+  .bx-link {
+    grid-template-columns: 76px minmax(0, 1fr) 40px;
+    grid-template-areas: "thumb text arrow" "thumb price arrow";
+    column-gap: 16px;
+    row-gap: 6px;
+    padding: 22px 0 18px;
+  }
+  .bx-row:has(.bx-tags) .bx-link { padding-bottom: 10px; }
+  .bx-num { display: none; }
+  .bx-thumb { display: block; grid-area: thumb; width: 76px; height: 96px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(201,168,76,0.2); }
+  .bx-name { font-size: 1.35rem; }
+  .bx-line { font-size: 0.9rem; }
+  .bx-price { font-size: 0.9rem; align-self: start; }
+  .bx-arrow { width: 40px; height: 40px; }
+  .bx-tags { padding: 0 0 20px 92px; }
+  .bx-tag { font-size: 12px; padding: 5px 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bx-row, .bx-row::after, .bx-name, .bx-arrow, .bx-arrow svg, .bx-preview, .bx-preview img { transition: none; }
+  .bx-dot { animation: none; }
+}
+
+/* "Now booking 2027 and 2028" line under the hero (src/components/BookingPrompt.tsx) */
+.bp { display: flex; align-items: center; justify-content: center; gap: 18px 24px; flex-wrap: wrap; padding: 18px 24px; background: linear-gradient(90deg, rgba(201,168,76,0.02), rgba(201,168,76,0.09), rgba(201,168,76,0.02)); border-top: 1px solid rgba(201,168,76,0.18); border-bottom: 1px solid rgba(201,168,76,0.18); }
+.bp-text { display: inline-flex; align-items: center; gap: 12px; margin: 0; font-size: 1rem; font-weight: 500; color: var(--white); }
+.bp .bx-dot { flex: none; }
+.bp-btn { padding: 11px 22px; font-size: 0.82rem; }
+@media (max-width: 600px) { .bp { flex-direction: column; gap: 12px; padding: 16px 20px; text-align: center; } .bp-text { font-size: 0.95rem; } }
