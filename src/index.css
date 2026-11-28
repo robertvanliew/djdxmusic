@@ -8996,3 +8996,118 @@ body.bk-open .sticky-cta-bar { display: none; }
 @media (hover: hover) and (pointer: fine) { .bp-chip:hover { background: #0a0805; border-color: #0a0805; color: #E2C97E; } .bp-btn:hover { background: #1f1a12; box-shadow: 0 12px 30px rgba(10,8,5,0.35); } }
 @media (max-width: 600px) { .bp-text { font-size: 0.98rem; } }
 @media (prefers-reduced-motion: reduce) { .bp-dot::after { animation: none; } }
+
+/* ── Booking form close: seal card, live submit, reassurance, contact pills ──
+   src/components/BookingForm.tsx. Overrides the older .bf-trust/.form-submit
+   rules above. Motion: transform/opacity only, strong ease-out, hover gated
+   to fine pointers, reduced-motion fallbacks. */
+.bf-trust {
+  --bf-ease: cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+  margin: 8px 0 24px;
+  padding: 22px 24px 22px 22px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background:
+    radial-gradient(420px 180px at 0% 0%, rgba(201,168,76,0.14), transparent 70%) padding-box,
+    linear-gradient(#100d08, #0c0a06) padding-box,
+    linear-gradient(135deg, rgba(201,168,76,0.65), rgba(201,168,76,0.08) 42%, rgba(201,168,76,0.4)) border-box;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.35);
+  overflow: hidden;
+}
+.bf-seal { display: grid; place-items: center; align-self: start; }
+.bf-seal svg { display: block; overflow: visible; }
+.bf-seal-ring { transform-origin: 60px 60px; animation: bf-seal-spin 32s linear infinite; }
+.bf-seal-ring text { font-family: 'Geist Variable', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0; fill: rgba(226,201,126,0.9); }
+.bf-seal-core { fill: var(--gold); filter: drop-shadow(0 6px 18px rgba(201,168,76,0.35)); }
+.bf-seal-dx { font-family: 'Archivo Black', sans-serif; font-size: 25px; fill: #0a0805; letter-spacing: -0.02em; }
+@keyframes bf-seal-spin { to { transform: rotate(360deg); } }
+.bf-trust-body { min-width: 0; }
+.bf-trust-head { padding-bottom: 12px; margin-bottom: 16px; border-bottom: 1px solid rgba(201,168,76,0.18); }
+.bf-trust-title { font-family: 'Geist Variable', sans-serif; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.18em; }
+.bf-trust-link { font-family: 'Geist Variable', sans-serif; }
+.bf-trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 22px; }
+.bf-trust-icon { width: 36px; height: 36px; border-radius: 11px; background: linear-gradient(160deg, rgba(201,168,76,0.22), rgba(201,168,76,0.06)); border-color: rgba(201,168,76,0.28); transition: transform 200ms var(--bf-ease), box-shadow 200ms ease; }
+.bf-trust-copy strong { font-family: 'Geist Variable', sans-serif; font-size: 0.9rem; letter-spacing: -0.005em; }
+.bf-trust-copy span { font-family: 'Geist Variable', sans-serif; font-size: 0.82rem; }
+@media (scripting: enabled) {
+  .bf-trust-grid li { opacity: 0; transform: translateY(8px); transition: opacity 400ms ease, transform 500ms var(--bf-ease); transition-delay: calc(var(--i, 0) * 45ms); }
+  .bf-trust.is-in .bf-trust-grid li { opacity: 1; transform: none; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .bf-trust-grid li:hover .bf-trust-icon { transform: translateY(-2px); box-shadow: 0 8px 18px rgba(201,168,76,0.22); }
+}
+
+.form-submit {
+  position: relative;
+  overflow: hidden;
+  align-self: stretch;
+  justify-content: center;
+  width: 100%;
+  min-height: 58px;
+  padding: 0 32px;
+  border-radius: 999px;
+  background: linear-gradient(100deg, #C9A84C 0%, #E2C97E 55%, #C9A84C 100%);
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #0a0805;
+  box-shadow: 0 14px 34px rgba(201,168,76,0.28), inset 0 1px 0 rgba(255,255,255,0.35);
+  transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 220ms ease, opacity 150ms ease;
+}
+.form-submit > *:not(.fs-sheen) { position: relative; z-index: 1; }
+.form-submit:hover { background: linear-gradient(100deg, #C9A84C 0%, #E2C97E 55%, #C9A84C 100%); }
+.form-submit:disabled { opacity: 0.75; cursor: progress; }
+.fs-sheen { position: absolute; inset: 0; z-index: 0; background: linear-gradient(100deg, transparent 25%, rgba(255,255,255,0.55) 50%, transparent 75%); transform: translateX(-120%); transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1); pointer-events: none; }
+.fs-arrow { width: 16px; height: 16px; transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1); }
+.form-submit:focus-visible { outline: 2px solid var(--gold2); outline-offset: 4px; }
+@media (hover: hover) and (pointer: fine) {
+  .form-submit:hover:not(:disabled) { box-shadow: 0 18px 44px rgba(201,168,76,0.38), inset 0 1px 0 rgba(255,255,255,0.4); }
+  .form-submit:hover:not(:disabled) .fs-sheen { transform: translateX(120%); }
+  .form-submit:hover:not(:disabled) .fs-arrow { transform: translateX(4px); }
+}
+
+.bf-assure { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; margin: 16px 0 0; padding: 0; list-style: none; }
+.bf-assure li { display: inline-flex; align-items: center; gap: 7px; font-family: 'Geist Variable', sans-serif; font-size: 0.84rem; color: rgba(242,242,242,0.72); }
+.bf-assure svg { flex: none; padding: 3px; width: 18px; height: 18px; border-radius: 50%; background: rgba(201,168,76,0.16); color: var(--gold); }
+
+.bf-alts { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.07); text-align: center; }
+.bf-alts-label { display: block; margin-bottom: 12px; font-family: 'Geist Variable', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(242,242,242,0.42); }
+.bf-alts-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.bf-alt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  font-family: 'Geist Variable', sans-serif;
+  font-size: 0.86rem;
+  color: rgba(242,242,242,0.78);
+  text-decoration: none;
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease, transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+.bf-alt svg { flex: none; color: var(--gold); }
+.bf-alt:active { transform: scale(0.97); }
+.bf-alt:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+@media (hover: hover) and (pointer: fine) { .bf-alt:hover { border-color: rgba(201,168,76,0.5); background: rgba(201,168,76,0.07); color: var(--white); } }
+
+@media (max-width: 640px) {
+  .bf-trust { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 20px 18px; }
+  .bf-seal { justify-self: start; }
+  .bf-seal svg { width: 88px; height: 88px; }
+  .bf-trust-grid { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .bf-alt { flex: 1 1 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bf-seal-ring { animation: none; }
+  .bf-trust-grid li { transform: none !important; transition: opacity 200ms ease !important; }
+  .fs-sheen, .fs-arrow { transition: none; }
+}

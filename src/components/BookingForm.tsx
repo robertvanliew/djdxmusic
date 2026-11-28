@@ -1,14 +1,20 @@
-import { useRef, useState, type FormEvent } from 'react';
+import { useEffect, useId, useRef, useState, type FormEvent } from 'react';
 import { trackEvent, trackLead, trackFormSubmit, trackFormError } from '../lib/analytics';
 import AddressAutocomplete from './AddressAutocomplete';
 import { getAiReferral } from '../lib/aiReferral';
 import { STARTING_PRICES, FORM_TYPE_TO_PRICE } from '../lib/pricing';
 import { textHref, trackTextClick, TEXT_NUMBER_DISPLAY } from '../lib/textLink';
 
-const Send = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
+const Arrow = () => (
+  <svg className="fs-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="13 6 19 12 13 18" />
   </svg>
+);
+const Tick = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
+);
+const alt = (d: React.ReactNode) => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{d}</svg>
 );
 
 // Line icons for the commitments panel (24px grid, stroke inherits currentColor).
@@ -54,6 +60,17 @@ const HEARD = ['Google search', AI_OPTION, 'Instagram or TikTok', 'A friend or p
 export default function BookingForm({ initial, formName = 'booking_widget', pollId }: BookingFormProps = {}) {
   const aiRef = typeof window !== 'undefined' ? getAiReferral() : null;
   const [fields, setFields] = useState({ ...EMPTY, ...(aiRef ? { heard: AI_OPTION } : {}), ...(initial || {}) });
+  // Commitments card: staggered reveal once it scrolls into view.
+  const trustRef = useRef<HTMLDivElement>(null);
+  const [trustIn, setTrustIn] = useState(false);
+  const sealId = useId().replace(/:/g, '');
+  useEffect(() => {
+    const el = trustRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') { setTrustIn(true); return; }
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setTrustIn(true); io.disconnect(); } }, { threshold: 0.2 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
   const [estimate, setEstimate] = useState<{ type: string; price: number; travel: boolean } | null>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   // Free 72-hour date hold, on by default (see api/booking.ts)
@@ -229,35 +246,58 @@ export default function BookingForm({ initial, formName = 'booking_widget', poll
           published rate card (public/pricing.txt) - nothing here promises a
           contingency or policy DJ DX hasn't committed to. */}
       {/* div, not <section>: the site's mobile rules pad every <section> 60px */}
-      <div className="bf-trust" role="group" aria-label="Booking commitments">
-        <div className="bf-trust-head">
-          <span className="bf-trust-title">The DJ DX Standard</span>
-          <a href="/booking-policy" className="bf-trust-link" target="_blank" rel="noopener">Booking policy &rarr;</a>
+      <div className={`bf-trust${trustIn ? ' is-in' : ''}`} role="group" aria-label="Booking commitments" ref={trustRef}>
+        <div className="bf-seal" aria-hidden="true">
+          <svg viewBox="0 0 120 120" width="112" height="112">
+            <defs><path id={`seal-${sealId}`} d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0" /></defs>
+            <g className="bf-seal-ring">
+              <text><textPath href={`#seal-${sealId}`} startOffset="0" textLength="292" lengthAdjust="spacing">THE DJ DX STANDARD · SINCE 1998 ·</textPath></text>
+            </g>
+            <circle cx="60" cy="60" r="33" className="bf-seal-core" />
+            <text x="60" y="67" textAnchor="middle" className="bf-seal-dx">DX</text>
+          </svg>
         </div>
-        <ul className="bf-trust-grid">
-          {TRUST.map(t => (
-            <li key={t.title}>
-              <span className="bf-trust-icon" aria-hidden="true">{t.icon}</span>
-              <span className="bf-trust-copy"><strong>{t.title}</strong><span>{t.text}</span></span>
-            </li>
-          ))}
-        </ul>
+        <div className="bf-trust-body">
+          <div className="bf-trust-head">
+            <span className="bf-trust-title">The DJ DX Standard</span>
+            <a href="/booking-policy" className="bf-trust-link" target="_blank" rel="noopener">Booking policy <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <ul className="bf-trust-grid">
+            {TRUST.map((t, i) => (
+              <li key={t.title} style={{ ['--i' as string]: i }}>
+                <span className="bf-trust-icon" aria-hidden="true">{t.icon}</span>
+                <span className="bf-trust-copy"><strong>{t.title}</strong><span>{t.text}</span></span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-      {status === 'error' && <p className="form-error">Something went wrong. Please try again or email bookings@djdxmusic.com directly.</p>}
+      {status === 'error' && <p className="form-error" role="alert">Something went wrong. Please try again or email bookings@djdxmusic.com directly.</p>}
       <button type="submit" className="form-submit" disabled={status === 'sending'}>
-        {status === 'sending' ? <><span className="bf-disc" aria-hidden="true" /><span>Sending…</span></> : <><span>Send Inquiry</span> <Send /></>}
+        <span className="fs-sheen" aria-hidden="true" />
+        {status === 'sending' ? <><span className="bf-disc" aria-hidden="true" /><span>Sending…</span></> : <><span>Send Inquiry</span><Arrow /></>}
       </button>
-      <p className="text-alt">
-        Prefer to text? <a href={textHref()} onClick={() => trackTextClick('booking_form')}>Text {TEXT_NUMBER_DISPLAY}</a>
-      </p>
-      {!pollId && (
-        <p className="bf-poll-hint">
-          Not sure what your crowd wants? <a href="/office-party-music-poll">Poll them first</a>, free.
-        </p>
-      )}
-      <p style={{ fontSize: '12px', color: 'rgba(242,242,242,0.45)', marginTop: '12px', textAlign: 'center' }}>
-        Trouble with the form? Email <a href="mailto:bookings@djdxmusic.com" style={{ color: 'var(--gold)' }}>bookings@djdxmusic.com</a> directly.
-      </p>
+      <ul className="bf-assure" aria-label="What happens next">
+        <li><Tick />Free 72-hour hold</li>
+        <li><Tick />Reply within 24 hours</li>
+        <li><Tick />No obligation</li>
+      </ul>
+      <div className="bf-alts">
+        <span className="bf-alts-label">Or reach DJ DX directly</span>
+        <div className="bf-alts-row">
+          <a className="bf-alt" href={textHref()} onClick={() => trackTextClick('booking_form')}>
+            {alt(<><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></>)}Text {TEXT_NUMBER_DISPLAY}
+          </a>
+          <a className="bf-alt" href="mailto:bookings@djdxmusic.com">
+            {alt(<><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></>)}bookings@djdxmusic.com
+          </a>
+          {!pollId && (
+            <a className="bf-alt" href="/office-party-music-poll">
+              {alt(<><path d="M3 3v18h18" /><path d="M7 15v-4M12 15V8M17 15v-6" /></>)}Poll your crowd first, free
+            </a>
+          )}
+        </div>
+      </div>
     </form>
   );
 }
