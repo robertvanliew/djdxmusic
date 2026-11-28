@@ -824,7 +824,7 @@ function App() {
 
           {/* CTA row */}
           <div className="hero-actions">
-            <a href="#booking" className="btn-gold" onClick={(e) => handleScrollTo(e, 'booking')}>Book for Your Event</a>
+            <a href="#booking" className="btn-gold">Book for Your Event</a>
             <a href="#catalog" className="btn-ghost" onClick={(e) => handleScrollTo(e, 'catalog')}>Hear the Music</a>
           </div>
 

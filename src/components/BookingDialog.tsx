@@ -95,7 +95,7 @@ function Calendar({ value, onPick, held }: { value: string; onPick: (iso: string
   );
 }
 
-export default function BookingDialog({ open, onOpenChange, initialType, source }: { open: boolean; onOpenChange: (o: boolean) => void; initialType?: string; source?: string }) {
+export default function BookingDialog({ open, onOpenChange, initialType, initialDate, source }: { open: boolean; onOpenChange: (o: boolean) => void; initialType?: string; initialDate?: string; source?: string }) {
   const held = useHolds();
   const [step, setStep] = useState(0);
   const [dir, setDir] = useState<1 | -1>(1);
@@ -114,6 +114,13 @@ export default function BookingDialog({ open, onOpenChange, initialType, source 
     if (!open) return;
     startedAt.current = Date.now();
     if (step === 3) { setStep(0); setType(''); setDate(''); setName(''); setContact(''); setHeldUntil(null); }
+    // A date chip or date link pre-picks the date; the calendar then opens on it with the answer showing.
+    if (initialDate) {
+      setDate(initialDate);
+      const t = type || initialType;
+      if (t) { setType(t); setDir(1); setStep(1); } else { setStep(0); }
+      return;
+    }
     if (!type && initialType && step === 0) { setType(initialType); setDir(1); setStep(1); }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
