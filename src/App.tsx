@@ -6,8 +6,8 @@ import StickyMobileCTA from './components/StickyMobileCTA';
 import QuoteCalculator from './components/QuoteCalculator';
 import PricingNudge from './components/PricingNudge';
 import BookByEvent from './components/BookByEvent';
+import GenreBand from './components/GenreBand';
 import BookingPrompt from './components/BookingPrompt';
-import { Link } from 'react-router-dom';
 import SiteFooter from './components/SiteFooter';
 import './index.css';
 
@@ -24,14 +24,14 @@ const WherePlayed = React.lazy(() => import('./components/WherePlayed'));
 
 const services = [
   { name: "R&B / Soul", desc: "Classic and contemporary R&B blends that move the room and connect every generation.", icon: Music2 },
-  { name: "Hip-Hop", desc: "Golden era to modern — curated for energy, flow, and crowd response.", icon: Mic2 },
-  { name: "Blends & Remixes", desc: "Original edits crafted exclusively by DJ DX — music you won't hear anywhere else.", icon: Shuffle },
+  { name: "Hip-Hop", desc: "Golden era to modern, picked for energy, flow and crowd response.", icon: Mic2 },
+  { name: "Blends & Remixes", desc: "Original edits made by DJ DX. Music you won't hear anywhere else.", icon: Shuffle },
   { name: "House / Jersey Club", desc: "High-energy club edits and Jersey Club cuts that keep the floor locked in all night.", icon: Club },
   { name: "Afrobeats", desc: "Vibrant rhythms and global grooves woven seamlessly into every set.", icon: Globe },
   { name: "Old School", desc: "Nostalgic cuts that unlock the floor and bring the whole crowd together.", icon: Clock },
-  { name: "Live Violinist / DJ", desc: "A one-of-a-kind fusion — live violin over DJ sets for a truly unforgettable atmosphere.", icon: Piano },
-  { name: "Reggaeton", desc: "From classic dembow to modern Latin trap — crowd-pleasing energy from start to finish.", icon: Radio },
-  { name: "Private Events", desc: "Weddings, corporate nights, private parties — handled with full professionalism.", icon: Star },
+  { name: "Live Violinist / DJ", desc: "Live violin over the DJ set, for a night guests talk about after.", icon: Piano },
+  { name: "Reggaeton", desc: "From classic dembow to modern Latin trap, crowd-pleasing energy all night.", icon: Radio },
+  { name: "Private Events", desc: "Weddings, corporate nights and private parties, handled start to finish.", icon: Star },
 ];
 
 // `credit` renders as a caption under the active slide. Any photo by Linsey
@@ -298,32 +298,6 @@ const genreLinks: Record<string, string> = {
   "Live Violinist / DJ": "/violin-dj-duo-nyc-nj",
   "Private Events": "/private-party-dj-nyc-nj",
 };
-
-function SkillsGrid() {
-  return (
-    <>
-      <div className="services-grid">
-        {services.map((s, i) => {
-          const inner = (
-            <>
-              <div style={{ color: 'var(--gold)', marginBottom: '16px' }}>
-                {React.createElement(s.icon, { size: 36, strokeWidth: 1.5 })}
-              </div>
-              <h3 className="service-name">{s.name}</h3>
-              <p className="service-desc">{s.desc}</p>
-            </>
-          );
-          const href = genreLinks[s.name];
-          return href ? (
-            <Link key={s.name} to={href} className="service-cell sr" data-sr-delay={`${i * 0.05}s`} style={{ textDecoration: 'none' }}>{inner}</Link>
-          ) : (
-            <div key={s.name} className="service-cell sr" data-sr-delay={`${i * 0.05}s`}>{inner}</div>
-          );
-        })}
-      </div>
-    </>
-  );
-}
 
 function App() {
   const { showToast } = useToast();
@@ -988,7 +962,7 @@ function App() {
             <h2 className="sec-title">Genres &amp; <span>Services</span></h2>
           </div>
 
-          <SkillsGrid />
+          <GenreBand items={services.map(s => ({ ...s, href: genreLinks[s.name] }))} />
           <BookByEvent />
         </div>
       </section>
