@@ -75,6 +75,7 @@ const STATIC_ROUTES = [
   '/song-request-qr-code',
   '/office-holiday-party-budget-calculator',
   '/dj-proposal-for-planners',
+  '/venues/hutong-nyc',
   '/venues/the-glasshouse-hells-kitchen',
   '/venues/the-argyle-chelsea',
   '/venues/620-loft-garden-rockefeller-center',

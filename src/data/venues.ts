@@ -40,6 +40,63 @@ const HOLIDAY = '/holiday-party-dj-nyc-nj-ct';
 const NYE = '/new-years-eve-dj-nyc';
 
 export const VENUES: Venue[] = [
+  // Hutong, November 21, 2026. Confirmed by DJ DX: venue, date, private event,
+  // Bloomberg building. Address, "Midtown" and room capacities are quoted from
+  // Hutong's own site (hutong-nyc.com, read 2026-11-28). Event type, guest
+  // count, room used, timeline, music and load-in were not provided, so they
+  // are left off. Client not named (no permission given).
+  {
+    slug: 'hutong-nyc',
+    name: 'Hutong',
+    area: 'Midtown Manhattan',
+    summary: 'Private event, November 21, 2026',
+    title: 'Hutong NYC DJ | Private Events in Midtown | DJ DX',
+    description: 'DJ DX played a private event at Hutong NYC, 731 Lexington Avenue in Midtown, on November 21, 2026. DJ for private and corporate events at Hutong.',
+    h1: 'DJ for Private Events at Hutong NYC',
+    overline: 'Venue: Hutong, 731 Lexington Avenue',
+    address: { street: '731 Lexington Avenue', locality: 'New York', region: 'NY', postalCode: '10022' },
+    intro: [
+      'Hutong is the Chinese restaurant at 731 Lexington Avenue in Midtown Manhattan, in the Bloomberg building. On November 21, 2026, DJ DX was the DJ for a private event there, playing from a lit booth set up by the tall windows.',
+    ],
+    sections: [
+      {
+        h2: 'The spaces at Hutong',
+        paras: [
+          "Hutong lists several spaces for events on its own site. The Main Dining Room holds up to 150 seated or 200 standing, and The Shanghai Bar & Lounge up to 90 seated or 150 standing. Four private dining rooms on the mezzanine hold up to 70 seated or 90 standing when combined, and full and partial buyouts take groups of 100 to 350. Details are on [Hutong's private dining page](https://www.hutong-nyc.com/private-dining-events/).",
+        ],
+        bullets: [
+          'Before you book, ask the venue which space your group will use, the load-in time and entrance, and any sound limits.',
+          'Send those details over and the setup and sound are planned around them.',
+        ],
+      },
+      {
+        h2: 'What Hutong suits',
+        paras: [
+          'With a main dining room for up to 200 standing and a bar and lounge for cocktail receptions, Hutong works for company dinners, holiday parties, client receptions and private celebrations in Midtown. See [corporate event DJ in NYC](/corporate-event-dj-nyc-nj-ct) and [DJ for hire in NYC](/dj-for-hire-nyc).',
+        ],
+      },
+    ],
+    cta: 'Planning a private dinner, holiday party or company event at Hutong? Send your date and guest count, and you will hear back within 24 hours.',
+    bookingEventType: 'Private Party / Birthday',
+    photos: [
+      { src: '/venues/hutong-nyc-dj-dx-booth-private-event', alt: 'DJ DX setup at Hutong NYC private event, lit DJ booth with speakers and keyboard by the windows', w: 1200, h: 1600 },
+      { src: '/venues/hutong-nyc-dj-equipment-load-in', alt: 'DJ DX equipment cases staged in the Hutong NYC dining room before setup', w: 1200, h: 1600 },
+      { src: '/venues/hutong-nyc-bar-dining-room', alt: 'The bar and dining room at Hutong NYC before a private event', w: 1200, h: 1600 },
+      { src: '/venues/hutong-nyc-street-entrance-midtown', alt: 'Hutong NYC street entrance at night, Midtown Manhattan', w: 1200, h: 1600 },
+      { src: '/venues/hutong-nyc-731-lexington-avenue-night', alt: '731 Lexington Avenue lit up at night, home of Hutong NYC', w: 1200, h: 1600 },
+    ],
+    video: {
+      src: '/videos/hutong-nyc-private-event-dj-dx.mp4',
+      poster: '/videos/hutong-nyc-private-event-dj-dx-poster.jpg',
+      name: 'DJ DX at the decks, private event at Hutong NYC',
+      description: 'DJ DX mixing at a private event at Hutong, 731 Lexington Avenue, Midtown Manhattan, November 21, 2026.',
+      uploadDate: '2026-11-28T12:00:00-05:00',
+      duration: 'PT16S',
+      w: 576, h: 1024,
+    },
+    event: { name: 'Private event at Hutong NYC', startDate: '2026-11-21' },
+    pages: [CORPORATE],
+  },
   {
     slug: 'the-glasshouse-hells-kitchen',
     soulShades: true,

@@ -640,6 +640,36 @@
   </url>
 
   <url>
+    <loc>https://djdxmusic.com/venues/hutong-nyc</loc>
+    <lastmod>2026-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/hutong-nyc-dj-dx-booth-private-event.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/hutong-nyc-dj-equipment-load-in.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/hutong-nyc-bar-dining-room.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/hutong-nyc-street-entrance-midtown.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djdxmusic.com/venues/hutong-nyc-731-lexington-avenue-night.jpg</image:loc>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://djdxmusic.com/videos/hutong-nyc-private-event-dj-dx-poster.jpg</video:thumbnail_loc>
+      <video:title>DJ DX at the decks, private event at Hutong NYC</video:title>
+      <video:description>DJ DX mixing at a private event at Hutong, 731 Lexington Avenue, Midtown Manhattan, November 21, 2026.</video:description>
+      <video:content_loc>https://djdxmusic.com/videos/hutong-nyc-private-event-dj-dx.mp4</video:content_loc>
+      <video:duration>16</video:duration>
+      <video:publication_date>2026-11-28T12:00:00-05:00</video:publication_date>
+    </video:video>
+  </url>
+
+  <url>
     <loc>https://djdxmusic.com/venues/the-glasshouse-hells-kitchen</loc>
     <lastmod>2026-10-24</lastmod>
     <changefreq>monthly</changefreq>
