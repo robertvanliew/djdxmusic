@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Check } from 'lucide-react';
 import type { Track } from '../catalog';
 import { useCart, CartPanel, CartFab } from './CartContext';
@@ -48,9 +48,19 @@ interface MusicStoreProps {
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   shareType?: 'store' | 'soul-shades';
+  /** Show this many tracks, with a Show all button for the rest. Every row stays in the HTML. */
+  limit?: number;
 }
 
-export default function MusicStore({ catalog, title = "Music Store", subTitle = "Music", shareType = 'store' }: MusicStoreProps) {
+export default function MusicStore({ catalog, title = "Music Store", subTitle = "Music", shareType = 'store', limit }: MusicStoreProps) {
+  const [showAll, setShowAll] = useState(!limit);
+  // A shared link to a track below the fold (#track-<id>) opens the full list.
+  useEffect(() => {
+    if (!limit) return;
+    const id = window.location.hash.replace('#track-', '');
+    const i = catalog.findIndex(t => String(t.id) === id);
+    if (i >= limit) setShowAll(true);
+  }, [catalog, limit]);
   const [shareTrack, setShareTrack] = useState<Track | null>(null);
   const { cart, addToCart } = useCart();
   const { play, playingTrack, isPlaying } = usePlayer();
@@ -90,7 +100,7 @@ export default function MusicStore({ catalog, title = "Music Store", subTitle = 
             <Separator className="bb-sep" />
 
             {catalog.map((track, idx) => (
-              <div key={track.id} id={`track-${track.id}`} className="sr" data-sr-delay={`${idx * 0.03}s`}>
+              <div key={track.id} id={`track-${track.id}`} className={`sr${limit && idx >= limit ? (showAll ? ' bb-extra is-shown' : ' bb-extra') : ''}`} data-sr-delay={`${Math.min(idx, 8) * 0.03}s`}>
                 <div
                   className={`bb-row group${playingId === track.id ? ' bb-row--playing' : ''}`}
                   role="button"
@@ -154,6 +164,13 @@ export default function MusicStore({ catalog, title = "Music Store", subTitle = 
               </div>
             ))}
           </div>
+          {limit && catalog.length > limit && (
+            <div className="bb-more">
+              <button type="button" className="bb-more-btn" aria-expanded={showAll} onClick={() => setShowAll(v => !v)}>
+                {showAll ? 'Show fewer' : `Show all ${catalog.length} tracks`}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 

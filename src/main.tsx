@@ -13,6 +13,7 @@ import App from './App.tsx'
 import { CartProvider } from './components/CartContext.tsx'
 import { PlayerProvider } from './components/PlayerContext.tsx'
 import { ToastProvider } from './components/Toast.tsx'
+import BookingHost from './components/BookingHost.tsx'
 import { trackPageView } from './lib/analytics.ts'
 import { initTrackingPixelsDeferred } from './lib/pixels.ts'
 import { captureAiReferral } from './lib/aiReferral.ts'
@@ -162,6 +163,7 @@ createRoot(rootEl).render(
         <ToastProvider>
         <PlayerProvider>
         <ScrollManager />
+        <BookingHost />
         <Suspense fallback={<FirstLoadFallback />}>
           <Routes>
             <Route path="/"           element={<App />} />

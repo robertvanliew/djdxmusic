@@ -6,6 +6,7 @@ import StickyMobileCTA from './components/StickyMobileCTA';
 import QuoteCalculator from './components/QuoteCalculator';
 import PricingNudge from './components/PricingNudge';
 import BookByEvent from './components/BookByEvent';
+import ClientQuotes from './components/ClientQuotes';
 import GenreBand from './components/GenreBand';
 import BookingPrompt from './components/BookingPrompt';
 import SiteFooter from './components/SiteFooter';
@@ -968,7 +969,7 @@ function App() {
       </section>
 
       {/* ── CATALOG — Billboard-style ── */}
-      <MusicStore catalog={catalog} title={<>Music <span>Store</span></>} subTitle="Music" />
+      <MusicStore catalog={catalog} title={<>Music <span>Store</span></>} subTitle="Music" limit={8} />
 
       {/* ── LIVE IN ACTION — real footage of DJ DX djing, not a music video ── */}
       <section className="videos" id="live" aria-label="Watch DJ DX DJing live">
@@ -1184,45 +1185,7 @@ function App() {
       </section>
 
       {/* ── REVIEWS ── */}
-      <section style={{ padding: '80px 24px', background: 'rgba(255,255,255,0.02)' }} aria-label="Client testimonials for DJ DX">
-        <div className="section-inner" style={{ maxWidth: '1000px' }}>
-          <div className="sec-header center sr" style={{ textAlign: 'center' }}>
-            <div className="sec-overline" style={{ justifyContent: 'center' }}>
-              <span className="sec-label">Client Feedback</span>
-            </div>
-            <h2 className="sec-title">What <span>Clients</span> Say</h2>
-            <p style={{ color: 'rgba(242,242,242,0.62)', fontSize: '0.92rem', marginTop: '10px' }}>
-              About Soul Shades, the DJ and live violin duo, at the NautaDutilh New York reception.
-            </p>
-          </div>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '24px',
-            marginTop: '48px',
-          }}>
-            {[
-              { quote: "The music was just perfect and the vibe was great. I love the uniqueness of keyboard and violin together with DJing — I don't think there are a lot of DJs who come with this built into the duo.", name: 'Sue Krebs', context: 'NautaDutilh New York P.C.' },
-              { quote: "Your performance set the tone for our event, and the addition of the violin amplified our guests' experience and made the evening memorable.", name: 'Anna Naraine', context: 'NautaDutilh New York P.C.' },
-            ].map(r => (
-              <div key={r.name} style={{
-                background: 'rgba(255,255,255,0.03)',
-                border: '1px solid rgba(201,168,76,0.15)',
-                borderRadius: '10px',
-                padding: '24px',
-              }}>
-                <div style={{ color: 'var(--gold)', fontSize: '0.9rem', marginBottom: '10px' }} aria-hidden="true">★★★★★</div>
-                <p style={{ fontSize: '0.92rem', color: 'rgba(242,242,242,0.75)', lineHeight: 1.7, marginBottom: '14px' }}>
-                  &ldquo;{r.quote}&rdquo;
-                </p>
-                <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--white)' }}>
-                  {r.name}{r.context && <span style={{ fontWeight: 400, color: 'rgba(242,242,242,0.5)' }}> — {r.context}</span>}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ClientQuotes />
 
       {/* ── BOOKING ── */}
       <QuoteCalculator formName="home_quote" />
